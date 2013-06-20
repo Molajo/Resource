@@ -1,0 +1,5 @@
+<datalist name="Events">
+    <model
+            name="Events"
+            registry_entry="Events"/>
+</datalist>
