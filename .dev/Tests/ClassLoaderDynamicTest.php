@@ -8,7 +8,7 @@
  */
 namespace Molajo\Locator\Tests;
 
-use Molajo\Kernel\Locator\Adapter;
+use Molajo\Locator\Adapter;
 use PHPUnit_Framework_TestCase;
 
 /**

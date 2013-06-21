@@ -6,11 +6,11 @@
  * @copyright 2013 Amy Stephen. All rights reserved.
  * @license   http://www.opensource.org/licenses/mit-license.html MIT License
  */
-namespace Molajo\Kernel\Locator\Handler;
+namespace Molajo\Locator\Handler;
 
-use Molajo\Kernel\Locator\Api\ResourceMapInterface;
-use Molajo\Kernel\Locator\Api\LocatorInterface;
-use Molajo\Kernel\Locator\Handler\AbstractLocator;
+use Molajo\Locator\Api\ResourceMapInterface;
+use Molajo\Locator\Api\LocatorInterface;
+use Molajo\Locator\Handler\AbstractLocator;
 
 /**
  * Class Locator
@@ -98,7 +98,7 @@ class ClassLocator extends AbstractLocator implements LocatorInterface
      *
      * @return  void|mixed
      * @since   1.0
-     * @throws  \Molajo\Kernel\Locator\Exception\LocatorException
+     * @throws  \Molajo\Locator\Exception\LocatorException
      */
     public function findResource($resource, array $options = array())
     {

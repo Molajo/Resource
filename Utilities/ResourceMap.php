@@ -6,12 +6,12 @@
  * @copyright 2013 Amy Stephen. All rights reserved.
  * @license   http://www.opensource.org/licenses/mit-license.html MIT License
  */
-namespace Molajo\Kernel\Locator\Utilities;
+namespace Molajo\Locator\Utilities;
 
 use RecursiveIteratorIterator;
 use RecursiveDirectoryIterator;
-use Molajo\Kernel\Locator\Api\ResourceMapInterface;
-use Molajo\Kernel\Locator\Exception\LocatorException;
+use Molajo\Locator\Api\ResourceMapInterface;
+use Molajo\Locator\Exception\LocatorException;
 
 /**
  * Resource Map
@@ -59,7 +59,7 @@ class ResourceMap implements ResourceMapInterface
     /**
      * Handler Instances
      *
-     * @var    object  Molajo\Kernel\Locator\Api\LocatorInterface
+     * @var    object  Molajo\Locator\Api\LocatorInterface
      * @since  1.0
      */
     protected $exclude_in_path_array = array(
@@ -158,7 +158,7 @@ class ResourceMap implements ResourceMapInterface
      *
      * @return  array
      * @since   1.0
-     * @throws  \Molajo\Kernel\Locator\Exception\LocatorException
+     * @throws  \Molajo\Locator\Exception\LocatorException
      */
     public function create()
     {
@@ -289,7 +289,7 @@ class ResourceMap implements ResourceMapInterface
      *
      * @return  array
      * @since   1.0
-     * @throws  \Molajo\Kernel\Locator\Exception\LocatorException
+     * @throws  \Molajo\Locator\Exception\LocatorException
      */
     public function edit()
     {

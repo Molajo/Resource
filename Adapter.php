@@ -6,11 +6,12 @@
  * @copyright 2013 Amy Stephen. All rights reserved.
  * @license   http://www.opensource.org/licenses/mit-license.html MIT License
  */
-namespace Molajo\Kernel\Locator;
+namespace Molajo\Locator;
 
-use Molajo\Kernel\Locator\Exception\LocatorException;
-use Molajo\Kernel\Locator\Api\LocatorInterface;
-use Molajo\Kernel\Locator\Api\ClassLocatorInterface;
+use Molajo\Locator\Exception\LocatorException;
+use Molajo\Locator\Api\ResourceLocaterInterface;
+use Molajo\Locator\Api\ClassLoaderInterface;
+use Molajo\Locator\Api\ResourceMapInterface;
 
 /**
  * Resource Locator Adapter
@@ -20,27 +21,27 @@ use Molajo\Kernel\Locator\Api\ClassLocatorInterface;
  * @license   http://www.opensource.org/licenses/mit-license.html MIT License
  * @since     1.0
  */
-class Adapter implements LocatorInterface, ClassLocatorInterface
+class Adapter implements ResourceLocaterInterface, ClassLocatorInterface, ResourceMapInterface
 {
     /**
      * Handler Instances
      *
-     * @var    object  Molajo\Kernel\Locator\Api\LocatorInterface
+     * @var    object  Molajo\Locator\Api\LocatorHandlerInterface
      * @since  1.0
      */
-    protected $handler_instance;
+    protected $handler_instance = array();
 
     /**
      * Constructor
      *
      * @param   LocatorInterface $handler_instance
-     * @param   string          $handler
+     * @param   array            $scheme_type
      *
      * @since   1.0
      */
-    public function __construct(LocatorInterface $handler_instance, $handler = 'Class')
+    public function __construct(array $scheme_type = array())
     {
-        $this->handler_instance = $handler_instance;
+        // load each handler instance
 
         if ($handler == 'Class') {
             $this->register();
@@ -48,57 +49,41 @@ class Adapter implements LocatorInterface, ClassLocatorInterface
     }
 
     /**
-     * Registers Class Autoloader
+     * Register Class as Autoloader
      *
      * @param   boolean $prepend
      *
      * @return  $this
      * @since   1.0
      */
-    public function register($prepend = true)
+    public function registerClassAutoload($prepend = true)
     {
-        spl_autoload_register(array($this, 'findResource'), true, $prepend);
+        spl_autoload_register(array($this, 'get'), true, $prepend);
 
         return $this;
     }
 
     /**
-     * Unregister Class Autoloader
+     * Cancel Class Registration as Autoloader
      *
      * @return  $this
      * @since   1.0
      */
-    public function unregister()
+    public function cancelClassAutoload()
     {
-        spl_autoload_unregister(array($this, 'findResource'));
+        spl_autoload_unregister(array($this, 'get'));
 
         return $this;
     }
 
     /**
-     * Registers a namespace prefix with filesystem path, appending the filesystem path to existing paths
-     *
-     * @param   string   $namespace_prefix
-     * @param   string   $base_directory
-     * @param   boolean  $replace
+     * Create resource map of folder/file locations and Fully Qualified Namespaces
      *
      * @return  $this
      * @since   1.0
+     * @throws  \Molajo\Locator\Exception\LocatorException
      */
-    public function addNamespace($namespace_prefix, $base_directory, $replace = false)
-    {
-        $this->handler_instance->addNamespace($namespace_prefix, $base_directory, $replace);
-
-        return $this;
-    }
-
-    /**
-     * Add resource map which maps folder/file locations to Fully Qualified Namespaces
-     *
-     * @return  $this
-     * @since   1.0
-     */
-    public function createResourceMap()
+    public function createMap()
     {
         $this->handler_instance->createResourceMap();
 
@@ -106,19 +91,48 @@ class Adapter implements LocatorInterface, ClassLocatorInterface
     }
 
     /**
-     * Locates folder/file associated with Fully Qualified Namespace for Resource and passes
-     * the path to a handler for that type of resource (ex. a Class Locator includes the file)
+     * Verify the correctness of the resource map
+     *
+     * @return  array
+     * @since   1.0
+     * @throws  \Molajo\Locator\Exception\LocatorException
+     */
+    public function editMap()
+    {
+
+    }
+
+    /**
+     * Map a namespace prefix to a filesystem path
+     *
+     * @param   string   $namespace_prefix
+     * @param   string   $base_directory
+     * @param   boolean  $prepend
+     *
+     * @return  $this
+     * @since   1.0
+     */
+    public function addNamespace($namespace_prefix, $base_directory, $prepend = false)
+    {
+        $this->handler_instance->addNamespace($namespace_prefix, $base_directory, $prepend);
+
+        return $this;
+    }
+
+    /**
+     * Locates folder/file associated with URI Namespace for Resource
      *
      * @param   string $resource
-     * @param   array  $options
      *
      * @return  void|mixed
      * @since   1.0
-     * @throws  \Molajo\Kernel\Locator\Exception\LocatorException
+     * @throws  \Molajo\Locator\Exception\LocatorException
      */
-    public function findResource($resource, array $options = array())
+    public function get($resource)
     {
-        return $this->handler_instance->findResource($resource, $options);
+        // split by protocol, namespace, options
+        // findResource
+        // handle
     }
 
     /**
@@ -129,8 +143,42 @@ class Adapter implements LocatorInterface, ClassLocatorInterface
      * @return  mixed
      * @since   1.0
      */
-    public function getCollection(array $options = array())
+    public function getCollection($resource)
     {
-        return $this->handler_instance->getCollection($options);
+        // split by protocol, namespace, options
+        // findResource
+        // handle
+
+        return $this->handler_instance->getCollection($resource);
+    }
+
+    /**
+     * Locates folder/file associated with Fully Qualified Namespace
+     *
+     * @param   string $resource
+     * @param   array  $options
+     *
+     * @return  void|mixed
+     * @since   1.0
+     * @throws  \Molajo\Locator\Exception\LocatorException
+     */
+    protected function getResource($resource, array $options = array())
+    {
+        return $this->handler_instance->getResource($resource, $options);
+    }
+
+    /**
+     * Special file or folder handling for resource type
+     *
+     * @param   string $resource
+     * @param   array  $options
+     *
+     * @return  void|mixed
+     * @since   1.0
+     * @throws  \Molajo\Locator\Exception\LocatorException
+     */
+    protected function handleResource($resource, array $options = array())
+    {
+        return $this->handler_instance->handleResource($resource, $options);
     }
 }

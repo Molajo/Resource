@@ -6,7 +6,7 @@
  * @copyright 2013 Amy Stephen. All rights reserved.
  * @license   MIT
  */
-namespace Molajo\Kernel\Locator\Api;
+namespace Molajo\Locator\Api;
 
 /**
  * Exception Interface

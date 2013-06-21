@@ -6,11 +6,11 @@
  * @copyright 2013 Amy Stephen. All rights reserved.
  * @license   http://www.opensource.org/licenses/mit-license.html MIT License
  */
-namespace Molajo\Kernel\Locator\Handler;
+namespace Molajo\Locator\Handler;
 
 use Exception;
-use Molajo\Kernel\Locator\Exception\LocatorException;
-use Molajo\Kernel\Locator\Api\LocatorInterface;
+use Molajo\Locator\Exception\LocatorException;
+use Molajo\Locator\Api\LocatorInterface;
 
 /**
  * Configuration Handler
@@ -219,7 +219,7 @@ class ConfigurationHandler extends AbstractLocator implements LocatorInterface
      *
      * @return  string
      * @since   1.0
-     * @throws  \Molajo\Kernel\Locator\Exception\LocatorException
+     * @throws  \Molajo\Locator\Exception\LocatorException
      */
     public function search($remainder = null)
     {
@@ -322,7 +322,7 @@ class ConfigurationHandler extends AbstractLocator implements LocatorInterface
      *
      * @return  string
      * @since   1.0
-     * @throws  \Molajo\Kernel\Locator\Exception\LocatorException
+     * @throws  \Molajo\Locator\Exception\LocatorException
      */
     public function handle($located_path, array $options = array())
     {

@@ -1,26 +1,27 @@
 <?php
 /**
- * Abstract Locator
+ * Locator
  *
  * @package   Molajo
  * @copyright 2013 Amy Stephen. All rights reserved.
  * @license   http://www.opensource.org/licenses/mit-license.html MIT License
  */
-namespace Molajo\Kernel\Locator\Handler;
+namespace Molajo\Locator\Utilities;
 
-use Molajo\Kernel\Locator\Api\LocatorInterface;
-use Molajo\Kernel\Locator\Api\ResourceMapInterface;
-use Molajo\Kernel\Locator\Exception\LocatorException;
+use Molajo\Locator\Api\LocatorInterface;
+use Molajo\Locator\Api\ResourceLocatorInterface;
+use Molajo\Locator\Api\ResourceMapInterface;
+use Molajo\Locator\Exception\LocatorException;
 
 /**
- * Abstract Locator
+ * Locator
  *
  * @package   Molajo
  * @copyright 2013 Amy Stephen. All rights reserved.
  * @license   http://www.opensource.org/licenses/mit-license.html MIT License
  * @since     1.0
  */
-class AbstractLocator implements LocatorInterface
+class Locator implements LocatorInterface, ResourceLocatorInterface
 {
     /**
      * Associative Array [Namespace Prefix] => Array of Base Directories
@@ -101,7 +102,7 @@ class AbstractLocator implements LocatorInterface
     /**
      * Resource Map Instance
      *
-     * @var    object Molajo\Kernel\Locator\Api\ResourceMapInterface
+     * @var    object Molajo\Locator\Api\ResourceMapInterface
      * @since  1.0
      */
     protected $resource_map_instance;
@@ -235,13 +236,12 @@ class AbstractLocator implements LocatorInterface
      * the path to a handler for that type of resource (ex. a Class Locator includes the file)
      *
      * @param   string $resource
-     * @param   array  $options
      *
      * @return  void|mixed
      * @since   1.0
-     * @throws  \Molajo\Kernel\Locator\Exception\LocatorException
+     * @throws  \Molajo\Locator\Exception\LocatorException
      */
-    public function findResource($resource, array $options = array())
+    public function findResource($resource)
     {
         if (isset($options['handler_type'])) {
             $handler_type = $options['handler_type'];

@@ -1,12 +1,12 @@
 <?php
 /**
- * Class Locator Interface
+ * Class Loader Interface
  *
  * @package   Molajo
  * @copyright 2013 Amy Stephen. All rights reserved.
  * @license   http://www.opensource.org/licenses/mit-license.html MIT License
  */
-namespace Molajo\Kernel\Locator\Api;
+namespace Molajo\Locator\Api;
 
 /**
  * Class Locator Interface
@@ -16,7 +16,7 @@ namespace Molajo\Kernel\Locator\Api;
  * @license   http://www.opensource.org/licenses/mit-license.html MIT License
  * @since     1.0
  */
-interface ClassLocatorInterface
+interface ClassLoaderInterface extends LocatorInterface
 {
     /**
      * Registers Class Autoloader

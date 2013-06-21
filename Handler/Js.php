@@ -6,9 +6,9 @@
  * @copyright 2013 Amy Stephen. All rights reserved.
  * @license   http://www.opensource.org/licenses/mit-license.html MIT License
  */
-namespace Molajo\Kernel\Locator\Handler;
+namespace Molajo\Locator\Handler;
 
-use Molajo\Kernel\Locator\Api\LocatorInterface;
+use Molajo\Locator\Api\LocatorInterface;
 
 /**
  * Js Locator
