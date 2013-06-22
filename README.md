@@ -4,12 +4,13 @@ Resource Locator
 
 [![Build Status](https://travis-ci.org/Molajo/Locator.png?branch=master)](https://travis-ci.org/Molajo/Locator)
 
-Resource Locator provides PHP applications with a generalized approach for locating and handling
-    file and folder resources, including class loading, through the use of URI namespaces.
+*Resource Locator* provides PHP applications with a generalized approach for locating and handling
+    file and folder resources for tasks like class loading, file location, css accumulation
+     using URI namespaces.
 
 ## Basic Usage ##
 
-Each field is validated, filtered, or escaped by a single or set of field handler(s).
+
 
 ###Locate Resource###
 

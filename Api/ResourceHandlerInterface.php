@@ -28,6 +28,7 @@ interface ResourceHandlerInterface
      *
      * @return  mixed
      * @since   1.0
+     * @throws  \Molajo\Locator\Exception\LocatorException
      */
     public function getCollection(array $options = array());
 }
