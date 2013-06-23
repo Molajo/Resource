@@ -80,7 +80,7 @@ class ClassLocatorDynamicTest extends PHPUnit_Framework_TestCase
         $resource_map_filename    = null;
         $namespace_prefixes       = array();
 
-        $class                 = 'Molajo\\Kernel\\Locator\\Utilities\\ResourceMap';
+        $class                 = 'Molajo\\Locator\\Utilities\\ResourceMap';
         $resource_map_instance = new $class (
             $namespace_prefixes,
             $base_path,
@@ -91,7 +91,7 @@ class ClassLocatorDynamicTest extends PHPUnit_Framework_TestCase
             $this->valid_extensions_array
         );
 
-        $class            = 'Molajo\\Kernel\\Locator\\Handler\\ClassLocator';
+        $class            = 'Molajo\\Locator\\Handler\\ClassLocator';
         $handler_instance = new $class (
             $file_extensions,
             $namespace_prefixes,
@@ -105,7 +105,7 @@ class ClassLocatorDynamicTest extends PHPUnit_Framework_TestCase
         );
 
 
-        $class            = 'Molajo\\Kernel\\Locator\\Adapter';
+        $class            = 'Molajo\\Locator\\Adapter';
         $this->locator = new $class (
             $handler_instance,
             'Class'

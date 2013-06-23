@@ -3737,73 +3737,73 @@
     "Molajo\\Kernel\\Locator": [
         "Kernel\/Locator"
     ],
-    "Molajo\\Kernel\\Locator\\Adapter": [
+    "Molajo\\Locator\\Adapter": [
         "Kernel\/Locator\/Adapter.php"
     ],
-    "Molajo\\Kernel\\Locator\\Api": [
+    "Molajo\\Locator\\Api": [
         "Kernel\/Locator\/Api"
     ],
-    "Molajo\\Kernel\\Locator\\Api\\ClassLocatorInterface": [
+    "Molajo\\Locator\\Api\\ClassLocatorInterface": [
         "Kernel\/Locator\/Api\/ClassLocatorInterface.php"
     ],
-    "Molajo\\Kernel\\Locator\\Api\\ExceptionInterface": [
+    "Molajo\\Locator\\Api\\ExceptionInterface": [
         "Kernel\/Locator\/Api\/ExceptionInterface.php"
     ],
-    "Molajo\\Kernel\\Locator\\Api\\LocatorInterface": [
+    "Molajo\\Locator\\Api\\LocatorInterface": [
         "Kernel\/Locator\/Api\/LocatorInterface.php"
     ],
-    "Molajo\\Kernel\\Locator\\Api\\ResourceMapInterface": [
+    "Molajo\\Locator\\Api\\ResourceMapInterface": [
         "Kernel\/Locator\/Api\/ResourceMapInterface.php"
     ],
-    "Molajo\\Kernel\\Locator\\ClassMap": [
+    "Molajo\\Locator\\ClassMap": [
         "Kernel\/Locator\/ClassMap.json"
     ],
-    "Molajo\\Kernel\\Locator\\Exception": [
+    "Molajo\\Locator\\Exception": [
         "Kernel\/Locator\/Exception"
     ],
-    "Molajo\\Kernel\\Locator\\Exception\\LocatorException": [
+    "Molajo\\Locator\\Exception\\LocatorException": [
         "Kernel\/Locator\/Exception\/LocatorException.php"
     ],
-    "Molajo\\Kernel\\Locator\\Handler": [
+    "Molajo\\Locator\\Handler": [
         "Kernel\/Locator\/Handler"
     ],
-    "Molajo\\Kernel\\Locator\\Handler\\AbstractLocator": [
+    "Molajo\\Locator\\Handler\\AbstractLocator": [
         "Kernel\/Locator\/Handler\/AbstractLocator.php"
     ],
-    "Molajo\\Kernel\\Locator\\Handler\\ClassLocator": [
+    "Molajo\\Locator\\Handler\\ClassLocator": [
         "Kernel\/Locator\/Handler\/ClassLocator.php"
     ],
-    "Molajo\\Kernel\\Locator\\Handler\\ConfigurationLocator": [
+    "Molajo\\Locator\\Handler\\ConfigurationLocator": [
         "Kernel\/Locator\/Handler\/ConfigurationLocator.php"
     ],
-    "Molajo\\Kernel\\Locator\\Handler\\CssDeclarationsLocator": [
+    "Molajo\\Locator\\Handler\\CssDeclarationsLocator": [
         "Kernel\/Locator\/Handler\/CssDeclarationsLocator.php"
     ],
-    "Molajo\\Kernel\\Locator\\Handler\\CssLocator": [
+    "Molajo\\Locator\\Handler\\CssLocator": [
         "Kernel\/Locator\/Handler\/CssLocator.php"
     ],
-    "Molajo\\Kernel\\Locator\\Handler\\FileLocator": [
+    "Molajo\\Locator\\Handler\\FileLocator": [
         "Kernel\/Locator\/Handler\/FileLocator.php"
     ],
-    "Molajo\\Kernel\\Locator\\Handler\\JsLocator": [
+    "Molajo\\Locator\\Handler\\JsLocator": [
         "Kernel\/Locator\/Handler\/JsLocator.php"
     ],
-    "Molajo\\Kernel\\Locator\\LICENSE": [
+    "Molajo\\Locator\\LICENSE": [
         "Kernel\/Locator\/LICENSE"
     ],
-    "Molajo\\Kernel\\Locator\\README": [
+    "Molajo\\Locator\\README": [
         "Kernel\/Locator\/README.md"
     ],
-    "Molajo\\Kernel\\Locator\\Utilities": [
+    "Molajo\\Locator\\Utilities": [
         "Kernel\/Locator\/Utilities"
     ],
-    "Molajo\\Kernel\\Locator\\Utilities\\Editing": [
+    "Molajo\\Locator\\Utilities\\Editing": [
         "Kernel\/Locator\/Utilities\/Editing.php"
     ],
-    "Molajo\\Kernel\\Locator\\Utilities\\ResourceMap": [
+    "Molajo\\Locator\\Utilities\\ResourceMap": [
         "Kernel\/Locator\/Utilities\/ResourceMap.php"
     ],
-    "Molajo\\Kernel\\Locator\\composer": [
+    "Molajo\\Locator\\composer": [
         "Kernel\/Locator\/composer.json"
     ],
     "Molajo\\Kernel\\MIT-LICENSE": [

@@ -85,7 +85,7 @@ class Adapter implements ResourceLocaterInterface, ClassLocatorInterface, Resour
      */
     public function createMap()
     {
-        $this->handler_instance->createResourceMap();
+        $this->handler_instance[$scheme]->createResourceMap();
 
         return $this;
     }
@@ -114,7 +114,7 @@ class Adapter implements ResourceLocaterInterface, ClassLocatorInterface, Resour
      */
     public function addNamespace($namespace_prefix, $base_directory, $prepend = false)
     {
-        $this->handler_instance->addNamespace($namespace_prefix, $base_directory, $prepend);
+        $this->handler_instance[$scheme]->addNamespace($namespace_prefix, $base_directory, $prepend);
 
         return $this;
     }
@@ -149,7 +149,7 @@ class Adapter implements ResourceLocaterInterface, ClassLocatorInterface, Resour
         // findResource
         // handle
 
-        return $this->handler_instance->getCollection($resource);
+        return $this->handler_instance[$scheme]->getCollection($resource);
     }
 
     /**
@@ -164,7 +164,7 @@ class Adapter implements ResourceLocaterInterface, ClassLocatorInterface, Resour
      */
     protected function getResource($resource, array $options = array())
     {
-        return $this->handler_instance->getResource($resource, $options);
+        return $this->handler_instance[$scheme]->getResource($resource, $options);
     }
 
     /**
@@ -179,6 +179,6 @@ class Adapter implements ResourceLocaterInterface, ClassLocatorInterface, Resour
      */
     protected function handleResource($resource, array $options = array())
     {
-        return $this->handler_instance->handleResource($resource, $options);
+        return $this->handler_instance[$scheme]->handleResource($resource, $options);
     }
 }

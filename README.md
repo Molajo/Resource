@@ -5,17 +5,44 @@ Resource Locator
 [![Build Status](https://travis-ci.org/Molajo/Locator.png?branch=master)](https://travis-ci.org/Molajo/Locator)
 
 *Resource Locator* provides PHP applications with a generalized approach for locating and handling
-    file and folder resources for tasks like class loading, file location, css accumulation
-     using URI namespaces.
+    file and folder resources using URI namespaces.
 
 ## Basic Usage ##
 
+Instead of requiring the application know the location of file and folder resources,
+ so that it can use those values when requesting filesystem resources:
 
+```php
+<?
 
-###Locate Resource###
+```
 
+The application is able to interact with the filesystem in a more generic way using URI namespaces.
 
-###Instantiate the Resource Locator Adapter###
+```php
+<?
+
+```
+
+The **Locator** translates the URI into a filesystem path for use of that value with filesystem operations:
+
+```php
+<?
+
+```
+The **URI namespace**
+
+##Instantiate the Resource Locator Adapter##
+
+### Example: Class Loader
+
+- autoload
+- addPath
+
+Registration is automatic if class loading is activated.
+
+get(value);
+
 
 
 ####Example: Get File location####
@@ -98,9 +125,22 @@ Create Resource Map
     echo $filtered;
 ```
 
-###Create Resource Map###
+### Overrides
 
 ```php
+
+$sep = '\\';
+$mapping = array(
+   '\\Acme\\Blog\\' => 'src/blog',
+   '\\Acme\\Demo\\Parser.php' => 'src/Parser.php',
+);
+
+echo match_path('\\Acme\\Blog\\ShowController.php', $mapping, $sep);
+// => "src/blog/ShowController.php"
+
+echo match_path('\\Acme\\Demo\\Parser.php', $mapping, $sep);
+// => "src/Parser.php"
+
     $adapter = new Molajo\Locator\Adapter();
 
     try {

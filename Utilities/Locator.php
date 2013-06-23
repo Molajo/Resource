@@ -8,7 +8,6 @@
  */
 namespace Molajo\Locator\Utilities;
 
-use Molajo\Locator\Api\LocatorInterface;
 use Molajo\Locator\Api\ResourceLocatorInterface;
 use Molajo\Locator\Api\ResourceMapInterface;
 use Molajo\Locator\Exception\LocatorException;
@@ -21,7 +20,7 @@ use Molajo\Locator\Exception\LocatorException;
  * @license   http://www.opensource.org/licenses/mit-license.html MIT License
  * @since     1.0
  */
-class Locator implements LocatorInterface, ResourceLocatorInterface
+class Locator implements ResourceLocatorInterface
 {
     /**
      * Associative Array [Namespace Prefix] => Array of Base Directories
@@ -232,8 +231,7 @@ class Locator implements LocatorInterface, ResourceLocatorInterface
     }
 
     /**
-     * Locates folder/file associated with Fully Qualified Namespace for Resource and passes
-     * the path to a handler for that type of resource (ex. a Class Locator includes the file)
+     * Locates folder/file associated with URI Namespace for Resource
      *
      * @param   string $resource
      *
@@ -241,7 +239,7 @@ class Locator implements LocatorInterface, ResourceLocatorInterface
      * @since   1.0
      * @throws  \Molajo\Locator\Exception\LocatorException
      */
-    public function findResource($resource)
+    public function get($uri_namespace)
     {
         if (isset($options['handler_type'])) {
             $handler_type = $options['handler_type'];
@@ -323,18 +321,5 @@ class Locator implements LocatorInterface, ResourceLocatorInterface
         }
 
         return $located_path;
-    }
-
-    /**
-     * Retrieves the collection of resources
-     *
-     * @param   array $options
-     *
-     * @return  array
-     * @since   1.0
-     */
-    public function getCollection(array $options = array())
-    {
-        return $this;
     }
 }
