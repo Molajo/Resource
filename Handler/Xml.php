@@ -10,7 +10,7 @@ namespace Molajo\Locator\Handler;
 
 use Exception;
 use Molajo\Locator\Exception\LocatorException;
-use Molajo\Locator\Api\LocatorInterface;
+use Molajo\Locator\Api\ResourceLocatorInterface;
 
 /**
  * Configuration Handler
@@ -19,7 +19,7 @@ use Molajo\Locator\Api\LocatorInterface;
  * @copyright 2013 Amy Stephen. All rights reserved.
  * @license   http://www.opensource.org/licenses/mit-license.html MIT License
  */
-class ConfigurationHandler extends AbstractLocator implements LocatorInterface
+class Xml implements ResourceHandlerInterface
 {
     /**
      * File Extension
@@ -213,6 +213,39 @@ class ConfigurationHandler extends AbstractLocator implements LocatorInterface
     }
 
     /**
+     * Locates folder/file associated with URI Namespace for Resource
+     *
+     * @param   string $located_path
+     * @param   array  $options
+     *
+     * @return  void|mixed
+     * @since   1.0
+     * @throws  \Molajo\Locator\Exception\LocatorException
+     */
+    public function handlePath($located_path, array $options = array())
+    {
+        if (file_exists($located_path)) {
+            return $located_path;
+        }
+
+        return;
+    }
+
+    /**
+     * Retrieve a collection of a specific resource type (ex., all CSS files registered)
+     *
+     * @param   array $options
+     *
+     * @return  mixed
+     * @since   1.0
+     * @throws  \Molajo\Locator\Exception\LocatorException
+     */
+    public function getCollection(array $options = array())
+    {
+        return $this->resource_map;
+    }
+
+    /**
      * Search for the file, first looking in default locations, and finally in the primary location
      *
      * @param   null|string $remainder
@@ -311,47 +344,5 @@ class ConfigurationHandler extends AbstractLocator implements LocatorInterface
         throw new LocatorException
         ('Configuration: locateFile() Cannot find Model Type '
         . $this->model_type . ' Model Name ' . $this->model_name);
-    }
-
-    /**
-     * Handles the located resource in a manner that varies from resource to resource
-     *  (include the file, return the path, consolidate, etc)
-     *
-     * @param   string  $located_path
-     * @param   array   $options
-     *
-     * @return  string
-     * @since   1.0
-     * @throws  \Molajo\Locator\Exception\LocatorException
-     */
-    public function handle($located_path, array $options = array())
-    {
-        if (file_exists($located_path)) {
-        } else {
-            throw new LocatorException('Locator ConfigurationHandler readFile: Not found '
-            . $located_path);
-        }
-
-        try {
-            return file_get_contents($located_path);
-
-        } catch (Exception $e) {
-
-            throw new LocatorException('Locator ConfigurationHandler readFile: Read failed '
-            . $located_path . ' ' . $e->getMessage());
-        }
-    }
-
-    /**
-     * Retrieves the collection of resources
-     *
-     * @param   array  $options
-     *
-     * @return  array
-     * @since   1.0
-     */
-    public function getCollection(array $options = array())
-    {
-
     }
 }

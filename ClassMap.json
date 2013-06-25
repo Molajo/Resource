@@ -3743,8 +3743,8 @@
     "Molajo\\Locator\\Api": [
         "Kernel\/Locator\/Api"
     ],
-    "Molajo\\Locator\\Api\\ClassLocatorInterface": [
-        "Kernel\/Locator\/Api\/ClassLocatorInterface.php"
+    "Molajo\\Locator\\Api\\ClassLoaderInterface": [
+        "Kernel\/Locator\/Api\/ClassLoaderInterface.php"
     ],
     "Molajo\\Locator\\Api\\ExceptionInterface": [
         "Kernel\/Locator\/Api\/ExceptionInterface.php"
@@ -3770,8 +3770,8 @@
     "Molajo\\Locator\\Handler\\AbstractLocator": [
         "Kernel\/Locator\/Handler\/AbstractLocator.php"
     ],
-    "Molajo\\Locator\\Handler\\ClassLocator": [
-        "Kernel\/Locator\/Handler\/ClassLocator.php"
+    "Molajo\\Locator\\Handler\\ClassLoader": [
+        "Kernel\/Locator\/Handler\/ClassLoader.php"
     ],
     "Molajo\\Locator\\Handler\\ConfigurationLocator": [
         "Kernel\/Locator\/Handler\/ConfigurationLocator.php"

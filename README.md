@@ -1,5 +1,5 @@
 =======
-Resource Locator
+Resource Locator (will be renamed to Resources)
 =======
 
 [![Build Status](https://travis-ci.org/Molajo/Locator.png?branch=master)](https://travis-ci.org/Molajo/Locator)

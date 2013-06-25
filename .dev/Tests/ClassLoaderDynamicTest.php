@@ -19,7 +19,7 @@ use PHPUnit_Framework_TestCase;
  * @license   http://www.opensource.org/licenses/mit-license.html MIT License
  * @since     1.0
  */
-class ClassLocatorDynamicTest extends PHPUnit_Framework_TestCase
+class ClassLoaderDynamicTest extends PHPUnit_Framework_TestCase
 {
     /**
      * Locator Adapter
@@ -91,7 +91,7 @@ class ClassLocatorDynamicTest extends PHPUnit_Framework_TestCase
             $this->valid_extensions_array
         );
 
-        $class            = 'Molajo\\Locator\\Handler\\ClassLocator';
+        $class            = 'Molajo\\Locator\\Handler\\ClassLoader';
         $handler_instance = new $class (
             $file_extensions,
             $namespace_prefixes,

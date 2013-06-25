@@ -85,40 +85,37 @@ class JsLocator extends AbstractLocator implements LocatorInterface
      */
     protected $js_declarations_defer_priorities = array();
 
-
     /**
-     * Handles the located resource in a manner that varies from resource to resource
-     *  (include the file, return the path, consolidate, etc)
+     * Locates folder/file associated with URI Namespace for Resource
      *
      * @param   string $located_path
      * @param   array  $options
      *
-     * @return  mixed
+     * @return  void|mixed
      * @since   1.0
+     * @throws  \Molajo\Locator\Exception\LocatorException
      */
-    public function handle($located_path, array $options = array())
+    public function handlePath($located_path, array $options = array())
     {
         if (file_exists($located_path)) {
-            $this->js_files[] = $located_path;
-        } elseif (is_dir($located_path)) {
-            // get the js files by type
+            return $located_path;
         }
 
         return;
     }
 
-
     /**
-     * Retrieves the collection of resources
+     * Retrieve a collection of a specific resource type (ex., all CSS files registered)
      *
      * @param   array $options
      *
-     * @return  array
+     * @return  mixed
      * @since   1.0
+     * @throws  \Molajo\Locator\Exception\LocatorException
      */
     public function getCollection(array $options = array())
     {
-
+        return $this->resource_map;
     }
 
     /**

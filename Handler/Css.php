@@ -8,7 +8,7 @@
  */
 namespace Molajo\Locator\Handler;
 
-use Molajo\Locator\Api\LocatorInterface;
+use Molajo\Locator\Api\ResourceLocatorInterface;
 use Molajo\Locator\Handler\AbstractLocator;
 
 /**
@@ -19,7 +19,7 @@ use Molajo\Locator\Handler\AbstractLocator;
  * @license   http://www.opensource.org/licenses/mit-license.html MIT License
  * @since     1.0
  */
-class CssLocator extends AbstractLocator implements LocatorInterface
+class CssLocator extends AbstractLocator implements ResourceLocatorInterface
 {
     /**
      * Collect list of CSS Files
@@ -85,49 +85,18 @@ class CssLocator extends AbstractLocator implements LocatorInterface
     }
 
     /**
-     * Registers a namespace prefix with filesystem path, appending the filesystem path to existing paths
+     * Locates folder/file associated with URI Namespace for Resource
      *
-     * @param   string   $namespace_prefix
-     * @param   string   $base_directory
-     * @param   boolean  $replace
-     *
-     * @return  $this
-     * @since   1.0
-     */
-    public function addNamespace($namespace_prefix, $base_directory, $replace = false)
-    {
-        parent::addNamespace($namespace_prefix, $base_directory, $replace);
-
-        return $this;
-    }
-
-    /**
-     * Add resource map which maps folder/file locations to Fully Qualified Namespaces
-     *
-     * @return  $this
-     * @since   1.0
-     */
-    public function createResourceMap()
-    {
-        parent::createResourceMap();
-
-        return $this;
-    }
-
-    /**
-     * Locates folder/file associated with Fully Qualified Namespace for Resource and passes
-     * the path to a handler for that type of resource (ex. a Css Locator includes the file)
-     *
-     * @param   string $resource
+     * @param   string $located_path
      * @param   array  $options
      *
      * @return  void|mixed
      * @since   1.0
      * @throws  \Molajo\Locator\Exception\LocatorException
      */
-    public function findResource($resource, array $options = array())
+    public function handlePath($located_path, array $options = array())
     {
-        $located_path = parent::findResource($resource, $options);
+        $located_path = parent::findResource($located_path, $options);
 
         if ($located_path === false) {
             return;
@@ -149,6 +118,7 @@ class CssLocator extends AbstractLocator implements LocatorInterface
      *
      * @return  mixed
      * @since   1.0
+     * @throws  \Molajo\Locator\Exception\LocatorException
      */
     public function getCollection(array $options = array())
     {

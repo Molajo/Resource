@@ -154,6 +154,43 @@ class ResourceMap implements ResourceMapInterface
     }
 
     /**
+     * Registers a namespace prefix with filesystem path, appending the filesystem path to existing paths
+     *
+     * @param   string  $namespace_prefix
+     * @param   string  $base_directory
+     * @param   boolean $replace
+     *
+     * @return  $this
+     * @since   1.0
+     */
+    public function addNamespace($namespace_prefix, $base_directory, $replace = false)
+    {
+        //todo: add edit to prevent multiple namespaces to a single php file, always a replace
+
+        if (isset($this->namespace_prefixes[$namespace_prefix])) {
+            if ($replace === true) {
+                $this->namespace_prefixes[$namespace_prefix] = array();
+            }
+        }
+
+        if (isset($this->namespace_prefixes[$namespace_prefix])) {
+
+            $hold = $this->namespace_prefixes[$namespace_prefix];
+
+            if (in_array($base_directory, $hold)) {
+            } else {
+                $hold[]                                      = $base_directory;
+                $this->namespace_prefixes[$namespace_prefix] = $hold;
+            }
+
+        } else {
+            $this->namespace_prefixes[$namespace_prefix] = array($base_directory);
+        }
+
+        return $this;
+    }
+
+    /**
      * Create resource map of folder/file locations linking to Fully Qualified Namespaces
      *
      * @return  array

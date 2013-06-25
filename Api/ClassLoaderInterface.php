@@ -16,7 +16,7 @@ namespace Molajo\Locator\Api;
  * @license   http://www.opensource.org/licenses/mit-license.html MIT License
  * @since     1.0
  */
-interface ClassLoaderInterface extends LocatorInterface
+interface ClassLoaderInterface extends ResourceLocatorInterface
 {
     /**
      * Registers Class Autoloader

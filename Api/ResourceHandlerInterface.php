@@ -19,7 +19,7 @@ interface ResourceHandlerInterface
      * @since   1.0
      * @throws  \Molajo\Locator\Exception\LocatorException
      */
-    public function handlePath($path, $options);
+    public function handlePath($located_path, array $options = array());
 
     /**
      * Retrieve a collection of a specific resource type (ex., all CSS files registered)
