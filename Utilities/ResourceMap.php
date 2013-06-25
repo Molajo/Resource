@@ -154,6 +154,23 @@ class ResourceMap implements ResourceMapInterface
     }
 
     /**
+     * Define Schemes for Resource location
+     *
+     * @param   string $scheme
+     * @param   string $handler
+     * @param   array  $extensions
+     *
+     * @return  $this
+     * @since   1.0
+     * @throws  \Molajo\Locator\Exception\LocatorException
+     */
+    public function addScheme($scheme, array $handler = 'File', $extensions = array())
+    {
+
+    }
+
+
+    /**
      * Registers a namespace prefix with filesystem path, appending the filesystem path to existing paths
      *
      * @param   string  $namespace_prefix
@@ -191,13 +208,13 @@ class ResourceMap implements ResourceMapInterface
     }
 
     /**
-     * Create resource map of folder/file locations linking to Fully Qualified Namespaces
+     * Create resource map of folder/file locations and Fully Qualified Namespaces
      *
-     * @return  array
+     * @return  $this
      * @since   1.0
      * @throws  \Molajo\Locator\Exception\LocatorException
      */
-    public function create()
+    public function createMap()
     {
         $resource_map = array();
 
@@ -328,7 +345,7 @@ class ResourceMap implements ResourceMapInterface
      * @since   1.0
      * @throws  \Molajo\Locator\Exception\LocatorException
      */
-    public function edit()
+    public function editMap()
     {
 
     }
