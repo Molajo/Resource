@@ -20,7 +20,7 @@ use Molajo\Locator\Handler\AbstractLocator;
  * @license   http://www.opensource.org/licenses/mit-license.html MIT License
  * @since     1.0
  */
-class CssDeclarationsLocator extends AbstractLocator implements LocatorInterface
+class CssDeclarationsHandler implements ResourceHandlerInterface
 {
     /**
      * Css Declarations
@@ -80,9 +80,9 @@ class CssDeclarationsLocator extends AbstractLocator implements LocatorInterface
     /**
      * Registers a namespace prefix with filesystem path, appending the filesystem path to existing paths
      *
-     * @param   string   $namespace_prefix
-     * @param   string   $base_directory
-     * @param   boolean  $replace
+     * @param   string  $namespace_prefix
+     * @param   string  $base_directory
+     * @param   boolean $replace
      *
      * @return  $this
      * @since   1.0

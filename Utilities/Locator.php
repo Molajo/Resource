@@ -20,7 +20,7 @@ use Molajo\Locator\Exception\LocatorException;
  * @license   http://www.opensource.org/licenses/mit-license.html MIT License
  * @since     1.0
  */
-class Locator implements ResourceLocatorInterface
+class Handler implements ResourceLocatorInterface
 {
     /**
      * Associative Array [Namespace Prefix] => Array of Base Directories
@@ -183,7 +183,7 @@ class Locator implements ResourceLocatorInterface
     /**
      * Locates folder/file associated with URI Namespace for Resource
      *
-     * @param   string $resource
+     * @param   string $uri_namespace
      *
      * @return  void|mixed
      * @since   1.0

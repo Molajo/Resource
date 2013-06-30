@@ -76,16 +76,16 @@ class ClassLoaderResourceMap extends PHPUnit_Framework_TestCase
         $file_extensions['Class'] = '.php';
         $namespace_prefixes       = array();
 
-        $paths = array();
-        $paths[] = '.dev/Classes';
+        $paths                              = array();
+        $paths[]                            = '.dev/Classes';
         $namespace_prefixes['Molajo\\Test'] = $paths;
 
-        $paths = array();
-        $paths[] = '.dev/Psr0/Molajo/Locator';
+        $paths                                 = array();
+        $paths[]                               = '.dev/Psr0/Molajo/Locator';
         $namespace_prefixes['Molajo\\Locator'] = $paths;
 
-        $base_path = BASE_FOLDER;
-        $rebuild_map = true;
+        $base_path             = BASE_FOLDER;
+        $rebuild_map           = true;
         $resource_map_filename = __DIR__ . '/' . 'ResourceMap.json';
 
         $class                 = 'Molajo\\Locator\\Utilities\\ResourceMap';
@@ -112,7 +112,7 @@ class ClassLoaderResourceMap extends PHPUnit_Framework_TestCase
             $resource_map_instance
         );
 
-        $class            = 'Molajo\\Locator\\Adapter';
+        $class         = 'Molajo\\Locator\\Adapter';
         $this->locator = new $class (
             $handler_instance,
             'Class'
@@ -129,7 +129,7 @@ class ClassLoaderResourceMap extends PHPUnit_Framework_TestCase
     public function testValidateNamespace1()
     {
         $class = 'Molajo\Test\System\CacheMock';
-        $cache  = new $class();
+        $cache = new $class();
 
         $this->assertEquals(1, $cache->get('foo'));
         $this->assertEquals(2, $cache->get('bar'));
@@ -147,7 +147,7 @@ class ClassLoaderResourceMap extends PHPUnit_Framework_TestCase
     public function testValidateNamespace2()
     {
         $class = 'molajo\test\system\cachemock';
-        $cache  = new $class();
+        $cache = new $class();
 
         $this->assertEquals(3, $cache->get('baz'));
 
@@ -202,7 +202,7 @@ class ClassLoaderResourceMap extends PHPUnit_Framework_TestCase
     public function testFindLowercaseClass()
     {
         $class = 'molajo\test\system\configurationmock';
-        $cache  = new $class();
+        $cache = new $class();
 
         $this->assertEquals(3, $cache->get('baz'));
 

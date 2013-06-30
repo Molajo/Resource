@@ -5,7 +5,7 @@
  * @copyright   2013 Amy Stephen. All rights reserved.
  * @license     MIT
  */
- ?>
+?>
 <div class="row-fluid">
     <div class="span4">
         <h2>Heading</h2>

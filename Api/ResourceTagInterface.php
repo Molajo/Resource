@@ -1,6 +1,6 @@
 <?php
 /**
- * Class Loader Interface
+ * Resource Tag Interface
  *
  * @package   Molajo
  * @copyright 2013 Amy Stephen. All rights reserved.
@@ -9,30 +9,25 @@
 namespace Molajo\Locator\Api;
 
 /**
- * Class Locator Interface
+ * Resource Tag Interface
  *
  * @package   Molajo
  * @copyright 2013 Amy Stephen. All rights reserved.
  * @license   http://www.opensource.org/licenses/mit-license.html MIT License
  * @since     1.0
  */
-interface ClassLoaderInterface
+interface ResourceTagInterface
 {
     /**
-     * Registers Class Autoloader
+     * Add Namespace and Tag(s)
      *
-     * @param   boolean $prepend
-     *
-     * @return  $this
-     * @since   1.0
-     */
-    public function register($prepend = true);
-
-    /**
-     * Unregister Class Autoloader
+     * @param   string   $namespace
+     * @param   array    $tag
+     * @param   boolean  $replace
      *
      * @return  $this
      * @since   1.0
+     * @throws  \Molajo\Locator\Exception\LocatorException
      */
-    public function unregister();
+    public function addTag($namespace, array $tag = array(), $replace = true);
 }

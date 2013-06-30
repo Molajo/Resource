@@ -8,9 +8,7 @@
  */
 namespace Molajo\Locator\Handler;
 
-use Molajo\Locator\Api\ResourceLocatorInterface;
-use Molajo\Locator\Api\LocatorInterface;
-use Molajo\Locator\Handler\AbstractLocator;
+use Molajo\Locator\Api\ResourceHandlerInterface;
 
 /**
  * Class Locator
@@ -20,18 +18,8 @@ use Molajo\Locator\Handler\AbstractLocator;
  * @license   http://www.opensource.org/licenses/mit-license.html MIT License
  * @since     1.0
  */
-class ClassLoader implements ResourceLocatorInterface
+class ClassLoader implements ResourceHandlerInterface
 {
-    /**
-     * Constructor
-     *
-     * @since   1.0
-     */
-    public function __construct()
-    {
-
-    }
-
     /**
      * Locates folder/file associated with URI Namespace for Resource
      *
@@ -57,12 +45,12 @@ class ClassLoader implements ResourceLocatorInterface
      *
      * @param   array $options
      *
-     * @return  mixed
+     * @return  null
      * @since   1.0
      * @throws  \Molajo\Locator\Exception\LocatorException
      */
     public function getCollection(array $options = array())
     {
-
+        return null;
     }
 }

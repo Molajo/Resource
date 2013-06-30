@@ -70,8 +70,8 @@ class CacheMock
     /**
      * Set
      *
-     * @param   string  $key
-     * @param   null    $value
+     * @param   string $key
+     * @param   null   $value
      *
      * @return   object
      * @since    1.0

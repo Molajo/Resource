@@ -1,6 +1,6 @@
 <?php
 /**
- * Resource Map
+ * Dependency Injection
  *
  * @package   Molajo
  * @copyright 2013 Amy Stephen. All rights reserved.
@@ -8,21 +8,24 @@
  */
 namespace Molajo\Locator\Utilities;
 
-use RecursiveIteratorIterator;
-use RecursiveDirectoryIterator;
+use Molajo\Locator\Api\ClassLoaderInterface;
+use Molajo\Locator\Api\ExceptionInterface;
+use Molajo\Locator\Api\ResourceHandlerInterface;
+use Molajo\Locator\Api\ResourceLocatorInterface;
 use Molajo\Locator\Api\ResourceMapInterface;
 use Molajo\Locator\Api\ResourceSchemeInterface;
+use Molajo\Locator\Api\ResourceTagInterface;
 use Molajo\Locator\Exception\LocatorException;
 
 /**
- * Resource Map
+ * Dependency Injection
  *
  * @package   Molajo
  * @copyright 2013 Amy Stephen. All rights reserved.
  * @license   http://www.opensource.org/licenses/mit-license.html MIT License
  * @since     1.0
  */
-class ResourceMap implements ResourceMapInterface, ResourceSchemeInterface
+class DI
 {
     /**
      * Scheme and associated extensions and handler
@@ -109,6 +112,7 @@ class ResourceMap implements ResourceMapInterface, ResourceSchemeInterface
      * @param   array       $exclude_path_array
      * @param   array       $valid_extensions_array
      * @param   null|string $resource_map_filename
+     * @param   array       $sort_order_array
      *
      * @since   1.0
      */
@@ -120,7 +124,8 @@ class ResourceMap implements ResourceMapInterface, ResourceSchemeInterface
         $exclude_in_path_array = array(),
         $exclude_path_array = array(),
         $valid_extensions_array = array(),
-        $resource_map_filename = null
+        $resource_map_filename = null,
+        array $sort_order_array = array()
     ) {
         $this->base_path             = $base_path;
         $this->namespace_prefixes    = $namespace_prefixes;
@@ -163,7 +168,22 @@ class ResourceMap implements ResourceMapInterface, ResourceSchemeInterface
             $this->create($namespace_prefixes, $resource_map_filename);
         }
     }
+public function load($filename)
+{
 
+    if (file_exists($filename)) {
+        $input        = file_get_contents($filename);
+        $temp = json_decode($input);
+        if (count($temp) > 0) {
+            $temp_array = array();
+            foreach ($temp_array as $key => $value) {
+                $temp_array[$key] = $value;
+            }
+        }
+    }
+
+    return $temp_array;
+}
     /**
      * Add Scheme to Associate with Resource
      *

@@ -10,7 +10,6 @@ use Molajo\Event\Plugins\Plugin;
 use Molajo\Service;
 
 
-
 /**
  * @package     Molajo
  * @license     MIT

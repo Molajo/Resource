@@ -1,0 +1,738 @@
+{
+    "Molajo\\Administration": {
+        "Levels": 1,
+        "IncludeFolder": [
+            "Application\/Administration"
+        ],
+        "ExcludeFolder": [
+            ".dev",
+            ".travis.yml",
+            ".DS_Store",
+            ".git",
+            ".",
+            "..",
+            ".gitattributes",
+            ".gitignore"
+        ],
+        "RequireFileExtensions": "",
+        "ProhibitFileExtensions": ""
+    },
+    "Molajo\\Appconfiguration": {
+        "Levels": 1,
+        "IncludeFolder": [
+            "Application\/Model\/Appconfiguration"
+        ],
+        "ExcludeFolder": [
+            ".dev",
+            ".travis.yml",
+            ".DS_Store",
+            ".git",
+            ".",
+            "..",
+            ".gitattributes",
+            ".gitignore"
+        ],
+        "RequireFileExtensions": "",
+        "ProhibitFileExtensions": ""
+    },
+    "Molajo\\Cache": {
+        "Levels": 1,
+        "IncludeFolder": [
+            "Vendor\/Molajo\/Cache"
+        ],
+        "ExcludeFolder": [
+            ".dev",
+            ".travis.yml",
+            ".DS_Store",
+            ".git",
+            ".",
+            "..",
+            ".gitattributes",
+            ".gitignore"
+        ],
+        "RequireFileExtensions": "",
+        "ProhibitFileExtensions": ""
+    },
+    "Molajo\\Configuration": {
+        "Levels": 1,
+        "IncludeFolder": [
+            "Kernel\/Configuration"
+        ],
+        "ExcludeFolder": [
+            ".dev",
+            ".travis.yml",
+            ".DS_Store",
+            ".git",
+            ".",
+            "..",
+            ".gitattributes",
+            ".gitignore"
+        ],
+        "RequireFileExtensions": "",
+        "ProhibitFileExtensions": ""
+    },
+    "Molajo\\Controller": {
+        "Levels": 1,
+        "IncludeFolder": [
+            "Kernel\/Controller"
+        ],
+        "ExcludeFolder": [
+            ".dev",
+            ".travis.yml",
+            ".DS_Store",
+            ".git",
+            ".",
+            "..",
+            ".gitattributes",
+            ".gitignore"
+        ],
+        "RequireFileExtensions": "",
+        "ProhibitFileExtensions": ""
+    },
+    "Molajo\\Database": {
+        "Levels": 1,
+        "IncludeFolder": [
+            "Vendor\/Molajo\/Database"
+        ],
+        "ExcludeFolder": [
+            ".dev",
+            ".travis.yml",
+            ".DS_Store",
+            ".git",
+            ".",
+            "..",
+            ".gitattributes",
+            ".gitignore"
+        ],
+        "RequireFileExtensions": "",
+        "ProhibitFileExtensions": ""
+    },
+    "Molajo\\Datalist": {
+        "Levels": 1,
+        "IncludeFolder": [
+            "Application\/Model\/Datalist"
+        ],
+        "ExcludeFolder": [
+            ".dev",
+            ".travis.yml",
+            ".DS_Store",
+            ".git",
+            ".",
+            "..",
+            ".gitattributes",
+            ".gitignore"
+        ],
+        "RequireFileExtensions": "",
+        "ProhibitFileExtensions": ""
+    },
+    "Molajo\\Dataobject": {
+        "Levels": 1,
+        "IncludeFolder": [
+            "Application\/Model\/Dataobject"
+        ],
+        "ExcludeFolder": [
+            ".dev",
+            ".travis.yml",
+            ".DS_Store",
+            ".git",
+            ".",
+            "..",
+            ".gitattributes",
+            ".gitignore"
+        ],
+        "RequireFileExtensions": "",
+        "ProhibitFileExtensions": ""
+    },
+    "Molajo\\Datasource": {
+        "Levels": 1,
+        "IncludeFolder": [
+            "Application\/Model\/Datasource"
+        ],
+        "ExcludeFolder": [
+            ".dev",
+            ".travis.yml",
+            ".DS_Store",
+            ".git",
+            ".",
+            "..",
+            ".gitattributes",
+            ".gitignore"
+        ],
+        "RequireFileExtensions": "",
+        "ProhibitFileExtensions": ""
+    },
+    "Molajo\\Email": {
+        "Levels": 1,
+        "IncludeFolder": [
+            "Vendor\/Molajo\/Email"
+        ],
+        "ExcludeFolder": [
+            ".dev",
+            ".travis.yml",
+            ".DS_Store",
+            ".git",
+            ".",
+            "..",
+            ".gitattributes",
+            ".gitignore"
+        ],
+        "RequireFileExtensions": "",
+        "ProhibitFileExtensions": ""
+    },
+    "Molajo\\Event": {
+        "Levels": 1,
+        "IncludeFolder": [
+            "Kernel\/Event",
+            "Molajo\/Event\/Service",
+            "Molajo\/User\/Service"
+        ],
+        "ExcludeFolder": [
+            ".dev",
+            ".travis.yml",
+            ".DS_Store",
+            ".git",
+            ".",
+            "..",
+            ".gitattributes",
+            ".gitignore"
+        ],
+        "RequireFileExtensions": "",
+        "ProhibitFileExtensions": ""
+    },
+    "Molajo\\Field": {
+        "Levels": 1,
+        "IncludeFolder": [
+            "Application\/Model\/Field"
+        ],
+        "ExcludeFolder": [
+            ".dev",
+            ".travis.yml",
+            ".DS_Store",
+            ".git",
+            ".",
+            "..",
+            ".gitattributes",
+            ".gitignore"
+        ],
+        "RequireFileExtensions": "",
+        "ProhibitFileExtensions": ""
+    },
+    "Molajo\\FieldHandler": {
+        "Levels": 1,
+        "IncludeFolder": [
+            "Vendor\/Molajo\/FieldHandler"
+        ],
+        "ExcludeFolder": [
+            ".dev",
+            ".travis.yml",
+            ".DS_Store",
+            ".git",
+            ".",
+            "..",
+            ".gitattributes",
+            ".gitignore"
+        ],
+        "RequireFileExtensions": "",
+        "ProhibitFileExtensions": ""
+    },
+    "Molajo\\Filesystem": {
+        "Levels": 1,
+        "IncludeFolder": [
+            "Vendor\/Molajo\/Filesystem"
+        ],
+        "ExcludeFolder": [
+            ".dev",
+            ".travis.yml",
+            ".DS_Store",
+            ".git",
+            ".",
+            "..",
+            ".gitattributes",
+            ".gitignore"
+        ],
+        "RequireFileExtensions": "",
+        "ProhibitFileExtensions": ""
+    },
+    "Molajo\\FileUpload": {
+        "Levels": 1,
+        "IncludeFolder": [
+            "Vendor\/Molajo\/FileUpload"
+        ],
+        "ExcludeFolder": [
+            ".dev",
+            ".travis.yml",
+            ".DS_Store",
+            ".git",
+            ".",
+            "..",
+            ".gitattributes",
+            ".gitignore"
+        ],
+        "RequireFileExtensions": "",
+        "ProhibitFileExtensions": ""
+    },
+    "Molajo\\Http": {
+        "Levels": 1,
+        "IncludeFolder": [
+            "Kernel\/Http"
+        ],
+        "ExcludeFolder": [
+            ".dev",
+            ".travis.yml",
+            ".DS_Store",
+            ".git",
+            ".",
+            "..",
+            ".gitattributes",
+            ".gitignore"
+        ],
+        "RequireFileExtensions": "",
+        "ProhibitFileExtensions": ".html.php"
+    },
+    "Molajo\\Include": {
+        "Levels": 1,
+        "IncludeFolder": [
+            "Application\/Model\/Include"
+        ],
+        "ExcludeFolder": [
+            ".dev",
+            ".travis.yml",
+            ".DS_Store",
+            ".git",
+            ".",
+            "..",
+            ".gitattributes",
+            ".gitignore"
+        ],
+        "RequireFileExtensions": "",
+        "ProhibitFileExtensions": ""
+    },
+    "Molajo\\IoC": {
+        "Levels": 1,
+        "IncludeFolder": [
+            "Kernel\/IoC"
+        ],
+        "ExcludeFolder": [
+            ".dev",
+            ".travis.yml",
+            ".DS_Store",
+            ".git",
+            ".",
+            "..",
+            ".gitattributes",
+            ".gitignore"
+        ],
+        "RequireFileExtensions": "",
+        "ProhibitFileExtensions": ""
+    },
+    "Molajo\\Language": {
+        "Levels": 1,
+        "IncludeFolder": [
+            "Vendor\/Molajo\/Language"
+        ],
+        "ExcludeFolder": [
+            ".dev",
+            ".travis.yml",
+            ".DS_Store",
+            ".git",
+            ".",
+            "..",
+            ".gitattributes",
+            ".gitignore"
+        ],
+        "RequireFileExtensions": "",
+        "ProhibitFileExtensions": ""
+    },
+    "Molajo\\Locator": {
+        "Levels": 1,
+        "IncludeFolder": [
+            "Kernel\/Locator"
+        ],
+        "ExcludeFolder": [
+            ".dev",
+            ".travis.yml",
+            ".DS_Store",
+            ".git",
+            ".",
+            "..",
+            ".gitattributes",
+            ".gitignore"
+        ],
+        "RequireFileExtensions": "",
+        "ProhibitFileExtensions": ""
+    },
+    "Molajo\\Log": {
+        "Levels": 1,
+        "IncludeFolder": [
+            "Vendor\/Molajo\/Log"
+        ],
+        "ExcludeFolder": [
+            ".dev",
+            ".travis.yml",
+            ".DS_Store",
+            ".git",
+            ".",
+            "..",
+            ".gitattributes",
+            ".gitignore"
+        ],
+        "RequireFileExtensions": "",
+        "ProhibitFileExtensions": ""
+    },
+    "Molajo\\Menuitem": {
+        "Levels": 1,
+        "IncludeFolder": [
+            "Application\/Extension\/Menuitem"
+        ],
+        "ExcludeFolder": [
+            ".dev",
+            ".travis.yml",
+            ".DS_Store",
+            ".git",
+            ".",
+            "..",
+            ".gitattributes",
+            ".gitignore"
+        ],
+        "RequireFileExtensions": "",
+        "ProhibitFileExtensions": ""
+    },
+    "Molajo\\Mvc": {
+        "Levels": 1,
+        "IncludeFolder": [
+            "Vendor\/Molajo\/Mvc"
+        ],
+        "ExcludeFolder": [
+            ".dev",
+            ".travis.yml",
+            ".DS_Store",
+            ".git",
+            ".",
+            "..",
+            ".gitattributes",
+            ".gitignore"
+        ],
+        "RequireFileExtensions": "",
+        "ProhibitFileExtensions": ""
+    },
+    "Molajo\\NumberToText": {
+        "Levels": 1,
+        "IncludeFolder": [
+            "Vendor\/Molajo\/NumberToText"
+        ],
+        "ExcludeFolder": [
+            ".dev",
+            ".travis.yml",
+            ".DS_Store",
+            ".git",
+            ".",
+            "..",
+            ".gitattributes",
+            ".gitignore"
+        ],
+        "RequireFileExtensions": "",
+        "ProhibitFileExtensions": ""
+    },
+    "Molajo\\Pagination": {
+        "Levels": 1,
+        "IncludeFolder": [
+            "Vendor\/Molajo\/Pagination"
+        ],
+        "ExcludeFolder": [
+            ".dev",
+            ".travis.yml",
+            ".DS_Store",
+            ".git",
+            ".",
+            "..",
+            ".gitattributes",
+            ".gitignore"
+        ],
+        "RequireFileExtensions": "",
+        "ProhibitFileExtensions": ""
+    },
+    "Molajo\\Plugin": {
+        "Levels": 1,
+        "IncludeFolder": [
+            "Application\/Extension\/Plugin"
+        ],
+        "ExcludeFolder": [
+            ".dev",
+            ".travis.yml",
+            ".DS_Store",
+            ".git",
+            ".",
+            "..",
+            ".gitattributes",
+            ".gitignore"
+        ],
+        "RequireFileExtensions": "",
+        "ProhibitFileExtensions": ""
+    },
+    "Molajo\\Registry": {
+        "Levels": 1,
+        "IncludeFolder": [
+            "Vendor\/Molajo\/Registry"
+        ],
+        "ExcludeFolder": [
+            ".dev",
+            ".travis.yml",
+            ".DS_Store",
+            ".git",
+            ".",
+            "..",
+            ".gitattributes",
+            ".gitignore"
+        ],
+        "RequireFileExtensions": "",
+        "ProhibitFileExtensions": ""
+    },
+    "Molajo\\Resource": {
+        "Levels": 1,
+        "IncludeFolder": [
+            "Application\/Extension\/Resource"
+        ],
+        "ExcludeFolder": [
+            ".dev",
+            ".travis.yml",
+            ".DS_Store",
+            ".git",
+            ".",
+            "..",
+            ".gitattributes",
+            ".gitignore"
+        ],
+        "RequireFileExtensions": "",
+        "ProhibitFileExtensions": ""
+    },
+    "Molajo\\Search": {
+        "Levels": 1,
+        "IncludeFolder": [
+            "Vendor\/Molajo\/Search"
+        ],
+        "ExcludeFolder": [
+            ".dev",
+            ".travis.yml",
+            ".DS_Store",
+            ".git",
+            ".",
+            "..",
+            ".gitattributes",
+            ".gitignore"
+        ],
+        "RequireFileExtensions": "",
+        "ProhibitFileExtensions": ""
+    },
+    "Molajo\\Service": {
+        "Levels": 1,
+        "IncludeFolder": [
+            "Service",
+            "User\/Service",
+            "Kernel\/Event\/Service"
+        ],
+        "ExcludeFolder": [
+            ".dev",
+            ".travis.yml",
+            ".DS_Store",
+            ".git",
+            ".",
+            "..",
+            ".gitattributes",
+            ".gitignore"
+        ],
+        "RequireFileExtensions": "",
+        "ProhibitFileExtensions": ""
+    },
+    "Molajo\\Sites": {
+        "Levels": 1,
+        "IncludeFolder": [
+            "Sites"
+        ],
+        "ExcludeFolder": [
+            ".dev",
+            ".travis.yml",
+            ".DS_Store",
+            ".git",
+            ".",
+            "..",
+            ".gitattributes",
+            ".gitignore"
+        ],
+        "RequireFileExtensions": "",
+        "ProhibitFileExtensions": ""
+    },
+    "Molajo\\Theme": {
+        "Levels": 1,
+        "IncludeFolder": [
+            "Application\/Extension\/Theme"
+        ],
+        "ExcludeFolder": [
+            "Vendor\/Molajo\/Theme\/View"
+        ]
+    },
+    "Molajo\\User": {
+        "Levels": 1,
+        "IncludeFolder": [
+            "User"
+        ],
+        "ExcludeFolder": [
+            ".dev",
+            ".travis.yml",
+            ".DS_Store",
+            ".git",
+            ".",
+            "..",
+            ".gitattributes",
+            ".gitignore"
+        ],
+        "RequireFileExtensions": "",
+        "ProhibitFileExtensions": ""
+    },
+    "Molajo\\Utilities": {
+        "Levels": 1,
+        "IncludeFolder": [
+            "Vendor\/Molajo\/Utilities"
+        ],
+        "ExcludeFolder": [
+            ".dev",
+            ".travis.yml",
+            ".DS_Store",
+            ".git",
+            ".",
+            "..",
+            ".gitattributes",
+            ".gitignore"
+        ],
+        "RequireFileExtensions": "",
+        "ProhibitFileExtensions": ""
+    },
+    "Molajo\\View\\Page": {
+        "Levels": 1,
+        "IncludeFolder": [
+            "Application\/Extension\/View\/Page",
+            "Vendor\/Molajo\/Theme\/View\/Page"
+        ],
+        "ExcludeFolder": [
+            ".dev",
+            ".travis.yml",
+            ".DS_Store",
+            ".git",
+            ".",
+            "..",
+            ".gitattributes",
+            ".gitignore"
+        ],
+        "RequireFileExtensions": "",
+        "ProhibitFileExtensions": ""
+    },
+    "Molajo\\View\\Template": {
+        "Levels": 1,
+        "IncludeFolder": [
+            "Application\/Extension\/View\/Template",
+            "Vendor\/Molajo\/Theme\/View\/Template"
+        ],
+        "ExcludeFolder": [
+            ".dev",
+            ".travis.yml",
+            ".DS_Store",
+            ".git",
+            ".",
+            "..",
+            ".gitattributes",
+            ".gitignore"
+        ],
+        "RequireFileExtensions": "",
+        "ProhibitFileExtensions": ""
+    },
+    "Molajo\\View\\Wrap": {
+        "Levels": 1,
+        "IncludeFolder": [
+            "Application\/Extension\/View\/Wrap",
+            "Vendor\/Molajo\/Theme\/View\/Wrap"
+        ],
+        "ExcludeFolder": [
+            ".dev",
+            ".travis.yml",
+            ".DS_Store",
+            ".git",
+            ".",
+            "..",
+            ".gitattributes",
+            ".gitignore"
+        ],
+        "RequireFileExtensions": "",
+        "ProhibitFileExtensions": ""
+    },
+    "PhpMailer": {
+        "Levels": 1,
+        "IncludeFolder": [
+            "Vendor\/PhpMailer"
+        ],
+        "ExcludeFolder": [
+            ".dev",
+            ".travis.yml",
+            ".DS_Store",
+            ".git",
+            ".",
+            "..",
+            ".gitattributes",
+            ".gitignore"
+        ],
+        "RequireFileExtensions": "",
+        "ProhibitFileExtensions": ""
+    },
+    "Psr\\Log": {
+        "Levels": 1,
+        "IncludeFolder": [
+            "Vendor\/psr\/log\/Psr\/Log"
+        ],
+        "ExcludeFolder": [
+            ".dev",
+            ".travis.yml",
+            ".DS_Store",
+            ".git",
+            ".",
+            "..",
+            ".gitattributes",
+            ".gitignore"
+        ],
+        "RequireFileExtensions": "",
+        "ProhibitFileExtensions": ""
+    },
+    "Whoops": {
+        "Levels": 1,
+        "IncludeFolder": [
+            "Vendor\/filp\/whoops\/src"
+        ],
+        "ExcludeFolder": [
+            ".dev",
+            ".travis.yml",
+            ".DS_Store",
+            ".git",
+            ".",
+            "..",
+            ".gitattributes",
+            ".gitignore"
+        ],
+        "RequireFileExtensions": "",
+        "ProhibitFileExtensions": ""
+    },
+    "Joomla\\Database": {
+        "Levels": 1,
+        "IncludeFolder": [
+            "Vendor\/Joomla\/Database"
+        ],
+        "ExcludeFolder": [
+            ".dev",
+            ".travis.yml",
+            ".DS_Store",
+            ".git",
+            ".",
+            "..",
+            ".gitattributes",
+            ".gitignore"
+        ],
+        "RequireFileExtensions": "",
+        "ProhibitFileExtensions": ""
+    }
+}

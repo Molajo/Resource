@@ -1,0 +1,46 @@
+{
+    "class": [
+        ".php",
+        "ClassLoader"
+    ],
+    "css": [
+        ".css",
+        "Css"
+    ],
+    "cssd": [
+        ".cssd",
+        "CssDeclarations"
+    ],
+    "file": [
+        "",
+        "File"
+    ],
+    "js": [
+        ".js",
+        "Js"
+    ],
+    "jsd": [
+        ".jsd",
+        "JsDeclarations"
+    ],
+
+    "page": [
+        ".html.php",
+        "Page"
+    ],
+
+    "template": [
+        ".html.php",
+        "Template"
+    ],
+
+    "wrap": [
+        ".html.php",
+        "Wrap"
+    ],
+
+    "xml": [
+        ".xml",
+        "Xml"
+    ]
+}

@@ -6,7 +6,7 @@
  * @license   http://www.opensource.org/licenses/mit-license.html MIT License
  */
 
- ?>
+?>
 <h5 class="subheader">
     <?php echo $this->row->title; ?>
 </h5>

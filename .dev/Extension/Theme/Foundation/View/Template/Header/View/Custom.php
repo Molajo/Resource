@@ -5,7 +5,7 @@
  * @copyright 2013 Amy Stephen. All rights reserved.
  * @license   http://www.opensource.org/licenses/mit-license.html MIT License
  */
-  ?>
+?>
 <header id="header-page" class="contain-to-grid not-small-device" role="banner">
     <div class="row">
         <div class="page-menu">

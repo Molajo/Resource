@@ -105,7 +105,7 @@ class ClassLoaderDynamicTest extends PHPUnit_Framework_TestCase
         );
 
 
-        $class            = 'Molajo\\Locator\\Adapter';
+        $class         = 'Molajo\\Locator\\Adapter';
         $this->locator = new $class (
             $handler_instance,
             'Class'
