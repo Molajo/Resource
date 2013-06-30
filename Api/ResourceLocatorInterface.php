@@ -1,14 +1,14 @@
 <?php
 /**
- * Resource Locator Interface
+ * Resource Resources Interface
  *
  * @package   Molajo
  * @copyright 2013 Amy Stephen. All rights reserved.
  * @license   http://www.opensource.org/licenses/mit-license.html MIT License
  */
-namespace Molajo\Locator\Api;
+namespace Molajo\Resources\Api;
 
-interface ResourceLocatorInterface
+interface ResourceResourcesInterface
 {
     /**
      * Locates folder/file associated with URI Namespace for Resource
@@ -17,7 +17,7 @@ interface ResourceLocatorInterface
      *
      * @return  void|mixed
      * @since   1.0
-     * @throws  \Molajo\Locator\Exception\LocatorException
+     * @throws  \Molajo\Resources\Exception\ResourcesException
      */
     public function get($uri_namespace);
 }

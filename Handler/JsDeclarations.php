@@ -1,17 +1,17 @@
 <?php
 /**
- * Js Locator
+ * Js Resources
  *
  * @package   Molajo
  * @copyright 2013 Amy Stephen. All rights reserved.
  * @license   http://www.opensource.org/licenses/mit-license.html MIT License
  */
-namespace Molajo\Locator\Handler;
+namespace Molajo\Resources\Handler;
 
-use Molajo\Locator\Api\ResourceHandlerInterface;
+use Molajo\Resources\Api\ResourceHandlerInterface;
 
 /**
- * Js Locator
+ * Js Resources
  *
  * @package   Molajo
  * @copyright 2013 Amy Stephen. All rights reserved.
@@ -60,7 +60,7 @@ class JsDeclarationHandler implements ResourceHandlerInterface
      *
      * @return  void|mixed
      * @since   1.0
-     * @throws  \Molajo\Locator\Exception\LocatorException
+     * @throws  \Molajo\Resources\Exception\ResourcesException
      */
     public function handlePath($located_path, array $options = array())
     {
@@ -78,7 +78,7 @@ class JsDeclarationHandler implements ResourceHandlerInterface
      *
      * @return  mixed
      * @since   1.0
-     * @throws  \Molajo\Locator\Exception\LocatorException
+     * @throws  \Molajo\Resources\Exception\ResourcesException
      */
     public function getCollection(array $options = array())
     {

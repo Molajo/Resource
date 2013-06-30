@@ -6,13 +6,13 @@
  * @copyright 2013 Amy Stephen. All rights reserved.
  * @license   http://www.opensource.org/licenses/mit-license.html MIT License
  */
-namespace Molajo\Locator\Utilities;
+namespace Molajo\Resources\Utilities;
 
 use RecursiveIteratorIterator;
 use RecursiveDirectoryIterator;
-use Molajo\Locator\Api\ResourceMapInterface;
-use Molajo\Locator\Api\ResourceSchemeInterface;
-use Molajo\Locator\Exception\LocatorException;
+use Molajo\Resources\Api\ResourceMapInterface;
+use Molajo\Resources\Api\ResourceSchemeInterface;
+use Molajo\Resources\Exception\ResourcesException;
 
 /**
  * Resource Map
@@ -25,7 +25,10 @@ use Molajo\Locator\Exception\LocatorException;
 class ResourceMap implements ResourceMapInterface, ResourceSchemeInterface
 {
     /**
-     * Scheme and associated extensions and handler
+     * Scheme array =>
+     *    Scheme Name =>
+     *      Extensions list
+     *      Handler
      *
      * @var    array
      * @since  1.0
@@ -33,13 +36,18 @@ class ResourceMap implements ResourceMapInterface, ResourceSchemeInterface
     protected $scheme_array = array();
 
     /**
-     * Associative Array [Namespace Prefix] => Array of Base Directories
-     *  for this Namespace Prefix
+     * Primary Array =>
+     *  Levels
+     *  IncludeFolders
+     *  ExcludeFolders
+     *  RequireFileExtensions
+     *  ProhibitFileExtensions
+     *  Tags
      *
      * @var    array
      * @since  1.0
      */
-    protected $namespace_prefixes = array();
+    protected $primary_array = array();
 
     /**
      * Base Path - root of the website from which paths are defined
@@ -48,31 +56,6 @@ class ResourceMap implements ResourceMapInterface, ResourceSchemeInterface
      * @since  1.0
      */
     protected $base_path = null;
-
-    /**
-     * Handler Instances
-     *
-     * @var    object  Molajo\Locator\Api\LocatorInterface
-     * @since  1.0
-     */
-    protected $exclude_in_path_array = array(
-        '.dev',
-        '.travis.yml',
-        '.DS_Store',
-        '.git',
-        '.',
-        '..',
-        '.gitattributes',
-        '.gitignore'
-    );
-
-    /**
-     * Exclude these pairs during build
-     *
-     * @var    array
-     * @since  1.0
-     */
-    protected $exclude_path_array = array();
 
     /**
      * Resource Map Filename
@@ -101,67 +84,74 @@ class ResourceMap implements ResourceMapInterface, ResourceSchemeInterface
     /**
      * Constructor
      *
-     * @param   array       $scheme_array
-     * @param   array       $namespace_prefixes
-     * @param   null|string $base_path
-     * @param   bool        $rebuild_map
-     * @param   array       $exclude_in_path_array
-     * @param   array       $exclude_path_array
-     * @param   array       $valid_extensions_array
-     * @param   null|string $resource_map_filename
+     * @param  string $scheme_array
+     * @param  string $primary_array
+     * @param  string $sort_order_filename
+     * @param  string $base_path
+     * @param  string $resource_map_filename
+     * @param  bool   $rebuild_map
      *
-     * @since   1.0
+     * @since  1.0
      */
     public function __construct(
-        array $scheme_array = array(),
-        array $namespace_prefixes = array(),
-        $base_path = null,
-        $rebuild_map = false,
-        $exclude_in_path_array = array(),
-        $exclude_path_array = array(),
-        $valid_extensions_array = array(),
-        $resource_map_filename = null
+        $scheme_array = 'resource_scheme_array.json',
+        $primary_array = 'resource_primary_array.json',
+        $sort_order_filename = 'resource_sort_order.json',
+        $base_path = '/',
+        $resource_map_filename = 'classmap.json',
+        $rebuild_map = false
     ) {
+        $class_array = 'scheme_array';
+        $filename    = $scheme_array;
+        $this->readFile($filename, $class_array);
+
+        $class_array = 'primary_array';
+        $filename    = $primary_array;
+        $this->readFile($filename, $class_array);
+
+        $class_array = 'sort_order';
+        $filename    = $sort_order_filename;
+        $this->readFile($filename, $class_array);
+
         $this->base_path             = $base_path;
-        $this->namespace_prefixes    = $namespace_prefixes;
         $this->resource_map_filename = $resource_map_filename;
 
-        if (array($exclude_in_path_array)
-            && count($exclude_in_path_array) > 0
-        ) {
-            $this->exclude_in_path_array = $exclude_in_path_array;
+        if ($rebuild_map === true) {
+            $this->createMap();
         }
+    }
 
-        if (array($exclude_path_array)
-            && count($exclude_path_array) > 0
-        ) {
-            $this->exclude_path_array = $exclude_path_array;
-        }
+    /**
+     * Read File
+     *
+     * @param  string $name
+     * @param  string $class_array
+     *
+     * @since  1.0
+     */
+    public function readFile($filename, $class_array)
+    {
+        $temp_array = array();
 
-        if (array($valid_extensions_array)
-            && count($valid_extensions_array) > 0
-        ) {
-            $this->valid_extensions_array = $valid_extensions_array;
-        }
+        $filename = __DIR__ . '/' . $filename;
 
-        if ($this->resource_map_filename === null) {
-            $rebuild_map = false;
-        } else {
-            if (file_exists($this->resource_map_filename)) {
-                $input        = file_get_contents($this->resource_map_filename);
-                $resource_map = json_decode($input);
-                if (count($resource_map) > 0) {
-                    $this->resource_map = array();
-                    foreach ($resource_map as $key => $value) {
-                        $this->resource_map[$key] = $value;
-                    }
+        if (file_exists($filename)) {
+            $input = file_get_contents($filename);
+            $temp  = json_decode($input);
+
+            if (count($temp) > 0) {
+                $temp_array = array();
+                foreach ($temp as $key => $value) {
+                    $temp_array[$key] = $value;
                 }
             }
+        } else {
+
+            file_put_contents($filename, json_encode($this->$class_array, JSON_PRETTY_PRINT));
+            $temp_array = $this->$class_array;
         }
 
-        if ($rebuild_map === true) {
-            $this->create($namespace_prefixes, $resource_map_filename);
-        }
+        $this->$class_array = $temp_array;
     }
 
     /**
@@ -174,7 +164,7 @@ class ResourceMap implements ResourceMapInterface, ResourceSchemeInterface
      *
      * @return  $this|void
      * @since   1.0
-     * @throws  \Molajo\Locator\Exception\LocatorException
+     * @throws  \Molajo\Resources\Exception\ResourcesException
      */
     public function addScheme($scheme, $handler = 'File', array $extensions = array(), $replace = false)
     {
@@ -201,7 +191,7 @@ class ResourceMap implements ResourceMapInterface, ResourceSchemeInterface
      *
      * @return  $this
      * @since   1.0
-     * @throws  \Molajo\Locator\Exception\LocatorException
+     * @throws  \Molajo\Resources\Exception\ResourcesException
      */
     public function removeScheme($scheme)
     {
@@ -351,7 +341,7 @@ class ResourceMap implements ResourceMapInterface, ResourceSchemeInterface
      *
      * @return  $this
      * @since   1.0
-     * @throws  \Molajo\Locator\Exception\LocatorException
+     * @throws  \Molajo\Resources\Exception\ResourcesException
      */
     public function createMap()
     {
@@ -483,7 +473,7 @@ class ResourceMap implements ResourceMapInterface, ResourceSchemeInterface
      *
      * @return  $this
      * @since   1.0
-     * @throws  \Molajo\Locator\Exception\LocatorException
+     * @throws  \Molajo\Resources\Exception\ResourcesException
      */
     public function createResourceItemHash()
     {
@@ -495,7 +485,7 @@ class ResourceMap implements ResourceMapInterface, ResourceSchemeInterface
      *
      * @return  array
      * @since   1.0
-     * @throws  \Molajo\Locator\Exception\LocatorException
+     * @throws  \Molajo\Resources\Exception\ResourcesException
      */
     public function editMap()
     {

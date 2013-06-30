@@ -6,16 +6,16 @@
  * @copyright 2013 Amy Stephen. All rights reserved.
  * @license   http://www.opensource.org/licenses/mit-license.html MIT License
  */
-namespace Molajo\Locator\Utilities;
+namespace Molajo\Resources\Utilities;
 
-use Molajo\Locator\Api\ClassLoaderInterface;
-use Molajo\Locator\Api\ExceptionInterface;
-use Molajo\Locator\Api\ResourceHandlerInterface;
-use Molajo\Locator\Api\ResourceLocatorInterface;
-use Molajo\Locator\Api\ResourceMapInterface;
-use Molajo\Locator\Api\ResourceSchemeInterface;
-use Molajo\Locator\Api\ResourceTagInterface;
-use Molajo\Locator\Exception\LocatorException;
+use Molajo\Resources\Api\ClassLoaderInterface;
+use Molajo\Resources\Api\ExceptionInterface;
+use Molajo\Resources\Api\ResourceHandlerInterface;
+use Molajo\Resources\Api\ResourceResourcesInterface;
+use Molajo\Resources\Api\ResourceMapInterface;
+use Molajo\Resources\Api\ResourceSchemeInterface;
+use Molajo\Resources\Api\ResourceTagInterface;
+use Molajo\Resources\Exception\ResourcesException;
 
 /**
  * Dependency Injection
@@ -51,23 +51,6 @@ class DI
      * @since  1.0
      */
     protected $base_path = null;
-
-    /**
-     * Handler Instances
-     *
-     * @var    object  Molajo\Locator\Api\LocatorInterface
-     * @since  1.0
-     */
-    protected $exclude_in_path_array = array(
-        '.dev',
-        '.travis.yml',
-        '.DS_Store',
-        '.git',
-        '.',
-        '..',
-        '.gitattributes',
-        '.gitignore'
-    );
 
     /**
      * Exclude these pairs during build
@@ -108,7 +91,6 @@ class DI
      * @param   array       $namespace_prefixes
      * @param   null|string $base_path
      * @param   bool        $rebuild_map
-     * @param   array       $exclude_in_path_array
      * @param   array       $exclude_path_array
      * @param   array       $valid_extensions_array
      * @param   null|string $resource_map_filename
@@ -121,7 +103,6 @@ class DI
         array $namespace_prefixes = array(),
         $base_path = null,
         $rebuild_map = false,
-        $exclude_in_path_array = array(),
         $exclude_path_array = array(),
         $valid_extensions_array = array(),
         $resource_map_filename = null,
@@ -130,12 +111,6 @@ class DI
         $this->base_path             = $base_path;
         $this->namespace_prefixes    = $namespace_prefixes;
         $this->resource_map_filename = $resource_map_filename;
-
-        if (array($exclude_in_path_array)
-            && count($exclude_in_path_array) > 0
-        ) {
-            $this->exclude_in_path_array = $exclude_in_path_array;
-        }
 
         if (array($exclude_path_array)
             && count($exclude_path_array) > 0
@@ -194,7 +169,7 @@ public function load($filename)
      *
      * @return  $this|void
      * @since   1.0
-     * @throws  \Molajo\Locator\Exception\LocatorException
+     * @throws  \Molajo\Resources\Exception\ResourcesException
      */
     public function addScheme($scheme, $handler = 'File', array $extensions = array(), $replace = false)
     {
@@ -221,7 +196,7 @@ public function load($filename)
      *
      * @return  $this
      * @since   1.0
-     * @throws  \Molajo\Locator\Exception\LocatorException
+     * @throws  \Molajo\Resources\Exception\ResourcesException
      */
     public function removeScheme($scheme)
     {
@@ -371,7 +346,7 @@ public function load($filename)
      *
      * @return  $this
      * @since   1.0
-     * @throws  \Molajo\Locator\Exception\LocatorException
+     * @throws  \Molajo\Resources\Exception\ResourcesException
      */
     public function createMap()
     {
@@ -503,7 +478,7 @@ public function load($filename)
      *
      * @return  $this
      * @since   1.0
-     * @throws  \Molajo\Locator\Exception\LocatorException
+     * @throws  \Molajo\Resources\Exception\ResourcesException
      */
     public function createResourceItemHash()
     {
@@ -515,7 +490,7 @@ public function load($filename)
      *
      * @return  array
      * @since   1.0
-     * @throws  \Molajo\Locator\Exception\LocatorException
+     * @throws  \Molajo\Resources\Exception\ResourcesException
      */
     public function editMap()
     {

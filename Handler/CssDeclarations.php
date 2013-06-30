@@ -1,19 +1,19 @@
 <?php
 /**
- * Css Declarations Locator
+ * Css Declarations Resources
  *
  * @package   Molajo
  * @copyright 2013 Amy Stephen. All rights reserved.
  * @license   http://www.opensource.org/licenses/mit-license.html MIT License
  */
-namespace Molajo\Locator\Handler;
+namespace Molajo\Resources\Handler;
 
-use Molajo\Locator\Api\ResourceMapInterface;
-use Molajo\Locator\Api\LocatorInterface;
-use Molajo\Locator\Handler\AbstractLocator;
+use Molajo\Resources\Api\ResourceMapInterface;
+use Molajo\Resources\Api\ResourcesInterface;
+use Molajo\Resources\Handler\AbstractResources;
 
 /**
- * Css Declarations Locator
+ * Css Declarations Resources
  *
  * @package   Molajo
  * @copyright 2013 Amy Stephen. All rights reserved.
@@ -109,14 +109,14 @@ class CssDeclarationsHandler implements ResourceHandlerInterface
 
     /**
      * Locates folder/file associated with Fully Qualified Namespace for Resource and passes
-     * the path to a handler for that type of resource (ex. a Css Locator includes the file)
+     * the path to a handler for that type of resource (ex. a Css Resources includes the file)
      *
      * @param   string $resource
      * @param   array  $options
      *
      * @return  void|mixed
      * @since   1.0
-     * @throws  \Molajo\Locator\Exception\LocatorException
+     * @throws  \Molajo\Resources\Exception\ResourcesException
      */
     public function findResource($resource, array $options = array())
     {

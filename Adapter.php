@@ -1,33 +1,33 @@
 <?php
 /**
- * Resource Locator Adapter
+ * Resource Resources Adapter
  *
  * @package   Molajo
  * @copyright 2013 Amy Stephen. All rights reserved.
  * @license   http://www.opensource.org/licenses/mit-license.html MIT License
  */
-namespace Molajo\Locator;
+namespace Molajo\Resources;
 
-use Molajo\Locator\Exception\LocatorException;
-use Molajo\Locator\Api\ResourceLocatorInterface;
-use Molajo\Locator\Api\ResourceHandlerInterface;
-use Molajo\Locator\Api\ClassLoaderInterface;
-use Molajo\Locator\Api\ResourceMapInterface;
+use Molajo\Resources\Exception\ResourcesException;
+use Molajo\Resources\Api\ResourceResourcesInterface;
+use Molajo\Resources\Api\ResourceHandlerInterface;
+use Molajo\Resources\Api\ClassLoaderInterface;
+use Molajo\Resources\Api\ResourceMapInterface;
 
 /**
- * Resource Locator Adapter
+ * Resource Resources Adapter
  *
  * @package   Molajo
  * @copyright 2013 Amy Stephen. All rights reserved.
  * @license   http://www.opensource.org/licenses/mit-license.html MIT License
  * @since     1.0
  */
-class Adapter implements ResourceLocatorInterface, ClassLoaderInterface
+class Adapter implements ResourceResourcesInterface, ClassLoaderInterface
 {
     /**
-     * Locator Instances
+     * Resources Instances
      *
-     * @var    object  Molajo\Locator\Api\ResourceLocatorInterface
+     * @var    object  Molajo\Resources\Api\ResourceResourcesInterface
      * @since  1.0
      */
     protected $locator_instance;
@@ -35,7 +35,7 @@ class Adapter implements ResourceLocatorInterface, ClassLoaderInterface
     /**
      * Handler Instances
      *
-     * @var    object  Molajo\Locator\Api\ResourceHandlerInterface
+     * @var    object  Molajo\Resources\Api\ResourceHandlerInterface
      * @since  1.0
      */
     protected $handler_instance = array();
@@ -107,7 +107,7 @@ class Adapter implements ResourceLocatorInterface, ClassLoaderInterface
     /**
      * Constructor
      *
-     * @param   ResourceLocatorInterface $locator_instance
+     * @param   ResourceResourcesInterface $locator_instance
      * @param   ResourceMapInterface     $resource_map_instance
      * @param   array                    $scheme_type
      * @param   array                    $handler_instance_array
@@ -115,7 +115,7 @@ class Adapter implements ResourceLocatorInterface, ClassLoaderInterface
      * @since   1.0
      */
     public function __construct(
-        ResourceLocatorInterface $locator_instance,
+        ResourceResourcesInterface $locator_instance,
         ResourceMapInterface $resource_map_instance,
         array $scheme_type = array(),
         array $handler_instance_array = array()
@@ -168,7 +168,7 @@ class Adapter implements ResourceLocatorInterface, ClassLoaderInterface
      *
      * @return  void|mixed
      * @since   1.0
-     * @throws  \Molajo\Locator\Exception\LocatorException
+     * @throws  \Molajo\Resources\Exception\ResourcesException
      */
     public function get($uri_namespace)
     {
@@ -186,7 +186,7 @@ class Adapter implements ResourceLocatorInterface, ClassLoaderInterface
      *
      * @return  mixed
      * @since   1.0
-     * @throws  \Molajo\Locator\Exception\LocatorException
+     * @throws  \Molajo\Resources\Exception\ResourcesException
      */
     public function getCollection(array $options = array())
     {
@@ -201,7 +201,7 @@ class Adapter implements ResourceLocatorInterface, ClassLoaderInterface
      *
      * @return  void|mixed
      * @since   1.0
-     * @throws  \Molajo\Locator\Exception\LocatorException
+     * @throws  \Molajo\Resources\Exception\ResourcesException
      */
     protected function getResource($resource, array $options = array())
     {
@@ -216,7 +216,7 @@ class Adapter implements ResourceLocatorInterface, ClassLoaderInterface
      *
      * @return  void|mixed
      * @since   1.0
-     * @throws  \Molajo\Locator\Exception\LocatorException
+     * @throws  \Molajo\Resources\Exception\ResourcesException
      */
     protected function handleResource($resource, array $options = array())
     {
@@ -232,7 +232,7 @@ class Adapter implements ResourceLocatorInterface, ClassLoaderInterface
      *
      * @return  $this
      * @since   1.0
-     * @throws  \Molajo\Locator\Exception\LocatorException
+     * @throws  \Molajo\Resources\Exception\ResourcesException
      */
     public function addScheme($scheme, array $handler = 'File', $extensions = array())
     {
@@ -261,7 +261,7 @@ class Adapter implements ResourceLocatorInterface, ClassLoaderInterface
      *
      * @return  $this
      * @since   1.0
-     * @throws  \Molajo\Locator\Exception\LocatorException
+     * @throws  \Molajo\Resources\Exception\ResourcesException
      */
     public function createMap()
     {
@@ -273,7 +273,7 @@ class Adapter implements ResourceLocatorInterface, ClassLoaderInterface
      *
      * @return  array
      * @since   1.0
-     * @throws  \Molajo\Locator\Exception\LocatorException
+     * @throws  \Molajo\Resources\Exception\ResourcesException
      */
     public function editMap()
     {
@@ -285,7 +285,7 @@ class Adapter implements ResourceLocatorInterface, ClassLoaderInterface
      *
      * @return  $this
      * @since   1.0
-     * @throws  \Molajo\Locator\Exception\LocatorException
+     * @throws  \Molajo\Resources\Exception\ResourcesException
      */
     public function parseUrl($url)
     {

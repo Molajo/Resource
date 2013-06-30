@@ -1,10 +1,10 @@
 =======
-Resource Locator (will be renamed to Resources)
+Resource Resources (will be renamed to Resources)
 =======
 
-[![Build Status](https://travis-ci.org/Molajo/Locator.png?branch=master)](https://travis-ci.org/Molajo/Locator)
+[![Build Status](https://travis-ci.org/Molajo/Resources.png?branch=master)](https://travis-ci.org/Molajo/Resources)
 
-*Resource Locator* provides PHP applications with a generalized approach for locating and handling
+*Resource Resources* provides PHP applications with a generalized approach for locating and handling
     file and folder resources using URI namespaces.
 
 ## Basic Usage ##
@@ -24,7 +24,7 @@ The application is able to interact with the filesystem in a more generic way us
 
 ```
 
-The **Locator** translates the URI into a filesystem path for use of that value with filesystem operations:
+The **Resources** translates the URI into a filesystem path for use of that value with filesystem operations:
 
 ```php
 <?
@@ -32,7 +32,7 @@ The **Locator** translates the URI into a filesystem path for use of that value 
 ```
 The **URI namespace**
 
-##Instantiate the Resource Locator Adapter##
+##Instantiate the Resource Resources Adapter##
 
 ### Example: Class Loader
 
@@ -47,7 +47,7 @@ get(value);
 
 ####Example: Get File location####
 ```php
-    $locator = new Molajo\Locator\Adapter();
+    $locator = new Molajo\Resources\Adapter();
     $resource = $adapter->get($uri);
 
     echo $uri;
@@ -96,7 +96,7 @@ Create Resource Map
 ###Define Namespaces###
 
 ```php
-    $adapter = new Molajo\Locator\Adapter();
+    $adapter = new Molajo\Resources\Adapter();
 
     try {
         $filtered = $adapter->filter($field_name, $field_value, $loader_type_chain, $options);
@@ -112,7 +112,7 @@ Create Resource Map
 ###Create Resource Map###
 
 ```php
-    $adapter = new Molajo\Locator\Adapter();
+    $adapter = new Molajo\Resources\Adapter();
 
     try {
         $filtered = $adapter->filter($field_name, $field_value, $loader_type_chain, $options);
@@ -141,7 +141,7 @@ echo match_path('\\Acme\\Blog\\ShowController.php', $mapping, $sep);
 echo match_path('\\Acme\\Demo\\Parser.php', $mapping, $sep);
 // => "src/Parser.php"
 
-    $adapter = new Molajo\Locator\Adapter();
+    $adapter = new Molajo\Resources\Adapter();
 
     try {
         $filtered = $adapter->filter($field_name, $field_value, $loader_type_chain, $options);
@@ -167,7 +167,7 @@ echo match_path('\\Acme\\Demo\\Parser.php', $mapping, $sep);
 ```php
 {
     "require": {
-        "Molajo/Locator": "1.*"
+        "Molajo/Resources": "1.*"
     }
 }
 ```
@@ -190,5 +190,5 @@ echo match_path('\\Acme\\Demo\\Parser.php', $mapping, $sep);
  * Author [AmyStephen](http://twitter.com/AmyStephen)
  * [Travis Continuous Improvement] (https://travis-ci.org/profile/Molajo)
  * Listed on [Packagist] (http://packagist.org) and installed using [Composer] (http://getcomposer.org/)
- * Use github to submit [pull requests](https://github.com/Molajo/Locator/pulls) and [features](https://github.com/Molajo/Locator/issues)
+ * Use github to submit [pull requests](https://github.com/Molajo/Resources/pulls) and [features](https://github.com/Molajo/Resources/issues)
  * Licensed under the MIT License - see the `LICENSE` file for details

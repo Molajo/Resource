@@ -6,7 +6,7 @@
  * @copyright 2013 Amy Stephen. All rights reserved.
  * @license   http://www.opensource.org/licenses/mit-license.html MIT License
  */
-namespace Molajo\Locator\Api;
+namespace Molajo\Resources\Api;
 
 interface ResourceHandlerInterface
 {
@@ -17,7 +17,7 @@ interface ResourceHandlerInterface
      *
      * @return  void|mixed
      * @since   1.0
-     * @throws  \Molajo\Locator\Exception\LocatorException
+     * @throws  \Molajo\Resources\Exception\ResourcesException
      */
     public function handlePath($located_path, array $options = array());
 
@@ -28,7 +28,7 @@ interface ResourceHandlerInterface
      *
      * @return  mixed
      * @since   1.0
-     * @throws  \Molajo\Locator\Exception\LocatorException
+     * @throws  \Molajo\Resources\Exception\ResourcesException
      */
     public function getCollection(array $options = array());
 }

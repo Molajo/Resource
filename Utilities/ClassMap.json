@@ -3734,77 +3734,77 @@
     "Molajo\\Kernel\\IoC\\composer": [
         "Kernel\/IoC\/composer.json"
     ],
-    "Molajo\\Kernel\\Locator": [
-        "Kernel\/Locator"
+    "Molajo\\Kernel\\Resources": [
+        "Kernel\/Resources"
     ],
-    "Molajo\\Locator\\Adapter": [
-        "Kernel\/Locator\/Adapter.php"
+    "Molajo\\Resources\\Adapter": [
+        "Kernel\/Resources\/Adapter.php"
     ],
-    "Molajo\\Locator\\Api": [
-        "Kernel\/Locator\/Api"
+    "Molajo\\Resources\\Api": [
+        "Kernel\/Resources\/Api"
     ],
-    "Molajo\\Locator\\Api\\ClassLoaderInterface": [
-        "Kernel\/Locator\/Api\/ClassLoaderInterface.php"
+    "Molajo\\Resources\\Api\\ClassLoaderInterface": [
+        "Kernel\/Resources\/Api\/ClassLoaderInterface.php"
     ],
-    "Molajo\\Locator\\Api\\ExceptionInterface": [
-        "Kernel\/Locator\/Api\/ExceptionInterface.php"
+    "Molajo\\Resources\\Api\\ExceptionInterface": [
+        "Kernel\/Resources\/Api\/ExceptionInterface.php"
     ],
-    "Molajo\\Locator\\Api\\LocatorInterface": [
-        "Kernel\/Locator\/Api\/LocatorInterface.php"
+    "Molajo\\Resources\\Api\\ResourcesInterface": [
+        "Kernel\/Resources\/Api\/ResourcesInterface.php"
     ],
-    "Molajo\\Locator\\Api\\ResourceMapInterface": [
-        "Kernel\/Locator\/Api\/ResourceMapInterface.php"
+    "Molajo\\Resources\\Api\\ResourceMapInterface": [
+        "Kernel\/Resources\/Api\/ResourceMapInterface.php"
     ],
-    "Molajo\\Locator\\ClassMap": [
-        "Kernel\/Locator\/ClassMap.json"
+    "Molajo\\Resources\\ClassMap": [
+        "Kernel\/Resources\/ClassMap.json"
     ],
-    "Molajo\\Locator\\Exception": [
-        "Kernel\/Locator\/Exception"
+    "Molajo\\Resources\\Exception": [
+        "Kernel\/Resources\/Exception"
     ],
-    "Molajo\\Locator\\Exception\\LocatorException": [
-        "Kernel\/Locator\/Exception\/LocatorException.php"
+    "Molajo\\Resources\\Exception\\ResourcesException": [
+        "Kernel\/Resources\/Exception\/ResourcesException.php"
     ],
-    "Molajo\\Locator\\Handler": [
-        "Kernel\/Locator\/Handler"
+    "Molajo\\Resources\\Handler": [
+        "Kernel\/Resources\/Handler"
     ],
-    "Molajo\\Locator\\Handler\\AbstractLocator": [
-        "Kernel\/Locator\/Handler\/AbstractLocator.php"
+    "Molajo\\Resources\\Handler\\AbstractResources": [
+        "Kernel\/Resources\/Handler\/AbstractResources.php"
     ],
-    "Molajo\\Locator\\Handler\\ClassLoader": [
-        "Kernel\/Locator\/Handler\/ClassLoader.php"
+    "Molajo\\Resources\\Handler\\ClassLoader": [
+        "Kernel\/Resources\/Handler\/ClassLoader.php"
     ],
-    "Molajo\\Locator\\Handler\\ConfigurationLocator": [
-        "Kernel\/Locator\/Handler\/ConfigurationLocator.php"
+    "Molajo\\Resources\\Handler\\ConfigurationResources": [
+        "Kernel\/Resources\/Handler\/ConfigurationResources.php"
     ],
-    "Molajo\\Locator\\Handler\\CssDeclarationsLocator": [
-        "Kernel\/Locator\/Handler\/CssDeclarationsLocator.php"
+    "Molajo\\Resources\\Handler\\CssDeclarationsResources": [
+        "Kernel\/Resources\/Handler\/CssDeclarationsResources.php"
     ],
-    "Molajo\\Locator\\Handler\\CssLocator": [
-        "Kernel\/Locator\/Handler\/CssLocator.php"
+    "Molajo\\Resources\\Handler\\CssResources": [
+        "Kernel\/Resources\/Handler\/CssResources.php"
     ],
-    "Molajo\\Locator\\Handler\\FileLocator": [
-        "Kernel\/Locator\/Handler\/FileLocator.php"
+    "Molajo\\Resources\\Handler\\FileResources": [
+        "Kernel\/Resources\/Handler\/FileResources.php"
     ],
-    "Molajo\\Locator\\Handler\\JsLocator": [
-        "Kernel\/Locator\/Handler\/JsLocator.php"
+    "Molajo\\Resources\\Handler\\JsResources": [
+        "Kernel\/Resources\/Handler\/JsResources.php"
     ],
-    "Molajo\\Locator\\LICENSE": [
-        "Kernel\/Locator\/LICENSE"
+    "Molajo\\Resources\\LICENSE": [
+        "Kernel\/Resources\/LICENSE"
     ],
-    "Molajo\\Locator\\README": [
-        "Kernel\/Locator\/README.md"
+    "Molajo\\Resources\\README": [
+        "Kernel\/Resources\/README.md"
     ],
-    "Molajo\\Locator\\Utilities": [
-        "Kernel\/Locator\/Utilities"
+    "Molajo\\Resources\\Utilities": [
+        "Kernel\/Resources\/Utilities"
     ],
-    "Molajo\\Locator\\Utilities\\Editing": [
-        "Kernel\/Locator\/Utilities\/Editing.php"
+    "Molajo\\Resources\\Utilities\\Editing": [
+        "Kernel\/Resources\/Utilities\/Editing.php"
     ],
-    "Molajo\\Locator\\Utilities\\ResourceMap": [
-        "Kernel\/Locator\/Utilities\/ResourceMap.php"
+    "Molajo\\Resources\\Utilities\\ResourceMap": [
+        "Kernel\/Resources\/Utilities\/ResourceMap.php"
     ],
-    "Molajo\\Locator\\composer": [
-        "Kernel\/Locator\/composer.json"
+    "Molajo\\Resources\\composer": [
+        "Kernel\/Resources\/composer.json"
     ],
     "Molajo\\Kernel\\MIT-LICENSE": [
         "Kernel\/MIT-LICENSE.txt"
@@ -5786,32 +5786,32 @@
     "Molajo\\Service\\Language\\LanguageInjector": [
         "Service\/Language\/LanguageInjector.php"
     ],
-    "Molajo\\Service\\Locator": [
-        "Service\/Locator"
+    "Molajo\\Service\\Resources": [
+        "Service\/Resources"
     ],
-    "Molajo\\Service\\LocatorFile": [
-        "Service\/LocatorFile"
+    "Molajo\\Service\\ResourcesFile": [
+        "Service\/ResourcesFile"
     ],
-    "Molajo\\Service\\LocatorFile\\Configuration": [
-        "Service\/LocatorFile\/Configuration.xml"
+    "Molajo\\Service\\ResourcesFile\\Configuration": [
+        "Service\/ResourcesFile\/Configuration.xml"
     ],
-    "Molajo\\Service\\LocatorFile\\LocatorInjector": [
-        "Service\/LocatorFile\/LocatorInjector.php"
+    "Molajo\\Service\\ResourcesFile\\ResourcesInjector": [
+        "Service\/ResourcesFile\/ResourcesInjector.php"
     ],
-    "Molajo\\Service\\LocatorResourceMap": [
-        "Service\/LocatorResourceMap"
+    "Molajo\\Service\\ResourcesResourceMap": [
+        "Service\/ResourcesResourceMap"
     ],
-    "Molajo\\Service\\LocatorResourceMap\\Configuration": [
-        "Service\/LocatorResourceMap\/Configuration.xml"
+    "Molajo\\Service\\ResourcesResourceMap\\Configuration": [
+        "Service\/ResourcesResourceMap\/Configuration.xml"
     ],
-    "Molajo\\Service\\LocatorResourceMap\\LocatorResourceMapInjector": [
-        "Service\/LocatorResourceMap\/LocatorResourceMapInjector.php"
+    "Molajo\\Service\\ResourcesResourceMap\\ResourcesResourceMapInjector": [
+        "Service\/ResourcesResourceMap\/ResourcesResourceMapInjector.php"
     ],
-    "Molajo\\Service\\Locator\\Configuration": [
-        "Service\/Locator\/Configuration.xml"
+    "Molajo\\Service\\Resources\\Configuration": [
+        "Service\/Resources\/Configuration.xml"
     ],
-    "Molajo\\Service\\Locator\\LocatorInjector": [
-        "Service\/Locator\/LocatorInjector.php"
+    "Molajo\\Service\\Resources\\ResourcesInjector": [
+        "Service\/Resources\/ResourcesInjector.php"
     ],
     "Molajo\\Service\\Log": [
         "Service\/Log"

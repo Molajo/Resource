@@ -1,18 +1,18 @@
 <?php
 /**
- * Class Locator Tests
+ * Class Resources Tests
  *
  * @package   Molajo
  * @copyright 2013 Amy Stephen. All rights reserved.
  * @license   http://www.opensource.org/licenses/mit-license.html MIT License
  */
-namespace Molajo\Locator\Tests;
+namespace Molajo\Resources\Tests;
 
-use Molajo\Locator\Adapter;
+use Molajo\Resources\Adapter;
 use PHPUnit_Framework_TestCase;
 
 /**
- * Class Locator Tests
+ * Class Resources Tests
  *
  * @package   Molajo
  * @copyright 2013 Amy Stephen. All rights reserved.
@@ -22,9 +22,9 @@ use PHPUnit_Framework_TestCase;
 class ClassLoaderDynamicTest extends PHPUnit_Framework_TestCase
 {
     /**
-     * Locator Adapter
+     * Resources Adapter
      *
-     * @var    object  Molajo/Kernel/Locator/Adapter
+     * @var    object  Molajo/Kernel/Resources/Adapter
      * @since  1.0
      */
     protected $locator;
@@ -80,7 +80,7 @@ class ClassLoaderDynamicTest extends PHPUnit_Framework_TestCase
         $resource_map_filename    = null;
         $namespace_prefixes       = array();
 
-        $class                 = 'Molajo\\Locator\\Utilities\\ResourceMap';
+        $class                 = 'Molajo\\Resources\\Utilities\\ResourceMap';
         $resource_map_instance = new $class (
             $namespace_prefixes,
             $base_path,
@@ -91,7 +91,7 @@ class ClassLoaderDynamicTest extends PHPUnit_Framework_TestCase
             $this->valid_extensions_array
         );
 
-        $class            = 'Molajo\\Locator\\Handler\\ClassLoader';
+        $class            = 'Molajo\\Resources\\Handler\\ClassLoader';
         $handler_instance = new $class (
             $file_extensions,
             $namespace_prefixes,
@@ -105,21 +105,21 @@ class ClassLoaderDynamicTest extends PHPUnit_Framework_TestCase
         );
 
 
-        $class         = 'Molajo\\Locator\\Adapter';
+        $class         = 'Molajo\\Resources\\Adapter';
         $this->locator = new $class (
             $handler_instance,
             'Class'
         );
 
         $this->locator->addNamespace('Molajo\\Test', '.dev/Classes');
-        $this->locator->addNamespace('Molajo\\Locator', '.dev/Psr0/Molajo/Locator');
+        $this->locator->addNamespace('Molajo\\Resources', '.dev/Psr0/Molajo/Resources');
         $this->locator->addNamespace('Molajo', '.dev/Extension');
     }
 
     /**
      * Retrieve path from namespace resource map
      *
-     * @covers  Molajo\Locator\Handler\Default::validate
+     * @covers  Molajo\Resources\Handler\Default::validate
      * @return  void
      * @since   1.0
      */
@@ -137,7 +137,7 @@ class ClassLoaderDynamicTest extends PHPUnit_Framework_TestCase
     /**
      * Class reloads from previous, lower case class name
      *
-     * @covers  Molajo\Locator\Handler\Default::validate
+     * @covers  Molajo\Resources\Handler\Default::validate
      * @return  void
      * @since   1.0
      */
@@ -154,7 +154,7 @@ class ClassLoaderDynamicTest extends PHPUnit_Framework_TestCase
     /**
      * Class is not found - with class exists
      *
-     * @covers  Molajo\Locator\Handler\Default::validate
+     * @covers  Molajo\Resources\Handler\Default::validate
      * @return  void
      * @since   1.0
      */
@@ -173,7 +173,7 @@ class ClassLoaderDynamicTest extends PHPUnit_Framework_TestCase
     /**
      * Class is found - with class exists
      *
-     * @covers  Molajo\Locator\Handler\Default::validate
+     * @covers  Molajo\Resources\Handler\Default::validate
      * @return  void
      * @since   1.0
      */
@@ -192,7 +192,7 @@ class ClassLoaderDynamicTest extends PHPUnit_Framework_TestCase
     /**
      * Retrieve path from namespace resource map
      *
-     * @covers  Molajo\Locator\Handler\Default::validate
+     * @covers  Molajo\Resources\Handler\Default::validate
      * @return  void
      * @since   1.0
      */
@@ -209,7 +209,7 @@ class ClassLoaderDynamicTest extends PHPUnit_Framework_TestCase
     /**
      * Matching file - but does not match file extension
      *
-     * @covers  Molajo\Locator\Handler\Default::validate
+     * @covers  Molajo\Resources\Handler\Default::validate
      * @return  void
      * @since   1.0
      */

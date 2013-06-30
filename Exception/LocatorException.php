@@ -1,25 +1,25 @@
 <?php
 /**
- * LocatorException
+ * ResourcesException
  *
  * @package   Molajo
  * @copyright 2013 Amy Stephen. All rights reserved.
  * @license   http://www.opensource.org/licenses/mit-license.html MIT License
  */
-namespace Molajo\Locator\Exception;
+namespace Molajo\Resources\Exception;
 
 use RuntimeException;
-use Molajo\Locator\Api\ExceptionInterface;
+use Molajo\Resources\Api\ExceptionInterface;
 
 /**
- * Locator Exception
+ * Resources Exception
  *
  * @package   Molajo
  * @license   http://www.opensource.org/licenses/mit-license.html MIT License
  * @copyright 2013 Amy Stephen. All rights reserved.
  * @since     1.0
  */
-class LocatorException extends RuntimeException implements ExceptionInterface
+class ResourcesException extends RuntimeException implements ExceptionInterface
 {
 
 }

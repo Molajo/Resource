@@ -6,7 +6,7 @@
  * @copyright 2013 Amy Stephen. All rights reserved.
  * @license   http://www.opensource.org/licenses/mit-license.html MIT License
  */
-namespace Molajo\Locator\Api;
+namespace Molajo\Resources\Api;
 
 /**
  * Resource Tag Interface
@@ -27,7 +27,7 @@ interface ResourceTagInterface
      *
      * @return  $this
      * @since   1.0
-     * @throws  \Molajo\Locator\Exception\LocatorException
+     * @throws  \Molajo\Resources\Exception\ResourcesException
      */
     public function addTag($namespace, array $tag = array(), $replace = true);
 }

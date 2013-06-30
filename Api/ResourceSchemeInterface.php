@@ -6,7 +6,7 @@
  * @copyright 2013 Amy Stephen. All rights reserved.
  * @license   http://www.opensource.org/licenses/mit-license.html MIT License
  */
-namespace Molajo\Locator\Api;
+namespace Molajo\Resources\Api;
 
 /**
  * Resources Scheme Interface
@@ -28,7 +28,7 @@ interface ResourceSchemeInterface
      *
      * @return  $this|void
      * @since   1.0
-     * @throws  \Molajo\Locator\Exception\LocatorException
+     * @throws  \Molajo\Resources\Exception\ResourcesException
      */
     public function addScheme($scheme, $handler = 'File', array $extensions = array(), $replace = false);
 }

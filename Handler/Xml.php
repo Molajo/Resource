@@ -6,11 +6,11 @@
  * @copyright 2013 Amy Stephen. All rights reserved.
  * @license   http://www.opensource.org/licenses/mit-license.html MIT License
  */
-namespace Molajo\Locator\Handler;
+namespace Molajo\Resources\Handler;
 
 use Exception;
-use Molajo\Locator\Exception\LocatorException;
-use Molajo\Locator\Api\ResourceLocatorInterface;
+use Molajo\Resources\Exception\ResourcesException;
+use Molajo\Resources\Api\ResourceResourcesInterface;
 
 /**
  * Configuration Handler
@@ -220,7 +220,7 @@ class XmlHandler implements ResourceHandlerInterface
      *
      * @return  void|mixed
      * @since   1.0
-     * @throws  \Molajo\Locator\Exception\LocatorException
+     * @throws  \Molajo\Resources\Exception\ResourcesException
      */
     public function handlePath($located_path, array $options = array())
     {
@@ -238,7 +238,7 @@ class XmlHandler implements ResourceHandlerInterface
      *
      * @return  mixed
      * @since   1.0
-     * @throws  \Molajo\Locator\Exception\LocatorException
+     * @throws  \Molajo\Resources\Exception\ResourcesException
      */
     public function getCollection(array $options = array())
     {
@@ -252,7 +252,7 @@ class XmlHandler implements ResourceHandlerInterface
      *
      * @return  string
      * @since   1.0
-     * @throws  \Molajo\Locator\Exception\LocatorException
+     * @throws  \Molajo\Resources\Exception\ResourcesException
      */
     public function search($remainder = null)
     {
@@ -341,7 +341,7 @@ class XmlHandler implements ResourceHandlerInterface
             }
         }
 
-        throw new LocatorException
+        throw new ResourcesException
         ('Configuration: locateFile() Cannot find Model Type '
         . $this->model_type . ' Model Name ' . $this->model_name);
     }

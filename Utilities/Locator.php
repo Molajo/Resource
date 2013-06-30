@@ -1,26 +1,26 @@
 <?php
 /**
- * Locator
+ * Resources
  *
  * @package   Molajo
  * @copyright 2013 Amy Stephen. All rights reserved.
  * @license   http://www.opensource.org/licenses/mit-license.html MIT License
  */
-namespace Molajo\Locator\Utilities;
+namespace Molajo\Resources\Utilities;
 
-use Molajo\Locator\Api\ResourceLocatorInterface;
-use Molajo\Locator\Api\ResourceMapInterface;
-use Molajo\Locator\Exception\LocatorException;
+use Molajo\Resources\Api\ResourceResourcesInterface;
+use Molajo\Resources\Api\ResourceMapInterface;
+use Molajo\Resources\Exception\ResourcesException;
 
 /**
- * Locator
+ * Resources
  *
  * @package   Molajo
  * @copyright 2013 Amy Stephen. All rights reserved.
  * @license   http://www.opensource.org/licenses/mit-license.html MIT License
  * @since     1.0
  */
-class Handler implements ResourceLocatorInterface
+class Handler implements ResourceResourcesInterface
 {
     /**
      * Associative Array [Namespace Prefix] => Array of Base Directories
@@ -101,7 +101,7 @@ class Handler implements ResourceLocatorInterface
     /**
      * Resource Map Instance
      *
-     * @var    object Molajo\Locator\Api\ResourceMapInterface
+     * @var    object Molajo\Resources\Api\ResourceMapInterface
      * @since  1.0
      */
     protected $resource_map_instance;
@@ -187,7 +187,7 @@ class Handler implements ResourceLocatorInterface
      *
      * @return  void|mixed
      * @since   1.0
-     * @throws  \Molajo\Locator\Exception\LocatorException
+     * @throws  \Molajo\Resources\Exception\ResourcesException
      */
     public function get($uri_namespace)
     {
@@ -199,7 +199,7 @@ class Handler implements ResourceLocatorInterface
 
         if (isset($this->handler_file_extensions[$handler_type])) {
         } else {
-            throw new LocatorException ('Locator Locate-Handler Type not found: ' . $handler_type);
+            throw new ResourcesException ('Resources Locate-Handler Type not found: ' . $handler_type);
         }
 
         $located_path = false;
