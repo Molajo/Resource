@@ -1,6 +1,6 @@
 <?php
 /**
- * Resource Resources Adapter
+ * Resource Locator
  *
  * @package   Molajo
  * @copyright 2013 Amy Stephen. All rights reserved.
@@ -8,11 +8,13 @@
  */
 namespace Molajo\Resources;
 
-use Molajo\Resources\Exception\ResourcesException;
-use Molajo\Resources\Api\ResourceResourcesInterface;
-use Molajo\Resources\Api\ResourceHandlerInterface;
-use Molajo\Resources\Api\ClassLoaderInterface;
+use Molajo\Resources\Api\ClassHandlerInterface;
+use Molajo\Resources\Api\SchemeInterface;
+use Molajo\Resources\Api\ResourceLocatorInterface;
+use Molajo\Resources\Api\ResourceNamespaceInterface;
 use Molajo\Resources\Api\ResourceMapInterface;
+use Molajo\Resources\Api\ResourceHandlerInterface;
+use Molajo\Resources\Exception\ResourcesException;
 
 /**
  * Resource Resources Adapter
@@ -22,15 +24,25 @@ use Molajo\Resources\Api\ResourceMapInterface;
  * @license   http://www.opensource.org/licenses/mit-license.html MIT License
  * @since     1.0
  */
-class Adapter implements ResourceResourcesInterface, ClassLoaderInterface
+class Adapter implements ClassHandlerInterface, SchemeInterface,
+    ResourceLocatorInterface, ResourceNamespaceInterface, ResourceMapInterface,
+    ResourceHandlerInterface
 {
     /**
-     * Resources Instances
+     * Scheme Instance
      *
-     * @var    object  Molajo\Resources\Api\ResourceResourcesInterface
+     * @var    object  Molajo\Resources\Api\SchemeInterface
      * @since  1.0
      */
-    protected $locator_instance;
+    protected $scheme_instance;
+
+    /**
+     * Resources Map Instance
+     *
+     * @var    object  Molajo\Resources\Api\ResourceMapInterface
+     * @since  1.0
+     */
+    protected $resource_map_instance;
 
     /**
      * Handler Instances
@@ -39,22 +51,6 @@ class Adapter implements ResourceResourcesInterface, ClassLoaderInterface
      * @since  1.0
      */
     protected $handler_instance = array();
-
-    /**
-     * Scheme Type
-     *
-     * @var    array
-     * @since  1.0
-     */
-    protected $scheme_type = array();
-
-    /**
-     * Scheme
-     *
-     * @var    string
-     * @since  1.0
-     */
-    protected $scheme;
 
     /**
      * Host
@@ -73,12 +69,12 @@ class Adapter implements ResourceResourcesInterface, ClassLoaderInterface
     protected $user;
 
     /**
-     * Pass
+     * Password
      *
      * @var    string
      * @since  1.0
      */
-    protected $pass;
+    protected $password;
 
     /**
      * Path
@@ -107,24 +103,22 @@ class Adapter implements ResourceResourcesInterface, ClassLoaderInterface
     /**
      * Constructor
      *
-     * @param   ResourceResourcesInterface $locator_instance
-     * @param   ResourceMapInterface     $resource_map_instance
-     * @param   array                    $scheme_type
-     * @param   array                    $handler_instance_array
+     * @param   SchemeInterface      $scheme_instance
+     * @param   ResourceMapInterface $resource_map_instance
+     * @param   array                $handler_instance_array
      *
      * @since   1.0
      */
     public function __construct(
-        ResourceResourcesInterface $locator_instance,
         ResourceMapInterface $resource_map_instance,
-        array $scheme_type = array(),
+        SchemeInterface $scheme_instance,
         array $handler_instance_array = array()
     ) {
-        $this->locator_instance      = $locator_instance;
-        $this->resource_map_instance = $resource_map_instance;
-        $this->scheme_type           = $scheme_type;
+        $this->scheme_instance        = $scheme_instance;
+        $this->resource_map_instance  = $resource_map_instance;
+        $this->handler_instance_array = array();
 
-        foreach ($this->handler_instance_array as $item) {
+        foreach ($handler_instance_array as $item) {
             if ($item instanceof ResourceHandlerInterface) {
                 $this->handler_instance_array[] = $item;
             }
@@ -134,7 +128,7 @@ class Adapter implements ResourceResourcesInterface, ClassLoaderInterface
     }
 
     /**
-     * Register Class as Autoloader
+     * Registers Class Autoloader
      *
      * @param   boolean $prepend
      *
@@ -143,100 +137,176 @@ class Adapter implements ResourceResourcesInterface, ClassLoaderInterface
      */
     public function register($prepend = true)
     {
-        spl_autoload_register(array($this, 'get'), true, $prepend);
+        spl_autoload_register(array($this, 'loadClass'), true, $prepend);
 
         return $this;
     }
 
     /**
-     * Cancel Class Registration as Autoloader
+     * Unregisters Class Autoloader
      *
      * @return  $this
      * @since   1.0
      */
     public function unregister()
     {
-        spl_autoload_unregister(array($this, 'get'));
+        spl_autoload_unregister(array($this, 'loadClass'));
 
         return $this;
+    }
+
+    /**
+     * Get Scheme
+     *
+     * @param   string $scheme
+     *
+     * @return  object
+     * @since   1.0
+     * @throws  \Molajo\Resources\Exception\ResourcesException
+     */
+    public function getScheme($scheme)
+    {
+        return $this->scheme_instance->getScheme($scheme);
+    }
+
+    /**
+     * Add (or replace) Scheme
+     *
+     * @param   string $scheme
+     * @param   string $handler
+     * @param   array  $extensions
+     * @param   bool   $replace
+     *
+     * @return  $this
+     * @since   1.0
+     * @throws  \Molajo\Resources\Exception\ResourcesException
+     */
+    public function setScheme($scheme, $handler = 'File', array $extensions = array(), $replace = false)
+    {
+        $this->scheme_instance->setScheme($scheme, $handler, $extensions, $replace);
+
+        return $this;
+    }
+
+    /**
+     * Loads a class file
+     *
+     * @param   string $namespace
+     *
+     * @return  void|mixed
+     * @since   1.0
+     * @throws  \Molajo\Resources\Exception\ResourcesException
+     */
+    public function loadClass($namespace)
+    {
+        $located_path = $this->locateResource($namespace);
+echo $located_path;
+        die;
+        return $this->handlePath($this->scheme, $located_path, $options);
     }
 
     /**
      * Locates folder/file associated with URI Namespace for Resource
      *
      * @param   string $uri_namespace
+     * @param   array  $options
      *
      * @return  void|mixed
      * @since   1.0
      * @throws  \Molajo\Resources\Exception\ResourcesException
      */
-    public function get($uri_namespace)
+    public function locate($uri_namespace, array $options = array())
     {
         $this->parseUrl($uri_namespace);
+echo '<pre>';
+var_dump(
+    array($this->scheme,
+        $this->host,
+        $this->user,
+        $this->password,
+        $this->path,
+        $this->query,
+        $this->fragment)
+    );
 
-        $resource = $this->locator_instance->get($uri_namespace);
+        $handler = $this->scheme . 'Handler';
+        if (isset($this->handler_instance[$handler])) {
+        } else {
+            throw new ResourcesException ('Resources locaate Handler not found for Scheme: : ' . $this->scheme);
+        }
 
-        return $this->handler_instance[$this->scheme]->getCollection($resource);
+        $located_path = $this->locateResource(str_replace('/', '\\', $this->path));
+
+        return $this->handlePath($this->scheme, $located_path, $options);
     }
 
     /**
-     * Retrieve a collection of a specific resource type (ex., all CSS files registered)
+     * Locates folder/file associated with URI Namespace for Resource
      *
-     * @param   array $options
+     * @param   string $resource
+     *
+     * @return  void|mixed
+     * @since   1.0
+     * @throws  \Molajo\Resources\Exception\ResourcesException
+     */
+    public function locateResource($resource)
+    {
+        return $this->resource_map_instance->locateResource($resource);
+    }
+
+    /**
+     * Handle located folder/file associated with URI Namespace for Resource
+     *
+     * @param   string $scheme
+     * @param   string $located_path
+     * @param   array  $options
+     *
+     * @return  void|mixed
+     * @since   1.0
+     * @throws  \Molajo\Resources\Exception\ResourcesException
+     */
+    public function handlePath($scheme, $located_path, array $options = array())
+    {
+        if (isset($this->handler_instance[$this->scheme])) {
+        } else {
+            throw new ResourcesException ('Resources handlePath Handler not found for Scheme: ' . $this->scheme);
+        }
+
+        return $this->handler_instance[$scheme]->handlePath($scheme, $located_path, $options);
+    }
+
+    /**
+     * Retrieve a collection of a specific handler
+     *
+     * @param   string $scheme
+     * @param   array  $options
      *
      * @return  mixed
      * @since   1.0
      * @throws  \Molajo\Resources\Exception\ResourcesException
      */
-    public function getCollection(array $options = array())
+    public function getCollection($scheme, array $options = array())
     {
-        return $this->handler_instance[$this->scheme]->getCollection($options);
+        if (isset($this->handler_instance[$this->scheme])) {
+        } else {
+            throw new ResourcesException ('Resources getCollection Handler not found for Scheme: ' . $this->scheme);
+        }
+
+        return $this->handler_instance[$scheme]->getCollection($scheme, $options);
     }
 
     /**
-     * Locates folder/file associated with Fully Qualified Namespace
+     * Get Namespace (or all namespaces)
      *
-     * @param   string $resource
-     * @param   array  $options
-     *
-     * @return  void|mixed
-     * @since   1.0
-     * @throws  \Molajo\Resources\Exception\ResourcesException
-     */
-    protected function getResource($resource, array $options = array())
-    {
-        return $this->handler_instance[$this->scheme]->getResource($resource, $options);
-    }
-
-    /**
-     * Special file or folder handling for resource type
-     *
-     * @param   string $resource
-     * @param   array  $options
-     *
-     * @return  void|mixed
-     * @since   1.0
-     * @throws  \Molajo\Resources\Exception\ResourcesException
-     */
-    protected function handleResource($resource, array $options = array())
-    {
-        return $this->handler_instance[$this->scheme]->handleResource($resource, $options);
-    }
-
-    /**
-     * Define Schemes for Resource location
-     *
-     * @param   string $scheme
-     * @param   string $handler
-     * @param   array  $extensions
+     * @param   string $namespace_prefix
      *
      * @return  $this
      * @since   1.0
      * @throws  \Molajo\Resources\Exception\ResourcesException
      */
-    public function addScheme($scheme, array $handler = 'File', $extensions = array())
+    public function getNamespace($namespace_prefix = '')
     {
-
+        return $this->resource_map_instance->getNamespace($namespace_prefix);
     }
 
     /**
@@ -249,11 +319,23 @@ class Adapter implements ResourceResourcesInterface, ClassLoaderInterface
      * @return  $this
      * @since   1.0
      */
-    public function addNamespace($namespace_prefix, $base_directory, $prepend = false)
+    public function setNamespace($namespace_prefix, $base_directory, $prepend = false)
     {
-        $this->handler_instance[$this->scheme]->addNamespace($namespace_prefix, $base_directory, $prepend);
+        $this->resource_map_instance->setNamespace($namespace_prefix, $base_directory, $prepend);
 
         return $this;
+    }
+
+    /**
+     * Get Resource Map
+     *
+     * @return  array
+     * @since   1.0
+     * @throws  \Molajo\Resources\Exception\ResourcesException
+     */
+    public function getMap()
+    {
+        return $this->resource_map_instance->getMap('resource_map');
     }
 
     /**
@@ -287,12 +369,12 @@ class Adapter implements ResourceResourcesInterface, ClassLoaderInterface
      * @since   1.0
      * @throws  \Molajo\Resources\Exception\ResourcesException
      */
-    public function parseUrl($url)
+    protected function parseUrl($url)
     {
         $this->scheme   = parse_url($url, PHP_URL_SCHEME);
         $this->host     = parse_url($url, PHP_URL_HOST);
         $this->user     = parse_url($url, PHP_URL_USER);
-        $this->pass     = parse_url($url, PHP_URL_PASS);
+        $this->password = parse_url($url, PHP_URL_PASS);
         $this->path     = parse_url($url, PHP_URL_PATH);
         $this->query    = parse_url($url, PHP_URL_QUERY);
         $this->fragment = parse_url($url, PHP_URL_FRAGMENT);

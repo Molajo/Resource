@@ -53,16 +53,17 @@ class JsDeclarationHandler implements ResourceHandlerInterface
     protected $js_defer_priorities = array();
 
     /**
-     * Locates folder/file associated with URI Namespace for Resource
+     * Handle located folder/file associated with URI Namespace for Resource
      *
-     * @param   string $located_path
-     * @param   array  $options
+     * @param   string  $scheme
+     * @param   string  $located_path
+     * @param   array   $options
      *
      * @return  void|mixed
      * @since   1.0
      * @throws  \Molajo\Resources\Exception\ResourcesException
      */
-    public function handlePath($located_path, array $options = array())
+    public function handlePath($scheme, $located_path, array $options = array())
     {
         if (file_exists($located_path)) {
             return $located_path;
@@ -72,15 +73,16 @@ class JsDeclarationHandler implements ResourceHandlerInterface
     }
 
     /**
-     * Retrieve a collection of a specific resource type (ex., all CSS files registered)
+     * Retrieve a collection of a specific handler
      *
-     * @param   array $options
+     * @param   string  $scheme
+     * @param   array   $options
      *
      * @return  mixed
      * @since   1.0
      * @throws  \Molajo\Resources\Exception\ResourcesException
      */
-    public function getCollection(array $options = array())
+    public function getCollection($scheme, array $options = array())
     {
         return $this->resource_map;
     }

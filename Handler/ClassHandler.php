@@ -1,14 +1,24 @@
 <?php
 /**
- * Resource Handler Interface
+ * Class Loader
  *
  * @package   Molajo
  * @copyright 2013 Amy Stephen. All rights reserved.
  * @license   http://www.opensource.org/licenses/mit-license.html MIT License
  */
-namespace Molajo\Resources\Api;
+namespace Molajo\Resources\Handler;
 
-interface ResourceHandlerInterface
+use Molajo\Resources\Api\ResourceHandlerInterface;
+
+/**
+ * Class Resources
+ *
+ * @package   Molajo
+ * @copyright 2013 Amy Stephen. All rights reserved.
+ * @license   http://www.opensource.org/licenses/mit-license.html MIT License
+ * @since     1.0
+ */
+class ClassHandler implements ResourceHandlerInterface
 {
     /**
      * Handle located folder/file associated with URI Namespace for Resource
@@ -21,7 +31,16 @@ interface ResourceHandlerInterface
      * @since   1.0
      * @throws  \Molajo\Resources\Exception\ResourcesException
      */
-    public function handlePath($scheme, $located_path, array $options = array());
+    public function handlePath($scheme, $located_path, array $options = array())
+    {
+        if (file_exists($located_path)) {
+            require $located_path;
+
+            return;
+        }
+
+        return;
+    }
 
     /**
      * Retrieve a collection of a specific handler
@@ -33,5 +52,8 @@ interface ResourceHandlerInterface
      * @since   1.0
      * @throws  \Molajo\Resources\Exception\ResourcesException
      */
-    public function getCollection($scheme, array $options = array());
+    public function getCollection($scheme, array $options = array())
+    {
+        return null;
+    }
 }

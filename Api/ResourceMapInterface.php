@@ -11,16 +11,21 @@ namespace Molajo\Resources\Api;
 interface ResourceMapInterface
 {
     /**
-     * Map a namespace prefix to a filesystem path
-     *
-     * @param   string  $namespace_prefix
-     * @param   string  $base_directory
-     * @param   boolean $prepend
+     * Get the resource map
      *
      * @return  $this
      * @since   1.0
      */
-    public function addNamespace($namespace_prefix, $base_directory, $prepend = false);
+    public function getMap();
+
+    /**
+     * Create resource map of folder/file locations and Fully Qualified Namespaces
+     *
+     * @return  array
+     * @since   1.0
+     * @throws  \Molajo\Resources\Exception\ResourcesException
+     */
+    public function createMap();
 
     /**
      * Verify the correctness of the resource map
@@ -30,22 +35,4 @@ interface ResourceMapInterface
      * @throws  \Molajo\Resources\Exception\ResourcesException
      */
     public function editMap();
-
-    /**
-     * Create resource map of folder/file locations and Fully Qualified Namespaces
-     *
-     * @return  $this
-     * @since   1.0
-     * @throws  \Molajo\Resources\Exception\ResourcesException
-     */
-    public function createMap();
-
-    /**
-     * Create resource item hash
-     *
-     * @return  $this
-     * @since   1.0
-     * @throws  \Molajo\Resources\Exception\ResourcesException
-     */
-    public function createResourceItemHash();
 }

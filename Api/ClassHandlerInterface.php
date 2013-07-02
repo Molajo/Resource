@@ -16,7 +16,7 @@ namespace Molajo\Resources\Api;
  * @license   http://www.opensource.org/licenses/mit-license.html MIT License
  * @since     1.0
  */
-interface ClassLoaderInterface
+interface ClassHandlerInterface
 {
     /**
      * Registers Class Autoloader

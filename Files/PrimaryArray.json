@@ -102,7 +102,7 @@
     "Molajo\\Public\\Css": {
         "Levels": 1,
         "IncludeFolders": [
-            "Css"
+            ""
         ],
         "ExcludeFolders": [
             ".dev",
@@ -122,7 +122,7 @@
     "Molajo\\Public\\Js": {
         "Levels": 1,
         "IncludeFolders": [
-            "Js"
+            ""
         ],
         "ExcludeFolders": [
             ".dev",
@@ -142,7 +142,7 @@
     "Molajo\\Public\\Media": {
         "Levels": 1,
         "IncludeFolders": [
-            "Media"
+            ""
         ],
         "ExcludeFolders": [
             ".dev",
@@ -262,9 +262,7 @@
     "Molajo\\Event": {
         "Levels": 1,
         "IncludeFolders": [
-            "Kernel\/Event",
-            "Molajo\/Event\/Service",
-            "Molajo\/User\/Service"
+            "Kernel\/Event"
         ],
         "ExcludeFolders": [
             ".dev",
@@ -274,7 +272,8 @@
             ".",
             "..",
             ".gitattributes",
-            ".gitignore"
+            ".gitignore",
+            "Kernel\/Event\/Service"
         ],
         "RequireFileExtensions": "",
         "ProhibitFileExtensions": "",
@@ -317,7 +316,8 @@
             ".gitignore"
         ],
         "RequireFileExtensions": "",
-        "ProhibitFileExtensions": ""
+        "ProhibitFileExtensions": "",
+        "Tags": ""
     },
 
     "Molajo\\Filesystem": {
@@ -500,26 +500,6 @@
         "Tags": "Menuitem"
     },
 
-    "Molajo\\Mvc": {
-        "Levels": 1,
-        "IncludeFolders": [
-            "Vendor\/Molajo\/Mvc"
-        ],
-        "ExcludeFolders": [
-            ".dev",
-            ".travis.yml",
-            ".DS_Store",
-            ".git",
-            ".",
-            "..",
-            ".gitattributes",
-            ".gitignore"
-        ],
-        "RequireFileExtensions": "",
-        "ProhibitFileExtensions": "",
-        "Tags": ""
-    },
-
     "Molajo\\NumberToText": {
         "Levels": 1,
         "IncludeFolders": [
@@ -688,6 +668,14 @@
             "Application\/Extension\/Theme"
         ],
         "ExcludeFolders": [
+            ".dev",
+            ".travis.yml",
+            ".DS_Store",
+            ".git",
+            ".",
+            "..",
+            ".gitattributes",
+            ".gitignore",
             "Vendor\/Molajo\/Theme\/View"
         ],
         "RequireFileExtensions": "",
@@ -739,7 +727,7 @@
         "Levels": 1,
         "IncludeFolders": [
             "Application\/Extension\/View\/Page",
-            "Vendor\/Molajo\/Theme\/View\/Page"
+            "Vendor\/Molajo\/Theme\/System\/View\/Page"
         ],
         "ExcludeFolders": [
             ".dev",
@@ -760,7 +748,7 @@
         "Levels": 1,
         "IncludeFolders": [
             "Application\/Extension\/View\/Template",
-            "Vendor\/Molajo\/Theme\/View\/Template"
+            "Vendor\/Molajo\/Theme\/System\/View\/Template"
         ],
         "ExcludeFolders": [
             ".dev",
@@ -780,8 +768,7 @@
     "Molajo\\View\\Wrap": {
         "Levels": 1,
         "IncludeFolders": [
-            "Application\/Extension\/View\/Wrap",
-            "Vendor\/Molajo\/Theme\/View\/Wrap"
+            "Application\/Extension\/View\/Wrap"
         ],
         "ExcludeFolders": [
             ".dev",

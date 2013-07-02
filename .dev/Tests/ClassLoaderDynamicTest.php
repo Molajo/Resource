@@ -19,7 +19,7 @@ use PHPUnit_Framework_TestCase;
  * @license   http://www.opensource.org/licenses/mit-license.html MIT License
  * @since     1.0
  */
-class ClassLoaderDynamicTest extends PHPUnit_Framework_TestCase
+class ClassHandlerDynamicTest extends PHPUnit_Framework_TestCase
 {
     /**
      * Resources Adapter
@@ -27,7 +27,7 @@ class ClassLoaderDynamicTest extends PHPUnit_Framework_TestCase
      * @var    object  Molajo/Kernel/Resources/Adapter
      * @since  1.0
      */
-    protected $locator;
+    protected $resources;
 
     /**
      * Exclude when these values are found in the path
@@ -91,7 +91,7 @@ class ClassLoaderDynamicTest extends PHPUnit_Framework_TestCase
             $this->valid_extensions_array
         );
 
-        $class            = 'Molajo\\Resources\\Handler\\ClassLoader';
+        $class            = 'Molajo\\Resources\\Handler\\ClassHandler';
         $handler_instance = new $class (
             $file_extensions,
             $namespace_prefixes,
@@ -105,15 +105,15 @@ class ClassLoaderDynamicTest extends PHPUnit_Framework_TestCase
         );
 
 
-        $class         = 'Molajo\\Resources\\Adapter';
-        $this->locator = new $class (
+        $class           = 'Molajo\\Resources\\Adapter';
+        $this->resources = new $class (
             $handler_instance,
             'Class'
         );
 
-        $this->locator->addNamespace('Molajo\\Test', '.dev/Classes');
-        $this->locator->addNamespace('Molajo\\Resources', '.dev/Psr0/Molajo/Resources');
-        $this->locator->addNamespace('Molajo', '.dev/Extension');
+        $this->resources->addNamespace('Molajo\\Test', '.dev/Classes');
+        $this->resources->addNamespace('Molajo\\Resources', '.dev/Psr0/Molajo/Resources');
+        $this->resources->addNamespace('Molajo', '.dev/Extension');
     }
 
     /**

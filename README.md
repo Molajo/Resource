@@ -47,7 +47,7 @@ get(value);
 
 ####Example: Get File location####
 ```php
-    $locator = new Molajo\Resources\Adapter();
+    $resources = new Molajo\Resources\Adapter();
     $resource = $adapter->get($uri);
 
     echo $uri;

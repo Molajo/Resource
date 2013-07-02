@@ -1,7 +1,7 @@
 {
     "class": {
         "RequireFileExtensions": ".php",
-        "Handler": "ClassLoader"
+        "Handler": "ClassHandler"
     },
     "css": {
         "RequireFileExtensions": ".css",

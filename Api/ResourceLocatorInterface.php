@@ -1,6 +1,6 @@
 <?php
 /**
- * Resource Resources Interface
+ * Resource Locator Interface
  *
  * @package   Molajo
  * @copyright 2013 Amy Stephen. All rights reserved.
@@ -8,16 +8,17 @@
  */
 namespace Molajo\Resources\Api;
 
-interface ResourceResourcesInterface
+interface ResourceLocatorInterface
 {
     /**
      * Locates folder/file associated with URI Namespace for Resource
      *
-     * @param   string $resource
+     * @param   string $uri_namespace
+     * @param   array  $options
      *
      * @return  void|mixed
      * @since   1.0
      * @throws  \Molajo\Resources\Exception\ResourcesException
      */
-    public function get($uri_namespace);
+    public function locate($uri_namespace, array $options = array());
 }

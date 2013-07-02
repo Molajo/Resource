@@ -18,39 +18,40 @@ use Molajo\Resources\Api\ResourceHandlerInterface;
  * @license   http://www.opensource.org/licenses/mit-license.html MIT License
  * @since     1.0
  */
-class ClassLoader implements ResourceHandlerInterface
+class FileHandler implements ResourceHandlerInterface
 {
     /**
-     * Locates folder/file associated with URI Namespace for Resource
+     * Handle located folder/file associated with URI Namespace for Resource
      *
-     * @param   string $resource
+     * @param   string  $scheme
+     * @param   string  $located_path
+     * @param   array   $options
      *
      * @return  void|mixed
      * @since   1.0
      * @throws  \Molajo\Resources\Exception\ResourcesException
      */
-    public function handlePath($located_path, array $options = array())
+    public function handlePath($scheme, $located_path, array $options = array())
     {
         if (file_exists($located_path)) {
-            require $located_path;
-
-            return;
+            return $located_path;
         }
 
-        return;
+        return false;
     }
 
     /**
-     * Retrieve a collection of a specific resource type (ex., all CSS files registered)
+     * Retrieve a collection of a specific handler
      *
-     * @param   array $options
+     * @param   string  $scheme
+     * @param   array   $options
      *
-     * @return  null
+     * @return  mixed
      * @since   1.0
      * @throws  \Molajo\Resources\Exception\ResourcesException
      */
-    public function getCollection(array $options = array())
+    public function getCollection($scheme, array $options = array())
     {
-        return null;
+        return;
     }
 }

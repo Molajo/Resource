@@ -18,7 +18,7 @@ use PHPUnit_Framework_TestCase;
  * @license   http://www.opensource.org/licenses/mit-license.html MIT License
  * @since     1.0
  */
-class ClassLoaderResourceMap extends PHPUnit_Framework_TestCase
+class ClassHandlerResourceMap extends PHPUnit_Framework_TestCase
 {
     /**
      * Resources Adapter
@@ -80,8 +80,8 @@ class ClassLoaderResourceMap extends PHPUnit_Framework_TestCase
         $paths[]                            = '.dev/Classes';
         $namespace_prefixes['Molajo\\Test'] = $paths;
 
-        $paths                                 = array();
-        $paths[]                               = '.dev/Psr0/Molajo/Resources';
+        $paths                                   = array();
+        $paths[]                                 = '.dev/Psr0/Molajo/Resources';
         $namespace_prefixes['Molajo\\Resources'] = $paths;
 
         $base_path             = BASE_FOLDER;
@@ -99,7 +99,7 @@ class ClassLoaderResourceMap extends PHPUnit_Framework_TestCase
             $this->valid_extensions_array
         );
 
-        $class            = 'Molajo\\Resources\\Handler\\ClassLoader';
+        $class            = 'Molajo\\Resources\\Handler\\ClassHandler';
         $handler_instance = new $class (
             $file_extensions,
             $namespace_prefixes,
@@ -112,8 +112,8 @@ class ClassLoaderResourceMap extends PHPUnit_Framework_TestCase
             $resource_map_instance
         );
 
-        $class         = 'Molajo\\Resources\\Adapter';
-        $this->locator = new $class (
+        $class           = 'Molajo\\Resources\\Adapter';
+        $this->resources = new $class (
             $handler_instance,
             'Class'
         );

@@ -16,8 +16,19 @@ namespace Molajo\Resources\Api;
  * @license   http://www.opensource.org/licenses/mit-license.html MIT License
  * @since     1.0
  */
-interface ResourceSchemeInterface
+interface SchemeInterface
 {
+    /**
+     * Get Scheme
+     *
+     * @param   string $scheme
+     *
+     * @return  object
+     * @since   1.0
+     * @throws  \Molajo\Resources\Exception\ResourcesException
+     */
+    public function getScheme($scheme);
+
     /**
      * Add Scheme to Associate with Resource
      *
@@ -30,5 +41,5 @@ interface ResourceSchemeInterface
      * @since   1.0
      * @throws  \Molajo\Resources\Exception\ResourcesException
      */
-    public function addScheme($scheme, $handler = 'File', array $extensions = array(), $replace = false);
+    public function setScheme($scheme, $handler = 'File', array $extensions = array(), $replace = false);
 }

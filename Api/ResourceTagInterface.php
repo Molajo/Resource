@@ -21,9 +21,9 @@ interface ResourceTagInterface
     /**
      * Add Namespace and Tag(s)
      *
-     * @param   string   $namespace
-     * @param   array    $tag
-     * @param   boolean  $replace
+     * @param   string  $namespace
+     * @param   array   $tag
+     * @param   boolean $replace
      *
      * @return  $this
      * @since   1.0
