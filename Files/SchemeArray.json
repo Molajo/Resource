@@ -1,45 +1,55 @@
 {
     "class": {
+        "Name": "class",
         "RequireFileExtensions": ".php",
-        "Handler": "ClassHandler"
+        "Handler": "Class"
     },
     "css": {
+        "Name": "css",
         "RequireFileExtensions": ".css",
         "Handler": "Css"
     },
     "cssd": {
-        "RequireFileExtensions": ".cssd",
-        "Handler": "CssDeclarations"
+        "Name": "cssd",
+        "RequireFileExtensions": "",
+        "Handler": "Cssdeclarations"
     },
     "file": {
+        "Name": "file",
         "RequireFileExtensions": "",
         "Handler": "File"
     },
     "js": {
+        "Name": "js",
         "RequireFileExtensions": ".js",
         "Handler": "Js"
     },
     "jsd": {
+        "Name": "jsd",
         "RequireFileExtensions": ".jsd",
-        "Handler": "JsDeclarations"
+        "Handler": "Jsdeclarations"
     },
 
     "page": {
+        "Name": "pageview",
         "RequireFileExtensions": ".html.php",
-        "Handler": "Page"
+        "Handler": "Pageview"
     },
 
     "template": {
+        "Name": "templateview",
         "RequireFileExtensions": ".html.php",
-        "Handler": "Template"
+        "Handler": "Templateview"
     },
 
     "wrap": {
+        "Name": "wrapview",
         "RequireFileExtensions": ".html.php",
-        "Handler": "Wrap"
+        "Handler": "Wrapview"
     },
 
     "xml": {
+        "Name": "xml",
         "RequireFileExtensions": ".xml",
         "Handler": "Xml"
     }

@@ -18,7 +18,7 @@ use Molajo\Resources\Api\ResourceHandlerInterface;
  * @license   http://www.opensource.org/licenses/mit-license.html MIT License
  * @since     1.0
  */
-class JsDeclarationHandler implements ResourceHandlerInterface
+class JsdeclarationsHandler implements ResourceHandlerInterface
 {
     /**
      * JS Declarations

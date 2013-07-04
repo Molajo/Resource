@@ -98,39 +98,56 @@ class ResourceMap implements ResourceNamespaceInterface, ResourceMapInterface
     ) {
         $this->base_path = $base_path;
 
-        $class_array = 'primary_array';
-        $filename    = $primary_array_filename;
-        $this->readFile($filename, $class_array);
+        $property_name_array = 'primary_array';
+        $filename            = $primary_array_filename;
+        $this->readFile($filename, $property_name_array);
 
-        $class_array = 'sort_array';
-        $filename    = $sort_array_filename;
-        $this->readFile($filename, $class_array);
+        $property_name_array = 'sort_array';
+        $filename            = $sort_array_filename;
+        $this->readFile($filename, $property_name_array);
 
-        $class_array = 'resource_map';
-        $filename    = $resource_map_filename;
-        $this->readFile($filename, $class_array);
+        $property_name_array = 'resource_map';
+        $filename            = $resource_map_filename;
+        $this->readFile($filename, $property_name_array);
 
         $this->resource_map_filename = __DIR__ . '/' . $resource_map_filename;
 
         //if ($rebuild_map === true) {
-            $this->createMap();
+        $this->createMap();
         //}
     }
 
     /**
-     * Locates folder/file associated with URI Namespace for Resource
+     * Locates a resource using only the namespace
      *
-     * @param   string $resource
+     * @param   string $namespace
+     * @param   string $scheme
      *
      * @return  void|mixed
      * @since   1.0
      * @throws  \Molajo\Resources\Exception\ResourcesException
      */
-    public function locateResource($resource)
+    public function locateNamespace($namespace, $scheme = 'Class')
+    {
+        $this->locate($namespace, '.php');
+    }
+
+    /**
+     * Locates folder/file associated with Namespace for Resource
+     *
+     * @param   string $resource_namespace
+     * @param   array  $valid_file_extensions
+     *
+     * @return  void|mixed
+     * @since   1.0
+     * @throws  \Molajo\Resources\Exception\ResourcesException
+     */
+    public function locate($resource_namespace, array $valid_file_extensions = array('.php'))
     {
         $located_path = false;
 
-        $temp_resource = strtolower(ltrim($resource, '\\'));
+        $temp_resource = strtolower(ltrim($resource_namespace, '/'));
+        $temp_resource = str_replace('//', '\\', $temp_resource);
 
         if (isset($this->resource_map[$temp_resource])) {
 
@@ -142,23 +159,33 @@ class ResourceMap implements ResourceNamespaceInterface, ResourceMapInterface
             }
 
             foreach ($paths as $path) {
-                foreach ($this->handler_file_extensions[$handler_type] as $rule_extension) {
+
+                if (count($valid_file_extensions) > 0) {
+
                     $file_extension = '.' . pathinfo($path, PATHINFO_EXTENSION);
-                    if ($file_extension == $rule_extension) {
-                        $located_path = $path;
-                        break;
+                    foreach ($valid_file_extensions as $rule_extension) {
+                        if ($file_extension == $rule_extension) {
+                            $located_path = $path;
+                        }
                     }
+
+                } else {
+                    $located_path = $path;
                 }
             }
+        } else {
+            echo 'NOT IN RESOURCE MAP: ' . $temp_resource . '<br />';
+            echo '<pre>';
+            var_dump($this->resource_map);
         }
 
-        if ($located_path === false) {
+        if ($located_path === false && count($this->namespace_prefixes) > 0) {
 
             foreach ($this->namespace_prefixes as $namespace_prefix => $base_directories) {
 
                 $temp_prefix = strtolower($namespace_prefix) . '\\';
 
-                if (stripos($resource, $temp_prefix) === false) {
+                if (stripos($resource_namespace, $temp_prefix) === false) {
                 } else {
 
                     foreach ($base_directories as $base_directory) {
@@ -167,13 +194,13 @@ class ResourceMap implements ResourceNamespaceInterface, ResourceMapInterface
                         $base = $this->base_path . '/' . $base_directory;
 
                         // Part 2: Remove Namespace Prefix from Class leaving namespace path
-                        if (substr($resource, strlen($temp_prefix), 999) == '') {
+                        if (substr($resource_namespace, strlen($temp_prefix), 999) == '') {
                             $namespace_path = '';
                         } else {
-                            $namespace_path = '\\' . substr($resource, strlen($temp_prefix), 999);
+                            $namespace_path = '\\' . substr($resource_namespace, strlen($temp_prefix), 999);
                         }
 
-                        foreach ($this->handler_file_extensions[$handler_type] as $extension) {
+                        foreach ($valid_file_extensions as $extension) {
 
                             // Part 3: Assemble include path
                             $temp = str_replace('\\', '/', $base)
@@ -192,13 +219,7 @@ class ResourceMap implements ResourceNamespaceInterface, ResourceMapInterface
             }
         }
 
-        if ($located_path === false) {
-            return $this->handler_instance[$this->scheme]->handlePath(false, $options);
-
-            return false;
-        }
-
-        return $this->handler_instance[$this->scheme]->handlePath($located_path, $options);
+        return $located_path;
     }
 
     /**
@@ -209,7 +230,7 @@ class ResourceMap implements ResourceNamespaceInterface, ResourceMapInterface
      * @return  $this
      * @since   1.0
      */
-    public function getNamespace($namespace_prefix)
+    public function getNamespace($namespace_prefix = '')
     {
 
     }
@@ -227,21 +248,23 @@ class ResourceMap implements ResourceNamespaceInterface, ResourceMapInterface
     public function setNamespace($namespace_prefix, $base_directory, $prepend = false)
     {
         //todo: add edit to prevent multiple namespaces to a single php file, always a replace
-
-        if (isset($this->namespace_prefixes[$namespace_prefix])) {
-            if ($replace === true) {
-                $this->namespace_prefixes[$namespace_prefix] = array();
-            }
-        }
-
         if (isset($this->namespace_prefixes[$namespace_prefix])) {
 
             $hold = $this->namespace_prefixes[$namespace_prefix];
 
-            if (in_array($base_directory, $hold)) {
-            } else {
+            if ($prepend === false) {
+
                 $hold[]                                      = $base_directory;
                 $this->namespace_prefixes[$namespace_prefix] = $hold;
+
+            } else {
+                $new   = array();
+                $new[] = $base_directory;
+                foreach ($hold as $h) {
+                    $new[] = $h;
+                }
+                $this->namespace_prefixes[$namespace_prefix] = $new;
+
             }
 
         } else {
@@ -252,22 +275,21 @@ class ResourceMap implements ResourceNamespaceInterface, ResourceMapInterface
     }
 
     /**
-     * Get the resource map
+     * Get Resource Map
      *
-     * @return  $this
+     * @return  array
      * @since   1.0
      */
     public function getMap()
     {
-
+        return $this->resource_map;
     }
 
     /**
      * Create resource map of folder/file locations and Fully Qualified Namespaces
      *
-     * @return  $this
+     * @return  object
      * @since   1.0
-     * @throws  \Molajo\Resources\Exception\ResourcesException
      */
     public function createMap()
     {
@@ -275,7 +297,10 @@ class ResourceMap implements ResourceNamespaceInterface, ResourceMapInterface
 
         foreach ($this->primary_array as $namespace_prefix => $prefix_object) {
 
-            $levels                 = $prefix_object->Levels;
+            $levels = $prefix_object->Levels;
+            if ($levels == 0) {
+                $levels = 9999;
+            }
             $includeFolders         = $prefix_object->IncludeFolders;
             $excludeFolders         = $prefix_object->ExcludeFolders;
             $requireFileExtensions  = explode(',', $prefix_object->RequireFileExtensions);
@@ -307,9 +332,14 @@ class ResourceMap implements ResourceNamespaceInterface, ResourceMapInterface
 
             foreach ($includeFolders as $base_directory) {
 
-                $objects = array();
+                $base_directory_levels = count(explode('/', $base_directory));
 
                 if (is_dir($this->base_path . '/' . $base_directory) && $base_directory !== '') {
+                    $paths                           = array();
+                    $paths[]                         = $this->base_path . '/' . $base_directory;
+                    $namespace_prefix                = strtolower($namespace_prefix);
+                    $resource_map[$namespace_prefix] = array_unique($paths);
+
                     $objects = new RecursiveIteratorIterator
                     (new RecursiveDirectoryIterator($this->base_path . '/' . $base_directory),
                         RecursiveIteratorIterator::SELF_FIRST);
@@ -322,7 +352,6 @@ class ResourceMap implements ResourceNamespaceInterface, ResourceMapInterface
                     break;
                 }
 
-                $count_levels = 1;
                 foreach ($objects as $path => $fileObject) {
 
                     $path = substr($path, strlen($this->base_path . '/'), 9999);
@@ -331,11 +360,19 @@ class ResourceMap implements ResourceNamespaceInterface, ResourceMapInterface
                     $base_name = '';
 
                     $skip = 0;
-                    foreach ($excludeFolders as $exclude) {
-                        if (strpos($path, '/' . $exclude) === false) {
-                        } else {
-                            $skip = 1;
-                            break;
+
+                    $path_levels = count(explode('/', $path));
+                    if ($path_levels - $base_directory_levels > $levels) {
+                        $skip = 1;
+                    }
+
+                    if ($skip == 0) {
+                        foreach ($excludeFolders as $exclude) {
+                            if (strpos($path, '/' . $exclude) === false) {
+                            } else {
+                                $skip = 1;
+                                break;
+                            }
                         }
                     }
 
@@ -345,13 +382,16 @@ class ResourceMap implements ResourceNamespaceInterface, ResourceMapInterface
                         if (is_dir($fileObject)) {
                             $file_extension = '';
                         } else {
+
                             $file_name      = $fileObject->getFileName();
                             $file_extension = $fileObject->getExtension();
+
                             if ($file_extension == 'php') {
                                 $base_name = substr($file_name, 0, strlen($file_name) - strlen($file_extension) - 1);
                             } else {
                                 $base_name = $file_name;
                             }
+
                             $path = substr($path, 0, strlen($path) - strlen($file_name) - 1);
                         }
 
@@ -399,6 +439,8 @@ class ResourceMap implements ResourceNamespaceInterface, ResourceMapInterface
                         if ($skip == 0) {
                             $paths = array();
 
+                            $fqns = strtolower($fqns);
+
                             if (isset($resource_map[$fqns])) {
                                 $existing = $resource_map[$fqns];
 
@@ -410,7 +452,7 @@ class ResourceMap implements ResourceNamespaceInterface, ResourceMapInterface
                                 }
                             }
 
-                            $paths[]             = $nspath;
+                            $paths[]             = $this->base_path . '/' . $nspath;
                             $resource_map[$fqns] = array_unique($paths);
                         }
                     }
@@ -432,11 +474,10 @@ class ResourceMap implements ResourceNamespaceInterface, ResourceMapInterface
     }
 
     /**
-     * Verify the correctness of the resource map
+     * Verify the correctness of the resource map, returning error messages
      *
      * @return  array
      * @since   1.0
-     * @throws  \Molajo\Resources\Exception\ResourcesException
      */
     public function editMap()
     {
@@ -456,34 +497,14 @@ class ResourceMap implements ResourceNamespaceInterface, ResourceMapInterface
     }
 
     /**
-     * Parse the URL
-     *
-     * @return  $this
-     * @since   1.0
-     * @throws  \Molajo\Resources\Exception\ResourcesException
-     */
-    protected function parseUrl($url)
-    {
-        $this->scheme   = parse_url($url, PHP_URL_SCHEME);
-        $this->host     = parse_url($url, PHP_URL_HOST);
-        $this->user     = parse_url($url, PHP_URL_USER);
-        $this->password = parse_url($url, PHP_URL_PASS);
-        $this->path     = parse_url($url, PHP_URL_PATH);
-        $this->query    = parse_url($url, PHP_URL_QUERY);
-        $this->fragment = parse_url($url, PHP_URL_FRAGMENT);
-
-        return $this;
-    }
-
-    /**
      * Read File
      *
-     * @param  string $name
-     * @param  string $class_array
+     * @param  string $filename
+     * @param  string $property_name_array
      *
      * @since  1.0
      */
-    protected function readFile($filename, $class_array)
+    protected function readFile($filename, $property_name_array)
     {
         $temp_array = array();
 
@@ -504,6 +525,6 @@ class ResourceMap implements ResourceNamespaceInterface, ResourceMapInterface
             }
         }
 
-        $this->$class_array = $temp_array;
+        $this->$property_name_array = $temp_array;
     }
 }

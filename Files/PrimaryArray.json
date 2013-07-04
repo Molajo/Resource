@@ -1,6 +1,6 @@
 {
     "Molajo\\Administration": {
-        "Levels": 1,
+        "Levels": "2",
         "IncludeFolders": [
             "Application\/Administration"
         ],
@@ -20,7 +20,7 @@
     },
 
     "Molajo\\Appconfiguration": {
-        "Levels": 1,
+        "Levels": "2",
         "IncludeFolders": [
             "Application\/Model\/Appconfiguration"
         ],
@@ -40,7 +40,7 @@
     },
 
     "Molajo\\Cache": {
-        "Levels": 1,
+        "Levels": "2",
         "IncludeFolders": [
             "Vendor\/Molajo\/Cache"
         ],
@@ -60,7 +60,7 @@
     },
 
     "Molajo\\Configuration": {
-        "Levels": 1,
+        "Levels": "2",
         "IncludeFolders": [
             "Kernel\/Configuration"
         ],
@@ -80,7 +80,7 @@
     },
 
     "Molajo\\Controller": {
-        "Levels": 1,
+        "Levels": "2",
         "IncludeFolders": [
             "Kernel\/Controller"
         ],
@@ -100,7 +100,7 @@
     },
 
     "Molajo\\Public\\Css": {
-        "Levels": 1,
+        "Levels": "2",
         "IncludeFolders": [
             ""
         ],
@@ -120,7 +120,7 @@
     },
 
     "Molajo\\Public\\Js": {
-        "Levels": 1,
+        "Levels": "2",
         "IncludeFolders": [
             ""
         ],
@@ -140,7 +140,7 @@
     },
 
     "Molajo\\Public\\Media": {
-        "Levels": 1,
+        "Levels": "2",
         "IncludeFolders": [
             ""
         ],
@@ -160,7 +160,7 @@
     },
 
     "Molajo\\Database": {
-        "Levels": 1,
+        "Levels": "2",
         "IncludeFolders": [
             "Vendor\/Molajo\/Database"
         ],
@@ -180,7 +180,7 @@
     },
 
     "Molajo\\Datalist": {
-        "Levels": 1,
+        "Levels": "2",
         "IncludeFolders": [
             "Application\/Model\/Datalist"
         ],
@@ -200,7 +200,7 @@
     },
 
     "Molajo\\Dataobject": {
-        "Levels": 1,
+        "Levels": "2",
         "IncludeFolders": [
             "Application\/Model\/Dataobject"
         ],
@@ -220,7 +220,7 @@
     },
 
     "Molajo\\Datasource": {
-        "Levels": 1,
+        "Levels": "2",
         "IncludeFolders": [
             "Application\/Model\/Datasource"
         ],
@@ -240,7 +240,7 @@
     },
 
     "Molajo\\Email": {
-        "Levels": 1,
+        "Levels": "2",
         "IncludeFolders": [
             "Vendor\/Molajo\/Email"
         ],
@@ -260,7 +260,7 @@
     },
 
     "Molajo\\Event": {
-        "Levels": 1,
+        "Levels": "2",
         "IncludeFolders": [
             "Kernel\/Event"
         ],
@@ -281,7 +281,7 @@
     },
 
     "Molajo\\Field": {
-        "Levels": 1,
+        "Levels": "2",
         "IncludeFolders": [
             "Application\/Model\/Field"
         ],
@@ -301,7 +301,7 @@
     },
 
     "Molajo\\FieldHandler": {
-        "Levels": 1,
+        "Levels": "2",
         "IncludeFolders": [
             "Vendor\/Molajo\/FieldHandler"
         ],
@@ -321,7 +321,7 @@
     },
 
     "Molajo\\Filesystem": {
-        "Levels": 1,
+        "Levels": "2",
         "IncludeFolders": [
             "Vendor\/Molajo\/Filesystem"
         ],
@@ -341,7 +341,7 @@
     },
 
     "Molajo\\FileUpload": {
-        "Levels": 1,
+        "Levels": "2",
         "IncludeFolders": [
             "Vendor\/Molajo\/FileUpload"
         ],
@@ -361,7 +361,7 @@
     },
 
     "Molajo\\Http": {
-        "Levels": 1,
+        "Levels": "2",
         "IncludeFolders": [
             "Kernel\/Http"
         ],
@@ -381,7 +381,7 @@
     },
 
     "Molajo\\Include": {
-        "Levels": 1,
+        "Levels": "2",
         "IncludeFolders": [
             "Application\/Model\/Include"
         ],
@@ -401,7 +401,7 @@
     },
 
     "Molajo\\IoC": {
-        "Levels": 1,
+        "Levels": "2",
         "IncludeFolders": [
             "Kernel\/IoC"
         ],
@@ -421,7 +421,7 @@
     },
 
     "Molajo\\Language": {
-        "Levels": 1,
+        "Levels": "2",
         "IncludeFolders": [
             "Vendor\/Molajo\/Language"
         ],
@@ -441,7 +441,7 @@
     },
 
     "Molajo\\Resources": {
-        "Levels": 1,
+        "Levels": "2",
         "IncludeFolders": [
             "Kernel\/Resources"
         ],
@@ -461,7 +461,7 @@
     },
 
     "Molajo\\Log": {
-        "Levels": 1,
+        "Levels": "2",
         "IncludeFolders": [
             "Vendor\/Molajo\/Log"
         ],
@@ -481,7 +481,7 @@
     },
 
     "Molajo\\Menuitem": {
-        "Levels": 1,
+        "Levels": "2",
         "IncludeFolders": [
             "Application\/Extension\/Menuitem"
         ],
@@ -501,7 +501,7 @@
     },
 
     "Molajo\\NumberToText": {
-        "Levels": 1,
+        "Levels": "2",
         "IncludeFolders": [
             "Vendor\/Molajo\/NumberToText"
         ],
@@ -521,7 +521,7 @@
     },
 
     "Molajo\\Pagination": {
-        "Levels": 1,
+        "Levels": "2",
         "IncludeFolders": [
             "Vendor\/Molajo\/Pagination"
         ],
@@ -541,7 +541,7 @@
     },
 
     "Molajo\\Plugin": {
-        "Levels": 1,
+        "Levels": "2",
         "IncludeFolders": [
             "Application\/Extension\/Plugin"
         ],
@@ -561,7 +561,7 @@
     },
 
     "Molajo\\Registry": {
-        "Levels": 1,
+        "Levels": "2",
         "IncludeFolders": [
             "Vendor\/Molajo\/Registry"
         ],
@@ -581,7 +581,7 @@
     },
 
     "Molajo\\Resource": {
-        "Levels": 1,
+        "Levels": "2",
         "IncludeFolders": [
             "Application\/Extension\/Resource"
         ],
@@ -601,7 +601,7 @@
     },
 
     "Molajo\\Search": {
-        "Levels": 1,
+        "Levels": "2",
         "IncludeFolders": [
             "Vendor\/Molajo\/Search"
         ],
@@ -621,7 +621,7 @@
     },
 
     "Molajo\\Service": {
-        "Levels": 1,
+        "Levels": "2",
         "IncludeFolders": [
             "Service",
             "User\/Service",
@@ -643,7 +643,7 @@
     },
 
     "Molajo\\Sites": {
-        "Levels": 1,
+        "Levels": "2",
         "IncludeFolders": [
             "Sites"
         ],
@@ -663,7 +663,7 @@
     },
 
     "Molajo\\Theme": {
-        "Levels": 1,
+        "Levels": "2",
         "IncludeFolders": [
             "Application\/Extension\/Theme"
         ],
@@ -684,7 +684,7 @@
     },
 
     "Molajo\\User": {
-        "Levels": 1,
+        "Levels": "2",
         "IncludeFolders": [
             "User"
         ],
@@ -704,7 +704,7 @@
     },
 
     "Molajo\\Utilities": {
-        "Levels": 1,
+        "Levels": "2",
         "IncludeFolders": [
             "Vendor\/Molajo\/Utilities"
         ],
@@ -724,7 +724,7 @@
     },
 
     "Molajo\\View\\Page": {
-        "Levels": 1,
+        "Levels": "2",
         "IncludeFolders": [
             "Application\/Extension\/View\/Page",
             "Vendor\/Molajo\/Theme\/System\/View\/Page"
@@ -745,7 +745,7 @@
     },
 
     "Molajo\\View\\Template": {
-        "Levels": 1,
+        "Levels": "3",
         "IncludeFolders": [
             "Application\/Extension\/View\/Template",
             "Vendor\/Molajo\/Theme\/System\/View\/Template"
@@ -766,7 +766,7 @@
     },
 
     "Molajo\\View\\Wrap": {
-        "Levels": 1,
+        "Levels": "2",
         "IncludeFolders": [
             "Application\/Extension\/View\/Wrap"
         ],
@@ -786,7 +786,7 @@
     },
 
     "PhpMailer": {
-        "Levels": 1,
+        "Levels": "2",
         "IncludeFolders": [
             "Vendor\/PhpMailer"
         ],
@@ -806,7 +806,7 @@
     },
 
     "Psr\\Log": {
-        "Levels": 1,
+        "Levels": "2",
         "IncludeFolders": [
             "Vendor\/psr\/log\/Psr\/Log"
         ],
@@ -826,7 +826,7 @@
     },
 
     "Whoops": {
-        "Levels": 1,
+        "Levels": "2",
         "IncludeFolders": [
             "Vendor\/filp\/whoops\/src"
         ],
@@ -846,7 +846,7 @@
     },
 
     "Joomla\\Database": {
-        "Levels": 1,
+        "Levels": "2",
         "IncludeFolders": [
             "Vendor\/Joomla\/Database"
         ],

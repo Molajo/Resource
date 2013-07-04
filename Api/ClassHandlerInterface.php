@@ -35,4 +35,16 @@ interface ClassHandlerInterface
      * @since   1.0
      */
     public function unregister();
+
+    /**
+     * Locates a resource using only the namespace
+     *
+     * @param   string  $namespace
+     * @param   string  $scheme
+     *
+     * @return  void|mixed
+     * @since   1.0
+     * @throws  \Molajo\Resources\Exception\ResourcesException
+     */
+    public function locateNamespace($namespace, $scheme = 'Class');
 }

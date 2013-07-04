@@ -1,6 +1,6 @@
 <?php
 /**
- * Class Handler - Class Loader
+ * Template View Resources
  *
  * @package   Molajo
  * @copyright 2013 Amy Stephen. All rights reserved.
@@ -11,21 +11,21 @@ namespace Molajo\Resources\Handler;
 use Molajo\Resources\Api\ResourceHandlerInterface;
 
 /**
- * Class Handler
+ * Template View Resources
  *
  * @package   Molajo
  * @copyright 2013 Amy Stephen. All rights reserved.
  * @license   http://www.opensource.org/licenses/mit-license.html MIT License
  * @since     1.0
  */
-class ClassHandler implements ResourceHandlerInterface
+class TemplateviewHandler implements ResourceHandlerInterface
 {
     /**
-     * Handle requires located file
+     * Handle located folder/file associated with URI Namespace for Resource
      *
-     * @param   string $scheme
-     * @param   string $located_path
-     * @param   array  $options
+     * @param   string  $scheme
+     * @param   string  $located_path
+     * @param   array   $options
      *
      * @return  void|mixed
      * @since   1.0
@@ -33,20 +33,14 @@ class ClassHandler implements ResourceHandlerInterface
      */
     public function handlePath($scheme, $located_path, array $options = array())
     {
-        if (file_exists($located_path)) {
-            require $located_path;
 
-            return;
-        }
-
-        return;
     }
 
     /**
      * Retrieve a collection of a specific handler
      *
-     * @param   string $scheme
-     * @param   array  $options
+     * @param   string  $scheme
+     * @param   array   $options
      *
      * @return  mixed
      * @since   1.0
@@ -54,6 +48,6 @@ class ClassHandler implements ResourceHandlerInterface
      */
     public function getCollection($scheme, array $options = array())
     {
-        return null;
+
     }
 }

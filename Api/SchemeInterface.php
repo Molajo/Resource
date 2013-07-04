@@ -19,27 +19,26 @@ namespace Molajo\Resources\Api;
 interface SchemeInterface
 {
     /**
-     * Get Scheme
+     * Get Scheme (or all schemes)
      *
      * @param   string $scheme
      *
-     * @return  object
+     * @return  object|array
      * @since   1.0
-     * @throws  \Molajo\Resources\Exception\ResourcesException
      */
-    public function getScheme($scheme);
+    public function getScheme($scheme = '');
 
     /**
-     * Add Scheme to Associate with Resource
+     * Define Scheme, associated Handler and allowable file extensions (empty array means any extension allowed)
      *
      * @param   string $scheme
      * @param   string $handler
      * @param   array  $extensions
      * @param   bool   $replace
      *
-     * @return  $this|void
+     * @return  $this
      * @since   1.0
      * @throws  \Molajo\Resources\Exception\ResourcesException
      */
-    public function setScheme($scheme, $handler = 'File', array $extensions = array(), $replace = false);
+    public function setScheme($scheme_name, $handler = 'File', array $extensions = array(), $replace = false);
 }

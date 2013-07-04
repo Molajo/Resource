@@ -8,6 +8,7 @@
  */
 namespace Molajo\Resources;
 
+use stdClass;
 use Molajo\Resources\Api\SchemeInterface;
 use Molajo\Resources\Exception\ResourcesException;
 
@@ -35,77 +36,48 @@ class Scheme implements SchemeInterface
     /**
      * Constructor
      *
-     * @param  string $scheme_array
+     * @param  string $scheme_filename
      *
      * @since  1.0
      */
     public function __construct(
-        $scheme_array = 'files/SchemeArray.json'
+        $scheme_filename = 'files/SchemeArray.json'
     ) {
-        $class_array = 'scheme_array';
-        $filename    = $scheme_array;
-        $this->readFile($filename, $class_array);
+        $filename = $scheme_filename;
+        $this->readSchemes($filename);
     }
 
     /**
-     * Get Scheme
+     * Get Scheme (or all schemes)
      *
      * @param   string $scheme
      *
-     * @return  bool|object
+     * @return  object|array
      * @since   1.0
-     * @throws  \Molajo\Resources\Exception\ResourcesException
      */
-    public function getScheme($scheme)
+    public function getScheme($scheme = '')
     {
-        if (isset($this->scheme[$scheme])) {
-            return $this->scheme[$scheme];
+        $scheme = strtolower($scheme);
+
+        if (isset($this->scheme_array[$scheme])) {
+            return $this->scheme_array[$scheme];
         }
 
-        return false;
+        return $this->scheme_array;
     }
 
     /**
-     * Add Scheme to Associate with Resource
+     * Read File and populate scheme array
      *
-     * @param   string $scheme
-     * @param   string $handler
-     * @param   array  $extensions
-     * @param   bool   $replace
+     * @param  string $filename
      *
-     * @return  $this|void
+     * @return  void
      * @since   1.0
      * @throws  \Molajo\Resources\Exception\ResourcesException
      */
-    public function setScheme($scheme, $handler = 'File', array $extensions = array(), $replace = false)
+    protected function readSchemes($filename)
     {
-        $scheme_row          = new \stdClass();
-        $scheme_row->scheme  = $scheme;
-        $scheme_row->handler = $handler;
-
-        foreach ($extensions as $extension) {
-            $scheme->extensions[] = $extension;
-        }
-
-        if (isset($this->scheme[$scheme])) {
-        } else {
-            $this->scheme[$scheme] = $scheme_row;
-        }
-
-        return $this;
-    }
-
-    /**
-     * Read File
-     *
-     * @param  string $name
-     * @param  string $class_array
-     *
-     * @since  1.0
-     */
-    public function readFile($filename, $class_array)
-    {
-        $temp_array = array();
+        $this->scheme_array = array();
 
         $filename = __DIR__ . '/' . $filename;
 
@@ -115,15 +87,93 @@ class Scheme implements SchemeInterface
         }
 
         $input = file_get_contents($filename);
-        $temp  = json_decode($input);
 
-        if (count($temp) > 0) {
-            $temp_array = array();
-            foreach ($temp as $key => $value) {
-                $temp_array[$key] = $value;
-            }
+        $schemes = json_decode($input);
+
+        if (count($schemes) == 0) {
+            return;
         }
 
-        $this->$class_array = $temp_array;
+        foreach ($schemes as $values) {
+
+            $scheme_name = '';
+            $handler     = '';
+            $extensions  = array();
+
+            foreach ($values as $key => $value) {
+
+                if ($key == 'Name') {
+                    $scheme_name = $value;
+
+                } elseif ($key == 'Handler') {
+
+                    $handler = $value;
+
+                } elseif ($key == 'RequireFileExtensions') {
+                    $extensions = $value;
+
+                } else {
+                    throw new ResourcesException ('Resources File ' . $filename . ' unknown key: ' . $key);
+                }
+            }
+
+            if ($scheme_name == '') {
+                throw new ResourcesException ('Resources File ' . $filename . ' must provide Name for each Scheme.');
+            }
+
+            if ($handler == '') {
+                $handler = $scheme_name;
+            }
+
+            if (is_array($extensions)) {
+            } elseif (trim($extensions) == '') {
+                $extensions = array();
+            } else {
+                $temp         = $extensions;
+                $extensions   = array();
+                $extensions[] = $temp;
+            }
+
+            $this->setScheme($scheme_name, $handler, $extensions, false);
+        }
+
+        return;
+    }
+
+    /**
+     * Define Scheme, associated Handler and allowable file extensions (empty array means any extension allowed)
+     *
+     * @param   string $scheme
+     * @param   string $handler
+     * @param   array  $extensions
+     * @param   bool   $replace
+     *
+     * @return  $this
+     * @since   1.0
+     * @throws  \Molajo\Resources\Exception\ResourcesException
+     */
+    public function setScheme($scheme_name, $handler = 'File', array $extensions = array(), $replace = false)
+    {
+        $scheme = new stdClass();
+
+        $scheme->name = strtolower(trim($scheme_name));
+        if ($scheme->name == '') {
+            throw new ResourcesException ('Resources File ' . $scheme_name . ' must provide Name for each Scheme.');
+        }
+
+        $scheme->handler = ucfirst(strtolower(trim($handler))) . 'Handler';
+
+        $scheme->handler_class = 'Molajo\\Resources\\Handler\\' . $scheme->handler;
+
+        if (class_exists($scheme->handler_class)) {
+        } else {
+            throw new ResourcesException ('Resources Scheme Handler Class: ' . $scheme->handler_class);
+        }
+
+        $scheme->require_file_extensions = $extensions;
+
+        $this->scheme_array[$scheme->name] = $scheme;
+
+        return $this;
     }
 }

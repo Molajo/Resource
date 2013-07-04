@@ -11,9 +11,9 @@ namespace Molajo\Resources\Api;
 interface ResourceMapInterface
 {
     /**
-     * Get the resource map
+     * Get Resource Map
      *
-     * @return  $this
+     * @return  array
      * @since   1.0
      */
     public function getMap();
@@ -21,18 +21,16 @@ interface ResourceMapInterface
     /**
      * Create resource map of folder/file locations and Fully Qualified Namespaces
      *
-     * @return  array
+     * @return  object
      * @since   1.0
-     * @throws  \Molajo\Resources\Exception\ResourcesException
      */
     public function createMap();
 
     /**
-     * Verify the correctness of the resource map
+     * Verify the correctness of the resource map, returning error messages
      *
      * @return  array
      * @since   1.0
-     * @throws  \Molajo\Resources\Exception\ResourcesException
      */
     public function editMap();
 }

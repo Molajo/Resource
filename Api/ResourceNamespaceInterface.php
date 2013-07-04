@@ -11,15 +11,27 @@ namespace Molajo\Resources\Api;
 interface ResourceNamespaceInterface
 {
     /**
-     * Locates folder/file associated with URI Namespace for Resource
+     * Locates a resource using only the namespace
      *
-     * @param   string $resource
+     * @param   string  $namespace
+     * @param   string  $scheme
      *
      * @return  void|mixed
      * @since   1.0
      * @throws  \Molajo\Resources\Exception\ResourcesException
      */
-    public function locateResource($resource);
+    public function locateNamespace($namespace, $scheme = 'Class');
+
+    /**
+     * Locates folder/file associated with URI Namespace for Resource
+     *
+     * @param   string $uri_namespace
+     *
+     * @return  void|mixed
+     * @since   1.0
+     * @throws  \Molajo\Resources\Exception\ResourcesException
+     */
+    public function locate($uri_namespace);
 
     /**
      * Get a namespace (or all namespaces)

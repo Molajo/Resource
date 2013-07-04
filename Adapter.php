@@ -53,6 +53,14 @@ class Adapter implements ClassHandlerInterface, SchemeInterface,
     protected $handler_instance = array();
 
     /**
+     * Scheme
+     *
+     * @var    string
+     * @since  1.0
+     */
+    protected $scheme;
+
+    /**
      * Host
      *
      * @var    string
@@ -101,6 +109,22 @@ class Adapter implements ClassHandlerInterface, SchemeInterface,
     protected $fragment;
 
     /**
+     * Scheme Properties
+     *
+     * @var    object
+     * @since  1.0
+     */
+    protected $scheme_properties;
+
+    /**
+     * Scheme Handler
+     *
+     * @var    string
+     * @since  1.0
+     */
+    protected $handler;
+
+    /**
      * Constructor
      *
      * @param   SchemeInterface      $scheme_instance
@@ -118,9 +142,9 @@ class Adapter implements ClassHandlerInterface, SchemeInterface,
         $this->resource_map_instance  = $resource_map_instance;
         $this->handler_instance_array = array();
 
-        foreach ($handler_instance_array as $item) {
-            if ($item instanceof ResourceHandlerInterface) {
-                $this->handler_instance_array[] = $item;
+        foreach ($handler_instance_array as $key => $value) {
+            if ($value instanceof ResourceHandlerInterface) {
+                $this->handler_instance[$key] = $value;
             }
         }
 
@@ -137,7 +161,7 @@ class Adapter implements ClassHandlerInterface, SchemeInterface,
      */
     public function register($prepend = true)
     {
-        spl_autoload_register(array($this, 'loadClass'), true, $prepend);
+        spl_autoload_register(array($this, 'locateNamespace'), true, $prepend);
 
         return $this;
     }
@@ -150,29 +174,48 @@ class Adapter implements ClassHandlerInterface, SchemeInterface,
      */
     public function unregister()
     {
-        spl_autoload_unregister(array($this, 'loadClass'));
+        spl_autoload_unregister(array($this, 'locateNamespace'));
 
         return $this;
     }
 
     /**
-     * Get Scheme
+     * Get Scheme (or all schemes)
      *
      * @param   string $scheme
      *
-     * @return  object
+     * @return  object|array
      * @since   1.0
      * @throws  \Molajo\Resources\Exception\ResourcesException
      */
-    public function getScheme($scheme)
+    public function getScheme($scheme = '')
     {
-        return $this->scheme_instance->getScheme($scheme);
+        if ($scheme == '') {
+            return $this->scheme_instance->getScheme();
+        }
+
+        $this->scheme = $scheme;
+
+        $this->scheme_properties = $this->scheme_instance->getScheme($this->scheme);
+
+        if ($this->scheme_properties === false) {
+            throw new ResourcesException ('Resources getScheme Scheme not found: ' . $this->scheme);
+        }
+
+        $this->handler = $this->scheme_properties->handler;
+
+        if (isset($this->handler_instance[$this->handler])) {
+        } else {
+            throw new ResourcesException ('Resources getScheme Handler not found: ' . $this->handler);
+        }
+
+        return $this->scheme_properties;
     }
 
     /**
-     * Add (or replace) Scheme
+     * Define Scheme, associated Handler and allowable file extensions (empty array means any extension allowed)
      *
-     * @param   string $scheme
+     * @param   string $scheme_name
      * @param   string $handler
      * @param   array  $extensions
      * @param   bool   $replace
@@ -181,77 +224,50 @@ class Adapter implements ClassHandlerInterface, SchemeInterface,
      * @since   1.0
      * @throws  \Molajo\Resources\Exception\ResourcesException
      */
-    public function setScheme($scheme, $handler = 'File', array $extensions = array(), $replace = false)
+    public function setScheme($scheme_name, $handler = 'File', array $extensions = array(), $replace = false)
     {
-        $this->scheme_instance->setScheme($scheme, $handler, $extensions, $replace);
+        $this->scheme_instance->setScheme($scheme_name, $handler, $extensions, $replace);
 
         return $this;
-    }
-
-    /**
-     * Loads a class file
-     *
-     * @param   string $namespace
-     *
-     * @return  void|mixed
-     * @since   1.0
-     * @throws  \Molajo\Resources\Exception\ResourcesException
-     */
-    public function loadClass($namespace)
-    {
-        $located_path = $this->locateResource($namespace);
-echo $located_path;
-        die;
-        return $this->handlePath($this->scheme, $located_path, $options);
     }
 
     /**
      * Locates folder/file associated with URI Namespace for Resource
      *
      * @param   string $uri_namespace
+     * @param   array  $valid_file_extensions
+     *
+     * @return  mixed
+     * @since   1.0
+     */
+    public function locate($uri_namespace, array $valid_file_extensions = array('.php'))
+    {
+        $this->parseUrl($uri_namespace);
+
+        return $this->locateNamespace(str_replace('\\', '/', $this->path), $this->scheme, $this->query);
+    }
+
+    /**
+     * Locates a resource using only the namespace
+     *
+     * @param   string $namespace
+     * @param   string $scheme
      * @param   array  $options
      *
      * @return  void|mixed
      * @since   1.0
      * @throws  \Molajo\Resources\Exception\ResourcesException
      */
-    public function locate($uri_namespace, array $options = array())
+    public function locateNamespace($namespace, $scheme = 'Class', array $options = array())
     {
-        $this->parseUrl($uri_namespace);
-echo '<pre>';
-var_dump(
-    array($this->scheme,
-        $this->host,
-        $this->user,
-        $this->password,
-        $this->path,
-        $this->query,
-        $this->fragment)
-    );
+        $this->getScheme($scheme);
 
-        $handler = $this->scheme . 'Handler';
-        if (isset($this->handler_instance[$handler])) {
-        } else {
-            throw new ResourcesException ('Resources locaate Handler not found for Scheme: : ' . $this->scheme);
-        }
-
-        $located_path = $this->locateResource(str_replace('/', '\\', $this->path));
+        $located_path = $this->resource_map_instance->locate(
+            $namespace,
+            $this->scheme_properties->require_file_extensions
+        );
 
         return $this->handlePath($this->scheme, $located_path, $options);
-    }
-
-    /**
-     * Locates folder/file associated with URI Namespace for Resource
-     *
-     * @param   string $resource
-     *
-     * @return  void|mixed
-     * @since   1.0
-     * @throws  \Molajo\Resources\Exception\ResourcesException
-     */
-    public function locateResource($resource)
-    {
-        return $this->resource_map_instance->locateResource($resource);
     }
 
     /**
@@ -267,12 +283,9 @@ var_dump(
      */
     public function handlePath($scheme, $located_path, array $options = array())
     {
-        if (isset($this->handler_instance[$this->scheme])) {
-        } else {
-            throw new ResourcesException ('Resources handlePath Handler not found for Scheme: ' . $this->scheme);
-        }
+        $this->getScheme($scheme);
 
-        return $this->handler_instance[$scheme]->handlePath($scheme, $located_path, $options);
+        return $this->handler_instance[$this->handler]->handlePath($scheme, $located_path, $options);
     }
 
     /**
@@ -287,12 +300,9 @@ var_dump(
      */
     public function getCollection($scheme, array $options = array())
     {
-        if (isset($this->handler_instance[$this->scheme])) {
-        } else {
-            throw new ResourcesException ('Resources getCollection Handler not found for Scheme: ' . $this->scheme);
-        }
+        $this->getScheme($scheme);
 
-        return $this->handler_instance[$scheme]->getCollection($scheme, $options);
+        return $this->handler_instance[$this->handler]->getCollection($scheme, $options);
     }
 
     /**
@@ -331,52 +341,55 @@ var_dump(
      *
      * @return  array
      * @since   1.0
-     * @throws  \Molajo\Resources\Exception\ResourcesException
      */
     public function getMap()
     {
-        return $this->resource_map_instance->getMap('resource_map');
+        return $this->resource_map_instance->getMap();
     }
 
     /**
      * Create resource map of folder/file locations and Fully Qualified Namespaces
      *
-     * @return  $this
+     * @return  object
      * @since   1.0
-     * @throws  \Molajo\Resources\Exception\ResourcesException
      */
     public function createMap()
     {
-
+        return $this->resource_map_instance->createMap();
     }
 
     /**
-     * Verify the correctness of the resource map
+     * Verify the correctness of the resource map, returning error messages
      *
      * @return  array
      * @since   1.0
-     * @throws  \Molajo\Resources\Exception\ResourcesException
      */
     public function editMap()
     {
-
+        return $this->resource_map_instance->editMap();
     }
 
     /**
      * Parse the URL
      *
+     * @param   string $url
+     *
      * @return  $this
      * @since   1.0
-     * @throws  \Molajo\Resources\Exception\ResourcesException
      */
     protected function parseUrl($url)
     {
-        $this->scheme   = parse_url($url, PHP_URL_SCHEME);
+        $scheme = parse_url($url, PHP_URL_SCHEME);
+        $this->getScheme($scheme);
+
         $this->host     = parse_url($url, PHP_URL_HOST);
         $this->user     = parse_url($url, PHP_URL_USER);
         $this->password = parse_url($url, PHP_URL_PASS);
         $this->path     = parse_url($url, PHP_URL_PATH);
         $this->query    = parse_url($url, PHP_URL_QUERY);
+        if ($this->query === null) {
+            $this->query = array();
+        }
         $this->fragment = parse_url($url, PHP_URL_FRAGMENT);
 
         return $this;
