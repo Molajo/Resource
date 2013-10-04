@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<actions>
+    <action name="create" method="PUT" authorisation="create" controller="create"/>
+    <action name="copy" method="PUT" authorisation="create" controller="create"/>
+    <action name="draft" method="PUT" authorisation="create" controller="create"/>
+
+    <action name="read" method="GET" authorisation="read" controller="read"/>
+    <action name="edit" method="GET" authorisation="read" controller="read"/>
+
+    <action name="save" method="POST" authorisation="update" controller="update"/>
+    <action name="cancel" method="POST" authorisation="none" controller="update"/>
+
+    <action name="archive" method="POST" authorisation="publish" controller="update"/>
+    <action name="categorize" method="POST" authorisation="publish" controller="update"/>
+    <action name="tag" method="POST" authorisation="publish" controller="update"/>
+    <action name="checkin" method="POST" authorisation="publish" controller="update"/>
+    <action name="feature" method="POST" authorisation="publish" controller="update"/>
+    <action name="orderdown" method="POST" authorisation="publish" controller="update"/>
+    <action name="orderup" method="POST" authorisation="publish" controller="update"/>
+    <action name="publish" method="POST" authorisation="publish" controller="update"/>
+    <action name="reorder" method="POST" authorisation="publish" controller="update"/>
+    <action name="restore" method="POST" authorisation="publish" controller="update"/>
+    <action name="spam" method="POST" authorisation="publish" controller="update"/>
+    <action name="sticky" method="POST" authorisation="publish" controller="update"/>
+    <action name="trash" method="POST" authorisation="publish" controller="update"/>
+    <action name="unfeature" method="POST" authorisation="publish" controller="update"/>
+    <action name="unpublish" method="POST" authorisation="publish" controller="update"/>
+    <action name="unsticky" method="POST" authorisation="publish" controller="update"/>
+
+    <action name="delete" method="DELETE" authorisation="delete" controller="delete"/>
+
+    <action name="login" method="GET" authorisation="login" controller="read"/>
+    <action name="logout" method="GET" authorisation="login" controller="read"/>
+</actions>

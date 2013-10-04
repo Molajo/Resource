@@ -1,0 +1,80 @@
+<?
+/**
+ * Default Wrap View
+ *
+ * @package   Molajo
+ * @license   http://www.opensource.org/licenses/mit-license.html MIT License
+ * @copyright 2013 Amy Stephen. All rights reserved.
+ */
+
+
+if ((int)$this->application->get('application_html5', 1) == 1
+    && ($this->parameters->wrap_view_title == 'Article'
+        || $this->parameters->wrap_view_title == 'Aside'
+        || $this->parameters->wrap_view_title == 'Footer'
+        || $this->parameters->wrap_view_title == 'Header'
+        || $this->parameters->wrap_view_title == 'Hgroup'
+        || $this->parameters->wrap_view_title == 'Nav'
+        || $this->parameters->wrap_view_title == 'Section')
+):
+    $headerType = $this->parameters->wrap_view_title; else :
+    $headerType = 'div';
+endif;
+$headerType = strtolower($headerType);
+
+$headerId = trim($this->parameters->wrap_view_css_id);
+if ($headerId == '') :
+else :
+    $headerId = ' id="' . $headerId . '"';
+endif;
+
+$headerclass = trim($this->parameters->wrap_view_css_class);
+if ($headerclass == '') :
+else :
+    $headerclass = ' class="' . $headerclass . '"';
+endif;
+
+$headerRole = trim($this->parameters->wrap_view_role);
+if ($headerRole == '') :
+else :
+    $headerRole = ' role="' . $headerRole . '"';
+endif;
+
+$headerProperty = trim($this->parameters->wrap_view_property);
+if ($headerProperty == '') :
+else :
+    $headerProperty = ' property="' . $headerProperty . '"';
+endif;
+?>
+    <<? echo trim($headerType . $headerId . $headerclass . $headerRole . $headerProperty); ?>>
+<?
+$headingLevel = $this->parameters->wrap_view_header_level;
+if ((int)$this->application->get('application_html5', 1) == 1):
+    if ($this->parameters->wrap_view_show_title === true
+        && $this->parameters->wrap_view_show_subtitle === true
+    ) : ?>
+        <hgroup>
+    <? endif;
+endif;
+
+if ($this->parameters->wrap_view_show_title === true) :  ?>
+    <h<? echo $headingLevel; ?>>
+        <? echo $this->row->title; ?>
+    </h<? echo $headingLevel ++; ?>>
+<?
+endif;
+
+if ($this->parameters->wrap_view_show_subtitle === true) :  ?>
+    <h<? echo $headingLevel; ?>>
+        <? echo $this->row->subtitle; ?>
+    </h<? echo $headingLevel ++; ?>>
+<?
+endif;
+
+if ((int)$this->application->get('application_html5', 1) == 1) :
+    if ($this->parameters->wrap_view_show_title === true
+        && $this->parameters->wrap_view_show_subtitle === true
+    ) : ?>
+        </hgroup>
+    <? endif;
+endif;

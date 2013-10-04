@@ -1,0 +1,29 @@
+{
+    "name": "molajo/Database",
+    "type": "molajo-bundle",
+    "description": "Molajo Database: platform independent multi-database support with Joomla Database adapter",
+    "keywords": ["Database", "Molajo", "PSR-0", "SQL Server", "MySQL", "Oracle"],
+    "homepage": "http://github.com/Molajo/Database",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Amy Stephen",
+            "Database": "AmyStephen@gmail.com",
+            "homepage": "http://AmyStephen.github.io"
+        }
+    ],
+    "require": {
+        "php": ">=5.3.3"
+    },
+
+    "support": {
+        "Database": "hello@molajo.org",
+        "irc": "irc://irc.freenode.org/molajo"
+    },
+    "target-dir": "Molajo/Database",
+    "autoload": {
+        "psr-0": {
+            "Molajo": "./"
+        }
+    }
+}

@@ -1,0 +1,36 @@
+{
+    "name": "molajo/events",
+    "type": "molajo-bundle",
+    "description": "Molajo Events: Dispatcher, Event Dispatcher, Listener, and Requester Event System for " +
+"Scheduling and Listening for Events, triggering listeners for the Event. " +
+"Works in conjunction with the Molajo IoCC or as a stand-alone. PHP platform independent",
+"keywords": ["Event", "Molajo", "PSR-0"],
+"homepage": "http://github.com/Molajo/Event",
+"license": "MIT",
+"authors": [
+{
+"name": "Amy Stephen",
+"email": "AmyStephen@gmail.com",
+"homepage": "http://AmyStephen.github.io"
+}
+],
+"require": {
+"php": ">=5.3.3"
+},
+
+"support": {
+"email": "hello@molajo.org",
+"irc": "irc://irc.freenode.org/molajo"
+},
+"autoload": {
+"psr-0": {
+"Molajo\\Event": "./"
+}
+},
+"minimum-stability": "dev",
+"extra": {
+"branch-alias": {
+"dev-master": "1.0.x-dev"
+}
+}
+}

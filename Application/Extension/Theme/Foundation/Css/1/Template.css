@@ -1,0 +1,33 @@
+/* --------------------------------------------------
+   Application-specific Changes
+-----------------------------------------------------
+:: Shared Styles
+:: Page Name 1
+:: Page Name 2
+*/
+.row {
+    width: 940px;
+    max-width: 100%;
+    min-width: 768px;
+    margin: 0 auto;
+}
+
+.contain-to-grid .top-bar {
+    max-width: 940px;
+    margin: 0 auto;
+}
+
+.top-bar-js-breakpoint {
+    width: 940px !important;
+    visibility: hidden;
+}
+
+@media only screen and (max-width: 940px) {
+    .top-bar {
+        margin-bottom: 0;
+        overflow: hidden;
+        height: 45px;
+        background: #222222; /* Override contain to grid stuff for breakpoint */
+        /* Setting up the sliding area */
+        /* When the Small Nav is Showing */
+    }

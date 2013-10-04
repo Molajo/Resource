@@ -1,0 +1,17 @@
+<?
+/**
+ * Footer Template View
+ *
+ * @package   Molajo
+ * @license   http://www.opensource.org/licenses/mit-license.html MIT License
+ * @copyright 2013 Amy Stephen. All rights reserved.
+ */
+
+
+$homeURL = $this->registry->get('Page', 'home_url'); ?>
+<p>
+    <? echo $this->row->copyright_statement ?>
+    <a href="<? echo $this->row->link; ?>">
+        <? echo $this->row->linked_text; ?> </a>
+    <? echo ' ' . $this->row->remaining_text; ?>
+</p>

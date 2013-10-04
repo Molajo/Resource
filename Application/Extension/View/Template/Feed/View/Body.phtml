@@ -1,0 +1,24 @@
+<?
+/**
+ * Feed Template View
+ *
+ * @package   Molajo
+ * @license   http://www.opensource.org/licenses/mit-license.html MIT License
+ * @copyright 2013 Amy Stephen. All rights reserved.
+ */
+?>
+<p>
+    <a href="<? echo $this->row->link; ?>">
+        <strong>
+            <? echo $this->row->title; ?>
+        </strong>
+    </a>
+    <? if ($this->parameters->display_snippet == 1) {
+        echo '<br />' . $this->row->description;
+    }
+    if ($this->parameters->display_published_date == 1) {
+        echo '<br />' . '<strong>' . $this->language->translate(
+                'Published'
+            ) . ':</strong> ' . $this->row->published_date;
+    } ?>
+</p>

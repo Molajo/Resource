@@ -1,0 +1,83 @@
+<?
+/**
+ * Customfields Template View
+ *
+ * @package   Molajo
+ * @license   http://www.opensource.org/licenses/mit-license.html MIT License
+ * @copyright 2013 Amy Stephen. All rights reserved.
+ */
+use Molajo\Service;
+
+?>
+
+<div class="configuration-header">
+    <header>
+        <h3><? echo $this->row->page_title_extended; ?></h3>
+        <? if ($this->parameters->application_help == 1) { ?>
+            <h6><? echo $this->row->page_description; ?></h6>
+        <? } ?>
+    </header>
+    <section>
+        <ul class="inline-list right">
+            <li><a href="#"><strong><? echo $this->language->translate('Reset'); ?></strong></a></li>
+            <li><a href="#" class="button success radius"><? echo $this->language->translate(
+                        'Save',
+                        'Save'
+                    ); ?></a></li>
+        </ul>
+    </section>
+</div>
+
+<include type=template name=<? echo $this->row->view; ?> parameter_np=<? echo $this->row->name; ?>/>
+
+    <div class="configuration-body">
+
+        <table class="responsive">
+            <thead>
+            <tr>
+                <th class="create-type"><? echo $this->language->translate('Criteria'); ?></th>
+                <th class="create-value"><? echo $this->language->translate('Value'); ?></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td class="create-type"><? echo $this->language->translate('Name'); ?></td>
+                <td class="create-value">
+                    <input id="custom_field_name" type="text" placeholder="Customfield Name"/>
+                    <include type=template name=Forminput id="custom_field_name" type="text"/>
+                </td>
+            </tr>
+            <tr>
+                <td class="create-type">
+                    <include type=template name=formselect id="custom_field_type" datalist="datatype"/>
+                </td>
+            </tr>
+            <tr>
+                <td class="create-type"><? echo $this->language->translate('Required'); ?></td>
+                <td class="create-value"></td>
+            </tr>
+            <tr>
+                <td class="create-type"><? echo $this->language->translate('List'); ?></td>
+                <td class="create-value"></td>
+            </tr>
+            <tr>
+                <td class="create-type"><? echo $this->language->translate('Hidden'); ?></td>
+                <td class="create-value"></td>
+            </tr>
+            </tbody>
+        </table>
+
+        <table class="responsive">
+            <thead>
+            <tr>
+                <th class="name"><? echo $this->language->translate('Name'); ?></th>
+                <th class="type"><? echo $this->language->translate('Type'); ?></th>
+                <th class="required"><? echo $this->language->translate('Required'); ?></th>
+                <th class="datalist"><? echo $this->language->translate('List'); ?></th>
+                <th class="hidden"><? echo $this->language->translate('Hidden'); ?></th>
+                <th width="1%">
+                    <? echo $this->language->translate('Delete'); ?>
+                </th>
+            </tr>
+            </thead>
+            <tbody>

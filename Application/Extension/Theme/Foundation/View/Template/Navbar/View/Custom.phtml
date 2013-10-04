@@ -1,0 +1,163 @@
+<?php
+use Molajo\Service;
+
+/**
+ * @package   Molajo
+ * @copyright 2013 Amy Stephen. All rights reserved.
+ * @license   http://www.opensource.org/licenses/mit-license.html MIT License
+ */
+
+/** Get menu id for level currently being processed */
+$i = 1;
+$currentMenuArray = array();
+
+$breadcrumbs = $this->registry->get('Page', 'Breadcrumbs');
+$pageURL = $this->registry->get('Page', 'page_url');
+
+if ($this->parameters->application->id == 2) {
+    $menu = $this->registry->get('Page', 'Menuadmin');
+} else {
+    $menu = $this->registry->get('Page', 'Menuadmin');
+}
+
+if (trim($menu[0]->css_class) == '') {
+    $class = '';
+} else {
+    $class = ' class="' . $menu[0]->css_class . '" ';
+}
+$link_text = $menu[0]->link_text;
+$link = $menu[0]->link;
+unset($menu[0]);
+?>
+<div class="fixed contain-to-grid" id="navigation-bar" role="banner">
+    <nav class="top-bar">
+        <ul>
+            <li class="name">
+                <h1>
+                    <li<?php echo $class; ?>><a href="<?php echo $link; ?>"><?php echo $link_text; ?></a>
+                </h1>
+            </li>
+            <li class="toggle-topbar"><a href="<?php echo $this->registry->get('Page', 'page_url'); ?>#"></a>
+            </li>
+        </ul>
+        <?php if (count($menu) == 0 || $menu == '') {
+        } else {
+            ?>
+            <section>
+                <ul class="left">
+                    <li class="divider"></li>
+                    <?php
+                    $previous_lvl = 0;
+                    foreach ($menu as $menuitem) {
+
+                    /* Previous Menu Item(s) */
+                    if ($previous_lvl == 0) {
+
+                    } elseif ($previous_lvl == $menuitem->lvl) {
+                        ?>
+                        </li>
+
+                    <?php
+                    } elseif ($previous_lvl < $menuitem->lvl) {
+
+                    }
+                    else {
+                    $count = (int)$previous_lvl - (int)$menuitem->lvl + 1;
+                    for ($i = 0;
+                    $i < $count;
+                    $i ++) {
+                    if ($i + 1 == $count) {
+                        ?>
+                        </li>
+                    <?php } else { ?>
+                    </li>
+                </ul>
+                <?php
+                }
+                }
+                }
+
+                /* Current Menu Item */
+                if (trim($menuitem->css_class) == '') {
+                    $class      = '';
+                    $extraclass = '';
+                } else {
+                    $class      = ' class="' . $menuitem->css_class . '" ';
+                    $extraclass = ' ' . $menuitem->css_class;
+                }
+
+                $ulClass = '';
+                $liClass = '';
+                if ((int)$menuitem->lft + 1 == (int)$menuitem->rgt) {
+                    if (trim($extraclass) == '') {
+                    } else {
+                        $ulClass = ' class="' . $extraclass . '"';
+                        $liClass = ' class="' . $extraclass . '"';
+                    }
+                } else {
+                    $ulClass = ' class="' . 'dropdown' . $extraclass . '"';
+                    $liClass = ' class="' . 'has-dropdown' . $extraclass . '"';
+                }
+
+                if ($menuitem->lvl == 2) {
+                $saveLvlLink  = '';
+                $saveLvlTitle = '';
+                ?>
+            <li<?php echo $liClass; ?>><a href="<?php echo $menuitem->link; ?>"><i
+                    class="<?php echo $menuitem->subtitle; ?>"></i><span
+                    class="small-device"><?php echo $menuitem->title; ?></span></a>
+            <?php } else { ?>
+                <li<?php echo $liClass; ?>><a
+                        href="<?php echo $menuitem->link; ?>"><?php echo $menuitem->link_text; ?></a>
+                    <?php
+                    }
+
+                    if ((int)$menuitem->lvl == 3) {
+                        $saveLvlLink  = $menuitem->link;
+                        $saveLvlTitle = $menuitem->link_text;
+                    }
+
+                    if ((int)$menuitem->lft + 1 == (int)$menuitem->rgt) {
+                    } else {
+                    ?>
+                    <ul<?php echo $ulClass; ?>>
+                        <?php
+                        }
+
+                        /** Save the current level */
+                        $previous_lvl = $menuitem->lvl;
+                        }
+                        $count = (int)$previous_lvl - 1;
+                        for ($i = 0;
+                        $i < $count;
+                        $i ++) {
+                        if ($i + 1 == $count) {
+                        ?>
+                </li>
+            <?php } else { ?>
+                </li>
+                </ul>
+            <?php
+            }
+            } ?>
+                </ul>
+            </section>
+        <?php } ?>
+        <section>
+            <ul class="right">
+                <li class="divider"></li>
+                <li><a href="profile"><i class="icon-user"></i>&nbsp;<?php echo $this->registry->get(
+                            'User',
+                            'username'
+                        ); ?></a></li>
+                <li class="divider"></li>
+                <li><a href="logout"><i class="icon-cog"></i></a></li>
+                <li class="divider"></li>
+                <li class="search">
+                    <input type="text" name="search">
+                </li>
+                <li><a href="search"><i class="icon-search"></i></a></li>
+            </ul>
+        </section>
+    </nav>
+</div>

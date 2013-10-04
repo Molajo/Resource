@@ -1,0 +1,4 @@
+s:240:"
+SELECT `a`.`id`,`a`.`primary_category_id`,`a`.`title`,`a`.`alias`,`a`.`model_type`,`a`.`model_name`,`a`.`protected`
+FROM `#__catalog_types` as `a`
+WHERE `a` . `model_type` = 'System' AND `a` . `id` IN (2000, 7000, 8000, 9000, 10000, 12000)";

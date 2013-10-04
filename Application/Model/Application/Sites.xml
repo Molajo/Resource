@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<sites>
+    <site id="1" name="Site 1" base="site1" folder="/Sites/1"/>
+    <site id="2" name="Site 2" base="site2" folder="/Sites/2"/>
+</sites>

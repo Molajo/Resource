@@ -1,0 +1,41 @@
+{
+    "name": "molajo/pagination",
+    "type": "molajo-bundle",
+    "description": "Data object ArrayIterator and easy pagination for PHP, framework independent. Working example in package.",
+    "keywords": ["Pagination", "PSR-0", "PSR-1", "PSR-2"],
+    "homepage": "http://github.com/Molajo/Pagination",
+    "license": "MIT",
+
+    "authors": [
+        {
+            "name": "Amy Stephen",
+            "email": "AmyStephen@gmail.com",
+            "homepage": "http://AmyStephen.github.io"
+        }
+    ],
+
+    "require": {
+        "php": ">=5.3"
+    },
+
+    "repositories": [
+        {
+            "type": "vcs",
+            "url": "https://github.com/molajo/Pagination"
+        }
+    ],
+
+    "autoload": {
+        "psr-0": {
+            "Molajo\\Pagination": "./"
+        }
+    },
+
+    "minimum-stability": "dev",
+
+    "extra": {
+        "branch-alias": {
+            "dev-master": "1.0.x-dev"
+        }
+    }
+}

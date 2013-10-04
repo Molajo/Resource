@@ -1,0 +1,22 @@
+<?
+/**
+ * Customfields Template View
+ *
+ * @package   Molajo
+ * @license   http://www.opensource.org/licenses/mit-license.html MIT License
+ * @copyright 2013 Amy Stephen. All rights reserved.
+ */
+use Molajo\Service;
+
+?>
+<tr>
+    <td class="name"><? echo $this->language->translate($this->row->label); ?></td>
+    <td class="type"><? echo $this->row->type; ?></td>
+    <td class="required"><? $this->row->required; ?></td>
+    <td class="datalist"><? echo $this->row->datalist; ?></td>
+    <td class="hidden"><? echo $this->row->hidden; ?></td>
+    <td><a href="#" class="small button alert radius"><? echo $this->language->translate(
+                'Delete',
+                'Delete'
+            ); ?></a></td>
+</tr>

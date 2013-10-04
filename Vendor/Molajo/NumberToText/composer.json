@@ -1,0 +1,41 @@
+{
+    "name": "molajo/numbertotext",
+    "type": "molajo-bundle",
+    "description": "Converts a numeric value up to a 999 quattuordecillion to translatable term.",
+    "keywords": ["NumberToText", "Language", "PSR-0", "PSR-1", "PSR-2"],
+    "homepage": "http://github.com/Molajo/NumberToText",
+    "license": "MIT",
+
+    "authors": [
+        {
+            "name": "Amy Stephen",
+            "email": "AmyStephen@gmail.com",
+            "homepage": "http://AmyStephen.github.io"
+        }
+    ],
+
+    "require": {
+        "php": ">=5.3"
+    },
+
+    "repositories": [
+        {
+            "type": "vcs",
+            "url": "https://github.com/molajo/NumberToText"
+        }
+    ],
+
+    "autoload": {
+        "psr-0": {
+            "Molajo\\NumberToText": "./"
+        }
+    },
+
+    "minimum-stability": "dev",
+
+    "extra": {
+        "branch-alias": {
+            "dev-master": "1.0.x-dev"
+        }
+    }
+}

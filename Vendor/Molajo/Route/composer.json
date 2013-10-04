@@ -1,0 +1,34 @@
+{
+    "name": "molajo/Route",
+    "type": "molajo-bundle",
+    "description": "Molajo Route: Application Routes support using Adapters, PHP platform independent",
+    "keywords": ["Route", "Molajo", "PSR-0"],
+    "homepage": "http://github.com/Molajo/Route",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Amy Stephen",
+            "email": "AmyStephen@gmail.com",
+            "homepage": "http://AmyStephen.github.io"
+        }
+    ],
+    "require": {
+        "php": ">=5.3.3"
+    },
+
+    "support": {
+        "email": "hello@molajo.org",
+        "irc": "irc://irc.freenode.org/molajo"
+    },
+    "autoload": {
+        "psr-0": {
+            "Molajo\\Route": "./"
+        }
+    },
+    "minimum-stability": "dev",
+    "extra": {
+        "branch-alias": {
+            "dev-master": "1.0.x-dev"
+        }
+    }
+}

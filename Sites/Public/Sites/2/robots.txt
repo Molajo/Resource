@@ -1,0 +1,7 @@
+# If the site is installed within a folder such as at example.com/folder
+#
+# For more information, see:
+# http://www.robotstxt.org/orig.html
+#
+
+User-agent: *

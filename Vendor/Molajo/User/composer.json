@@ -1,0 +1,39 @@
+{
+    "name": "molajo/User",
+    "type": "molajo-bundle",
+    "description": "Molajo User: Validates and Filters Input; Escapes and Formats Output",
+    "keywords": ["User", "Filter", "Validate", "Escape", "Format", "Adapters", "Interface", "PSR-0"],
+    "homepage": "http://github.com/Molajo/User",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Amy Stephen",
+            "email": "AmyStephen@gmail.com",
+            "homepage": "http://AmyStephen.github.io"
+        },
+        {
+            "name": "Other Contributors",
+            "homepage": "http://github.com/Molajo/User/contributors"
+        }
+    ],
+    "require": {
+        "php": ">=5.3"
+    },
+
+    "support": {
+        "email": "hello@molajo.org",
+        "irc": "irc://irc.freenode.org/molajo"
+    },
+    "target-dir": "Molajo/User",
+    "autoload": {
+        "psr-0": {
+            "Molajo\\User": "./"
+        }
+    },
+    "minimum-stability": "dev",
+    "extra": {
+        "branch-alias": {
+            "dev-master": "0.1.0-dev"
+        }
+    }
+}

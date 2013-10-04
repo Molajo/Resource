@@ -1,0 +1,11 @@
+language: php
+
+php:
+  - 5.3.3
+
+notifications:
+  irc: "irc.freenode.org#molajo"
+  email: amystephen@gmail.com
+
+script:
+  - phpunit  -c .dev/phpunit.xml
