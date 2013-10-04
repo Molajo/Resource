@@ -37,7 +37,7 @@ to this method which attempts to locate the file and includes it, if found.
 
 The *Resource* XML Handler locates and returns the path for a specified resource
 
-```
+```php
 <?php
 $field = $this->resource->get('xml:///Molajo/Field/Author.xml');
 
@@ -57,7 +57,7 @@ injecting required dependencies, injects the Model instance and other required d
 into the necessary Controller, and then passes the Controller instance back to
 the application for processing.
 
-```
+```php
 <?php
 $controller = $this->dependencies['Resources']->get(
     'query:///Molajo/Datasource/CatalogTypes.xml',
@@ -164,5 +164,7 @@ after the database is connected, the Query Handler can constructed and injected 
 The [Resources Query DI Injector](https://github.com/Molajo/Standard/blob/master/Kernel/Service/Resourcesquery/ResourcesqueryInjector.php)
 does just that once the database connection is available.
 
-## This is just a general description of the *Resources* package, feedback is welcome. Remember
+## Status
+
+This is just a general description of the *Resources* package, feedback is welcome. Remember
 it's still a work in progress and not ready for production use.
