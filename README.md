@@ -30,7 +30,7 @@ With *Resources*, applications interact with filesystem resources using a URI na
 
 ### Class Handler
 
-The *Resource* Class Handler is defined as an SPL Autoloader. PHP passes any requests to locate a class file
+The *Resource* Class Handler is defined as an `SPL Autoloader`. PHP passes any requests to locate a class file
 to this method which attempts to locate the file and includes it, if found.
 
 ### XML Handler
@@ -39,7 +39,7 @@ The *Resource* XML Handler locates and returns the path for a specified resource
 
 ```
 <?php
-$field = $this->resource->get('xml:///Molajo//Field//Author.xml');
+$field = $this->resource->get('xml:///Molajo/Field/Author.xml');
 
 echo $field;
 ```
@@ -60,7 +60,7 @@ the application for processing.
 ```
 <?php
 $controller = $this->dependencies['Resources']->get(
-    'query:///Molajo//Datasource//CatalogTypes.xml',
+    'query:///Molajo/Datasource/CatalogTypes.xml',
     array('Parameters' => $parameters)
 );
 
@@ -153,7 +153,7 @@ This process also creates compiled data used by *Molajo's IoCC package* for [ide
 (https://github.com/Molajo/Resources/blob/master/Files/ClassDependencies.json)
 and for [mapping concretes to interfaces](https://github.com/Molajo/Resources/blob/master/Files/InterfaceMap.json).
 
-###IoCC Services for Resources 
+###IoCC Services for Resources
 
 Following are examples of how Molajo instantiates the *Resources* class and handlers:
 
@@ -165,4 +165,4 @@ The [Resources Query DI Injector](https://github.com/Molajo/Standard/blob/master
 does just that once the database connection is available.
 
 ## This is just a general description of the *Resources* package, feedback is welcome. Remember
-it's still a work in progress and not ready for production use. 
+it's still a work in progress and not ready for production use.
