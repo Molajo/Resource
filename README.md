@@ -1,194 +1,168 @@
 =======
-Resource Resources (will be renamed to Resources)
+Resources
 =======
 
 [![Build Status](https://travis-ci.org/Molajo/Resources.png?branch=master)](https://travis-ci.org/Molajo/Resources)
 
-*Resource Resources* provides PHP applications with a generalized approach for locating and handling
+*Resources* provides PHP applications with a generalized approach for locating and handling
     file and folder resources using URI namespaces.
 
-## Basic Usage ##
+## Basic Principles
 
-Instead of requiring the application know the location of file and folder resources,
- so that it can use those values when requesting filesystem resources:
+With *Resources*, applications interact with filesystem resources using a URI namespace, rather than specifying
+ file and folder names.
 
-```php
-<?
+ This approach provides two important benefits:
+
+ First, namespacing generalizes location
+  information so that the application no longer requires hardcoded physical locations. The *Resources* package
+   locates the physical location based on the URI namespace resulting in flexibility as to storage location and
+   facility.
+
+   Second, the *Resources* package uses an adapter handler to process process the application request
+   for the resource. In this sense, the treatment required for each file request can be customized based on the
+   URI scheme. For example, the handler for PHP classes can defined as an SPL autoloader while the handler for
+   an XML configuration file might return an XML string read from the located file. In the case of a model, one
+   might return a Read Controller, instantiated with all dependencies injected and ready for queries. A request
+   for an image file might return an image, resized, as needed. The possibilities are endless.
+
+## Examples of how Molajo uses Resources
+
+### Class Handler
+
+The *Resource* Class Handler is defined as an SPL Autoloader. PHP passes any requests to locate a class file
+to this method which attempts to locate the file and includes it, if found.
+
+### XML Handler
+
+The *Resource* XML Handler locates and returns the path for a specified resource
 
 ```
+<?php
+$field = $this->resource->get('xml:///Molajo//Field//Author.xml');
 
-The application is able to interact with the filesystem in a more generic way using URI namespaces.
-
-```php
-<?
-
+echo $field;
 ```
 
-The **Resources** translates the URI into a filesystem path for use of that value with filesystem operations:
-
-```php
-<?
-
-```
-The **URI namespace**
-
-##Instantiate the Resource Resources Adapter##
-
-### Example: Class Loader
-
-- autoload
-- addPath
-
-Registration is automatic if class loading is activated.
-
-get(value);
-
-
-
-####Example: Get File location####
-```php
-    $resources = new Molajo\Resources\Adapter();
-    $resource = $adapter->get($uri);
-
-    echo $uri;
+Results:
+```html
+<field name="author" type="char" null="0" default=" "/>
 ```
 
-####Example: SPL Class Loader####
+### Query Handler
 
-Normal CLass commands invoke the Class Handler
+The *Resource* Query Handler locates the model XML file, processes the extend and include
+statements, generating the full model definition, instantiates the required Model class,
+injecting required dependencies, injects the Model instance and other required dependencies
+into the necessary Controller, and then passes the Controller instance back to
+the application for processing.
 
-```php
-    $instance = new $class();
 ```
-
-##Application Setup Process##
-
-####Planning####
-
-What resources must be accessible to your application?
-
-Typical resources include: classes, configuration files, CSS, JS, etc.
-
-For each you'll need to define:
-- scheme
-- namespace - resource location pairs
-- handling requirements
-
-Create Resource Map
-
-
-
-###Define Scheme###
-
-```php
-
-    try {
-        $filtered = $adapter->filter($field_name, $field_value, $loader_type_chain, $options);
-
-    } catch (Exception $e) {
-        //handle the exception
-    }
-
-    // Success!
-    echo $filtered;
-```
-
-###Define Namespaces###
-
-```php
-    $adapter = new Molajo\Resources\Adapter();
-
-    try {
-        $filtered = $adapter->filter($field_name, $field_value, $loader_type_chain, $options);
-
-    } catch (Exception $e) {
-        //handle the exception
-    }
-
-    // Success!
-    echo $filtered;
-```
-
-###Create Resource Map###
-
-```php
-    $adapter = new Molajo\Resources\Adapter();
-
-    try {
-        $filtered = $adapter->filter($field_name, $field_value, $loader_type_chain, $options);
-
-    } catch (Exception $e) {
-        //handle the exception
-    }
-
-    // Success!
-    echo $filtered;
-```
-
-### Overrides
-
-```php
-
-$sep = '\\';
-$mapping = array(
-   '\\Acme\\Blog\\' => 'src/blog',
-   '\\Acme\\Demo\\Parser.php' => 'src/Parser.php',
+<?php
+$controller = $this->dependencies['Resources']->get(
+    'query:///Molajo//Datasource//CatalogTypes.xml',
+    array('Parameters' => $parameters)
 );
 
-echo match_path('\\Acme\\Blog\\ShowController.php', $mapping, $sep);
-// => "src/blog/ShowController.php"
+$catalog_types = $controller->getData();
 
-echo match_path('\\Acme\\Demo\\Parser.php', $mapping, $sep);
-// => "src/Parser.php"
-
-    $adapter = new Molajo\Resources\Adapter();
-
-    try {
-        $filtered = $adapter->filter($field_name, $field_value, $loader_type_chain, $options);
-
-    } catch (Exception $e) {
-        //handle the exception
-    }
-
-    // Success!
-    echo $filtered;
-```
-
-## Install using Composer from Packagist
-
-### Step 1: Install composer in your project
-
-```php
-    curl -s https://getcomposer.org/installer | php
-```
-
-### Step 2: Create a **composer.json** file in your project root
-
-```php
-{
-    "require": {
-        "Molajo/Resources": "1.*"
-    }
+foreach ($catalog_types as $item) {
+    echo $item->id; // you get the picture
 }
 ```
 
-### Step 3: Install via composer
+### Other Handlers
 
-```php
-    php composer.phar install
+The *Resource* Package, as used in [Molajo](https://github.com/Molajo/Standard), has URI Handlers for Themes,
+Views, JS, CSS, Files and Folders, and so on. Work on other usage types, such as Constants, Functions, and
+Interfaces is underway. While *Resources* is still a work in progress, it is an integral part of the *Molajo*
+application.
+
+##Resource Definitions##
+
+The first step is determining what resources and must be accessible to your application. Define the scheme
+and request structure. Typical resources applications use include: classes, configuration files, CSS, JS, images, etc. The *Resources*
+package provides Handlers for these typical use case.
+
+All [Schemes](https://github.com/Molajo/Resources/blob/master/Files/SchemeArray.json) must be defined and handlers
+created for each scheme:
+
+```json
+    "css": {
+        "Name": "css",
+        "RequireFileExtensions": ".css",
+        "Handler": "Css"
+    },
 ```
 
-## Requirements and Compliance
- * PHP framework independent, no dependencies
- * Requires PHP 5.3, or above
- * [Semantic Versioning](http://semver.org/)
- * Compliant with:
-    * [PSR-0](https://github.com/php-fig/fig-standards/blob/master/accepted/PSR-0.md) and [PSR-1](https://github.com/php-fig/fig-standards/blob/master/accepted/PSR-1-basic-coding-standard.md) Namespacing
-    * [PSR-2](https://github.com/php-fig/fig-standards/blob/master/accepted/PSR-2-coding-style-guide.md) Coding Standards
- * [phpDocumentor2] (https://github.com/phpDocumentor/phpDocumentor2)
- * [phpUnit Testing] (https://github.com/sebastianbergmann/phpunit)
- * Author [AmyStephen](http://twitter.com/AmyStephen)
- * [Travis Continuous Improvement] (https://travis-ci.org/profile/Molajo)
- * Listed on [Packagist] (http://packagist.org) and installed using [Composer] (http://getcomposer.org/)
- * Use github to submit [pull requests](https://github.com/Molajo/Resources/pulls) and [features](https://github.com/Molajo/Resources/issues)
- * Licensed under the MIT License - see the `LICENSE` file for details
+Next, all application resources should be mapped to namespace prefixes and inclusion and exclusion criteria
+for that namespace:
+
+```json
+
+    "Molajo\\Administration": {
+        "include_folders": [
+            "Application\/Administration\/"
+        ],
+        "extension_level": 3,
+        "exclude_folders": [
+            ".dev",
+            ".travis.yml",
+            ".DS_Store",
+            ".git",
+            ".",
+            "..",
+            ".gitattributes",
+            ".gitignore"
+        ],
+        "include_file_extensions": "",
+        "exclude_file_extensions": "",
+        "include_file_names": "",
+        "exclude_file_names": "",
+        "tags": []
+    },
+```
+
+If overrides are required, define a generalized
+[prioritization](https://github.com/Molajo/Resources/blob/master/Files/PriorityArray.json)
+approaches for selecting which file is needed:
+
+```json
+    "User",
+    "Tag",
+    "Group",
+    "Category",
+    "Theme",
+    "Plugin",
+    "Menuitem",
+    "Resource",
+    "Wrap",
+    "Template",
+    "Page",
+    "Application",
+    "Site",
+    "Sites",
+    "System"
+]
+```
+
+From that information, [resource maps](https://github.com/Molajo/Resources/blob/master/Files/ResourceMap.json)
+can be compiled for performance purposes, if desired, although 100% dynamic resource location is supported.
+
+This process also creates compiled data used by *Molajo's IoCC package* for [identifying concrete class dependencies]
+(https://github.com/Molajo/Resources/blob/master/Files/ClassDependencies.json)
+and for [mapping concretes to interfaces](https://github.com/Molajo/Resources/blob/master/Files/InterfaceMap.json).
+
+###IoCC Services for Resources 
+
+Following are examples of how Molajo instantiates the *Resources* class and handlers:
+
+* At start-up, the [Resources DI Injector](https://github.com/Molajo/Standard/blob/master/Kernel/Service/Resources/ResourcesInjector.php)
+ instantiates the base handlers, and then injects those instances into constructed adapter.
+* In some cases, a URI handler cannot be constructed until it's dependencies are available. As an example,
+after the database is connected, the Query Handler can constructed and injected into the Resource Handler.
+The [Resources Query DI Injector](https://github.com/Molajo/Standard/blob/master/Kernel/Service/Resourcesquery/ResourcesqueryInjector.php)
+does just that once the database connection is available.
+
+## This is just a general description of the *Resources* package, feedback is welcome. Remember
+it's still a work in progress and not ready for production use. 
