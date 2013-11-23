@@ -1,0 +1,520 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="40f73f4e-4de8-45e6-a21a-cf63bc44c1b5" name="Default" comment="" />
+    <ignored path="CommonApi.iws" />
+    <ignored path=".idea/workspace.xml" />
+    <file path="/a.php" changelist="40f73f4e-4de8-45e6-a21a-cf63bc44c1b5" time="1385173732937" ignored="false" />
+    <file path="/a.feature" changelist="40f73f4e-4de8-45e6-a21a-cf63bc44c1b5" time="1385150638551" ignored="false" />
+    <file path="/a.sql" changelist="40f73f4e-4de8-45e6-a21a-cf63bc44c1b5" time="1385150639652" ignored="false" />
+    <file path="/a.twig" changelist="40f73f4e-4de8-45e6-a21a-cf63bc44c1b5" time="1385150640724" ignored="false" />
+    <file path="/a.dummy" changelist="40f73f4e-4de8-45e6-a21a-cf63bc44c1b5" time="1385175543716" ignored="false" />
+    <file path="/AuthorisationInterface.php" changelist="40f73f4e-4de8-45e6-a21a-cf63bc44c1b5" time="1385151426582" ignored="false" />
+    <file path="$PROJECT_DIR$/../Standard/Vendor/Molajo/IoC/IoCController.php" changelist="40f73f4e-4de8-45e6-a21a-cf63bc44c1b5" time="1385157126653" ignored="false" />
+    <file path="$PROJECT_DIR$/../Standard/Vendor/Molajo/IoC/.dev/Bootstrap.php" changelist="40f73f4e-4de8-45e6-a21a-cf63bc44c1b5" time="1385157126653" ignored="false" />
+    <file path="$PROJECT_DIR$/../Standard/Vendor/Molajo/Resources/Files/Output/ResourceMap.json" changelist="40f73f4e-4de8-45e6-a21a-cf63bc44c1b5" time="1385172823347" ignored="false" />
+    <file path="$PROJECT_DIR$/../Standard/Vendor/Molajo/IoC/IoCContainer.php" changelist="40f73f4e-4de8-45e6-a21a-cf63bc44c1b5" time="1385157126653" ignored="false" />
+    <file path="$PROJECT_DIR$/../Standard/Vendor/Molajo/IoC/Api/IoCContainerInterface.php" changelist="40f73f4e-4de8-45e6-a21a-cf63bc44c1b5" time="1385157126653" ignored="false" />
+    <file path="$PROJECT_DIR$/../Standard/Vendor/Molajo/Resources/Files/Output/ClassMap.json" changelist="40f73f4e-4de8-45e6-a21a-cf63bc44c1b5" time="1385172823347" ignored="false" />
+    <file path="$PROJECT_DIR$/../Standard/Vendor/Molajo/Resources/Files/Output/ClassDependencies.json" changelist="40f73f4e-4de8-45e6-a21a-cf63bc44c1b5" time="1385172823347" ignored="false" />
+    <file path="$PROJECT_DIR$/../Standard/Application/Controller/ApplicationController.php" changelist="40f73f4e-4de8-45e6-a21a-cf63bc44c1b5" time="1385160470466" ignored="false" />
+    <file path="$PROJECT_DIR$/../Standard/Application/Controller/Api/ApplicationInterface.php" changelist="40f73f4e-4de8-45e6-a21a-cf63bc44c1b5" time="1385160057869" ignored="false" />
+    <file path="$PROJECT_DIR$/../Standard/Application/Controller/.dev/Bootstrap.php" changelist="40f73f4e-4de8-45e6-a21a-cf63bc44c1b5" time="1385163437642" ignored="false" />
+    <file path="$PROJECT_DIR$/../Standard/Application/Controller/Api/CustomfieldsControllerInterface.php" changelist="40f73f4e-4de8-45e6-a21a-cf63bc44c1b5" time="1385160470466" ignored="false" />
+    <file path="$PROJECT_DIR$/../Standard/Application/Controller/Controller.php" changelist="40f73f4e-4de8-45e6-a21a-cf63bc44c1b5" time="1385160470466" ignored="false" />
+    <file path="$PROJECT_DIR$/../Standard/Application/Resources/Handler/QueryHandler.php" changelist="40f73f4e-4de8-45e6-a21a-cf63bc44c1b5" time="1385172759378" ignored="false" />
+    <file path="$PROJECT_DIR$/../Standard/Application/Controller/CustomfieldsController.php" changelist="40f73f4e-4de8-45e6-a21a-cf63bc44c1b5" time="1385160470466" ignored="false" />
+    <file path="$PROJECT_DIR$/../Standard/Application/Controller/ErrorHandlingController.php" changelist="40f73f4e-4de8-45e6-a21a-cf63bc44c1b5" time="1385160525062" ignored="false" />
+    <file path="$PROJECT_DIR$/../Standard/Application/Controller/Api/ErrorHandlingInterface.php" changelist="40f73f4e-4de8-45e6-a21a-cf63bc44c1b5" time="1385160525062" ignored="false" />
+    <file path="$PROJECT_DIR$/../Standard/Application/Controller/CreateController.php" changelist="40f73f4e-4de8-45e6-a21a-cf63bc44c1b5" time="1385161556151" ignored="false" />
+    <file path="$PROJECT_DIR$/../Standard/Application/Controller/Api/CreateInterface.php" changelist="40f73f4e-4de8-45e6-a21a-cf63bc44c1b5" time="1385161556151" ignored="false" />
+    <file path="$PROJECT_DIR$/../Standard/Application/Controller/Api/DeleteControllerInterface.php" changelist="40f73f4e-4de8-45e6-a21a-cf63bc44c1b5" time="1385161575686" ignored="false" />
+    <file path="$PROJECT_DIR$/../Standard/Application/Controller/DeleteController.php" changelist="40f73f4e-4de8-45e6-a21a-cf63bc44c1b5" time="1385161575686" ignored="false" />
+    <file path="$PROJECT_DIR$/../Standard/Application/Controller/ResourceController.php" changelist="40f73f4e-4de8-45e6-a21a-cf63bc44c1b5" time="1385163437642" ignored="false" />
+    <file path="$PROJECT_DIR$/../Standard/Application/Controller/ReadController.php" changelist="40f73f4e-4de8-45e6-a21a-cf63bc44c1b5" time="1385161626463" ignored="false" />
+    <file path="$PROJECT_DIR$/../Standard/Application/Service/Extensions/ExtensionsInjector.php" changelist="40f73f4e-4de8-45e6-a21a-cf63bc44c1b5" time="1385161626463" ignored="false" />
+    <file path="$PROJECT_DIR$/../Standard/Application/Controller/Api/ReadInterface.php" changelist="40f73f4e-4de8-45e6-a21a-cf63bc44c1b5" time="1385161626463" ignored="false" />
+    <file path="$PROJECT_DIR$/../Standard/Application/Controller/Api/ResourceInterface.php" changelist="40f73f4e-4de8-45e6-a21a-cf63bc44c1b5" time="1385163437642" ignored="false" />
+    <file path="$PROJECT_DIR$/../Standard/Application/Controller/Api/UpdateInterface.php" changelist="40f73f4e-4de8-45e6-a21a-cf63bc44c1b5" time="1385164213768" ignored="false" />
+    <file path="$PROJECT_DIR$/../Standard/Application/Controller/Api/UrlInterface.php" changelist="40f73f4e-4de8-45e6-a21a-cf63bc44c1b5" time="1385166593958" ignored="false" />
+    <file path="$PROJECT_DIR$/../Standard/Application/Controller/FrontController.php" changelist="40f73f4e-4de8-45e6-a21a-cf63bc44c1b5" time="1385170807262" ignored="false" />
+    <file path="/FrontController.php" changelist="40f73f4e-4de8-45e6-a21a-cf63bc44c1b5" time="1385167259386" ignored="false" />
+    <file path="/EventInterface.php" changelist="40f73f4e-4de8-45e6-a21a-cf63bc44c1b5" time="1385171592106" ignored="false" />
+    <file path="$PROJECT_DIR$/../Standard/Application/Extension/Plugin/Pagetypeitem/PagetypeitemPlugin.php" changelist="40f73f4e-4de8-45e6-a21a-cf63bc44c1b5" time="1385171366505" ignored="false" />
+    <file path="$PROJECT_DIR$/../Standard/Application/Extension/Plugin/Links/LinksPlugin.php" changelist="40f73f4e-4de8-45e6-a21a-cf63bc44c1b5" time="1385171366505" ignored="false" />
+    <file path="$PROJECT_DIR$/../Standard/Vendor/Molajo/Event/Api/ReadEventInterface.php" changelist="40f73f4e-4de8-45e6-a21a-cf63bc44c1b5" time="1385171366505" ignored="false" />
+    <file path="$PROJECT_DIR$/../Standard/Application/Extension/Plugin/Pagetypelist/PagetypelistPlugin.php" changelist="40f73f4e-4de8-45e6-a21a-cf63bc44c1b5" time="1385171366505" ignored="false" />
+    <file path="$PROJECT_DIR$/../Standard/Vendor/Molajo/Event/Api/DisplayEventInterface.php" changelist="40f73f4e-4de8-45e6-a21a-cf63bc44c1b5" time="1385171366505" ignored="false" />
+    <file path="$PROJECT_DIR$/../Standard/Application/Extension/Plugin/Comments/CommentsPlugin.php" changelist="40f73f4e-4de8-45e6-a21a-cf63bc44c1b5" time="1385171366505" ignored="false" />
+    <file path="$PROJECT_DIR$/../Standard/Vendor/Molajo/Event/Api/DeleteEventInterface.php" changelist="40f73f4e-4de8-45e6-a21a-cf63bc44c1b5" time="1385171366505" ignored="false" />
+    <file path="$PROJECT_DIR$/../Standard/Application/Extension/Plugin/Templatelist/TemplatelistPlugin.php" changelist="40f73f4e-4de8-45e6-a21a-cf63bc44c1b5" time="1385171366505" ignored="false" />
+    <file path="$PROJECT_DIR$/../Standard/Vendor/Molajo/Event/Api/CreateEventInterface.php" changelist="40f73f4e-4de8-45e6-a21a-cf63bc44c1b5" time="1385171366505" ignored="false" />
+    <file path="$PROJECT_DIR$/../Standard/Vendor/Molajo/Event/Api/SystemEventInterface.php" changelist="40f73f4e-4de8-45e6-a21a-cf63bc44c1b5" time="1385171366505" ignored="false" />
+    <file path="$PROJECT_DIR$/../Standard/Application/Extension/Plugin/UIFoundation/UIFoundationPlugin.php" changelist="40f73f4e-4de8-45e6-a21a-cf63bc44c1b5" time="1385171366505" ignored="false" />
+    <file path="$PROJECT_DIR$/../Standard/Vendor/Molajo/Event/Api/AuthenticateEventInterface.php" changelist="40f73f4e-4de8-45e6-a21a-cf63bc44c1b5" time="1385171366505" ignored="false" />
+    <file path="$PROJECT_DIR$/../Standard/Application/Extension/Plugin/Useractivity/UseractivityPlugin.php" changelist="40f73f4e-4de8-45e6-a21a-cf63bc44c1b5" time="1385171366505" ignored="false" />
+    <file path="$PROJECT_DIR$/../Standard/Vendor/Molajo/Event/Api/UpdateEventInterface.php" changelist="40f73f4e-4de8-45e6-a21a-cf63bc44c1b5" time="1385171366505" ignored="false" />
+    <file path="$PROJECT_DIR$/../Standard/Application/Extension/Plugin/Referencedata/ReferencedataPlugin.php" changelist="40f73f4e-4de8-45e6-a21a-cf63bc44c1b5" time="1385171366505" ignored="false" />
+    <file path="$PROJECT_DIR$/../Standard/Application/Extension/Plugin/Ajax/AjaxPlugin.php" changelist="40f73f4e-4de8-45e6-a21a-cf63bc44c1b5" time="1385171366505" ignored="false" />
+    <file path="$PROJECT_DIR$/../Standard/Application/Extension/Plugin/Cssclassandids/CssclassandidsPlugin.php" changelist="40f73f4e-4de8-45e6-a21a-cf63bc44c1b5" time="1385171366505" ignored="false" />
+    <file path="$PROJECT_DIR$/../Standard/Vendor/Molajo/Event/EventDispatcher.php" changelist="40f73f4e-4de8-45e6-a21a-cf63bc44c1b5" time="1385171608515" ignored="false" />
+    <file path="$PROJECT_DIR$/../Standard/Application/Extension/Plugin/Formselectlist/FormselectlistPlugin.php" changelist="40f73f4e-4de8-45e6-a21a-cf63bc44c1b5" time="1385171366505" ignored="false" />
+    <file path="$PROJECT_DIR$/../Standard/Application/Extension/Plugin/Head/HeadPlugin.php" changelist="40f73f4e-4de8-45e6-a21a-cf63bc44c1b5" time="1385171366505" ignored="false" />
+    <file path="$PROJECT_DIR$/../Standard/Application/Extension/Plugin/Googleanalytics/GoogleanalyticsPlugin.php" changelist="40f73f4e-4de8-45e6-a21a-cf63bc44c1b5" time="1385171366505" ignored="false" />
+    <file path="$PROJECT_DIR$/../Standard/Application/Extension/Plugin/Alias/AliasPlugin.php" changelist="40f73f4e-4de8-45e6-a21a-cf63bc44c1b5" time="1385171366505" ignored="false" />
+    <file path="$PROJECT_DIR$/../Standard/Application/Extension/Plugin/Publishedstatus/PublishedstatusPlugin.php" changelist="40f73f4e-4de8-45e6-a21a-cf63bc44c1b5" time="1385171366505" ignored="false" />
+    <file path="$PROJECT_DIR$/../Standard/Application/Extension/Plugin/Defer/DeferPlugin.php" changelist="40f73f4e-4de8-45e6-a21a-cf63bc44c1b5" time="1385171366505" ignored="false" />
+    <file path="$PROJECT_DIR$/../Standard/Application/Extension/Plugin/Extensioninstance/ExtensioninstancePlugin.php" changelist="40f73f4e-4de8-45e6-a21a-cf63bc44c1b5" time="1385171366505" ignored="false" />
+    <file path="$PROJECT_DIR$/../Standard/Application/Extension/Plugin/Email/EmailPlugin.php" changelist="40f73f4e-4de8-45e6-a21a-cf63bc44c1b5" time="1385171366505" ignored="false" />
+    <file path="$PROJECT_DIR$/../Standard/Application/Extension/Plugin/Pagetypedashboard/PagetypedashboardPlugin.php" changelist="40f73f4e-4de8-45e6-a21a-cf63bc44c1b5" time="1385171366505" ignored="false" />
+    <file path="$PROJECT_DIR$/../Standard/Application/Extension/Plugin/Login/LoginPlugin.php" changelist="40f73f4e-4de8-45e6-a21a-cf63bc44c1b5" time="1385171366505" ignored="false" />
+    <file path="$PROJECT_DIR$/../Standard/Application/Extension/Plugin/Pagetypeapplication/PagetypeapplicationPlugin.php" changelist="40f73f4e-4de8-45e6-a21a-cf63bc44c1b5" time="1385171366505" ignored="false" />
+    <file path="$PROJECT_DIR$/../Standard/Application/Extension/Plugin/Author/AuthorPlugin.php" changelist="40f73f4e-4de8-45e6-a21a-cf63bc44c1b5" time="1385171366505" ignored="false" />
+    <file path="$PROJECT_DIR$/../Standard/Application/Extension/Plugin/Pagetypeconfiguration/PagetypeconfigurationPlugin.php" changelist="40f73f4e-4de8-45e6-a21a-cf63bc44c1b5" time="1385171366505" ignored="false" />
+    <file path="$PROJECT_DIR$/../Standard/Vendor/Molajo/Event/Api/DispatcherInterface.php" changelist="40f73f4e-4de8-45e6-a21a-cf63bc44c1b5" time="1385171697586" ignored="false" />
+    <file path="$PROJECT_DIR$/../Standard/Vendor/Molajo/Event/Api/EventDispatcherInterface.php" changelist="40f73f4e-4de8-45e6-a21a-cf63bc44c1b5" time="1385171516304" ignored="false" />
+    <file path="$PROJECT_DIR$/../Standard/Vendor/Molajo/Event/Api/EventInterface.php" changelist="40f73f4e-4de8-45e6-a21a-cf63bc44c1b5" time="1385171592106" ignored="false" />
+    <file path="$PROJECT_DIR$/../Standard/Application/Extension/Plugin/Create/CreatePlugin.php" changelist="40f73f4e-4de8-45e6-a21a-cf63bc44c1b5" time="1385171366505" ignored="false" />
+    <file path="$PROJECT_DIR$/../Standard/Application/Extension/Plugin/Events/EventsPlugin.php" changelist="40f73f4e-4de8-45e6-a21a-cf63bc44c1b5" time="1385171366505" ignored="false" />
+    <file path="$PROJECT_DIR$/../Standard/Vendor/Molajo/Event/.dev/Bootstrap.php" changelist="40f73f4e-4de8-45e6-a21a-cf63bc44c1b5" time="1385171366505" ignored="false" />
+    <file path="$PROJECT_DIR$/../Standard/Application/Extension/Plugin/Fields/FieldsPlugin.php" changelist="40f73f4e-4de8-45e6-a21a-cf63bc44c1b5" time="1385171366505" ignored="false" />
+    <file path="$PROJECT_DIR$/../Standard/Application/Extension/Plugin/IFrame/IFramePlugin.php" changelist="40f73f4e-4de8-45e6-a21a-cf63bc44c1b5" time="1385171366505" ignored="false" />
+    <file path="$PROJECT_DIR$/../Standard/Application/Extension/Plugin/ReadEventPlugin.php" changelist="40f73f4e-4de8-45e6-a21a-cf63bc44c1b5" time="1385171366505" ignored="false" />
+    <file path="$PROJECT_DIR$/../Standard/Vendor/Molajo/Event/Event.php" changelist="40f73f4e-4de8-45e6-a21a-cf63bc44c1b5" time="1385171634152" ignored="false" />
+    <file path="$PROJECT_DIR$/../Standard/Application/Extension/Plugin/Images/ImagesPlugin.php" changelist="40f73f4e-4de8-45e6-a21a-cf63bc44c1b5" time="1385171366505" ignored="false" />
+    <file path="$PROJECT_DIR$/../Standard/Application/Extension/Plugin/Logout/LogoutPlugin.php" changelist="40f73f4e-4de8-45e6-a21a-cf63bc44c1b5" time="1385171366505" ignored="false" />
+    <file path="$PROJECT_DIR$/../Standard/Application/Extension/Plugin/Paging/PagingPlugin.php" changelist="40f73f4e-4de8-45e6-a21a-cf63bc44c1b5" time="1385171366505" ignored="false" />
+    <file path="$PROJECT_DIR$/../Standard/Application/Extension/Plugin/Status/StatusPlugin.php" changelist="40f73f4e-4de8-45e6-a21a-cf63bc44c1b5" time="1385171366505" ignored="false" />
+    <file path="$PROJECT_DIR$/../Standard/Application/Extension/Plugin/UpdateEventPlugin.php" changelist="40f73f4e-4de8-45e6-a21a-cf63bc44c1b5" time="1385171366505" ignored="false" />
+    <file path="$PROJECT_DIR$/../Standard/Application/Extension/Plugin/Catalog/CatalogPlugin.php" changelist="40f73f4e-4de8-45e6-a21a-cf63bc44c1b5" time="1385171366505" ignored="false" />
+    <file path="$PROJECT_DIR$/../Standard/Application/Extension/View/Template/Bargraph/Plugin/Bargraph/BargraphPlugin.phtml" changelist="40f73f4e-4de8-45e6-a21a-cf63bc44c1b5" time="1385171366505" ignored="false" />
+    <file path="$PROJECT_DIR$/../Standard/Application/Extension/Plugin/Checkin/CheckinPlugin.php" changelist="40f73f4e-4de8-45e6-a21a-cf63bc44c1b5" time="1385171366505" ignored="false" />
+    <file path="$PROJECT_DIR$/../Standard/Application/Extension/Plugin/SystemEventPlugin.php" changelist="40f73f4e-4de8-45e6-a21a-cf63bc44c1b5" time="1385171366505" ignored="false" />
+    <file path="$PROJECT_DIR$/../Standard/Application/Extension/Plugin/Itemurl/ItemurlPlugin.php" changelist="40f73f4e-4de8-45e6-a21a-cf63bc44c1b5" time="1385171366505" ignored="false" />
+    <file path="$PROJECT_DIR$/../Standard/Application/Extension/Plugin/Smilies/SmiliesPlugin.php" changelist="40f73f4e-4de8-45e6-a21a-cf63bc44c1b5" time="1385171366505" ignored="false" />
+    <file path="$PROJECT_DIR$/../Standard/Application/Extension/Theme/Foundation/Plugin/Foundation/FoundationPlugin.php" changelist="40f73f4e-4de8-45e6-a21a-cf63bc44c1b5" time="1385171366505" ignored="false" />
+    <file path="$PROJECT_DIR$/../Standard/Application/Extension/Plugin/Activity/ActivityPlugin.php" changelist="40f73f4e-4de8-45e6-a21a-cf63bc44c1b5" time="1385171366505" ignored="false" />
+    <file path="$PROJECT_DIR$/../Standard/Application/Extension/Plugin/Snippet/SnippetPlugin.php" changelist="40f73f4e-4de8-45e6-a21a-cf63bc44c1b5" time="1385171366505" ignored="false" />
+    <file path="$PROJECT_DIR$/../Standard/Application/Extension/Plugin/Version/VersionPlugin.php" changelist="40f73f4e-4de8-45e6-a21a-cf63bc44c1b5" time="1385171366505" ignored="false" />
+    <file path="$PROJECT_DIR$/../Standard/Application/Extension/Plugin/Weather/WeatherPlugin.php" changelist="40f73f4e-4de8-45e6-a21a-cf63bc44c1b5" time="1385171366506" ignored="false" />
+    <file path="$PROJECT_DIR$/../Standard/Application/Extension/Plugin/Featured/FeaturedPlugin.php" changelist="40f73f4e-4de8-45e6-a21a-cf63bc44c1b5" time="1385171366506" ignored="false" />
+    <file path="$PROJECT_DIR$/../Standard/Application/Extension/Plugin/Fullname/FullnamePlugin.php" changelist="40f73f4e-4de8-45e6-a21a-cf63bc44c1b5" time="1385171366506" ignored="false" />
+    <file path="$PROJECT_DIR$/../Standard/Application/Extension/Plugin/Gravatar/GravatarPlugin.php" changelist="40f73f4e-4de8-45e6-a21a-cf63bc44c1b5" time="1385171366506" ignored="false" />
+    <file path="$PROJECT_DIR$/../Standard/Application/Extension/Plugin/CreateEventPlugin.php" changelist="40f73f4e-4de8-45e6-a21a-cf63bc44c1b5" time="1385171366506" ignored="false" />
+    <file path="$PROJECT_DIR$/../Standard/Application/Extension/Plugin/Messages/MessagesPlugin.php" changelist="40f73f4e-4de8-45e6-a21a-cf63bc44c1b5" time="1385171366506" ignored="false" />
+    <file path="$PROJECT_DIR$/../Standard/Application/Extension/Plugin/Mockdata/MockdataPlugin.php" changelist="40f73f4e-4de8-45e6-a21a-cf63bc44c1b5" time="1385171366506" ignored="false" />
+    <file path="$PROJECT_DIR$/../Standard/Application/Extension/Plugin/Ordering/OrderingPlugin.php" changelist="40f73f4e-4de8-45e6-a21a-cf63bc44c1b5" time="1385171366506" ignored="false" />
+    <file path="$PROJECT_DIR$/../Standard/Application/Extension/Plugin/Readmore/ReadmorePlugin.php" changelist="40f73f4e-4de8-45e6-a21a-cf63bc44c1b5" time="1385171366506" ignored="false" />
+    <file path="$PROJECT_DIR$/../Standard/Vendor/Molajo/Event/Dispatcher.php" changelist="40f73f4e-4de8-45e6-a21a-cf63bc44c1b5" time="1385171653638" ignored="false" />
+    <file path="$PROJECT_DIR$/../Standard/Application/Extension/Plugin/Username/UsernamePlugin.php" changelist="40f73f4e-4de8-45e6-a21a-cf63bc44c1b5" time="1385171366506" ignored="false" />
+    <file path="$PROJECT_DIR$/../Standard/Application/Extension/Plugin/Copyright/CopyrightPlugin.php" changelist="40f73f4e-4de8-45e6-a21a-cf63bc44c1b5" time="1385171366506" ignored="false" />
+    <file path="$PROJECT_DIR$/../Standard/Application/Extension/Plugin/Csrftoken/CsrftokenPlugin.php" changelist="40f73f4e-4de8-45e6-a21a-cf63bc44c1b5" time="1385171366506" ignored="false" />
+    <file path="$PROJECT_DIR$/../Standard/Application/Extension/Plugin/AuthenticateEventPlugin.php" changelist="40f73f4e-4de8-45e6-a21a-cf63bc44c1b5" time="1385171366506" ignored="false" />
+    <file path="$PROJECT_DIR$/../Standard/Application/Extension/Plugin/Children/ChildrenPlugin.php" changelist="40f73f4e-4de8-45e6-a21a-cf63bc44c1b5" time="1385171366506" ignored="false" />
+    <file path="$PROJECT_DIR$/../Standard/Application/Extension/Plugin/Formbegin/FormbeginPlugin.php" changelist="40f73f4e-4de8-45e6-a21a-cf63bc44c1b5" time="1385171366506" ignored="false" />
+    <file path="$PROJECT_DIR$/../Standard/Application/Extension/Plugin/Ipaddress/IpaddressPlugin.php" changelist="40f73f4e-4de8-45e6-a21a-cf63bc44c1b5" time="1385171366506" ignored="false" />
+    <file path="$PROJECT_DIR$/../Standard/Application/Extension/Plugin/Menuitems/MenuitemsPlugin.php" changelist="40f73f4e-4de8-45e6-a21a-cf63bc44c1b5" time="1385171366506" ignored="false" />
+    <file path="$PROJECT_DIR$/../Standard/Application/Extension/Plugin/Mockimage/MockimagePlugin.php" changelist="40f73f4e-4de8-45e6-a21a-cf63bc44c1b5" time="1385171366506" ignored="false" />
+    <file path="$PROJECT_DIR$/../Standard/Application/Extension/Plugin/Pagetypes/PagetypesPlugin.php" changelist="40f73f4e-4de8-45e6-a21a-cf63bc44c1b5" time="1385171366506" ignored="false" />
+    <file path="$PROJECT_DIR$/../Standard/Application/Extension/Plugin/Blockquote/BlockquotePlugin.php" changelist="40f73f4e-4de8-45e6-a21a-cf63bc44c1b5" time="1385171366506" ignored="false" />
+    <file path="$PROJECT_DIR$/../Standard/Application/Extension/Plugin/Linebreaks/LinebreaksPlugin.php" changelist="40f73f4e-4de8-45e6-a21a-cf63bc44c1b5" time="1385171366506" ignored="false" />
+    <file path="$PROJECT_DIR$/../Standard/Application/Extension/Plugin/Pagination/PaginationPlugin.php" changelist="40f73f4e-4de8-45e6-a21a-cf63bc44c1b5" time="1385171366506" ignored="false" />
+    <file path="$PROJECT_DIR$/../Standard/Application/Extension/Plugin/Application/ApplicationPlugin.php" changelist="40f73f4e-4de8-45e6-a21a-cf63bc44c1b5" time="1385171366506" ignored="false" />
+    <file path="$PROJECT_DIR$/../Standard/Application/Extension/Plugin/Contentlist/ContentlistPlugin.php" changelist="40f73f4e-4de8-45e6-a21a-cf63bc44c1b5" time="1385171366506" ignored="false" />
+    <file path="$PROJECT_DIR$/../Standard/Application/Extension/Plugin/Dateformats/DateformatsPlugin.php" changelist="40f73f4e-4de8-45e6-a21a-cf63bc44c1b5" time="1385171366506" ignored="false" />
+    <file path="$PROJECT_DIR$/../Standard/Application/Extension/Plugin/DisplayEventPlugin.php" changelist="40f73f4e-4de8-45e6-a21a-cf63bc44c1b5" time="1385171366506" ignored="false" />
+    <file path="$PROJECT_DIR$/../Standard/Application/Extension/Plugin/Pagetypeedit/PagetypeeditPlugin.php" changelist="40f73f4e-4de8-45e6-a21a-cf63bc44c1b5" time="1385171366506" ignored="false" />
+    <file path="$PROJECT_DIR$/../Standard/Application/Extension/Plugin/Pagetypegrid/PagetypegridPlugin.php" changelist="40f73f4e-4de8-45e6-a21a-cf63bc44c1b5" time="1385171366506" ignored="false" />
+    <file path="$PROJECT_DIR$/../Standard/Vendor/filp/whoops/src/Whoops/Provider/Zend/Module.php" changelist="40f73f4e-4de8-45e6-a21a-cf63bc44c1b5" time="1385171464473" ignored="false" />
+    <file path="/EventDispatcher.php" changelist="40f73f4e-4de8-45e6-a21a-cf63bc44c1b5" time="1385171607950" ignored="false" />
+    <file path="$PROJECT_DIR$/../Standard/Application/Resources/Configuration/DataobjectHandler.php" changelist="40f73f4e-4de8-45e6-a21a-cf63bc44c1b5" time="1385172679147" ignored="false" />
+    <file path="$PROJECT_DIR$/../Standard/Vendor/Molajo/Resources/Adapter.php" changelist="40f73f4e-4de8-45e6-a21a-cf63bc44c1b5" time="1385172759378" ignored="false" />
+    <file path="$PROJECT_DIR$/../Standard/Application/Autoload.php" changelist="40f73f4e-4de8-45e6-a21a-cf63bc44c1b5" time="1385172823347" ignored="false" />
+    <file path="$PROJECT_DIR$/../Standard/Application/Resources/Configuration/ModelHandler.php" changelist="40f73f4e-4de8-45e6-a21a-cf63bc44c1b5" time="1385172679147" ignored="false" />
+    <file path="$PROJECT_DIR$/../Standard/Vendor/Molajo/Resources/Api/ResourceAdapterInterface.php" changelist="40f73f4e-4de8-45e6-a21a-cf63bc44c1b5" time="1385172823347" ignored="false" />
+    <file path="$PROJECT_DIR$/../Standard/Application/Resources/Configuration/AbstractHandler.php" changelist="40f73f4e-4de8-45e6-a21a-cf63bc44c1b5" time="1385172679147" ignored="false" />
+    <file path="$PROJECT_DIR$/../Standard/Vendor/Molajo/Resources/Handler/FileHandler.php" changelist="40f73f4e-4de8-45e6-a21a-cf63bc44c1b5" time="1385172759378" ignored="false" />
+    <file path="$PROJECT_DIR$/../Standard/Application/Resources/Handler/MenuitemHandler.php" changelist="40f73f4e-4de8-45e6-a21a-cf63bc44c1b5" time="1385172759378" ignored="false" />
+    <file path="$PROJECT_DIR$/../Standard/Application/Resources/Handler/TemplateHandler.php" changelist="40f73f4e-4de8-45e6-a21a-cf63bc44c1b5" time="1385172759378" ignored="false" />
+    <file path="$PROJECT_DIR$/../Standard/Vendor/Molajo/Resources/Handler/AssetHandler.php" changelist="40f73f4e-4de8-45e6-a21a-cf63bc44c1b5" time="1385172759378" ignored="false" />
+    <file path="$PROJECT_DIR$/../Standard/Application/Resources/Handler/XmlHandler.php" changelist="40f73f4e-4de8-45e6-a21a-cf63bc44c1b5" time="1385172759378" ignored="false" />
+    <file path="$PROJECT_DIR$/../Standard/Vendor/Molajo/Resources/Handler/AbstractHandler.php" changelist="40f73f4e-4de8-45e6-a21a-cf63bc44c1b5" time="1385172759378" ignored="false" />
+    <file path="$PROJECT_DIR$/../Standard/Application/Resources/Handler/PageHandler.php" changelist="40f73f4e-4de8-45e6-a21a-cf63bc44c1b5" time="1385172759378" ignored="false" />
+    <file path="$PROJECT_DIR$/../Standard/Application/Resources/Handler/WrapHandler.php" changelist="40f73f4e-4de8-45e6-a21a-cf63bc44c1b5" time="1385172759378" ignored="false" />
+    <file path="$PROJECT_DIR$/../Standard/Vendor/Molajo/Resources/Handler/CssHandler.php" changelist="40f73f4e-4de8-45e6-a21a-cf63bc44c1b5" time="1385172759378" ignored="false" />
+    <file path="$PROJECT_DIR$/../Standard/Vendor/Molajo/Resources/Handler/HeadHandler.php" changelist="40f73f4e-4de8-45e6-a21a-cf63bc44c1b5" time="1385172759378" ignored="false" />
+    <file path="$PROJECT_DIR$/../Standard/Vendor/Molajo/Resources/Handler/ClassHandler.php" changelist="40f73f4e-4de8-45e6-a21a-cf63bc44c1b5" time="1385172759378" ignored="false" />
+    <file path="$PROJECT_DIR$/../Standard/Application/Resources/Handler/ThemeHandler.php" changelist="40f73f4e-4de8-45e6-a21a-cf63bc44c1b5" time="1385172759378" ignored="false" />
+    <file path="$PROJECT_DIR$/../Standard/Vendor/Molajo/Resources/Handler/JsHandler.php" changelist="40f73f4e-4de8-45e6-a21a-cf63bc44c1b5" time="1385172759378" ignored="false" />
+    <file path="$PROJECT_DIR$/../Standard/Vendor/Molajo/Resources/Handler/FolderHandler.php" changelist="40f73f4e-4de8-45e6-a21a-cf63bc44c1b5" time="1385172759378" ignored="false" />
+    <file path="$PROJECT_DIR$/../Standard/Vendor/Molajo/Resources/Handler/JsdeclarationsHandler.php" changelist="40f73f4e-4de8-45e6-a21a-cf63bc44c1b5" time="1385172759378" ignored="false" />
+    <file path="$PROJECT_DIR$/../Standard/Vendor/Molajo/Resources/Api/ResourceHandlerInterface.php" changelist="40f73f4e-4de8-45e6-a21a-cf63bc44c1b5" time="1385172759378" ignored="false" />
+    <file path="$PROJECT_DIR$/../Standard/Vendor/Molajo/Resources/Handler/CssdeclarationsHandler.php" changelist="40f73f4e-4de8-45e6-a21a-cf63bc44c1b5" time="1385172759378" ignored="false" />
+    <file path="$PROJECT_DIR$/../Standard/Vendor/Molajo/Resources/Api/ResourceLocatorInterface.php" changelist="40f73f4e-4de8-45e6-a21a-cf63bc44c1b5" time="1385172823347" ignored="false" />
+    <file path="/TemplateInterface.php" changelist="40f73f4e-4de8-45e6-a21a-cf63bc44c1b5" time="1385173472007" ignored="false" />
+    <file path="/ServiceHandlerInterface.php" changelist="40f73f4e-4de8-45e6-a21a-cf63bc44c1b5" time="1385173984081" ignored="false" />
+    <file path="/DispatcherInterface.php" changelist="40f73f4e-4de8-45e6-a21a-cf63bc44c1b5" time="1385174035828" ignored="false" />
+    <file path="/LICENSE" changelist="40f73f4e-4de8-45e6-a21a-cf63bc44c1b5" time="1385175458995" ignored="false" />
+    <file path="/.gitignore" changelist="40f73f4e-4de8-45e6-a21a-cf63bc44c1b5" time="1385175616112" ignored="false" />
+    <file path="$PROJECT_DIR$/../Standard/.gitignore" changelist="40f73f4e-4de8-45e6-a21a-cf63bc44c1b5" time="1385175768654" ignored="false" />
+    <option name="TRACKING_ENABLED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ChangesViewManager" flattened_view="true" show_ignored="false" />
+  <component name="CreatePatchCommitExecutor">
+    <option name="PATCH_PATH" value="" />
+  </component>
+  <component name="DaemonCodeAnalyzer">
+    <disable_hints />
+  </component>
+  <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
+  <component name="FavoritesManager">
+    <favorites_list name="CommonApi" />
+  </component>
+  <component name="FileEditorManager">
+    <leaf />
+  </component>
+  <component name="FindManager">
+    <FindUsagesManager>
+      <setting name="OPEN_NEW_TAB" value="false" />
+    </FindUsagesManager>
+  </component>
+  <component name="IdeDocumentHistory">
+    <option name="changedFiles">
+      <list>
+        <option value="$PROJECT_DIR$/Controller/DateInterface.php" />
+        <option value="$PROJECT_DIR$/Filesystem/FilesystemInterface.php" />
+        <option value="$PROJECT_DIR$/Http/ClientInterface.php" />
+        <option value="$PROJECT_DIR$/Http/RequestInterface.php" />
+        <option value="$PROJECT_DIR$/Http/ResponseInterface.php" />
+        <option value="$PROJECT_DIR$/Http/ServerInterface.php" />
+        <option value="$PROJECT_DIR$/IoC/ContainerInterface.php" />
+        <option value="$PROJECT_DIR$/Language/DatabaseModelInterface.php" />
+        <option value="$PROJECT_DIR$/Model/CreateInterface.php" />
+        <option value="$PROJECT_DIR$/Render/PaginationInterface.php" />
+        <option value="$PROJECT_DIR$/Resource/AdapterInterface.php" />
+        <option value="$PROJECT_DIR$/Route/RouteInterface.php" />
+        <option value="$PROJECT_DIR$/User/ActivityInterface.php" />
+        <option value="$PROJECT_DIR$/Authorisation/LICENSE" />
+        <option value="$PROJECT_DIR$/Authorisation/.gitignore" />
+        <option value="$PROJECT_DIR$/Cache/.gitignore" />
+      </list>
+    </option>
+  </component>
+  <component name="PhpWorkspaceProjectConfiguration" backward_compatibility_performed="true" />
+  <component name="ProjectFrameBounds">
+    <option name="x" value="1194" />
+    <option name="y" value="131" />
+    <option name="width" value="1219" />
+    <option name="height" value="1234" />
+  </component>
+  <component name="ProjectInspectionProfilesVisibleTreeState">
+    <entry key="Project Default">
+      <profile-state>
+        <expanded-state>
+          <State>
+            <id />
+          </State>
+          <State>
+            <id>PHP</id>
+          </State>
+          <State>
+            <id>PHPDocPHP</id>
+          </State>
+        </expanded-state>
+        <selected-state>
+          <State>
+            <id>HTML</id>
+          </State>
+        </selected-state>
+      </profile-state>
+    </entry>
+  </component>
+  <component name="ProjectLevelVcsManager" settingsEditedManually="false">
+    <OptionsSetting value="true" id="Add" />
+    <OptionsSetting value="true" id="Remove" />
+    <OptionsSetting value="true" id="Checkout" />
+    <OptionsSetting value="true" id="Update" />
+    <OptionsSetting value="true" id="Status" />
+    <OptionsSetting value="true" id="Edit" />
+    <ConfirmationsSetting value="0" id="Add" />
+    <ConfirmationsSetting value="0" id="Remove" />
+  </component>
+  <component name="ProjectReloadState">
+    <option name="STATE" value="0" />
+  </component>
+  <component name="ProjectView">
+    <navigator currentView="ProjectPane" proportions="" version="1" splitterProportion="0.5">
+      <flattenPackages />
+      <showMembers />
+      <showModules />
+      <showLibraryContents ProjectPane="true" />
+      <hideEmptyPackages />
+      <abbreviatePackageNames />
+      <autoscrollToSource />
+      <autoscrollFromSource />
+      <sortByType />
+    </navigator>
+    <panes>
+      <pane id="ProjectPane">
+        <subPane>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="CommonApi" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="CommonApi" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="CommonApi" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+        </subPane>
+      </pane>
+      <pane id="Scope" />
+    </panes>
+  </component>
+  <component name="PropertiesComponent">
+    <property name="options.splitter.main.proportions" value="0.3" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="options.lastSelected" value="tasks" />
+    <property name="last_opened_file_path" value="$USER_HOME$/config.h" />
+    <property name="options.searchVisible" value="true" />
+    <property name="options.splitter.details.proportions" value="0.2" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/User" />
+      <recent name="$PROJECT_DIR$/Route" />
+      <recent name="$PROJECT_DIR$/Resource" />
+      <recent name="$PROJECT_DIR$/Render" />
+      <recent name="$PROJECT_DIR$/Model" />
+    </key>
+  </component>
+  <component name="RunManager">
+    <configuration default="true" type="PHPUnitRunConfigurationType" factoryName="PHPUnit">
+      <TestRunner />
+      <method />
+    </configuration>
+    <configuration default="true" type="PhpLocalRunConfigurationType" factoryName="PHP Console">
+      <method />
+    </configuration>
+    <list size="0" />
+  </component>
+  <component name="ShelveChangesManager" show_recycled="false" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="40f73f4e-4de8-45e6-a21a-cf63bc44c1b5" name="Default" comment="" />
+      <created>1385150488266</created>
+      <updated>1385150488266</updated>
+    </task>
+    <servers />
+  </component>
+  <component name="ToolWindowManager">
+    <frame x="1194" y="131" width="1219" height="1234" extended-state="0" />
+    <editor active="false" />
+    <layout>
+      <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32923618" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="true" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="true" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.24938475" sideWeight="0.67076385" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.39947322" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Thumbnails" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32923618" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+    </layout>
+  </component>
+  <component name="VcsContentAnnotationSettings">
+    <option name="myLimit" value="2678400000" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <option name="OFFER_MOVE_TO_ANOTHER_CHANGELIST_ON_PARTIAL_COMMIT" value="true" />
+    <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="true" />
+    <option name="CHECK_NEW_TODO" value="true" />
+    <option name="myTodoPanelSettings">
+      <value>
+        <are-packages-shown value="false" />
+        <are-modules-shown value="false" />
+        <flatten-packages value="false" />
+        <is-autoscroll-to-source value="false" />
+      </value>
+    </option>
+    <option name="PERFORM_UPDATE_IN_BACKGROUND" value="true" />
+    <option name="PERFORM_COMMIT_IN_BACKGROUND" value="true" />
+    <option name="PERFORM_EDIT_IN_BACKGROUND" value="true" />
+    <option name="PERFORM_CHECKOUT_IN_BACKGROUND" value="true" />
+    <option name="PERFORM_ADD_REMOVE_IN_BACKGROUND" value="true" />
+    <option name="PERFORM_ROLLBACK_IN_BACKGROUND" value="false" />
+    <option name="CHECK_LOCALLY_CHANGED_CONFLICTS_IN_BACKGROUND" value="false" />
+    <option name="CHANGED_ON_SERVER_INTERVAL" value="60" />
+    <option name="SHOW_ONLY_CHANGED_IN_SELECTION_DIFF" value="true" />
+    <option name="CHECK_COMMIT_MESSAGE_SPELLING" value="true" />
+    <option name="DEFAULT_PATCH_EXTENSION" value="patch" />
+    <option name="SHORT_DIFF_HORIZONTALLY" value="true" />
+    <option name="SHORT_DIFF_EXTRA_LINES" value="2" />
+    <option name="SOFT_WRAPS_IN_SHORT_DIFF" value="true" />
+    <option name="INCLUDE_TEXT_INTO_PATCH" value="false" />
+    <option name="INCLUDE_TEXT_INTO_SHELF" value="false" />
+    <option name="SHOW_FILE_HISTORY_DETAILS" value="true" />
+    <option name="SHOW_VCS_ERROR_NOTIFICATIONS" value="true" />
+    <option name="SHOW_DIRTY_RECURSIVELY" value="false" />
+    <option name="LIMIT_HISTORY" value="true" />
+    <option name="MAXIMUM_HISTORY_ROWS" value="1000" />
+    <option name="UPDATE_FILTER_SCOPE_NAME" />
+    <option name="USE_COMMIT_MESSAGE_MARGIN" value="false" />
+    <option name="COMMIT_MESSAGE_MARGIN_SIZE" value="72" />
+    <option name="WRAP_WHEN_TYPING_REACHES_RIGHT_MARGIN" value="false" />
+    <option name="FORCE_NON_EMPTY_COMMENT" value="false" />
+    <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="false" />
+    <option name="LAST_COMMIT_MESSAGE" />
+    <option name="MAKE_NEW_CHANGELIST_ACTIVE" value="false" />
+    <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="false" />
+    <option name="CHECK_FILES_UP_TO_DATE_BEFORE_COMMIT" value="false" />
+    <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="false" />
+    <option name="REFORMAT_BEFORE_FILE_COMMIT" value="false" />
+    <option name="FILE_HISTORY_DIALOG_COMMENTS_SPLITTER_PROPORTION" value="0.8" />
+    <option name="FILE_HISTORY_DIALOG_SPLITTER_PROPORTION" value="0.5" />
+    <option name="ACTIVE_VCS_NAME" />
+    <option name="UPDATE_GROUP_BY_PACKAGES" value="false" />
+    <option name="UPDATE_GROUP_BY_CHANGELIST" value="false" />
+    <option name="UPDATE_FILTER_BY_SCOPE" value="false" />
+    <option name="SHOW_FILE_HISTORY_AS_TREE" value="false" />
+    <option name="FILE_HISTORY_SPLITTER_PROPORTION" value="0.6" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager />
+  </component>
+  <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/Cache/.gitignore">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Authorisation/.gitignore">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="3" column="6" selection-start="41" selection-end="41" vertical-scroll-proportion="0.061141305">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Controller/.gitignore">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Database/.gitignore">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Email/.gitignore">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Event/.gitignore">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Filesystem/.gitignore">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Http/.gitignore">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/IoC/.gitignore">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Language/.gitignore">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Log/.gitignore">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Model/.gitignore">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Render/.gitignore">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Resource/.gitignore">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Route/.gitignore">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/User/.gitignore">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+  </component>
+</project>
+
