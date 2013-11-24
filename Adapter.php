@@ -2,48 +2,40 @@
 /**
  * Resource Adapter
  *
- * @package   Molajo
- * @copyright 2013 Amy Stephen. All rights reserved.
- * @license   http://www.opensource.org/licenses/mit-license.html MIT License
+ * @package    Molajo
+ * @copyright  2013 Amy Stephen. All rights reserved.
+ * @license    http://www.opensource.org/licenses/mit-license.html MIT License
  */
-namespace Molajo\Resources;
+namespace Molajo\Resource;
 
-use Molajo\Resources\Api\ResourceAdapterInterface;
-use Molajo\Resources\Api\SchemeInterface;
-use Molajo\Resources\Api\ResourceMapInterface;
-use Molajo\Resources\Api\ResourceHandlerInterface;
-use Molajo\Resources\Exception\ResourcesException;
+use Exception;
+use CommonApi\Resource\AdapterInterface;
+use CommonApi\Resource\SchemeInterface;
+use CommonApi\Resource\HandlerInterface;
+use Exception\Resources\ResourcesException;
 
 /**
  * Resource Adapter
  *
- * @package   Molajo
- * @copyright 2013 Amy Stephen. All rights reserved.
- * @license   http://www.opensource.org/licenses/mit-license.html MIT License
- * @since     1.0
+ * @package    Molajo
+ * @copyright  2013 Amy Stephen. All rights reserved.
+ * @license    http://www.opensource.org/licenses/mit-license.html MIT License
+ * @since      1.0
  */
-class Adapter implements ResourceAdapterInterface
+class Adapter implements AdapterInterface
 {
     /**
      * Scheme Instance
      *
-     * @var    object  Molajo\Resources\Api\SchemeInterface
+     * @var    object  CommonApi\Resource\SchemeInterface
      * @since  1.0
      */
     protected $scheme;
 
     /**
-     * Resources Map Instance
-     *
-     * @var    object  Molajo\Resources\Api\ResourceMapInterface
-     * @since  1.0
-     */
-    protected $resourcemap;
-
-    /**
      * Handler Instances
      *
-     * @var    object  Molajo\Resources\Api\ResourceHandlerInterface
+     * @var    object  CommonApi\Resource\HandlerInterface
      * @since  1.0
      */
     protected $handler_instance_array = array();
@@ -123,19 +115,16 @@ class Adapter implements ResourceAdapterInterface
     /**
      * Constructor
      *
-     * @param   SchemeInterface      $scheme
-     * @param   ResourceMapInterface $resourcemap
-     * @param   array                $handler_instance_array
+     * @param  SchemeInterface $scheme
+     * @param  array           $handler_instance_array
      *
-     * @since   1.0
+     * @since  1.0
      */
     public function __construct(
-        ResourceMapInterface $resourcemap,
         SchemeInterface $scheme,
         array $handler_instance_array = array()
     ) {
         $this->scheme                 = $scheme;
-        $this->resourcemap            = $resourcemap;
         $this->handler_instance_array = array();
 
         foreach ($handler_instance_array as $key => $value) {
@@ -143,6 +132,29 @@ class Adapter implements ResourceAdapterInterface
         }
 
         $this->register();
+    }
+
+    /**
+     * Map a namespace prefix to a filesystem path
+     *
+     * @param   string  $namespace_prefix
+     * @param   string  $base_directory
+     * @param   boolean $prepend
+     *
+     * @return  $this
+     * @since   1.0
+     */
+    public function setNamespace($namespace_prefix, $base_directory, $prepend = true)
+    {
+        foreach ($this->handler_instance_array as $key => $value) {
+            $this->handler_instance_array[$key]->setNamespace(
+                $namespace_prefix,
+                $base_directory,
+                $prepend
+            );
+        }
+
+        return $this;
     }
 
     /**
@@ -154,11 +166,11 @@ class Adapter implements ResourceAdapterInterface
      *
      * @return  $this
      * @since   1.0
-     * @throws  \Molajo\Resources\Exception\ResourcesException
+     * @throws  \Exception\Resources\ResourcesException
      */
     public function setHandlerInstance($handler = 'File', $handler_instance)
     {
-        if ($handler_instance instanceof ResourceHandlerInterface) {
+        if ($handler_instance instanceof HandlerInterface) {
             $this->handler_instance_array[$handler] = $handler_instance;
         }
 
@@ -200,7 +212,7 @@ class Adapter implements ResourceAdapterInterface
      *
      * @return  object|array
      * @since   1.0
-     * @throws  \Molajo\Resources\Exception\ResourcesException
+     * @throws  \Exception\Resources\ResourcesException
      */
     public function getScheme($scheme = '')
     {
@@ -222,6 +234,9 @@ class Adapter implements ResourceAdapterInterface
         } else {
             echo 'in Resources Adapter ' . $this->handler_value . ' <br />';
             echo '<pre>';
+            foreach ($this->handler_instance_array as $key => $value) {
+                echo $key . '<br />';
+            }
             var_dump($this->handler_instance_array);
             echo '</pre>';
             throw new ResourcesException ('Resources getScheme Handler not found: ' . $this->handler_value);
@@ -240,13 +255,45 @@ class Adapter implements ResourceAdapterInterface
      *
      * @return  $this
      * @since   1.0
-     * @throws  \Molajo\Resources\Exception\ResourcesException
+     * @throws  \Exception\Resources\ResourcesException
      */
     public function setScheme($scheme_name, $handler = 'File', array $extensions = array(), $replace = false)
     {
         $this->scheme->setScheme($scheme_name, $handler, $extensions, $replace);
 
         return $this;
+    }
+
+    /**
+     * Verify if the resource namespace has been defined or not
+     *
+     * @param   string $uri_namespace
+     *
+     * @return  boolean
+     * @since   1.0
+     * @throws  \Exception\Resources\ResourcesException
+     */
+    public function exists($uri_namespace)
+    {
+        try {
+
+            $this->parseUri($uri_namespace);
+
+            $this->scheme_value = 'file';
+
+            $this->getScheme($this->scheme_value);
+
+            $located_path = $this->handler_instance_array[$this->handler_value]->get($uri_namespace);
+
+            if ($located_path === false) {
+                return false;
+            }
+
+            return true;
+
+        } catch (Exception $e) {
+            return false;
+        }
     }
 
     /**
@@ -257,7 +304,7 @@ class Adapter implements ResourceAdapterInterface
      *
      * @return  void|mixed
      * @since   1.0
-     * @throws  \Molajo\Resources\Exception\ResourcesException
+     * @throws  \Exception\Resources\ResourcesException
      */
     public function get($uri_namespace, array $options = array())
     {
@@ -275,17 +322,24 @@ class Adapter implements ResourceAdapterInterface
      *
      * @return  void|mixed
      * @since   1.0
-     * @throws  \Molajo\Resources\Exception\ResourcesException
+     * @throws  \Exception\Resources\ResourcesException
      */
     public function locateNamespace($namespace, $scheme = 'Class', array $options = array())
     {
         $this->getScheme($scheme);
 
-        $located_path = $this->resourcemap->get(
-            $namespace,
-            $this->scheme_properties->include_file_extensions
-        );
+        $multiple = false;
+        if (isset($options['multiple']) && $options['multiple'] === true) {
+            $multiple = true;
+        }
 
+        $located_path = $this->handler_instance_array[$this->handler_value]->get($namespace, $multiple);
+
+        if (strtolower($scheme) == 'head') {
+            echo $this->handler_value;
+            echo 'Path' . $located_path;
+            die;
+        }
         $options['namespace'] = $namespace;
 
         return $this->handlePath($this->scheme_value, $located_path, $options);
@@ -300,18 +354,20 @@ class Adapter implements ResourceAdapterInterface
      *
      * @return  void|mixed
      * @since   1.0
-     * @throws  \Molajo\Resources\Exception\ResourcesException
+     * @throws  \Exception\Resources\ResourcesException
      */
     public function handlePath($scheme_value, $located_path, array $options = array())
     {
         $this->getScheme($scheme_value);
 
         if ($scheme_value == 'query') {
+
             $options['xml'] = $this->handler_instance_array['XmlHandler']->handlePath(
                 $scheme_value,
                 $located_path,
                 $options
             );
+
             $this->handler_value = 'QueryHandler';
         }
 
@@ -326,63 +382,13 @@ class Adapter implements ResourceAdapterInterface
      *
      * @return  mixed
      * @since   1.0
-     * @throws  \Molajo\Resources\Exception\ResourcesException
+     * @throws  \Exception\Resources\ResourcesException
      */
     public function getCollection($scheme_value, array $options = array())
     {
         $this->getScheme($scheme_value);
 
         return $this->handler_instance_array[$this->handler_value]->getCollection($scheme_value, $options);
-    }
-
-    /**
-     * Map a namespace prefix to a filesystem path
-     *
-     * @param   string  $namespace_prefix
-     * @param   string  $base_directory
-     * @param   boolean $prepend
-     *
-     * @return  $this
-     * @since   1.0
-     */
-    public function setNamespace($namespace_prefix, $base_directory, $prepend = false)
-    {
-        $this->resourcemap->setNamespace($namespace_prefix, $base_directory, $prepend);
-
-        return $this;
-    }
-
-    /**
-     * Get Resource Map
-     *
-     * @return  array
-     * @since   1.0
-     */
-    public function getMap()
-    {
-        return $this->resourcemap->getMap();
-    }
-
-    /**
-     * Create resource map of folder/file locations and Fully Qualified Namespaces
-     *
-     * @return  object
-     * @since   1.0
-     */
-    public function createMap()
-    {
-        return $this->resourcemap->createMap();
-    }
-
-    /**
-     * Verify the correctness of the resource map, returning error messages
-     *
-     * @return  array
-     * @since   1.0
-     */
-    public function editMap()
-    {
-        return $this->resourcemap->editMap();
     }
 
     /**

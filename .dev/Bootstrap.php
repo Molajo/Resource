@@ -2,9 +2,9 @@
 /**
  * Resources
  *
- * @package   Molajo
- * @copyright 2013 Amy Stephen. All rights reserved.
- * @license   http://www.opensource.org/licenses/mit-license.html MIT License
+ * @package    Molajo
+ * @copyright  2013 Amy Stephen. All rights reserved.
+ * @license    http://www.opensource.org/licenses/mit-license.html MIT License
  */
 $ResourcesBase = substr(__DIR__, 0, strlen(__DIR__) - 5);
 define('BASE_FOLDER', $ResourcesBase);
@@ -20,10 +20,10 @@ $classMap = array(
     'Molajo\\Resources\\Handler\\CssResources'                 => $ResourcesBase . '/Handler/CssResources.php',
     'Molajo\\Resources\\Handler\\JsResources'                  => $ResourcesBase . '/Handler/JsResources.php',
     'Molajo\\Resources\\Exception\\ResourcesException'         => $ResourcesBase . '/Exception/ResourcesException.php',
-    'Molajo\\Resources\\Api\\ExceptionInterface'               => $ResourcesBase . '/Api/ExceptionInterface.php',
-    'Molajo\\Resources\\Api\\ResourcesInterface'               => $ResourcesBase . '/Api/ResourcesInterface.php',
-    'Molajo\\Resources\\Api\\ClassHandlerInterface'            => $ResourcesBase . '/Api/ClassHandlerInterface.php',
-    'Molajo\\Resources\\Api\\ResourceMapInterface'             => $ResourcesBase . '/Api/ResourceMapInterface.php',
+    'Molajo\\Resources\\CommonApi\\ExceptionInterface'               => $ResourcesBase . '/Api/ExceptionInterface.php',
+    'Molajo\\Resources\\CommonApi\\ResourcesInterface'               => $ResourcesBase . '/Api/ResourcesInterface.php',
+    'Molajo\\Resources\\CommonApi\\ClassHandlerInterface'            => $ResourcesBase . '/Api/ClassHandlerInterface.php',
+    'Molajo\\Resources\\CommonApi\\MapInterface'             => $ResourcesBase . '/Api/MapInterface.php',
     'Molajo\\Resources\\Utilities\\ResourceMap'                => $ResourcesBase . '/Utilities/ResourceMap.php',
 );
 

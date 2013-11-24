@@ -1,26 +1,25 @@
 <?php
 /**
- * Css Resources
+ * Css Resource Handler
  *
- * @package   Molajo
- * @copyright 2013 Amy Stephen. All rights reserved.
- * @license   http://www.opensource.org/licenses/mit-license.html MIT License
+ * @package    Molajo
+ * @copyright  2013 Amy Stephen. All rights reserved.
+ * @license    http://www.opensource.org/licenses/mit-license.html MIT License
  */
-namespace Molajo\Resources\Handler;
+namespace Molajo\Resource\Handler;
 
 use stdClass;
-use Molajo\Resources\Api\ResourceHandlerInterface;
+use CommonApi\Resource\HandlerInterface;
 
-//todo: CSS $url_path
 /**
- * Css Resources
+ * Css Resource Handler
  *
- * @package   Molajo
- * @copyright 2013 Amy Stephen. All rights reserved.
- * @license   http://www.opensource.org/licenses/mit-license.html MIT License
- * @since     1.0
+ * @package    Molajo
+ * @copyright  2013 Amy Stephen. All rights reserved.
+ * @license    http://www.opensource.org/licenses/mit-license.html MIT License
+ * @since      1.0
  */
-class CssHandler implements ResourceHandlerInterface
+class CssHandler extends AbstractHandler implements HandlerInterface
 {
     /**
      * Collect list of CSS Files
@@ -81,6 +80,10 @@ class CssHandler implements ResourceHandlerInterface
     /**
      * Constructor
      *
+     * @param  string $base_path
+     * @param  array  $resource_map
+     * @param  array  $namespace_prefixes
+     * @param  array  $valid_file_extensions
      * @param  string $language_direction
      * @param  string $html5
      * @param  string $line_end
@@ -89,15 +92,55 @@ class CssHandler implements ResourceHandlerInterface
      * @since  1.0
      */
     public function __construct(
+        $base_path = null,
+        array $resource_map = array(),
+        array $namespace_prefixes = array(),
+        array $valid_file_extensions = array(),
         $language_direction,
         $html5,
         $line_end,
         $mimetype
     ) {
+        parent::__construct(
+            $base_path,
+            $resource_map,
+            $namespace_prefixes,
+            $valid_file_extensions
+        );
+
         $this->language_direction = $language_direction;
         $this->html5              = $html5;
         $this->line_end           = $line_end;
         $this->mimetype           = $mimetype;
+    }
+
+    /**
+     * Set a namespace prefix by mapping to the filesystem path
+     *
+     * @param   string  $namespace_prefix
+     * @param   string  $namespace_base_directory
+     * @param   boolean $prepend
+     *
+     * @return  $this
+     * @since   1.0
+     */
+    public function setNamespace($namespace_prefix, $namespace_base_directory, $prepend = false)
+    {
+        return parent::setNamespace($namespace_prefix, $namespace_base_directory, $prepend);
+    }
+
+    /**
+     * Locates folder/file associated with Namespace for Resource
+     *
+     * @param   string $resource_namespace
+     *
+     * @return  void|mixed
+     * @since   1.0
+     * @throws  \Exception\Resources\ResourcesException
+     */
+    public function get($resource_namespace, $multiple = false)
+    {
+        return $resource_namespace;
     }
 
     /**
@@ -107,32 +150,42 @@ class CssHandler implements ResourceHandlerInterface
      * @param   string $located_path
      * @param   array  $options
      *
-     * @return  void|mixed
+     * @return  mixed
      * @since   1.0
-     * @throws  \Molajo\Resources\Exception\ResourcesException
+     * @throws  \Exception\Resources\ResourcesException
      */
     public function handlePath($scheme, $located_path, array $options = array())
     {
-        $type = '';
-        if (isset($options['type'])) {
-            $type = $options['type'];
+        $located_path = $options['located_path'];
+
+        if (is_dir($located_path)) {
+            $type = 'folder';
+        } elseif (file_exists($located_path)) {
+            $type = 'file';
+        } else {
+            return null;
         }
+
         $priority = '';
         if (isset($options['priority'])) {
             $priority = $options['priority'];
         }
+
         $mimetype = '';
         if (isset($options['mimetype'])) {
             $mimetype = $options['mimetype'];
         }
+
         $media = '';
         if (isset($options['media'])) {
             $media = $options['media'];
         }
+
         $conditional = '';
         if (isset($options['conditional'])) {
             $conditional = $options['conditional'];
         }
+
         $attributes = array();
         if (isset($options['attributes'])) {
             $attributes = $options['attributes'];
@@ -143,7 +196,6 @@ class CssHandler implements ResourceHandlerInterface
                 $located_path,
                 $priority
             );
-
         } else {
             $this->addCss(
                 $located_path,
@@ -155,17 +207,127 @@ class CssHandler implements ResourceHandlerInterface
             );
         }
 
-        if ($located_path === false) {
-            return;
+        return $this;
+    }
+
+    /**
+     * addCssFolder - Loads the CS located within the folder
+     *
+     * @param   string  $file_path
+     * @param   integer $priority
+     *
+     * @return  $this
+     * @since   1.0
+     */
+    public function addCssFolder($file_path, $priority = 500)
+    {
+        $files = scandir($file_path);
+
+        if (count($files) > 0) {
+
+            foreach ($files as $file) {
+
+                $add = 1;
+
+                if ($file == 1 || $file == '.' || $file == '..') {
+                    $add = 0;
+                }
+
+                if (substr($file, 0, 4) == 'ltr_') {
+                    if ($this->language_direction == 'rtl') {
+                        $add = 0;
+                    }
+                } elseif (substr($file, 0, 4) == 'rtl_') {
+                    if ($this->language_direction == 'rtl') {
+                    } else {
+                        $add = 0;
+                    }
+                } elseif (strtolower(substr($file, 0, 4)) == 'hold') {
+                    $add = 0;
+                }
+
+                if (is_file($file)) {
+                } else {
+                    $add = 0;
+                }
+
+                if ($add == 1) {
+                    $pathinfo = pathinfo($file);
+
+                    if ($pathinfo->extension == 'css') {
+                    } else {
+                        $add = 0;
+                    }
+                }
+
+                if ($add == 1) {
+                    $this->addCss($file_path . '/' . $file, $priority);
+                }
+            }
         }
 
-        if (file_exists($located_path)) {
-            require $located_path;
+        return $this;
+    }
 
-            return;
+    /**
+     * addCss - Adds a linked stylesheet to the page
+     *
+     * @param   string $file_path
+     * @param   int    $priority
+     * @param   string $mimetype
+     * @param   string $media
+     * @param   string $conditional
+     * @param   array  $attributes
+     *
+     * @return  mixed
+     * @since   1.0
+     */
+    public function addCss(
+        $file_path,
+        $priority = 500,
+        $mimetype = 'text/css',
+        $media = '',
+        $conditional = '',
+        $attributes = array()
+    ) {
+        $css = $this->css;
+
+        foreach ($css as $item) {
+
+            if ($item->path == $file_path
+                && $item->mimetype == $mimetype
+                && $item->media == $media
+                && $item->conditional == $conditional
+            ) {
+                return $this;
+            }
         }
 
-        return;
+        $temp_row = new stdClass();
+
+        $temp_row->path        = $file_path;
+        $temp_row->priority    = $priority;
+        $temp_row->mimetype    = $mimetype;
+        $temp_row->media       = $media;
+        $temp_row->conditional = $conditional;
+        $temp_row->attributes  = trim(implode(' ', $attributes));
+
+        $css[] = $temp_row;
+
+        $this->css = $css;
+
+        $priorities = $this->css_priorities;
+
+        if (in_array($priority, $priorities)) {
+        } else {
+            $priorities[] = $priority;
+        }
+
+        sort($priorities);
+
+        $this->css_priorities = $priorities;
+
+        return $this;
     }
 
     /**
@@ -176,7 +338,7 @@ class CssHandler implements ResourceHandlerInterface
      *
      * @return  mixed
      * @since   1.0
-     * @throws  \Molajo\Resources\Exception\ResourcesException
+     * @throws  \Exception\Resources\ResourcesException
      */
     public function getCollection($scheme, array $options = array())
     {
@@ -215,138 +377,5 @@ class CssHandler implements ResourceHandlerInterface
         }
 
         return $query_results;
-    }
-
-    /**
-     * addCssFolder - Loads the CS located within the folder
-     *
-     * @param   string  $file_path
-     * @param   integer $priority
-     *
-     * @return  $this
-     * @since   1.0
-     */
-    public function addCssFolder($file_path, $priority = 500)
-    {
-        if (is_dir($file_path . '/css')) {
-        } else {
-            return $this;
-        }
-
-        $url_path = $this->getUrlPath($file_path);
-
-        $files = scandir($file_path);
-
-        if (count($files) > 0) {
-
-            foreach ($files as $file) {
-
-                if ($file == 1) {
-                    $add = 0;
-                }
-
-                if (substr($file, 0, 4) == 'ltr_') {
-                    if ($this->language_direction == 'rtl') {
-                    } else {
-                        $add = 1;
-                    }
-
-                } elseif (substr($file, 0, 4) == 'rtl_') {
-
-                    if ($this->language_direction == 'rtl') {
-                        $add = 1;
-                    }
-
-                } elseif (strtolower(substr($file, 0, 4)) == 'hold') {
-
-                } else {
-                    $add = 1;
-                }
-
-                if ($add == 1) {
-                    $this->addCss($url_path . '/css/' . $file, $priority);
-                }
-            }
-        }
-
-        return $this;
-    }
-
-    /**
-     * addCss - Adds a linked stylesheet to the page
-     *
-     * @param   string $file_path
-     * @param   int    $priority
-     * @param   string $mimetype
-     * @param   string $media
-     * @param   string $conditional
-     * @param   array  $attributes
-     *
-     * @return  mixed
-     * @since   1.0
-     */
-    public function addCss(
-        $file_path,
-        $priority = 500,
-        $mimetype = 'text/css',
-        $media = '',
-        $conditional = '',
-        $attributes = array()
-    ) {
-        $css = $this->css;
-
-        $url_path = $this->getUrlPath($file_path);
-
-        foreach ($css as $item) {
-
-            if ($item->url == $url_path
-                && $item->mimetype == $mimetype
-                && $item->media == $media
-                && $item->conditional == $conditional
-            ) {
-                return $this;
-            }
-        }
-
-        $temp_row = new stdClass();
-
-        $temp_row->url         = $url_path;
-        $temp_row->priority    = $priority;
-        $temp_row->mimetype    = $mimetype;
-        $temp_row->media       = $media;
-        $temp_row->conditional = $conditional;
-        $temp_row->attributes  = trim(implode(' ', $attributes));
-
-        $css[] = $temp_row;
-
-        $this->css = $css;
-
-        $priorities = $this->css_priorities;
-
-        if (in_array($priority, $priorities)) {
-        } else {
-            $priorities[] = $priority;
-        }
-
-        sort($priorities);
-
-        $this->css_priorities = $priorities;
-
-        return $this;
-    }
-
-    /**
-     * getUrlPath
-     *
-     * @param   $file_path
-     *
-     * @return  $this
-     * @since   1.0
-     */
-    public function getUrlPath($file_path)
-    {
-        $url_path = $file_path;
-
-        return $url_path;
     }
 }

@@ -2,29 +2,29 @@
 /**
  * Class Resources Tests
  *
- * @package   Molajo
- * @copyright 2013 Amy Stephen. All rights reserved.
- * @license   http://www.opensource.org/licenses/mit-license.html MIT License
+ * @package    Molajo
+ * @copyright  2013 Amy Stephen. All rights reserved.
+ * @license    http://www.opensource.org/licenses/mit-license.html MIT License
  */
-namespace Molajo\Resources\Tests;
+namespace Molajo\Resource\Tests;
 
-use Molajo\Resources\Adapter;
+use Molajo\Resource\Adapter;
 use PHPUnit_Framework_TestCase;
 
 /**
  * Class Resources Tests
  *
- * @package   Molajo
- * @copyright 2013 Amy Stephen. All rights reserved.
- * @license   http://www.opensource.org/licenses/mit-license.html MIT License
- * @since     1.0
+ * @package    Molajo
+ * @copyright  2013 Amy Stephen. All rights reserved.
+ * @license    http://www.opensource.org/licenses/mit-license.html MIT License
+ * @since      1.0
  */
 class ClassHandlerDynamicTest extends PHPUnit_Framework_TestCase
 {
     /**
      * Resources Adapter
      *
-     * @var    object  Molajo/Kernel/Resources/Adapter
+     * @var    object  Molajo/Application/Resources/Adapter
      * @since  1.0
      */
     protected $resources;
@@ -53,8 +53,7 @@ class ClassHandlerDynamicTest extends PHPUnit_Framework_TestCase
      * @since  1.0
      */
     protected $exclude_path_array = array(
-        'Kernel/Event/Service' => 'Molajo\\Kernel\\Event\\Service',
-        'User/Service'         => 'Molajo\\User\\Service'
+        'User/Service' => 'Molajo\\User\\Service'
     );
 
     /**
@@ -104,7 +103,6 @@ class ClassHandlerDynamicTest extends PHPUnit_Framework_TestCase
             $resourcemap
         );
 
-
         $class           = 'Molajo\\Resources\\Adapter';
         $this->resources = new $class (
             $handler,
@@ -119,7 +117,7 @@ class ClassHandlerDynamicTest extends PHPUnit_Framework_TestCase
     /**
      * Retrieve path from namespace resource map
      *
-     * @covers  Molajo\Resources\Handler\Default::validate
+     * @covers  Molajo\Resource\Handler\Default::validate
      * @return  void
      * @since   1.0
      */
@@ -137,7 +135,7 @@ class ClassHandlerDynamicTest extends PHPUnit_Framework_TestCase
     /**
      * Class reloads from previous, lower case class name
      *
-     * @covers  Molajo\Resources\Handler\Default::validate
+     * @covers  Molajo\Resource\Handler\Default::validate
      * @return  void
      * @since   1.0
      */
@@ -154,7 +152,7 @@ class ClassHandlerDynamicTest extends PHPUnit_Framework_TestCase
     /**
      * Class is not found - with class exists
      *
-     * @covers  Molajo\Resources\Handler\Default::validate
+     * @covers  Molajo\Resource\Handler\Default::validate
      * @return  void
      * @since   1.0
      */
@@ -173,7 +171,7 @@ class ClassHandlerDynamicTest extends PHPUnit_Framework_TestCase
     /**
      * Class is found - with class exists
      *
-     * @covers  Molajo\Resources\Handler\Default::validate
+     * @covers  Molajo\Resource\Handler\Default::validate
      * @return  void
      * @since   1.0
      */
@@ -192,7 +190,7 @@ class ClassHandlerDynamicTest extends PHPUnit_Framework_TestCase
     /**
      * Retrieve path from namespace resource map
      *
-     * @covers  Molajo\Resources\Handler\Default::validate
+     * @covers  Molajo\Resource\Handler\Default::validate
      * @return  void
      * @since   1.0
      */
@@ -209,7 +207,7 @@ class ClassHandlerDynamicTest extends PHPUnit_Framework_TestCase
     /**
      * Matching file - but does not match file extension
      *
-     * @covers  Molajo\Resources\Handler\Default::validate
+     * @covers  Molajo\Resource\Handler\Default::validate
      * @return  void
      * @since   1.0
      */

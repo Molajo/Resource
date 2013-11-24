@@ -1,18 +1,17 @@
 <?php
 /**
- * @package   Molajo
- * @copyright 2013 Amy Stephen. All rights reserved.
- * @license   http://www.opensource.org/licenses/mit-license.html MIT License
+ * @package    Molajo
+ * @copyright  2013 Amy Stephen. All rights reserved.
+ * @license    http://www.opensource.org/licenses/mit-license.html MIT License
  */
 namespace Extension\View\Template\Bargraph\Plugin\Bargraph;
 
 use Molajo\Event\Plugins\Plugin;
 use Molajo\Service;
 
-
 /**
  * @package     Molajo
- * @license     MIT
+ * @license     http://www.opensource.org/licenses/mit-license.html MIT License
  * @since       1.0
  */
 class BargraphPlugin extends AbstractPlugin
@@ -70,7 +69,7 @@ class BargraphPlugin extends AbstractPlugin
             $query_results[] = $row;
         }
 
-        $this->row = $query_results;
+        $row = $query_results;
 
         return true;
     }
@@ -110,6 +109,5 @@ class BargraphPlugin extends AbstractPlugin
 
         /* spit it out */
         echo $content;
-
     }
 }

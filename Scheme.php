@@ -2,23 +2,23 @@
 /**
  * Scheme
  *
- * @package   Molajo
- * @copyright 2013 Amy Stephen. All rights reserved.
- * @license   http://www.opensource.org/licenses/mit-license.html MIT License
+ * @package    Molajo
+ * @copyright  2013 Amy Stephen. All rights reserved.
+ * @license    http://www.opensource.org/licenses/mit-license.html MIT License
  */
-namespace Molajo\Resources;
+namespace Molajo\Resource;
 
 use stdClass;
-use Molajo\Resources\Api\SchemeInterface;
-use Molajo\Resources\Exception\ResourcesException;
+use CommonApi\Resource\SchemeInterface;
+use Exception\Resources\ResourcesException;
 
 /**
  * Scheme
  *
- * @package   Molajo
- * @copyright 2013 Amy Stephen. All rights reserved.
- * @license   http://www.opensource.org/licenses/mit-license.html MIT License
- * @since     1.0
+ * @package    Molajo
+ * @copyright  2013 Amy Stephen. All rights reserved.
+ * @license    http://www.opensource.org/licenses/mit-license.html MIT License
+ * @since      1.0
  */
 class Scheme implements SchemeInterface
 {
@@ -40,11 +40,10 @@ class Scheme implements SchemeInterface
      *
      * @since  1.0
      */
-    public function __construct(
-        $scheme_filename = 'files/SchemeArray.json'
-    ) {
-        $filename = $scheme_filename;
-        $this->readSchemes($filename);
+    public function __construct($scheme_filename)
+    {
+
+        $this->readSchemes($scheme_filename);
     }
 
     /**
@@ -73,17 +72,15 @@ class Scheme implements SchemeInterface
      *
      * @return  void
      * @since   1.0
-     * @throws  \Molajo\Resources\Exception\ResourcesException
+     * @throws  \Exception\Resources\ResourcesException
      */
     protected function readSchemes($filename)
     {
         $this->scheme_array = array();
 
-        $filename = __DIR__ . '/' . $filename;
-
         if (file_exists($filename)) {
         } else {
-            return;
+            throw new ResourcesException ('Scheme Class: filename not found - ' . $filename);
         }
 
         $input = file_get_contents($filename);
@@ -104,14 +101,11 @@ class Scheme implements SchemeInterface
 
                 if ($key == 'Name') {
                     $scheme_name = $value;
-
                 } elseif ($key == 'Handler') {
 
                     $handler = $value;
-
                 } elseif ($key == 'RequireFileExtensions') {
                     $extensions = $value;
-
                 } else {
                     throw new ResourcesException ('Resources File ' . $filename . ' unknown key: ' . $key);
                 }
@@ -143,14 +137,14 @@ class Scheme implements SchemeInterface
     /**
      * Define Scheme, associated Handler and allowable file extensions (empty array means any extension allowed)
      *
-     * @param   string $scheme
+     * @param   string $scheme_name
      * @param   string $handler
      * @param   array  $extensions
      * @param   bool   $replace
      *
      * @return  $this
      * @since   1.0
-     * @throws  \Molajo\Resources\Exception\ResourcesException
+     * @throws  \Exception\Resources\ResourcesException
      */
     public function setScheme($scheme_name, $handler = 'File', array $extensions = array(), $replace = false)
     {

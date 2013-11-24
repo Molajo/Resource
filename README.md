@@ -37,7 +37,7 @@ to this method which attempts to locate the file and includes it, if found.
 
 The *Resource* XML Handler locates and returns the path for a specified resource
 
-```php
+```
 <?php
 $field = $this->resource->get('xml:///Molajo/Field/Author.xml');
 
@@ -57,7 +57,7 @@ injecting required dependencies, injects the Model instance and other required d
 into the necessary Controller, and then passes the Controller instance back to
 the application for processing.
 
-```php
+```
 <?php
 $controller = $this->dependencies['Resources']->get(
     'query:///Molajo/Datasource/CatalogTypes.xml',
@@ -146,25 +146,23 @@ approaches for selecting which file is needed:
 ]
 ```
 
-From that information, [resource maps](https://github.com/Molajo/Resources/blob/master/Files/ResourceMap.json)
+From that information, [resource maps](https://github.com/Molajo/Resources/blob/master/Files/Output/ResourceMap.json)
 can be compiled for performance purposes, if desired, although 100% dynamic resource location is supported.
 
 This process also creates compiled data used by *Molajo's IoCC package* for [identifying concrete class dependencies]
-(https://github.com/Molajo/Resources/blob/master/Files/ClassDependencies.json)
-and for [mapping concretes to interfaces](https://github.com/Molajo/Resources/blob/master/Files/InterfaceMap.json).
+(https://github.com/Molajo/Resources/blob/master/Files/Output/ClassDependencies.json)
+and for [mapping concretes to interfaces](https://github.com/Molajo/Resources/blob/master/Files/Output/ClassMap.json).
 
 ###IoCC Services for Resources
 
 Following are examples of how Molajo instantiates the *Resources* class and handlers:
 
-* At start-up, the [Resources DI Injector](https://github.com/Molajo/Standard/blob/master/Kernel/Service/Resources/ResourcesInjector.php)
+* At start-up, the [Resources DI Injector](https://github.com/Molajo/Standard/blob/master/Application/Service/Resources/ResourcesInjector.php)
  instantiates the base handlers, and then injects those instances into constructed adapter.
 * In some cases, a URI handler cannot be constructed until it's dependencies are available. As an example,
 after the database is connected, the Query Handler can constructed and injected into the Resource Handler.
-The [Resources Query DI Injector](https://github.com/Molajo/Standard/blob/master/Kernel/Service/Resourcesquery/ResourcesqueryInjector.php)
+The [Resources Query DI Injector](https://github.com/Molajo/Standard/blob/master/Application/Service/Resourcesquery/ResourcesqueryInjector.php)
 does just that once the database connection is available.
 
-## Status
-
-This is just a general description of the *Resources* package, feedback is welcome. Remember
+## This is just a general description of the *Resources* package, feedback is welcome. Remember
 it's still a work in progress and not ready for production use.

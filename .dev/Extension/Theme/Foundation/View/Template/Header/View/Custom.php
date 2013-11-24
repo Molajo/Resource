@@ -1,9 +1,8 @@
 <?php
-
 /**
- * @package   Molajo
- * @copyright 2013 Amy Stephen. All rights reserved.
- * @license   http://www.opensource.org/licenses/mit-license.html MIT License
+ * @package    Molajo
+ * @copyright  2013 Amy Stephen. All rights reserved.
+ * @license    http://www.opensource.org/licenses/mit-license.html MIT License
  */
 ?>
 <header id="header-page" class="contain-to-grid not-small-device" role="banner">
@@ -11,12 +10,12 @@
         <div class="page-menu">
             <ul class="page-menu">
                 <li>
-                    <a href="<?php echo $this->registry->get('Page', 'page_url'); ?>">
-                        <?php echo $this->registry->get('Page', 'heading1'); ?>
+                    <a href="<?php $parameters->page->urls['page']; ?>">
+                        <?php echo $parameters->page->heading1; ?>
                     </a>
                 </li>
                 <?php
-                $pageSubmenu = $this->registry->get('Page', 'PageSubmenu');
+                $pageSubmenu = $parameters->page->menu['PageSubmenu'];
                 if (count($pageSubmenu) > 0) {
                     foreach ($pageSubmenu as $menu) {
                         if ((int)$menu->current == 1) {
@@ -36,7 +35,7 @@
         </div>
     </div>
     <?php
-    $pageArray = $this->registry->get('Page', 'SectionSubmenu');
+    $pageArray = $parameters->page->menu['SectionSubmenu'];
     $count = count($pageArray);
     if ($count > 0) {
         ?>
@@ -71,7 +70,7 @@
         <div class="page-menu">
             <ul class="page-menu">
                 <?php
-                $pageSubmenu = $this->registry->get('Page', 'PageSubmenu');
+                $pageSubmenu = $parameters->page->menu['PageSubmenu'];
                 $i = 0;
                 if (count($pageSubmenu) > 0) {
                     foreach ($pageSubmenu as $menu) {
@@ -81,7 +80,7 @@
                             $active = '';
                         }
                         if ($i == 0) {
-                            $text = $this->registry->get('Page', 'heading1');
+                            $text = $parameters->page->heading1;
                         } else {
                             $text = '[ ' . $menu->link_text . '] ';
                         }
@@ -101,7 +100,7 @@
         <div class="section-submenu">
             <ul class="section-submenu">
                 <?php
-                $pageArray = $this->registry->get('Page', 'SectionSubmenu');
+                $pageArray = $parameters->page->menu['SectionSubmenu'];
                 $count = count($pageArray);
 
                 if ($count > 0) {

@@ -2,15 +2,15 @@
 Use Molajo\Service\Type;
 
 /**
- * @package   Molajo
- * @copyright 2013 Amy Stephen. All rights reserved.
- * @license   http://www.opensource.org/licenses/mit-license.html MIT License
+ * @package    Molajo
+ * @copyright  2013 Amy Stephen. All rights reserved.
+ * @license    http://www.opensource.org/licenses/mit-license.html MIT License
  */
 
-if ($this->row->closed == 1) {
+if ($row->closed == 1) {
     return;
 } ?>
-<include type=template name=formbegin form_name=comments/>
+<include formbegin form_name=comments/>
     <fieldset class="two-up">
 
         <legend><?php echo $this->language->translate('Your Response'); ?></legend>
@@ -64,8 +64,8 @@ if ($this->row->closed == 1) {
 
         <input name="model_name" type="hidden" value="Comments"/>
         <input name="model_type" type="hidden" value="Resource"/>
-        <input name="parent_model_type" type="hidden" value="<?php echo $this->row->parent_model_type; ?>"/>
-        <input name="parent_model_name" type="hidden" value="<?php echo $this->row->parent_model_name; ?>"/>
-        <input name="parent_source_id" type="hidden" value="<?php echo $this->row->parent_source_id; ?>"/>
+        <input name="parent_model_type" type="hidden" value="<?php echo $row->parent_model_type; ?>"/>
+        <input name="parent_model_name" type="hidden" value="<?php echo $row->parent_model_name; ?>"/>
+        <input name="parent_source_id" type="hidden" value="<?php echo $row->parent_source_id; ?>"/>
     </fieldset>
-    <include type=template name=formend/>
+    <include formend/>

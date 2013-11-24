@@ -2,11 +2,11 @@
 /**
  * Psr0 Class
  *
- * @package   Molajo
- * @license   http://www.opensource.org/licenses/mit-license.html MIT License
- * @copyright 2013 Amy Stephen. All rights reserved.
+ * @package    Molajo
+ * @license    http://www.opensource.org/licenses/mit-license.html MIT License
+ * @copyright  2013 Amy Stephen. All rights reserved.
  */
-namespace Molajo\Resources\Folder;
+namespace Molajo\Resource\Folder;
 
 class Psr0
 {
@@ -34,7 +34,6 @@ class Psr0
         if (isset($options['configuration'])) {
             $this->configuration = $options['configuration'];
         }
-
     }
 
     /**

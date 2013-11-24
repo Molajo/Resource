@@ -2,23 +2,23 @@
 /**
  * Js Resources
  *
- * @package   Molajo
- * @copyright 2013 Amy Stephen. All rights reserved.
- * @license   http://www.opensource.org/licenses/mit-license.html MIT License
+ * @package    Molajo
+ * @copyright  2013 Amy Stephen. All rights reserved.
+ * @license    http://www.opensource.org/licenses/mit-license.html MIT License
  */
-namespace Molajo\Resources\Handler;
+namespace Molajo\Resource\Handler;
 
-use Molajo\Resources\Api\ResourceHandlerInterface;
+use CommonApi\Resource\HandlerInterface;
 
 /**
  * Js Resources
  *
- * @package   Molajo
- * @copyright 2013 Amy Stephen. All rights reserved.
- * @license   http://www.opensource.org/licenses/mit-license.html MIT License
- * @since     1.0
+ * @package    Molajo
+ * @copyright  2013 Amy Stephen. All rights reserved.
+ * @license    http://www.opensource.org/licenses/mit-license.html MIT License
+ * @since      1.0
  */
-class JsdeclarationsHandler implements ResourceHandlerInterface
+class JsdeclarationsHandler extends AbstractHandler implements HandlerInterface
 {
     /**
      * JS Declarations
@@ -53,6 +53,59 @@ class JsdeclarationsHandler implements ResourceHandlerInterface
     protected $js_defer_priorities = array();
 
     /**
+     * Constructor
+     *
+     * @param  string $base_path
+     * @param  array  $resource_map
+     * @param  array  $namespace_prefixes
+     * @param  array  $valid_file_extensions
+     *
+     * @since  1.0
+     */
+    public function __construct(
+        $base_path = null,
+        array $resource_map = array(),
+        array $namespace_prefixes = array(),
+        array $valid_file_extensions = array()
+    ) {
+        parent::__construct(
+            $base_path,
+            $resource_map,
+            $namespace_prefixes,
+            $valid_file_extensions
+        );
+    }
+
+    /**
+     * Locates folder/file associated with Namespace for Resource
+     *
+     * @param   string $resource_namespace
+     *
+     * @return  void|mixed
+     * @since   1.0
+     * @throws  \Exception\Resources\ResourcesException
+     */
+    public function get($resource_namespace, $multiple = false)
+    {
+        return parent::get($resource_namespace);
+    }
+
+    /**
+     * Set a namespace prefix by mapping to the filesystem path
+     *
+     * @param   string  $namespace_prefix
+     * @param   string  $namespace_base_directory
+     * @param   boolean $prepend
+     *
+     * @return  $this
+     * @since   1.0
+     */
+    public function setNamespace($namespace_prefix, $namespace_base_directory, $prepend = false)
+    {
+        return parent::setNamespace($namespace_prefix, $namespace_base_directory, $prepend);
+    }
+
+    /**
      * Handle located folder/file associated with URI Namespace for Resource
      *
      * @param   string $scheme
@@ -61,7 +114,7 @@ class JsdeclarationsHandler implements ResourceHandlerInterface
      *
      * @return  void|mixed
      * @since   1.0
-     * @throws  \Molajo\Resources\Exception\ResourcesException
+     * @throws  \Exception\Resources\ResourcesException
      */
     public function handlePath($scheme, $located_path, array $options = array())
     {
@@ -80,7 +133,7 @@ class JsdeclarationsHandler implements ResourceHandlerInterface
      *
      * @return  mixed
      * @since   1.0
-     * @throws  \Molajo\Resources\Exception\ResourcesException
+     * @throws  \Exception\Resources\ResourcesException
      */
     public function getCollection($scheme, array $options = array())
     {

@@ -1,6 +1,6 @@
 <?php
 /**
- * Class Handler - Class Loader
+ * Asset Handler
  *
  * @package    Molajo
  * @copyright  2013 Amy Stephen. All rights reserved.
@@ -11,14 +11,14 @@ namespace Molajo\Resource\Handler;
 use CommonApi\Resource\HandlerInterface;
 
 /**
- * Class Handler
+ * Asset Handler
  *
  * @package    Molajo
  * @copyright  2013 Amy Stephen. All rights reserved.
  * @license    http://www.opensource.org/licenses/mit-license.html MIT License
  * @since      1.0
  */
-class ClassHandler extends AbstractHandler implements HandlerInterface
+class AssetHandler extends AbstractHandler implements HandlerInterface
 {
     /**
      * Constructor

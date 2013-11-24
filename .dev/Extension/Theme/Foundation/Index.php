@@ -1,9 +1,9 @@
 <?php
 
 /**
- * @package   Molajo
- * @copyright 2013 Amy Stephen. All rights reserved.
- * @license   http://www.opensource.org/licenses/mit-license.html MIT License
+ * @package    Molajo
+ * @copyright  2013 Amy Stephen. All rights reserved.
+ * @license    http://www.opensource.org/licenses/mit-license.html MIT License
  *
  * <include type=message wrap=Modal/>
  */
@@ -15,13 +15,12 @@
 ?>
 <include type=head/>
     <a id="top"></a>
-    <include type=template name=Navbar/>
-        <include type=template name=Header/>
-            <div id="wrapper" class="row">
-                <div id="main" class="twelve columns">
-                    <include type=page name=<?php echo $this->row->page_name; ?>/>
-                </div>
-            </div>
-            <include type=template name=Footer/>
-                <include type=profiler/>
-                    <include type=defer/>
+    <include Navbar/>
+    <include Header/>
+    <div id="wrapper" class="row">
+        <div id="main" class="twelve columns">
+            <include page=<?php echo $row->page_name; ?>/>
+        </div>
+    </div>
+    <include Footer/>
+    <include defer/>

@@ -5,8 +5,8 @@
     <create_date>January 2013</create_date>
     <copyright>Copyright (C) 2013 Amy Stephen. All rights reserved.</copyright>
     <license>MIT</license>
-    <author_email>AmyStephen@niambie.com</author_email>
-    <author_url>http://niambie.com</author_url>
+    <author_email>AmyStephen@molajo.com</author_email>
+    <author_url>http://molajo.com</author_url>
     <version>1.0</version>
     <description>FOUNDATION_PLUGIN_DESCRIPTION</description>
     <model name="Foundation" extends="PluginsSystem"/>

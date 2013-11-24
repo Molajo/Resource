@@ -1,29 +1,29 @@
 <?php
 /**
- * Interface Map
+ * Class Map
  *
- * @package   Molajo
- * @copyright 2013 Amy Stephen. All rights reserved.
- * @license   http://www.opensource.org/licenses/mit-license.html MIT License
+ * @package    Molajo
+ * @copyright  2013 Amy Stephen. All rights reserved.
+ * @license    http://www.opensource.org/licenses/mit-license.html MIT License
  */
-namespace Molajo\Resources;
+namespace Molajo\Resource;
 
 use stdClass;
 use Exception;
 use ReflectionClass;
 use ReflectionParameter;
-use Molajo\Resources\Exception\ResourcesException;
-use Molajo\Controller\Data;
+use Exception\Resources\ResourcesException;
+use CommonApi\Resource\ClassMapInterface;
 
 /**
- * Interface Map
+ * Class Map
  *
- * @package   Molajo
- * @copyright 2013 Amy Stephen. All rights reserved.
- * @license   http://www.opensource.org/licenses/mit-license.html MIT License
- * @since     1.0
+ * @package    Molajo
+ * @copyright  2013 Amy Stephen. All rights reserved.
+ * @license    http://www.opensource.org/licenses/mit-license.html MIT License
+ * @since      1.0
  */
-class InterfaceMap
+class ClassMap implements ClassMapInterface
 {
     /**
      * Interface Map Filename
@@ -31,7 +31,7 @@ class InterfaceMap
      * @var    string
      * @since  1.0
      */
-    protected $interface_map_filename = 'Files/InterfaceMap.json';
+    protected $class_map_filename;
 
     /**
      * Interfaces Filename
@@ -39,7 +39,7 @@ class InterfaceMap
      * @var    string
      * @since  1.0
      */
-    protected $interface_classes_filename = 'Files/Interfaces.json';
+    protected $interface_classes_filename;
 
     /**
      * Class Dependencies
@@ -47,24 +47,36 @@ class InterfaceMap
      * @var    string
      * @since  1.0
      */
-    protected $concrete_classes_filename = 'Files/ClassDependencies.json';
+    protected $concrete_classes_filename;
+
+    /**
+     * Events
+     *
+     * @var    string
+     * @since  1.0
+     */
+    protected $events_filename;
 
     /**
      * Constructor
      *
-     * @param  string $interface_map_filename
+     * @param  string $class_map_filename
+     * @param  string $interface_classes_filename
+     * @param  string $concrete_classes_filename
+     * @param  string $events_filename
      *
      * @since  1.0
      */
     public function __construct(
-        $interface_map_filename = 'Files/InterfaceMap.json',
-        $interface_classes_filename = 'Files/Interfaces.json',
-        $concrete_classes_filename = 'Files/ClassDependencies.json',
-        Data $data = null
+        $class_map_filename,
+        $interface_classes_filename,
+        $concrete_classes_filename,
+        $events_filename
     ) {
-        $this->interface_map_filename     = __DIR__ . '/' . $interface_map_filename;
-        $this->interface_classes_filename = __DIR__ . '/' . $interface_classes_filename;
-        $this->concrete_classes_filename  = __DIR__ . '/' . $concrete_classes_filename;
+        $this->class_map_filename         = $class_map_filename;
+        $this->interface_classes_filename = $interface_classes_filename;
+        $this->concrete_classes_filename  = $concrete_classes_filename;
+        $this->events_filename            = $events_filename;
     }
 
     /**
@@ -72,11 +84,11 @@ class InterfaceMap
      *
      * @return  $this
      * @since   1.0
-     * @throws  \Molajo\Resources\Exception\ResourcesException
+     * @throws  \Exception\Resources\ResourcesException
      */
     public function createMap()
     {
-        $php_files = $this->readFile($this->interface_map_filename);
+        $php_files = $this->readFile($this->class_map_filename);
 
         if (count($php_files) > 0) {
         } else {
@@ -129,9 +141,9 @@ class InterfaceMap
             }
         }
 
-        $concretes = $this->setAggregateConcreteInterfaceUsage($concretes, $concretes);
-
-        ksort($concretes);
+        $results   = $this->setAggregateConcreteInterfaceUsage($concretes, $concretes);
+        $concretes = $results[0];
+        $events    = $results[1];
 
         if (version_compare(PHP_VERSION, '5.4.0', '>=')) {
             file_put_contents($this->interface_classes_filename, json_encode($interfaces, JSON_PRETTY_PRINT));
@@ -139,9 +151,11 @@ class InterfaceMap
                 $this->concrete_classes_filename,
                 json_encode($concretes, JSON_PRETTY_PRINT)
             );
+            file_put_contents($this->events_filename, json_encode($events, JSON_PRETTY_PRINT));
         } else {
             file_put_contents($this->interface_classes_filename, json_encode($interfaces));
             file_put_contents($this->concrete_classes_filename, json_encode($concretes));
+            file_put_contents($this->events_filename, json_encode($events));
         }
 
         return $this;
@@ -160,7 +174,6 @@ class InterfaceMap
     {
         try {
             $reflection = new ReflectionClass($fqns);
-
         } catch (Exception $e) {
             return false;
         }
@@ -221,7 +234,6 @@ class InterfaceMap
                 } else {
                     $interface->dependency_for = array();
                 }
-
             } else {
 
                 $interface->implemented_by = array();
@@ -241,7 +253,7 @@ class InterfaceMap
      *
      * @return  $this
      * @since   1.0
-     * @throws  \Molajo\Resources\Exception\ResourcesException
+     * @throws  \Exception\Resources\ResourcesException
      */
     protected function setConcreteClass($fqns, $path, array $interface_usage = array())
     {
@@ -249,7 +261,6 @@ class InterfaceMap
 
         try {
             $reflection = new ReflectionClass($fqns);
-
         } catch (Exception $e) {
             return array($class_object, $interface_usage);
         }
@@ -317,11 +328,14 @@ class InterfaceMap
     /**
      * Process Dependencies for the Class
      *
+     * @param   array  $class_method_array
+     * @param   object $parameter
+     *
      * @return  $this
      * @since   1.0
-     * @throws  \Molajo\Resources\Exception\ResourcesException
+     * @throws  \Exception\Resources\ResourcesException
      */
-    public function processDependencies($class_method_array, $parameter)
+    protected function processDependencies($class_method_array, $parameter)
     {
         $parameters_object = new stdClass();
         $param             = new ReflectionParameter($class_method_array, $parameter->name);
@@ -331,7 +345,6 @@ class InterfaceMap
         if ($param->isDefaultValueAvailable() === true) {
             $parameters_object->default_available = true;
             $parameters_object->default_value     = $param->getDefaultValue();
-
         } else {
             $parameters_object->default_available = false;
             $parameters_object->default_value     = null;
@@ -376,7 +389,6 @@ class InterfaceMap
             } else {
                 $paths = array();
             }
-
         } else {
             $temp  = new stdClass();
             $paths = array();
@@ -456,16 +468,20 @@ class InterfaceMap
      *  Requirements for a Concrete Class expressed by the Interface as a Type Hint in the Method Parameters
      *
      * @param  array $concretes
-     * @param  array $interface_usage
+     * @param  array $concretes_all
      *
      * @since  1.0
      * @return array
      */
     protected function setAggregateConcreteInterfaceUsage(array $concretes, array $concretes_all)
     {
+        $events = array();
+
         foreach ($concretes as $concrete) {
+
             if (empty($concrete->fqns)) {
             } else {
+
                 if (isset($concretes_all[$concrete->fqns])) {
 
                     if (isset($concretes_all[$concrete->fqns]->implemented_by)) {
@@ -479,24 +495,51 @@ class InterfaceMap
                     } else {
                         $concrete->dependency_for = array();
                     }
-
                 } else {
 
                     $concrete->implemented_by = array();
                     $concrete->dependency_for = array();
                 }
+
+                $concrete->method = get_class_methods($concrete->fqns);
+
+                if (count($concrete->method) > 0) {
+
+                    foreach ($concrete->method as $method) {
+
+                        $class_instance = new \ReflectionClass($concrete->fqns);
+                        $abstract       = $class_instance->isAbstract();
+
+                        if (substr($method, 0, 2) == 'on' && $abstract === false) {
+
+                            $reflectionMethod = new \ReflectionMethod(new $concrete->fqns, $method);
+                            $results          = $reflectionMethod->getDeclaringClass();
+
+                            if ($results->name == $concrete->fqns) {
+                                if (isset($events[$method])) {
+                                    $classes = $events[$method];
+                                } else {
+                                    $classes = array();
+                                }
+                                $classes[]       = $concrete->fqns;
+                                $events[$method] = array_unique($classes);
+                            }
+                        }
+                    }
+                }
             }
         }
 
-        return $concretes;
+        return array($concretes, $events);
     }
 
     /**
      * Read File
      *
-     * @param  string
+     * @param   string $filename
      *
-     * @since  1.0
+     * @return  mixed|string
+     * @since   1.0
      */
     protected function readFile($filename)
     {

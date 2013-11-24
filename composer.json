@@ -1,35 +1,30 @@
 {
-    "name": "molajo/loader",
+    "name": "molajo/resource",
+    "description": "Molajo Resource Services for PHP Applications",
+    "version": "0.1.0",
     "type": "molajo-bundle",
-    "description": "Molajo Loader: Loads filesystem resources like Classes, Asset Media, and Model definitions",
-    "keywords": ["Loader", "PSR-0"],
-    "homepage": "http://github.com/Molajo/Loader",
+    "keywords": ["resource", "commonapi", "molajo"],
+    "homepage": "http://github.com/Molajo/Resource",
     "license": "MIT",
     "authors": [
         {
             "name": "Amy Stephen",
-            "email": "AmyStephen@gmail.com",
-            "homepage": "http://AmyStephen.github.io"
+            "email": "AmyStephen@molajo.org",
+            "homepage": "http://AmyStephen.com",
+            "role": "Developer"
         }
     ],
-    "require": {
-        "php": ">=5.3.3"
-    },
-
     "support": {
-        "email": "hello@molajo.org",
-        "irc": "irc://irc.freenode.org/molajo"
+        "issues": "https://github.com/Molajo/Resource/issues",
+        "forum": "https://groups.google.com/forum/#!forum/molajo",
+        "irc": "irc://irc.freenode.org/molajo",
+        "source": "https://github.com/Molajo/Resource"
     },
-    "target-dir": "Molajo/Loader",
+    "require": {
+        "php": ">=5.3.10",
+        "commonapi/resource": "dev-master"
+    },
     "autoload": {
-        "psr-0": {
-            "Molajo\\Loader": "./"
-        }
-    },
-    "minimum-stability": "dev",
-    "extra": {
-        "branch-alias": {
-            "dev-master": "0.1.0-dev"
-        }
+        "classmap": "./"
     }
 }

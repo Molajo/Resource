@@ -3,7 +3,7 @@
  * @package     Molajo
  * @subpackage  Views
  * @copyright   2013 Amy Stephen. All rights reserved.
- * @license     MIT
+ * @license     http://www.opensource.org/licenses/mit-license.html MIT License
  */
 ?>
 <div class="row-fluid">
