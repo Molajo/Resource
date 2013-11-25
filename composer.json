@@ -2,7 +2,7 @@
     "name": "molajo/resource",
     "description": "Molajo Resource Services for PHP Applications",
     "version": "0.1.0",
-    "type": "molajo-bundle",
+    "type": "molajo-package",
     "keywords": ["resource", "commonapi", "molajo"],
     "homepage": "http://github.com/Molajo/Resource",
     "license": "MIT",
