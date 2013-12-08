@@ -13,7 +13,7 @@
             name="Comments"
             criteria_catalog_type_id="17000"
             criteria_extension_instance_id="17000"
-            extends="Contentresources">
+            extends="Contentresource">
 
         <customfields>
             <customfield name="customfields">

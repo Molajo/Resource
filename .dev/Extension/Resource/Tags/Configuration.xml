@@ -13,5 +13,5 @@
             name="tags"
             criteria_catalog_type_id="15000"
             criteria_extension_instance_id="15000"
-            extends="Contentresources"/>
+            extends="Contentresource"/>
 </extension>

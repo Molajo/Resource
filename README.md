@@ -5,11 +5,11 @@ Resource
 [![Build Status](https://travis-ci.org/Molajo/Resource.png?branch=master)](https://travis-ci.org/Molajo/Resource)
 
 *Resource* provides PHP applications with a generalized approach for locating and handling
-    file and folder resources using URI namespaces.
+    file and folder resource using URI namespaces.
 
 ## Basic Principles
 
-With *Resource*, applications interact with filesystem resources using a URI namespace, rather than specifying
+With *Resource*, applications interact with filesystem resource using a URI namespace, rather than specifying
  file and folder names.
 
  This approach provides two important benefits:
@@ -80,8 +80,8 @@ application.
 
 ##Resource Definitions##
 
-The first step is determining what resources and must be accessible to your application. Define the scheme
-and request structure. Typical resources applications use include: classes, configuration files, CSS, JS, images, etc. The *Resource*
+The first step is determining what resource and must be accessible to your application. Define the scheme
+and request structure. Typical resource applications use include: classes, configuration files, CSS, JS, images, etc. The *Resource*
 package provides Handlers for these typical use case.
 
 All [Schemes](https://github.com/Molajo/Resource/blob/master/Files/SchemeArray.json) must be defined and handlers
@@ -95,7 +95,7 @@ created for each scheme:
     },
 ```
 
-Next, all application resources should be mapped to namespace prefixes and inclusion and exclusion criteria
+Next, all application resource should be mapped to namespace prefixes and inclusion and exclusion criteria
 for that namespace:
 
 ```json

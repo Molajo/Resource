@@ -96,7 +96,7 @@
             "Molajo\\Plugin\\Username\\UsernamePlugin",
             "Molajo\\Plugin\\Version\\VersionPlugin",
             "Molajo\\Plugin\\Weather\\WeatherPlugin",
-            "Molajo\\Resources\\Handler\\QueryHandler"
+            "Molajo\\Resource\\Handler\\QueryHandler"
         ]
     },
     "CommonApi\\Exception\\ExceptionInterface": {
@@ -183,14 +183,14 @@
             "Molajo\\Service\\Registration\\RegistrationInjector",
             "Molajo\\Service\\Render\\RenderInjector",
             "Molajo\\Service\\Resource\\ResourceInjector",
-            "Molajo\\Service\\Resources\\ResourcesInjector",
-            "Molajo\\Service\\Resourcescss\\ResourcescssInjector",
-            "Molajo\\Service\\Resourcescssdeclarations\\ResourcescssdeclarationsInjector",
-            "Molajo\\Service\\Resourcesdata\\ResourcesdataInjector",
-            "Molajo\\Service\\Resourcesjs\\ResourcesjsInjector",
-            "Molajo\\Service\\Resourcesjsdeclarations\\ResourcesjsdeclarationsInjector",
-            "Molajo\\Service\\Resourcesquery\\ResourcesqueryInjector",
-            "Molajo\\Service\\Resourcesrendering\\ResourcesrenderingInjector",
+            "Molajo\\Service\\Resource\\ResourceInjector",
+            "Molajo\\Service\\Resourcecss\\ResourcecssInjector",
+            "Molajo\\Service\\Resourcecssdeclarations\\ResourcecssdeclarationsInjector",
+            "Molajo\\Service\\Resourcedata\\ResourcedataInjector",
+            "Molajo\\Service\\Resourcejs\\ResourcejsInjector",
+            "Molajo\\Service\\Resourcejsdeclarations\\ResourcejsdeclarationsInjector",
+            "Molajo\\Service\\Resourcequery\\ResourcequeryInjector",
+            "Molajo\\Service\\Resourcerendering\\ResourcerenderingInjector",
             "Molajo\\Service\\Response\\ResponseInjector",
             "Molajo\\Service\\Route\\RouteInjector",
             "Molajo\\Service\\Search\\SearchInjector",

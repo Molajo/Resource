@@ -37,7 +37,7 @@ class ExtensionMap implements ExtensionsInterface
      * @var    object
      * @since  1.0
      */
-    protected $resources;
+    protected $resource;
 
     /**
      * Extensions Filename
@@ -50,18 +50,18 @@ class ExtensionMap implements ExtensionsInterface
     /**
      * Constructor
      *
-     * @param  object $resources
+     * @param  object $resource
      * @param  object $parameters
      * @param  string $extensions_filename
      *
      * @since  1.0
      */
     public function __construct(
-        $resources,
+        $resource,
         $parameters,
         $extensions_filename = null
     ) {
-        $this->resources           = $resources;
+        $this->resource           = $resource;
         $this->parameters          = $parameters;
         $this->extensions_filename = $extensions_filename;
     }
@@ -75,7 +75,7 @@ class ExtensionMap implements ExtensionsInterface
      */
     public function createMap()
     {
-        $controller = $this->resources->get(
+        $controller = $this->resource->get(
             'query:///Molajo//Datasource//CatalogTypes.xml',
             array('Parameters' => $this->parameters)
         );
@@ -138,7 +138,7 @@ class ExtensionMap implements ExtensionsInterface
     protected function getExtensions($catalog_type_id, $catalog_type_model_name)
     {
         $controller
-            = $this->resources->get(
+            = $this->resource->get(
             'query:///Molajo//Datasource//ExtensionInstances.xml',
             array('Parameters' => $this->parameters)
         );
@@ -264,7 +264,7 @@ class ExtensionMap implements ExtensionsInterface
             . '//' . $alias
             . '//Configuration.xml';
 
-        $controller = $this->resources->get(
+        $controller = $this->resource->get(
             'query:///' . $model,
             array('Parameters' => $this->parameters)
         );

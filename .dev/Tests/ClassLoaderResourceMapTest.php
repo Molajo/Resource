@@ -112,7 +112,7 @@ class ClassHandlerResourceMap extends PHPUnit_Framework_TestCase
         );
 
         $class           = 'Molajo\\Resource\\Adapter';
-        $this->resources = new $class (
+        $this->resource = new $class (
             $handler,
             'Class'
         );

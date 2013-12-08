@@ -680,29 +680,29 @@
     "molajo\\administration\\privatemessages\\menuitem\\privatemessages\\configuration.xml": [
         "\/Users\/amystephen\/Sites\/Standard\/Application\/Administration\/Privatemessages\/Menuitem\/Privatemessages\/Configuration.xml"
     ],
-    "molajo\\administration\\resources": [
-        "\/Users\/amystephen\/Sites\/Standard\/Application\/Administration\/Resources"
+    "molajo\\administration\\resource": [
+        "\/Users\/amystephen\/Sites\/Standard\/Application\/Administration\/Resource"
     ],
-    "molajo\\administration\\resources\\configuration.xml": [
-        "\/Users\/amystephen\/Sites\/Standard\/Application\/Administration\/Resources\/Configuration.xml"
+    "molajo\\administration\\resource\\configuration.xml": [
+        "\/Users\/amystephen\/Sites\/Standard\/Application\/Administration\/Resource\/Configuration.xml"
     ],
-    "molajo\\administration\\resources\\datalist": [
-        "\/Users\/amystephen\/Sites\/Standard\/Application\/Administration\/Resources\/Datalist"
+    "molajo\\administration\\resource\\datalist": [
+        "\/Users\/amystephen\/Sites\/Standard\/Application\/Administration\/Resource\/Datalist"
     ],
-    "molajo\\administration\\resources\\datalist\\content.xml": [
-        "\/Users\/amystephen\/Sites\/Standard\/Application\/Administration\/Resources\/Datalist\/Content.xml"
+    "molajo\\administration\\resource\\datalist\\content.xml": [
+        "\/Users\/amystephen\/Sites\/Standard\/Application\/Administration\/Resource\/Datalist\/Content.xml"
     ],
-    "molajo\\administration\\resources\\datalist\\fields.xml": [
-        "\/Users\/amystephen\/Sites\/Standard\/Application\/Administration\/Resources\/Datalist\/Fields.xml"
+    "molajo\\administration\\resource\\datalist\\fields.xml": [
+        "\/Users\/amystephen\/Sites\/Standard\/Application\/Administration\/Resource\/Datalist\/Fields.xml"
     ],
-    "molajo\\administration\\resources\\menuitem": [
-        "\/Users\/amystephen\/Sites\/Standard\/Application\/Administration\/Resources\/Menuitem"
+    "molajo\\administration\\resource\\menuitem": [
+        "\/Users\/amystephen\/Sites\/Standard\/Application\/Administration\/Resource\/Menuitem"
     ],
-    "molajo\\administration\\resources\\menuitem\\resources": [
-        "\/Users\/amystephen\/Sites\/Standard\/Application\/Administration\/Resources\/Menuitem\/Resources"
+    "molajo\\administration\\resource\\menuitem\\resource": [
+        "\/Users\/amystephen\/Sites\/Standard\/Application\/Administration\/Resource\/Menuitem\/Resource"
     ],
-    "molajo\\administration\\resources\\menuitem\\resources\\configuration.xml": [
-        "\/Users\/amystephen\/Sites\/Standard\/Application\/Administration\/Resources\/Menuitem\/Resources\/Configuration.xml"
+    "molajo\\administration\\resource\\menuitem\\resource\\configuration.xml": [
+        "\/Users\/amystephen\/Sites\/Standard\/Application\/Administration\/Resource\/Menuitem\/Resource\/Configuration.xml"
     ],
     "molajo\\administration\\services": [
         "\/Users\/amystephen\/Sites\/Standard\/Application\/Administration\/Services"
@@ -1388,8 +1388,8 @@
     "molajo\\datasource\\content.xml": [
         "\/Users\/amystephen\/Sites\/Standard\/Application\/Model\/Datasource\/Content.xml"
     ],
-    "molajo\\datasource\\contentresources.xml": [
-        "\/Users\/amystephen\/Sites\/Standard\/Application\/Model\/Datasource\/Contentresources.xml"
+    "molajo\\datasource\\contentresource.xml": [
+        "\/Users\/amystephen\/Sites\/Standard\/Application\/Model\/Datasource\/Contentresource.xml"
     ],
     "molajo\\datasource\\defer.xml": [
         "\/Users\/amystephen\/Sites\/Standard\/Application\/Model\/Datasource\/Defer.xml"
@@ -3933,17 +3933,17 @@
     "molajo\\menuitem\\profile\\configuration.xml": [
         "\/Users\/amystephen\/Sites\/Standard\/Application\/Model\/Menuitem\/Profile\/Configuration.xml"
     ],
-    "molajo\\menuitem\\resources": [
-        "\/Users\/amystephen\/Sites\/Standard\/Application\/Administration\/Resources\/Menuitem\/Resources"
+    "molajo\\menuitem\\resource": [
+        "\/Users\/amystephen\/Sites\/Standard\/Application\/Administration\/Resource\/Menuitem\/Resource"
     ],
-    "molajo\\menuitem\\resources-dashboard": [
-        "\/Users\/amystephen\/Sites\/Standard\/Application\/Model\/Menuitem\/Resources-dashboard"
+    "molajo\\menuitem\\resource-dashboard": [
+        "\/Users\/amystephen\/Sites\/Standard\/Application\/Model\/Menuitem\/Resource-dashboard"
     ],
-    "molajo\\menuitem\\resources-dashboard\\configuration.xml": [
-        "\/Users\/amystephen\/Sites\/Standard\/Application\/Model\/Menuitem\/Resources-dashboard\/Configuration.xml"
+    "molajo\\menuitem\\resource-dashboard\\configuration.xml": [
+        "\/Users\/amystephen\/Sites\/Standard\/Application\/Model\/Menuitem\/Resource-dashboard\/Configuration.xml"
     ],
-    "molajo\\menuitem\\resources\\configuration.xml": [
-        "\/Users\/amystephen\/Sites\/Standard\/Application\/Administration\/Resources\/Menuitem\/Resources\/Configuration.xml"
+    "molajo\\menuitem\\resource\\configuration.xml": [
+        "\/Users\/amystephen\/Sites\/Standard\/Application\/Administration\/Resource\/Menuitem\/Resource\/Configuration.xml"
     ],
     "molajo\\menuitem\\services": [
         "\/Users\/amystephen\/Sites\/Standard\/Application\/Administration\/Services\/Menuitem\/Services"
@@ -4227,8 +4227,8 @@
     "molajo\\model\\datalist\\protected.xml": [
         "\/Users\/amystephen\/Sites\/Standard\/Application\/Model\/Datalist\/Protected.xml"
     ],
-    "molajo\\model\\datalist\\resources.xml": [
-        "\/Users\/amystephen\/Sites\/Standard\/Application\/Model\/Datalist\/Resources.xml"
+    "molajo\\model\\datalist\\resource.xml": [
+        "\/Users\/amystephen\/Sites\/Standard\/Application\/Model\/Datalist\/Resource.xml"
     ],
     "molajo\\model\\datalist\\robots.xml": [
         "\/Users\/amystephen\/Sites\/Standard\/Application\/Model\/Datalist\/Robots.xml"
@@ -4335,8 +4335,8 @@
     "molajo\\model\\datasource\\content.xml": [
         "\/Users\/amystephen\/Sites\/Standard\/Application\/Model\/Datasource\/Content.xml"
     ],
-    "molajo\\model\\datasource\\contentresources.xml": [
-        "\/Users\/amystephen\/Sites\/Standard\/Application\/Model\/Datasource\/Contentresources.xml"
+    "molajo\\model\\datasource\\contentresource.xml": [
+        "\/Users\/amystephen\/Sites\/Standard\/Application\/Model\/Datasource\/Contentresource.xml"
     ],
     "molajo\\model\\datasource\\defer.xml": [
         "\/Users\/amystephen\/Sites\/Standard\/Application\/Model\/Datasource\/Defer.xml"
@@ -6231,11 +6231,11 @@
     "molajo\\model\\menuitem\\profile\\configuration.xml": [
         "\/Users\/amystephen\/Sites\/Standard\/Application\/Model\/Menuitem\/Profile\/Configuration.xml"
     ],
-    "molajo\\model\\menuitem\\resources-dashboard": [
-        "\/Users\/amystephen\/Sites\/Standard\/Application\/Model\/Menuitem\/Resources-dashboard"
+    "molajo\\model\\menuitem\\resource-dashboard": [
+        "\/Users\/amystephen\/Sites\/Standard\/Application\/Model\/Menuitem\/Resource-dashboard"
     ],
-    "molajo\\model\\menuitem\\resources-dashboard\\configuration.xml": [
-        "\/Users\/amystephen\/Sites\/Standard\/Application\/Model\/Menuitem\/Resources-dashboard\/Configuration.xml"
+    "molajo\\model\\menuitem\\resource-dashboard\\configuration.xml": [
+        "\/Users\/amystephen\/Sites\/Standard\/Application\/Model\/Menuitem\/Resource-dashboard\/Configuration.xml"
     ],
     "molajo\\model\\menuitem\\system-dashboard": [
         "\/Users\/amystephen\/Sites\/Standard\/Application\/Model\/Menuitem\/System-dashboard"
@@ -7293,153 +7293,153 @@
     "molajo\\resource\\video\\menuitem\\video\\configuration.xml": [
         "\/Users\/amystephen\/Sites\/Standard\/Application\/Extension\/Resource\/Video\/Menuitem\/Video\/Configuration.xml"
     ],
-    "molajo\\resources": [
-        "\/Users\/amystephen\/Sites\/Standard\/Vendor\/Molajo\/Resources\/"
+    "molajo\\resource": [
+        "\/Users\/amystephen\/Sites\/Standard\/Vendor\/Molajo\/Resource\/"
     ],
-    "molajo\\resources\\adapter": [
-        "\/Users\/amystephen\/Sites\/Standard\/Vendor\/Molajo\/Resources\/Adapter.php"
+    "molajo\\resource\\adapter": [
+        "\/Users\/amystephen\/Sites\/Standard\/Vendor\/Molajo\/Resource\/Adapter.php"
     ],
-    "molajo\\resources\\api": [
-        "\/Users\/amystephen\/Sites\/Standard\/Application\/Resources\/Api"
+    "molajo\\resource\\api": [
+        "\/Users\/amystephen\/Sites\/Standard\/Application\/Resource\/Api"
     ],
-    "molajo\\resources\\api\\configurationdatainterface": [
-        "\/Users\/amystephen\/Sites\/Standard\/Application\/Resources\/Api\/ConfigurationDataInterface.php"
+    "molajo\\resource\\api\\configurationdatainterface": [
+        "\/Users\/amystephen\/Sites\/Standard\/Application\/Resource\/Api\/ConfigurationDataInterface.php"
     ],
-    "molajo\\resources\\api\\configurationinterface": [
-        "\/Users\/amystephen\/Sites\/Standard\/Application\/Resources\/Api\/ConfigurationInterface.php"
+    "molajo\\resource\\api\\configurationinterface": [
+        "\/Users\/amystephen\/Sites\/Standard\/Application\/Resource\/Api\/ConfigurationInterface.php"
     ],
-    "molajo\\resources\\api\\registryinterface": [
-        "\/Users\/amystephen\/Sites\/Standard\/Application\/Resources\/Api\/RegistryInterface.php"
+    "molajo\\resource\\api\\registryinterface": [
+        "\/Users\/amystephen\/Sites\/Standard\/Application\/Resource\/Api\/RegistryInterface.php"
     ],
-    "molajo\\resources\\classmap": [
-        "\/Users\/amystephen\/Sites\/Standard\/Vendor\/Molajo\/Resources\/ClassMap.php"
+    "molajo\\resource\\classmap": [
+        "\/Users\/amystephen\/Sites\/Standard\/Vendor\/Molajo\/Resource\/ClassMap.php"
     ],
-    "molajo\\resources\\composer.json": [
-        "\/Users\/amystephen\/Sites\/Standard\/Vendor\/Molajo\/Resources\/composer.json"
+    "molajo\\resource\\composer.json": [
+        "\/Users\/amystephen\/Sites\/Standard\/Vendor\/Molajo\/Resource\/composer.json"
     ],
-    "molajo\\resources\\configuration": [
-        "\/Users\/amystephen\/Sites\/Standard\/Application\/Resources\/Configuration"
+    "molajo\\resource\\configuration": [
+        "\/Users\/amystephen\/Sites\/Standard\/Application\/Resource\/Configuration"
     ],
-    "molajo\\resources\\configuration\\abstracthandler": [
-        "\/Users\/amystephen\/Sites\/Standard\/Application\/Resources\/Configuration\/AbstractHandler.php"
+    "molajo\\resource\\configuration\\abstracthandler": [
+        "\/Users\/amystephen\/Sites\/Standard\/Application\/Resource\/Configuration\/AbstractHandler.php"
     ],
-    "molajo\\resources\\configuration\\data": [
-        "\/Users\/amystephen\/Sites\/Standard\/Application\/Resources\/Configuration\/Data.php"
+    "molajo\\resource\\configuration\\data": [
+        "\/Users\/amystephen\/Sites\/Standard\/Application\/Resource\/Configuration\/Data.php"
     ],
-    "molajo\\resources\\configuration\\dataobjecthandler": [
-        "\/Users\/amystephen\/Sites\/Standard\/Application\/Resources\/Configuration\/DataobjectHandler.php"
+    "molajo\\resource\\configuration\\dataobjecthandler": [
+        "\/Users\/amystephen\/Sites\/Standard\/Application\/Resource\/Configuration\/DataobjectHandler.php"
     ],
-    "molajo\\resources\\configuration\\modelhandler": [
-        "\/Users\/amystephen\/Sites\/Standard\/Application\/Resources\/Configuration\/ModelHandler.php"
+    "molajo\\resource\\configuration\\modelhandler": [
+        "\/Users\/amystephen\/Sites\/Standard\/Application\/Resource\/Configuration\/ModelHandler.php"
     ],
-    "molajo\\resources\\configuration\\registry": [
-        "\/Users\/amystephen\/Sites\/Standard\/Application\/Resources\/Configuration\/Registry.php"
+    "molajo\\resource\\configuration\\registry": [
+        "\/Users\/amystephen\/Sites\/Standard\/Application\/Resource\/Configuration\/Registry.php"
     ],
-    "molajo\\resources\\extensionmap": [
-        "\/Users\/amystephen\/Sites\/Standard\/Vendor\/Molajo\/Resources\/ExtensionMap.php"
+    "molajo\\resource\\extensionmap": [
+        "\/Users\/amystephen\/Sites\/Standard\/Vendor\/Molajo\/Resource\/ExtensionMap.php"
     ],
-    "molajo\\resources\\files": [
-        "\/Users\/amystephen\/Sites\/Standard\/Vendor\/Molajo\/Resources\/Files"
+    "molajo\\resource\\files": [
+        "\/Users\/amystephen\/Sites\/Standard\/Vendor\/Molajo\/Resource\/Files"
     ],
-    "molajo\\resources\\files\\input": [
-        "\/Users\/amystephen\/Sites\/Standard\/Vendor\/Molajo\/Resources\/Files\/Input"
+    "molajo\\resource\\files\\input": [
+        "\/Users\/amystephen\/Sites\/Standard\/Vendor\/Molajo\/Resource\/Files\/Input"
     ],
-    "molajo\\resources\\files\\input\\excludefolders.json": [
-        "\/Users\/amystephen\/Sites\/Standard\/Vendor\/Molajo\/Resources\/Files\/Input\/ExcludeFolders.json"
+    "molajo\\resource\\files\\input\\excludefolders.json": [
+        "\/Users\/amystephen\/Sites\/Standard\/Vendor\/Molajo\/Resource\/Files\/Input\/ExcludeFolders.json"
     ],
-    "molajo\\resources\\files\\input\\schemearray.json": [
-        "\/Users\/amystephen\/Sites\/Standard\/Vendor\/Molajo\/Resources\/Files\/Input\/SchemeArray.json"
+    "molajo\\resource\\files\\input\\schemearray.json": [
+        "\/Users\/amystephen\/Sites\/Standard\/Vendor\/Molajo\/Resource\/Files\/Input\/SchemeArray.json"
     ],
-    "molajo\\resources\\files\\input\\schemeclass.json": [
-        "\/Users\/amystephen\/Sites\/Standard\/Vendor\/Molajo\/Resources\/Files\/Input\/SchemeClass.json"
+    "molajo\\resource\\files\\input\\schemeclass.json": [
+        "\/Users\/amystephen\/Sites\/Standard\/Vendor\/Molajo\/Resource\/Files\/Input\/SchemeClass.json"
     ],
-    "molajo\\resources\\files\\output": [
-        "\/Users\/amystephen\/Sites\/Standard\/Vendor\/Molajo\/Resources\/Files\/Output"
+    "molajo\\resource\\files\\output": [
+        "\/Users\/amystephen\/Sites\/Standard\/Vendor\/Molajo\/Resource\/Files\/Output"
     ],
-    "molajo\\resources\\files\\output\\classdependencies.json": [
-        "\/Users\/amystephen\/Sites\/Standard\/Vendor\/Molajo\/Resources\/Files\/Output\/ClassDependencies.json"
+    "molajo\\resource\\files\\output\\classdependencies.json": [
+        "\/Users\/amystephen\/Sites\/Standard\/Vendor\/Molajo\/Resource\/Files\/Output\/ClassDependencies.json"
     ],
-    "molajo\\resources\\files\\output\\classmap.json": [
-        "\/Users\/amystephen\/Sites\/Standard\/Vendor\/Molajo\/Resources\/Files\/Output\/ClassMap.json"
+    "molajo\\resource\\files\\output\\classmap.json": [
+        "\/Users\/amystephen\/Sites\/Standard\/Vendor\/Molajo\/Resource\/Files\/Output\/ClassMap.json"
     ],
-    "molajo\\resources\\files\\output\\events.json": [
-        "\/Users\/amystephen\/Sites\/Standard\/Vendor\/Molajo\/Resources\/Files\/Output\/Events.json"
+    "molajo\\resource\\files\\output\\events.json": [
+        "\/Users\/amystephen\/Sites\/Standard\/Vendor\/Molajo\/Resource\/Files\/Output\/Events.json"
     ],
-    "molajo\\resources\\files\\output\\extensions.json": [
-        "\/Users\/amystephen\/Sites\/Standard\/Vendor\/Molajo\/Resources\/Files\/Output\/Extensions.json"
+    "molajo\\resource\\files\\output\\extensions.json": [
+        "\/Users\/amystephen\/Sites\/Standard\/Vendor\/Molajo\/Resource\/Files\/Output\/Extensions.json"
     ],
-    "molajo\\resources\\files\\output\\interfaces.json": [
-        "\/Users\/amystephen\/Sites\/Standard\/Vendor\/Molajo\/Resources\/Files\/Output\/Interfaces.json"
+    "molajo\\resource\\files\\output\\interfaces.json": [
+        "\/Users\/amystephen\/Sites\/Standard\/Vendor\/Molajo\/Resource\/Files\/Output\/Interfaces.json"
     ],
-    "molajo\\resources\\files\\output\\resourcemap.json": [
-        "\/Users\/amystephen\/Sites\/Standard\/Vendor\/Molajo\/Resources\/Files\/Output\/ResourceMap.json"
+    "molajo\\resource\\files\\output\\resourcemap.json": [
+        "\/Users\/amystephen\/Sites\/Standard\/Vendor\/Molajo\/Resource\/Files\/Output\/ResourceMap.json"
     ],
-    "molajo\\resources\\handler": [
-        "\/Users\/amystephen\/Sites\/Standard\/Application\/Resources\/Handler",
-        "\/Users\/amystephen\/Sites\/Standard\/Vendor\/Molajo\/Resources\/Handler"
+    "molajo\\resource\\handler": [
+        "\/Users\/amystephen\/Sites\/Standard\/Application\/Resource\/Handler",
+        "\/Users\/amystephen\/Sites\/Standard\/Vendor\/Molajo\/Resource\/Handler"
     ],
-    "molajo\\resources\\handler\\abstracthandler": [
-        "\/Users\/amystephen\/Sites\/Standard\/Vendor\/Molajo\/Resources\/Handler\/AbstractHandler.php"
+    "molajo\\resource\\handler\\abstracthandler": [
+        "\/Users\/amystephen\/Sites\/Standard\/Vendor\/Molajo\/Resource\/Handler\/AbstractHandler.php"
     ],
-    "molajo\\resources\\handler\\assethandler": [
-        "\/Users\/amystephen\/Sites\/Standard\/Vendor\/Molajo\/Resources\/Handler\/AssetHandler.php"
+    "molajo\\resource\\handler\\assethandler": [
+        "\/Users\/amystephen\/Sites\/Standard\/Vendor\/Molajo\/Resource\/Handler\/AssetHandler.php"
     ],
-    "molajo\\resources\\handler\\classhandler": [
-        "\/Users\/amystephen\/Sites\/Standard\/Vendor\/Molajo\/Resources\/Handler\/ClassHandler.php"
+    "molajo\\resource\\handler\\classhandler": [
+        "\/Users\/amystephen\/Sites\/Standard\/Vendor\/Molajo\/Resource\/Handler\/ClassHandler.php"
     ],
-    "molajo\\resources\\handler\\cssdeclarationshandler": [
-        "\/Users\/amystephen\/Sites\/Standard\/Vendor\/Molajo\/Resources\/Handler\/CssdeclarationsHandler.php"
+    "molajo\\resource\\handler\\cssdeclarationshandler": [
+        "\/Users\/amystephen\/Sites\/Standard\/Vendor\/Molajo\/Resource\/Handler\/CssdeclarationsHandler.php"
     ],
-    "molajo\\resources\\handler\\csshandler": [
-        "\/Users\/amystephen\/Sites\/Standard\/Vendor\/Molajo\/Resources\/Handler\/CssHandler.php"
+    "molajo\\resource\\handler\\csshandler": [
+        "\/Users\/amystephen\/Sites\/Standard\/Vendor\/Molajo\/Resource\/Handler\/CssHandler.php"
     ],
-    "molajo\\resources\\handler\\filehandler": [
-        "\/Users\/amystephen\/Sites\/Standard\/Vendor\/Molajo\/Resources\/Handler\/FileHandler.php"
+    "molajo\\resource\\handler\\filehandler": [
+        "\/Users\/amystephen\/Sites\/Standard\/Vendor\/Molajo\/Resource\/Handler\/FileHandler.php"
     ],
-    "molajo\\resources\\handler\\folderhandler": [
-        "\/Users\/amystephen\/Sites\/Standard\/Vendor\/Molajo\/Resources\/Handler\/FolderHandler.php"
+    "molajo\\resource\\handler\\folderhandler": [
+        "\/Users\/amystephen\/Sites\/Standard\/Vendor\/Molajo\/Resource\/Handler\/FolderHandler.php"
     ],
-    "molajo\\resources\\handler\\headhandler": [
-        "\/Users\/amystephen\/Sites\/Standard\/Vendor\/Molajo\/Resources\/Handler\/HeadHandler.php"
+    "molajo\\resource\\handler\\headhandler": [
+        "\/Users\/amystephen\/Sites\/Standard\/Vendor\/Molajo\/Resource\/Handler\/HeadHandler.php"
     ],
-    "molajo\\resources\\handler\\jsdeclarationshandler": [
-        "\/Users\/amystephen\/Sites\/Standard\/Vendor\/Molajo\/Resources\/Handler\/JsdeclarationsHandler.php"
+    "molajo\\resource\\handler\\jsdeclarationshandler": [
+        "\/Users\/amystephen\/Sites\/Standard\/Vendor\/Molajo\/Resource\/Handler\/JsdeclarationsHandler.php"
     ],
-    "molajo\\resources\\handler\\jshandler": [
-        "\/Users\/amystephen\/Sites\/Standard\/Vendor\/Molajo\/Resources\/Handler\/JsHandler.php"
+    "molajo\\resource\\handler\\jshandler": [
+        "\/Users\/amystephen\/Sites\/Standard\/Vendor\/Molajo\/Resource\/Handler\/JsHandler.php"
     ],
-    "molajo\\resources\\handler\\menuitemhandler": [
-        "\/Users\/amystephen\/Sites\/Standard\/Application\/Resources\/Handler\/MenuitemHandler.php"
+    "molajo\\resource\\handler\\menuitemhandler": [
+        "\/Users\/amystephen\/Sites\/Standard\/Application\/Resource\/Handler\/MenuitemHandler.php"
     ],
-    "molajo\\resources\\handler\\pagehandler": [
-        "\/Users\/amystephen\/Sites\/Standard\/Application\/Resources\/Handler\/PageHandler.php"
+    "molajo\\resource\\handler\\pagehandler": [
+        "\/Users\/amystephen\/Sites\/Standard\/Application\/Resource\/Handler\/PageHandler.php"
     ],
-    "molajo\\resources\\handler\\queryhandler": [
-        "\/Users\/amystephen\/Sites\/Standard\/Application\/Resources\/Handler\/QueryHandler.php"
+    "molajo\\resource\\handler\\queryhandler": [
+        "\/Users\/amystephen\/Sites\/Standard\/Application\/Resource\/Handler\/QueryHandler.php"
     ],
-    "molajo\\resources\\handler\\templatehandler": [
-        "\/Users\/amystephen\/Sites\/Standard\/Application\/Resources\/Handler\/TemplateHandler.php"
+    "molajo\\resource\\handler\\templatehandler": [
+        "\/Users\/amystephen\/Sites\/Standard\/Application\/Resource\/Handler\/TemplateHandler.php"
     ],
-    "molajo\\resources\\handler\\themehandler": [
-        "\/Users\/amystephen\/Sites\/Standard\/Application\/Resources\/Handler\/ThemeHandler.php"
+    "molajo\\resource\\handler\\themehandler": [
+        "\/Users\/amystephen\/Sites\/Standard\/Application\/Resource\/Handler\/ThemeHandler.php"
     ],
-    "molajo\\resources\\handler\\wraphandler": [
-        "\/Users\/amystephen\/Sites\/Standard\/Application\/Resources\/Handler\/WrapHandler.php"
+    "molajo\\resource\\handler\\wraphandler": [
+        "\/Users\/amystephen\/Sites\/Standard\/Application\/Resource\/Handler\/WrapHandler.php"
     ],
-    "molajo\\resources\\handler\\xmlhandler": [
-        "\/Users\/amystephen\/Sites\/Standard\/Application\/Resources\/Handler\/XmlHandler.php"
+    "molajo\\resource\\handler\\xmlhandler": [
+        "\/Users\/amystephen\/Sites\/Standard\/Application\/Resource\/Handler\/XmlHandler.php"
     ],
-    "molajo\\resources\\license": [
-        "\/Users\/amystephen\/Sites\/Standard\/Vendor\/Molajo\/Resources\/LICENSE"
+    "molajo\\resource\\license": [
+        "\/Users\/amystephen\/Sites\/Standard\/Vendor\/Molajo\/Resource\/LICENSE"
     ],
-    "molajo\\resources\\readme.md": [
-        "\/Users\/amystephen\/Sites\/Standard\/Vendor\/Molajo\/Resources\/README.md"
+    "molajo\\resource\\readme.md": [
+        "\/Users\/amystephen\/Sites\/Standard\/Vendor\/Molajo\/Resource\/README.md"
     ],
-    "molajo\\resources\\resourcemap": [
-        "\/Users\/amystephen\/Sites\/Standard\/Vendor\/Molajo\/Resources\/ResourceMap.php"
+    "molajo\\resource\\resourcemap": [
+        "\/Users\/amystephen\/Sites\/Standard\/Vendor\/Molajo\/Resource\/ResourceMap.php"
     ],
-    "molajo\\resources\\scheme": [
-        "\/Users\/amystephen\/Sites\/Standard\/Vendor\/Molajo\/Resources\/Scheme.php"
+    "molajo\\resource\\scheme": [
+        "\/Users\/amystephen\/Sites\/Standard\/Vendor\/Molajo\/Resource\/Scheme.php"
     ],
     "molajo\\route": [
         "\/Users\/amystephen\/Sites\/Standard\/Vendor\/Molajo\/Route\/"
@@ -7762,77 +7762,77 @@
     "molajo\\service\\resource\\resourceinjector": [
         "\/Users\/amystephen\/Sites\/Standard\/Application\/Service\/Resource\/ResourceInjector.php"
     ],
-    "molajo\\service\\resources": [
-        "\/Users\/amystephen\/Sites\/Standard\/Application\/Service\/Resources"
+    "molajo\\service\\resource": [
+        "\/Users\/amystephen\/Sites\/Standard\/Application\/Service\/Resource"
     ],
-    "molajo\\service\\resources\\configuration.xml": [
-        "\/Users\/amystephen\/Sites\/Standard\/Application\/Service\/Resources\/Configuration.xml"
+    "molajo\\service\\resource\\configuration.xml": [
+        "\/Users\/amystephen\/Sites\/Standard\/Application\/Service\/Resource\/Configuration.xml"
     ],
-    "molajo\\service\\resources\\resourcesinjector": [
-        "\/Users\/amystephen\/Sites\/Standard\/Application\/Service\/Resources\/ResourcesInjector.php"
+    "molajo\\service\\resource\\resourceinjector": [
+        "\/Users\/amystephen\/Sites\/Standard\/Application\/Service\/Resource\/ResourceInjector.php"
     ],
-    "molajo\\service\\resourcescss": [
-        "\/Users\/amystephen\/Sites\/Standard\/Application\/Service\/Resourcescss"
+    "molajo\\service\\resourcecss": [
+        "\/Users\/amystephen\/Sites\/Standard\/Application\/Service\/Resourcecss"
     ],
-    "molajo\\service\\resourcescss\\configuration.xml": [
-        "\/Users\/amystephen\/Sites\/Standard\/Application\/Service\/Resourcescss\/Configuration.xml"
+    "molajo\\service\\resourcecss\\configuration.xml": [
+        "\/Users\/amystephen\/Sites\/Standard\/Application\/Service\/Resourcecss\/Configuration.xml"
     ],
-    "molajo\\service\\resourcescss\\resourcescssinjector": [
-        "\/Users\/amystephen\/Sites\/Standard\/Application\/Service\/Resourcescss\/ResourcescssInjector.php"
+    "molajo\\service\\resourcecss\\resourcecssinjector": [
+        "\/Users\/amystephen\/Sites\/Standard\/Application\/Service\/Resourcecss\/ResourcecssInjector.php"
     ],
-    "molajo\\service\\resourcescssdeclarations": [
-        "\/Users\/amystephen\/Sites\/Standard\/Application\/Service\/Resourcescssdeclarations"
+    "molajo\\service\\resourcecssdeclarations": [
+        "\/Users\/amystephen\/Sites\/Standard\/Application\/Service\/Resourcecssdeclarations"
     ],
-    "molajo\\service\\resourcescssdeclarations\\configuration.xml": [
-        "\/Users\/amystephen\/Sites\/Standard\/Application\/Service\/Resourcescssdeclarations\/Configuration.xml"
+    "molajo\\service\\resourcecssdeclarations\\configuration.xml": [
+        "\/Users\/amystephen\/Sites\/Standard\/Application\/Service\/Resourcecssdeclarations\/Configuration.xml"
     ],
-    "molajo\\service\\resourcescssdeclarations\\resourcescssdeclarationsinjector": [
-        "\/Users\/amystephen\/Sites\/Standard\/Application\/Service\/Resourcescssdeclarations\/ResourcescssdeclarationsInjector.php"
+    "molajo\\service\\resourcecssdeclarations\\resourcecssdeclarationsinjector": [
+        "\/Users\/amystephen\/Sites\/Standard\/Application\/Service\/Resourcecssdeclarations\/ResourcecssdeclarationsInjector.php"
     ],
-    "molajo\\service\\resourcesdata": [
-        "\/Users\/amystephen\/Sites\/Standard\/Application\/Service\/Resourcesdata"
+    "molajo\\service\\resourcedata": [
+        "\/Users\/amystephen\/Sites\/Standard\/Application\/Service\/Resourcedata"
     ],
-    "molajo\\service\\resourcesdata\\configuration.xml": [
-        "\/Users\/amystephen\/Sites\/Standard\/Application\/Service\/Resourcesdata\/Configuration.xml"
+    "molajo\\service\\resourcedata\\configuration.xml": [
+        "\/Users\/amystephen\/Sites\/Standard\/Application\/Service\/Resourcedata\/Configuration.xml"
     ],
-    "molajo\\service\\resourcesdata\\resourcesdatainjector": [
-        "\/Users\/amystephen\/Sites\/Standard\/Application\/Service\/Resourcesdata\/ResourcesdataInjector.php"
+    "molajo\\service\\resourcedata\\resourcedatainjector": [
+        "\/Users\/amystephen\/Sites\/Standard\/Application\/Service\/Resourcedata\/ResourcedataInjector.php"
     ],
-    "molajo\\service\\resourcesjs": [
-        "\/Users\/amystephen\/Sites\/Standard\/Application\/Service\/Resourcesjs"
+    "molajo\\service\\resourcejs": [
+        "\/Users\/amystephen\/Sites\/Standard\/Application\/Service\/Resourcejs"
     ],
-    "molajo\\service\\resourcesjs\\configuration.xml": [
-        "\/Users\/amystephen\/Sites\/Standard\/Application\/Service\/Resourcesjs\/Configuration.xml"
+    "molajo\\service\\resourcejs\\configuration.xml": [
+        "\/Users\/amystephen\/Sites\/Standard\/Application\/Service\/Resourcejs\/Configuration.xml"
     ],
-    "molajo\\service\\resourcesjs\\resourcesjsinjector": [
-        "\/Users\/amystephen\/Sites\/Standard\/Application\/Service\/Resourcesjs\/ResourcesjsInjector.php"
+    "molajo\\service\\resourcejs\\resourcejsinjector": [
+        "\/Users\/amystephen\/Sites\/Standard\/Application\/Service\/Resourcejs\/ResourcejsInjector.php"
     ],
-    "molajo\\service\\resourcesjsdeclarations": [
-        "\/Users\/amystephen\/Sites\/Standard\/Application\/Service\/Resourcesjsdeclarations"
+    "molajo\\service\\resourcejsdeclarations": [
+        "\/Users\/amystephen\/Sites\/Standard\/Application\/Service\/Resourcejsdeclarations"
     ],
-    "molajo\\service\\resourcesjsdeclarations\\configuration.xml": [
-        "\/Users\/amystephen\/Sites\/Standard\/Application\/Service\/Resourcesjsdeclarations\/Configuration.xml"
+    "molajo\\service\\resourcejsdeclarations\\configuration.xml": [
+        "\/Users\/amystephen\/Sites\/Standard\/Application\/Service\/Resourcejsdeclarations\/Configuration.xml"
     ],
-    "molajo\\service\\resourcesjsdeclarations\\resourcesjsdeclarationsinjector": [
-        "\/Users\/amystephen\/Sites\/Standard\/Application\/Service\/Resourcesjsdeclarations\/ResourcesjsdeclarationsInjector.php"
+    "molajo\\service\\resourcejsdeclarations\\resourcejsdeclarationsinjector": [
+        "\/Users\/amystephen\/Sites\/Standard\/Application\/Service\/Resourcejsdeclarations\/ResourcejsdeclarationsInjector.php"
     ],
-    "molajo\\service\\resourcesquery": [
-        "\/Users\/amystephen\/Sites\/Standard\/Application\/Service\/Resourcesquery"
+    "molajo\\service\\resourcequery": [
+        "\/Users\/amystephen\/Sites\/Standard\/Application\/Service\/Resourcequery"
     ],
-    "molajo\\service\\resourcesquery\\configuration.xml": [
-        "\/Users\/amystephen\/Sites\/Standard\/Application\/Service\/Resourcesquery\/Configuration.xml"
+    "molajo\\service\\resourcequery\\configuration.xml": [
+        "\/Users\/amystephen\/Sites\/Standard\/Application\/Service\/Resourcequery\/Configuration.xml"
     ],
-    "molajo\\service\\resourcesquery\\resourcesqueryinjector": [
-        "\/Users\/amystephen\/Sites\/Standard\/Application\/Service\/Resourcesquery\/ResourcesqueryInjector.php"
+    "molajo\\service\\resourcequery\\resourcequeryinjector": [
+        "\/Users\/amystephen\/Sites\/Standard\/Application\/Service\/Resourcequery\/ResourcequeryInjector.php"
     ],
-    "molajo\\service\\resourcesrendering": [
-        "\/Users\/amystephen\/Sites\/Standard\/Application\/Service\/Resourcesrendering"
+    "molajo\\service\\resourcerendering": [
+        "\/Users\/amystephen\/Sites\/Standard\/Application\/Service\/Resourcerendering"
     ],
-    "molajo\\service\\resourcesrendering\\configuration.xml": [
-        "\/Users\/amystephen\/Sites\/Standard\/Application\/Service\/Resourcesrendering\/Configuration.xml"
+    "molajo\\service\\resourcerendering\\configuration.xml": [
+        "\/Users\/amystephen\/Sites\/Standard\/Application\/Service\/Resourcerendering\/Configuration.xml"
     ],
-    "molajo\\service\\resourcesrendering\\resourcesrenderinginjector": [
-        "\/Users\/amystephen\/Sites\/Standard\/Application\/Service\/Resourcesrendering\/ResourcesrenderingInjector.php"
+    "molajo\\service\\resourcerendering\\resourcerenderinginjector": [
+        "\/Users\/amystephen\/Sites\/Standard\/Application\/Service\/Resourcerendering\/ResourcerenderingInjector.php"
     ],
     "molajo\\service\\response": [
         "\/Users\/amystephen\/Sites\/Standard\/Application\/Service\/Response"

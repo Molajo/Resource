@@ -27,7 +27,7 @@ class ClassHandlerDynamicTest extends PHPUnit_Framework_TestCase
      * @var    object  Molajo/Application/Resource/Adapter
      * @since  1.0
      */
-    protected $resources;
+    protected $resource;
 
     /**
      * Exclude when these values are found in the path
@@ -104,14 +104,14 @@ class ClassHandlerDynamicTest extends PHPUnit_Framework_TestCase
         );
 
         $class           = 'Molajo\\Resource\\Adapter';
-        $this->resources = new $class (
+        $this->resource = new $class (
             $handler,
             'Class'
         );
 
-        $this->resources->addNamespace('Molajo\\Test', '.dev/Classes');
-        $this->resources->addNamespace('Molajo\\Resource', '.dev/Psr0/Molajo/Resource');
-        $this->resources->addNamespace('Molajo', '.dev/Extension');
+        $this->resource->addNamespace('Molajo\\Test', '.dev/Classes');
+        $this->resource->addNamespace('Molajo\\Resource', '.dev/Psr0/Molajo/Resource');
+        $this->resource->addNamespace('Molajo', '.dev/Extension');
     }
 
     /**

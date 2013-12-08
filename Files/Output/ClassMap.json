@@ -587,95 +587,95 @@
         "path": "Application\/Model\/UpdateModel.php",
         "fqns": "Molajo\\Model\\UpdateModel"
     },
-    "Application\/Resources\/Api\/ConfigurationDataInterface.php": {
+    "Application\/Resource\/Api\/ConfigurationDataInterface.php": {
         "file_name": "ConfigurationDataInterface.php",
         "base_name": "ConfigurationDataInterface",
-        "path": "Application\/Resources\/Api\/ConfigurationDataInterface.php",
-        "fqns": "Molajo\\Resources\\Api\\ConfigurationDataInterface"
+        "path": "Application\/Resource\/Api\/ConfigurationDataInterface.php",
+        "fqns": "Molajo\\Resource\\Api\\ConfigurationDataInterface"
     },
-    "Application\/Resources\/Api\/ConfigurationInterface.php": {
+    "Application\/Resource\/Api\/ConfigurationInterface.php": {
         "file_name": "ConfigurationInterface.php",
         "base_name": "ConfigurationInterface",
-        "path": "Application\/Resources\/Api\/ConfigurationInterface.php",
-        "fqns": "Molajo\\Resources\\Api\\ConfigurationInterface"
+        "path": "Application\/Resource\/Api\/ConfigurationInterface.php",
+        "fqns": "Molajo\\Resource\\Api\\ConfigurationInterface"
     },
-    "Application\/Resources\/Api\/RegistryInterface.php": {
+    "Application\/Resource\/Api\/RegistryInterface.php": {
         "file_name": "RegistryInterface.php",
         "base_name": "RegistryInterface",
-        "path": "Application\/Resources\/Api\/RegistryInterface.php",
-        "fqns": "Molajo\\Resources\\Api\\RegistryInterface"
+        "path": "Application\/Resource\/Api\/RegistryInterface.php",
+        "fqns": "Molajo\\Resource\\Api\\RegistryInterface"
     },
-    "Application\/Resources\/Configuration\/AbstractHandler.php": {
+    "Application\/Resource\/Configuration\/AbstractHandler.php": {
         "file_name": "AbstractHandler.php",
         "base_name": "AbstractHandler",
-        "path": "Application\/Resources\/Configuration\/AbstractHandler.php",
-        "fqns": "Molajo\\Resources\\Configuration\\AbstractHandler"
+        "path": "Application\/Resource\/Configuration\/AbstractHandler.php",
+        "fqns": "Molajo\\Resource\\Configuration\\AbstractHandler"
     },
-    "Application\/Resources\/Configuration\/Data.php": {
+    "Application\/Resource\/Configuration\/Data.php": {
         "file_name": "Data.php",
         "base_name": "Data",
-        "path": "Application\/Resources\/Configuration\/Data.php",
-        "fqns": "Molajo\\Resources\\Configuration\\Data"
+        "path": "Application\/Resource\/Configuration\/Data.php",
+        "fqns": "Molajo\\Resource\\Configuration\\Data"
     },
-    "Application\/Resources\/Configuration\/DataobjectHandler.php": {
+    "Application\/Resource\/Configuration\/DataobjectHandler.php": {
         "file_name": "DataobjectHandler.php",
         "base_name": "DataobjectHandler",
-        "path": "Application\/Resources\/Configuration\/DataobjectHandler.php",
-        "fqns": "Molajo\\Resources\\Configuration\\DataobjectHandler"
+        "path": "Application\/Resource\/Configuration\/DataobjectHandler.php",
+        "fqns": "Molajo\\Resource\\Configuration\\DataobjectHandler"
     },
-    "Application\/Resources\/Configuration\/ModelHandler.php": {
+    "Application\/Resource\/Configuration\/ModelHandler.php": {
         "file_name": "ModelHandler.php",
         "base_name": "ModelHandler",
-        "path": "Application\/Resources\/Configuration\/ModelHandler.php",
-        "fqns": "Molajo\\Resources\\Configuration\\ModelHandler"
+        "path": "Application\/Resource\/Configuration\/ModelHandler.php",
+        "fqns": "Molajo\\Resource\\Configuration\\ModelHandler"
     },
-    "Application\/Resources\/Configuration\/Registry.php": {
+    "Application\/Resource\/Configuration\/Registry.php": {
         "file_name": "Registry.php",
         "base_name": "Registry",
-        "path": "Application\/Resources\/Configuration\/Registry.php",
-        "fqns": "Molajo\\Resources\\Configuration\\Registry"
+        "path": "Application\/Resource\/Configuration\/Registry.php",
+        "fqns": "Molajo\\Resource\\Configuration\\Registry"
     },
-    "Application\/Resources\/Handler\/MenuitemHandler.php": {
+    "Application\/Resource\/Handler\/MenuitemHandler.php": {
         "file_name": "MenuitemHandler.php",
         "base_name": "MenuitemHandler",
-        "path": "Application\/Resources\/Handler\/MenuitemHandler.php",
-        "fqns": "Molajo\\Resources\\Handler\\MenuitemHandler"
+        "path": "Application\/Resource\/Handler\/MenuitemHandler.php",
+        "fqns": "Molajo\\Resource\\Handler\\MenuitemHandler"
     },
-    "Application\/Resources\/Handler\/PageHandler.php": {
+    "Application\/Resource\/Handler\/PageHandler.php": {
         "file_name": "PageHandler.php",
         "base_name": "PageHandler",
-        "path": "Application\/Resources\/Handler\/PageHandler.php",
-        "fqns": "Molajo\\Resources\\Handler\\PageHandler"
+        "path": "Application\/Resource\/Handler\/PageHandler.php",
+        "fqns": "Molajo\\Resource\\Handler\\PageHandler"
     },
-    "Application\/Resources\/Handler\/QueryHandler.php": {
+    "Application\/Resource\/Handler\/QueryHandler.php": {
         "file_name": "QueryHandler.php",
         "base_name": "QueryHandler",
-        "path": "Application\/Resources\/Handler\/QueryHandler.php",
-        "fqns": "Molajo\\Resources\\Handler\\QueryHandler"
+        "path": "Application\/Resource\/Handler\/QueryHandler.php",
+        "fqns": "Molajo\\Resource\\Handler\\QueryHandler"
     },
-    "Application\/Resources\/Handler\/TemplateHandler.php": {
+    "Application\/Resource\/Handler\/TemplateHandler.php": {
         "file_name": "TemplateHandler.php",
         "base_name": "TemplateHandler",
-        "path": "Application\/Resources\/Handler\/TemplateHandler.php",
-        "fqns": "Molajo\\Resources\\Handler\\TemplateHandler"
+        "path": "Application\/Resource\/Handler\/TemplateHandler.php",
+        "fqns": "Molajo\\Resource\\Handler\\TemplateHandler"
     },
-    "Application\/Resources\/Handler\/ThemeHandler.php": {
+    "Application\/Resource\/Handler\/ThemeHandler.php": {
         "file_name": "ThemeHandler.php",
         "base_name": "ThemeHandler",
-        "path": "Application\/Resources\/Handler\/ThemeHandler.php",
-        "fqns": "Molajo\\Resources\\Handler\\ThemeHandler"
+        "path": "Application\/Resource\/Handler\/ThemeHandler.php",
+        "fqns": "Molajo\\Resource\\Handler\\ThemeHandler"
     },
-    "Application\/Resources\/Handler\/WrapHandler.php": {
+    "Application\/Resource\/Handler\/WrapHandler.php": {
         "file_name": "WrapHandler.php",
         "base_name": "WrapHandler",
-        "path": "Application\/Resources\/Handler\/WrapHandler.php",
-        "fqns": "Molajo\\Resources\\Handler\\WrapHandler"
+        "path": "Application\/Resource\/Handler\/WrapHandler.php",
+        "fqns": "Molajo\\Resource\\Handler\\WrapHandler"
     },
-    "Application\/Resources\/Handler\/XmlHandler.php": {
+    "Application\/Resource\/Handler\/XmlHandler.php": {
         "file_name": "XmlHandler.php",
         "base_name": "XmlHandler",
-        "path": "Application\/Resources\/Handler\/XmlHandler.php",
-        "fqns": "Molajo\\Resources\\Handler\\XmlHandler"
+        "path": "Application\/Resource\/Handler\/XmlHandler.php",
+        "fqns": "Molajo\\Resource\\Handler\\XmlHandler"
     },
     "Application\/Service\/Application\/ApplicationInjector.php": {
         "file_name": "ApplicationInjector.php",
@@ -821,53 +821,53 @@
         "path": "Application\/Service\/Resource\/ResourceInjector.php",
         "fqns": "Molajo\\Service\\Resource\\ResourceInjector"
     },
-    "Application\/Service\/Resources\/ResourcesInjector.php": {
-        "file_name": "ResourcesInjector.php",
-        "base_name": "ResourcesInjector",
-        "path": "Application\/Service\/Resources\/ResourcesInjector.php",
-        "fqns": "Molajo\\Service\\Resources\\ResourcesInjector"
+    "Application\/Service\/Resource\/ResourceInjector.php": {
+        "file_name": "ResourceInjector.php",
+        "base_name": "ResourceInjector",
+        "path": "Application\/Service\/Resource\/ResourceInjector.php",
+        "fqns": "Molajo\\Service\\Resource\\ResourceInjector"
     },
-    "Application\/Service\/Resourcescss\/ResourcescssInjector.php": {
-        "file_name": "ResourcescssInjector.php",
-        "base_name": "ResourcescssInjector",
-        "path": "Application\/Service\/Resourcescss\/ResourcescssInjector.php",
-        "fqns": "Molajo\\Service\\Resourcescss\\ResourcescssInjector"
+    "Application\/Service\/Resourcecss\/ResourcecssInjector.php": {
+        "file_name": "ResourcecssInjector.php",
+        "base_name": "ResourcecssInjector",
+        "path": "Application\/Service\/Resourcecss\/ResourcecssInjector.php",
+        "fqns": "Molajo\\Service\\Resourcecss\\ResourcecssInjector"
     },
-    "Application\/Service\/Resourcescssdeclarations\/ResourcescssdeclarationsInjector.php": {
-        "file_name": "ResourcescssdeclarationsInjector.php",
-        "base_name": "ResourcescssdeclarationsInjector",
-        "path": "Application\/Service\/Resourcescssdeclarations\/ResourcescssdeclarationsInjector.php",
-        "fqns": "Molajo\\Service\\Resourcescssdeclarations\\ResourcescssdeclarationsInjector"
+    "Application\/Service\/Resourcecssdeclarations\/ResourcecssdeclarationsInjector.php": {
+        "file_name": "ResourcecssdeclarationsInjector.php",
+        "base_name": "ResourcecssdeclarationsInjector",
+        "path": "Application\/Service\/Resourcecssdeclarations\/ResourcecssdeclarationsInjector.php",
+        "fqns": "Molajo\\Service\\Resourcecssdeclarations\\ResourcecssdeclarationsInjector"
     },
-    "Application\/Service\/Resourcesdata\/ResourcesdataInjector.php": {
-        "file_name": "ResourcesdataInjector.php",
-        "base_name": "ResourcesdataInjector",
-        "path": "Application\/Service\/Resourcesdata\/ResourcesdataInjector.php",
-        "fqns": "Molajo\\Service\\Resourcesdata\\ResourcesdataInjector"
+    "Application\/Service\/Resourcedata\/ResourcedataInjector.php": {
+        "file_name": "ResourcedataInjector.php",
+        "base_name": "ResourcedataInjector",
+        "path": "Application\/Service\/Resourcedata\/ResourcedataInjector.php",
+        "fqns": "Molajo\\Service\\Resourcedata\\ResourcedataInjector"
     },
-    "Application\/Service\/Resourcesjs\/ResourcesjsInjector.php": {
-        "file_name": "ResourcesjsInjector.php",
-        "base_name": "ResourcesjsInjector",
-        "path": "Application\/Service\/Resourcesjs\/ResourcesjsInjector.php",
-        "fqns": "Molajo\\Service\\Resourcesjs\\ResourcesjsInjector"
+    "Application\/Service\/Resourcejs\/ResourcejsInjector.php": {
+        "file_name": "ResourcejsInjector.php",
+        "base_name": "ResourcejsInjector",
+        "path": "Application\/Service\/Resourcejs\/ResourcejsInjector.php",
+        "fqns": "Molajo\\Service\\Resourcejs\\ResourcejsInjector"
     },
-    "Application\/Service\/Resourcesjsdeclarations\/ResourcesjsdeclarationsInjector.php": {
-        "file_name": "ResourcesjsdeclarationsInjector.php",
-        "base_name": "ResourcesjsdeclarationsInjector",
-        "path": "Application\/Service\/Resourcesjsdeclarations\/ResourcesjsdeclarationsInjector.php",
-        "fqns": "Molajo\\Service\\Resourcesjsdeclarations\\ResourcesjsdeclarationsInjector"
+    "Application\/Service\/Resourcejsdeclarations\/ResourcejsdeclarationsInjector.php": {
+        "file_name": "ResourcejsdeclarationsInjector.php",
+        "base_name": "ResourcejsdeclarationsInjector",
+        "path": "Application\/Service\/Resourcejsdeclarations\/ResourcejsdeclarationsInjector.php",
+        "fqns": "Molajo\\Service\\Resourcejsdeclarations\\ResourcejsdeclarationsInjector"
     },
-    "Application\/Service\/Resourcesquery\/ResourcesqueryInjector.php": {
-        "file_name": "ResourcesqueryInjector.php",
-        "base_name": "ResourcesqueryInjector",
-        "path": "Application\/Service\/Resourcesquery\/ResourcesqueryInjector.php",
-        "fqns": "Molajo\\Service\\Resourcesquery\\ResourcesqueryInjector"
+    "Application\/Service\/Resourcequery\/ResourcequeryInjector.php": {
+        "file_name": "ResourcequeryInjector.php",
+        "base_name": "ResourcequeryInjector",
+        "path": "Application\/Service\/Resourcequery\/ResourcequeryInjector.php",
+        "fqns": "Molajo\\Service\\Resourcequery\\ResourcequeryInjector"
     },
-    "Application\/Service\/Resourcesrendering\/ResourcesrenderingInjector.php": {
-        "file_name": "ResourcesrenderingInjector.php",
-        "base_name": "ResourcesrenderingInjector",
-        "path": "Application\/Service\/Resourcesrendering\/ResourcesrenderingInjector.php",
-        "fqns": "Molajo\\Service\\Resourcesrendering\\ResourcesrenderingInjector"
+    "Application\/Service\/Resourcerendering\/ResourcerenderingInjector.php": {
+        "file_name": "ResourcerenderingInjector.php",
+        "base_name": "ResourcerenderingInjector",
+        "path": "Application\/Service\/Resourcerendering\/ResourcerenderingInjector.php",
+        "fqns": "Molajo\\Service\\Resourcerendering\\ResourcerenderingInjector"
     },
     "Application\/Service\/Response\/ResponseInjector.php": {
         "file_name": "ResponseInjector.php",
@@ -1523,95 +1523,95 @@
         "path": "Vendor\/Molajo\/Render\/Pagination.php",
         "fqns": "Molajo\\Render\\Pagination"
     },
-    "Vendor\/Molajo\/Resources\/Adapter.php": {
+    "Vendor\/Molajo\/Resource\/Adapter.php": {
         "file_name": "Adapter.php",
         "base_name": "Adapter",
-        "path": "Vendor\/Molajo\/Resources\/Adapter.php",
-        "fqns": "Molajo\\Resources\\Adapter"
+        "path": "Vendor\/Molajo\/Resource\/Adapter.php",
+        "fqns": "Molajo\\Resource\\Adapter"
     },
-    "Vendor\/Molajo\/Resources\/ClassMap.php": {
+    "Vendor\/Molajo\/Resource\/ClassMap.php": {
         "file_name": "ClassMap.php",
         "base_name": "ClassMap",
-        "path": "Vendor\/Molajo\/Resources\/ClassMap.php",
-        "fqns": "Molajo\\Resources\\ClassMap"
+        "path": "Vendor\/Molajo\/Resource\/ClassMap.php",
+        "fqns": "Molajo\\Resource\\ClassMap"
     },
-    "Vendor\/Molajo\/Resources\/ExtensionMap.php": {
+    "Vendor\/Molajo\/Resource\/ExtensionMap.php": {
         "file_name": "ExtensionMap.php",
         "base_name": "ExtensionMap",
-        "path": "Vendor\/Molajo\/Resources\/ExtensionMap.php",
-        "fqns": "Molajo\\Resources\\ExtensionMap"
+        "path": "Vendor\/Molajo\/Resource\/ExtensionMap.php",
+        "fqns": "Molajo\\Resource\\ExtensionMap"
     },
-    "Vendor\/Molajo\/Resources\/Handler\/AbstractHandler.php": {
+    "Vendor\/Molajo\/Resource\/Handler\/AbstractHandler.php": {
         "file_name": "AbstractHandler.php",
         "base_name": "AbstractHandler",
-        "path": "Vendor\/Molajo\/Resources\/Handler\/AbstractHandler.php",
-        "fqns": "Molajo\\Resources\\Handler\\AbstractHandler"
+        "path": "Vendor\/Molajo\/Resource\/Handler\/AbstractHandler.php",
+        "fqns": "Molajo\\Resource\\Handler\\AbstractHandler"
     },
-    "Vendor\/Molajo\/Resources\/Handler\/AssetHandler.php": {
+    "Vendor\/Molajo\/Resource\/Handler\/AssetHandler.php": {
         "file_name": "AssetHandler.php",
         "base_name": "AssetHandler",
-        "path": "Vendor\/Molajo\/Resources\/Handler\/AssetHandler.php",
-        "fqns": "Molajo\\Resources\\Handler\\AssetHandler"
+        "path": "Vendor\/Molajo\/Resource\/Handler\/AssetHandler.php",
+        "fqns": "Molajo\\Resource\\Handler\\AssetHandler"
     },
-    "Vendor\/Molajo\/Resources\/Handler\/ClassHandler.php": {
+    "Vendor\/Molajo\/Resource\/Handler\/ClassHandler.php": {
         "file_name": "ClassHandler.php",
         "base_name": "ClassHandler",
-        "path": "Vendor\/Molajo\/Resources\/Handler\/ClassHandler.php",
-        "fqns": "Molajo\\Resources\\Handler\\ClassHandler"
+        "path": "Vendor\/Molajo\/Resource\/Handler\/ClassHandler.php",
+        "fqns": "Molajo\\Resource\\Handler\\ClassHandler"
     },
-    "Vendor\/Molajo\/Resources\/Handler\/CssHandler.php": {
+    "Vendor\/Molajo\/Resource\/Handler\/CssHandler.php": {
         "file_name": "CssHandler.php",
         "base_name": "CssHandler",
-        "path": "Vendor\/Molajo\/Resources\/Handler\/CssHandler.php",
-        "fqns": "Molajo\\Resources\\Handler\\CssHandler"
+        "path": "Vendor\/Molajo\/Resource\/Handler\/CssHandler.php",
+        "fqns": "Molajo\\Resource\\Handler\\CssHandler"
     },
-    "Vendor\/Molajo\/Resources\/Handler\/CssdeclarationsHandler.php": {
+    "Vendor\/Molajo\/Resource\/Handler\/CssdeclarationsHandler.php": {
         "file_name": "CssdeclarationsHandler.php",
         "base_name": "CssdeclarationsHandler",
-        "path": "Vendor\/Molajo\/Resources\/Handler\/CssdeclarationsHandler.php",
-        "fqns": "Molajo\\Resources\\Handler\\CssdeclarationsHandler"
+        "path": "Vendor\/Molajo\/Resource\/Handler\/CssdeclarationsHandler.php",
+        "fqns": "Molajo\\Resource\\Handler\\CssdeclarationsHandler"
     },
-    "Vendor\/Molajo\/Resources\/Handler\/FileHandler.php": {
+    "Vendor\/Molajo\/Resource\/Handler\/FileHandler.php": {
         "file_name": "FileHandler.php",
         "base_name": "FileHandler",
-        "path": "Vendor\/Molajo\/Resources\/Handler\/FileHandler.php",
-        "fqns": "Molajo\\Resources\\Handler\\FileHandler"
+        "path": "Vendor\/Molajo\/Resource\/Handler\/FileHandler.php",
+        "fqns": "Molajo\\Resource\\Handler\\FileHandler"
     },
-    "Vendor\/Molajo\/Resources\/Handler\/FolderHandler.php": {
+    "Vendor\/Molajo\/Resource\/Handler\/FolderHandler.php": {
         "file_name": "FolderHandler.php",
         "base_name": "FolderHandler",
-        "path": "Vendor\/Molajo\/Resources\/Handler\/FolderHandler.php",
-        "fqns": "Molajo\\Resources\\Handler\\FolderHandler"
+        "path": "Vendor\/Molajo\/Resource\/Handler\/FolderHandler.php",
+        "fqns": "Molajo\\Resource\\Handler\\FolderHandler"
     },
-    "Vendor\/Molajo\/Resources\/Handler\/HeadHandler.php": {
+    "Vendor\/Molajo\/Resource\/Handler\/HeadHandler.php": {
         "file_name": "HeadHandler.php",
         "base_name": "HeadHandler",
-        "path": "Vendor\/Molajo\/Resources\/Handler\/HeadHandler.php",
-        "fqns": "Molajo\\Resources\\Handler\\HeadHandler"
+        "path": "Vendor\/Molajo\/Resource\/Handler\/HeadHandler.php",
+        "fqns": "Molajo\\Resource\\Handler\\HeadHandler"
     },
-    "Vendor\/Molajo\/Resources\/Handler\/JsHandler.php": {
+    "Vendor\/Molajo\/Resource\/Handler\/JsHandler.php": {
         "file_name": "JsHandler.php",
         "base_name": "JsHandler",
-        "path": "Vendor\/Molajo\/Resources\/Handler\/JsHandler.php",
-        "fqns": "Molajo\\Resources\\Handler\\JsHandler"
+        "path": "Vendor\/Molajo\/Resource\/Handler\/JsHandler.php",
+        "fqns": "Molajo\\Resource\\Handler\\JsHandler"
     },
-    "Vendor\/Molajo\/Resources\/Handler\/JsdeclarationsHandler.php": {
+    "Vendor\/Molajo\/Resource\/Handler\/JsdeclarationsHandler.php": {
         "file_name": "JsdeclarationsHandler.php",
         "base_name": "JsdeclarationsHandler",
-        "path": "Vendor\/Molajo\/Resources\/Handler\/JsdeclarationsHandler.php",
-        "fqns": "Molajo\\Resources\\Handler\\JsdeclarationsHandler"
+        "path": "Vendor\/Molajo\/Resource\/Handler\/JsdeclarationsHandler.php",
+        "fqns": "Molajo\\Resource\\Handler\\JsdeclarationsHandler"
     },
-    "Vendor\/Molajo\/Resources\/ResourceMap.php": {
+    "Vendor\/Molajo\/Resource\/ResourceMap.php": {
         "file_name": "ResourceMap.php",
         "base_name": "ResourceMap",
-        "path": "Vendor\/Molajo\/Resources\/ResourceMap.php",
-        "fqns": "Molajo\\Resources\\ResourceMap"
+        "path": "Vendor\/Molajo\/Resource\/ResourceMap.php",
+        "fqns": "Molajo\\Resource\\ResourceMap"
     },
-    "Vendor\/Molajo\/Resources\/Scheme.php": {
+    "Vendor\/Molajo\/Resource\/Scheme.php": {
         "file_name": "Scheme.php",
         "base_name": "Scheme",
-        "path": "Vendor\/Molajo\/Resources\/Scheme.php",
-        "fqns": "Molajo\\Resources\\Scheme"
+        "path": "Vendor\/Molajo\/Resource\/Scheme.php",
+        "fqns": "Molajo\\Resource\\Scheme"
     },
     "Vendor\/Molajo\/Route\/Adapter.php": {
         "file_name": "Adapter.php",
