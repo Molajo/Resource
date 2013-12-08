@@ -1,6 +1,6 @@
 <?php
 /**
- * Js Resources
+ * Js Resource
  *
  * @package    Molajo
  * @copyright  2013 Amy Stephen. All rights reserved.
@@ -12,7 +12,7 @@ use stdClass;
 use CommonApi\Resource\HandlerInterface;
 
 /**
- * Js Resources
+ * Js Resource
  *
  * @package    Molajo
  * @copyright  2013 Amy Stephen. All rights reserved.
@@ -131,7 +131,6 @@ class JsHandler extends AbstractHandler implements HandlerInterface
      *
      * @return  void|mixed
      * @since   1.0
-     * @throws  \Exception\Resources\ResourcesException
      */
     public function get($resource_namespace, $multiple = false)
     {
@@ -147,7 +146,6 @@ class JsHandler extends AbstractHandler implements HandlerInterface
      *
      * @return  mixed
      * @since   1.0
-     * @throws  \Exception\Resources\ResourcesException
      */
     public function handlePath($scheme, $located_path, array $options = array())
     {
@@ -218,7 +216,7 @@ class JsHandler extends AbstractHandler implements HandlerInterface
      * @return  $this
      * @since   1.0
      */
-    public function addJsFolder($file_path, $priority = 500, $defer)
+    protected function addJsFolder($file_path, $priority = 500, $defer)
     {
         $files = scandir($file_path);
 
@@ -331,20 +329,5 @@ class JsHandler extends AbstractHandler implements HandlerInterface
         }
 
         return $this;
-    }
-
-    /**
-     * Retrieve a collection of a specific handler
-     *
-     * @param   string $scheme
-     * @param   array  $options
-     *
-     * @return  mixed
-     * @since   1.0
-     * @throws  \Exception\Resources\ResourcesException
-     */
-    public function getCollection($scheme, array $options = array())
-    {
-        return $this->resource_map;
     }
 }

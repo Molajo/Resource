@@ -45,68 +45,23 @@ class AssetHandler extends AbstractHandler implements HandlerInterface
     }
 
     /**
-     * Set a namespace prefix by mapping to the filesystem path
-     *
-     * @param   string  $namespace_prefix
-     * @param   string  $namespace_base_directory
-     * @param   boolean $prepend
-     *
-     * @return  $this
-     * @since   1.0
-     */
-    public function setNamespace($namespace_prefix, $namespace_base_directory, $prepend = false)
-    {
-        return parent::setNamespace($namespace_prefix, $namespace_base_directory, $prepend);
-    }
-
-    /**
-     * Locates folder/file associated with Namespace for Resource
-     *
-     * @param   string $resource_namespace
-     *
-     * @return  void|mixed
-     * @since   1.0
-     * @throws  \Exception\Resources\ResourcesException
-     */
-    public function get($resource_namespace, $multiple = false)
-    {
-        return parent::get($resource_namespace);
-    }
-
-    /**
      * Handle requires located file
      *
      * @param   string $scheme
      * @param   string $located_path
      * @param   array  $options
      *
-     * @return  void|mixed
+     * @return  mixed
      * @since   1.0
-     * @throws  \Exception\Resources\ResourcesException
      */
     public function handlePath($scheme, $located_path, array $options = array())
     {
         if (is_file($located_path)
             && file_exists($located_path)
         ) {
-            require_once $located_path;
+            return $located_path;
         }
 
-        return;
-    }
-
-    /**
-     * Retrieve a collection of a specific handler
-     *
-     * @param   string $scheme
-     * @param   array  $options
-     *
-     * @return  mixed
-     * @since   1.0
-     * @throws  \Exception\Resources\ResourcesException
-     */
-    public function getCollection($scheme, array $options = array())
-    {
-        return null;
+        return false;
     }
 }

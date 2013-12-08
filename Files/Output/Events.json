@@ -1,0 +1,143 @@
+{
+    "onAfterResource": [
+        "Molajo\\Plugin\\Ajax\\AjaxPlugin",
+        "Molajo\\Plugin\\Application\\ApplicationPlugin",
+        "Molajo\\Plugin\\Author\\AuthorPlugin",
+        "Molajo\\Plugin\\Comments\\CommentsPlugin",
+        "Molajo\\Plugin\\Featured\\FeaturedPlugin",
+        "Molajo\\Plugin\\Fields\\FieldsPlugin"
+    ],
+    "onBeforeCreate": [
+        "Molajo\\Plugin\\Alias\\AliasPlugin",
+        "Molajo\\Plugin\\Csrftoken\\CsrftokenPlugin",
+        "Molajo\\Plugin\\Dateformats\\DateformatsPlugin",
+        "Molajo\\Plugin\\Extensioninstance\\ExtensioninstancePlugin",
+        "Molajo\\Plugin\\Ipaddress\\IpaddressPlugin",
+        "Molajo\\Plugin\\Ordering\\OrderingPlugin",
+        "Molajo\\Plugin\\Username\\UsernamePlugin",
+        "Molajo\\Plugin\\Version\\VersionPlugin"
+    ],
+    "onBeforeUpdate": [
+        "Molajo\\Plugin\\Alias\\AliasPlugin",
+        "Molajo\\Plugin\\Catalog\\CatalogPlugin",
+        "Molajo\\Plugin\\Checkout\\CheckoutPlugin",
+        "Molajo\\Plugin\\Csrftoken\\CsrftokenPlugin",
+        "Molajo\\Plugin\\Email\\EmailPlugin",
+        "Molajo\\Plugin\\Ipaddress\\IpaddressPlugin",
+        "Molajo\\Plugin\\Publishedstatus\\PublishedstatusPlugin",
+        "Molajo\\Plugin\\Username\\UsernamePlugin",
+        "Molajo\\Plugin\\Version\\VersionPlugin"
+    ],
+    "onAfterRead": [
+        "Molajo\\Plugin\\Blockquote\\BlockquotePlugin",
+        "Molajo\\Plugin\\Children\\ChildrenPlugin",
+        "Molajo\\Plugin\\Copyright\\CopyrightPlugin",
+        "Molajo\\Plugin\\Cssclassandids\\CssclassandidsPlugin",
+        "Molajo\\Plugin\\Dateformats\\DateformatsPlugin",
+        "Molajo\\Plugin\\Email\\EmailPlugin",
+        "Molajo\\Plugin\\Fullname\\FullnamePlugin",
+        "Molajo\\Plugin\\Gravatar\\GravatarPlugin",
+        "Molajo\\Plugin\\IFrame\\IFramePlugin",
+        "Molajo\\Plugin\\Images\\ImagesPlugin",
+        "Molajo\\Plugin\\Itemurl\\ItemurlPlugin",
+        "Molajo\\Plugin\\Itemuserpermissions\\ItemuserpermissionsPlugin",
+        "Molajo\\Plugin\\Linebreaks\\LinebreaksPlugin",
+        "Molajo\\Plugin\\Links\\LinksPlugin",
+        "Molajo\\Plugin\\Mockdata\\MockdataPlugin",
+        "Molajo\\Plugin\\MockImage\\MockimagePlugin",
+        "Molajo\\Plugin\\Readmore\\ReadmorePlugin",
+        "Molajo\\Plugin\\Referencedata\\ReferencedataPlugin",
+        "Molajo\\Plugin\\Smilies\\SmiliesPlugin",
+        "Molajo\\Plugin\\Snippet\\SnippetPlugin",
+        "Molajo\\Plugin\\Status\\StatusPlugin",
+        "Molajo\\Plugin\\Useractivity\\UseractivityPlugin",
+        "Molajo\\Plugin\\Weather\\WeatherPlugin"
+    ],
+    "onBeforeRenderView": [
+        "Molajo\\Plugin\\Catalog\\CatalogPlugin",
+        "Molajo\\Plugin\\Formbegin\\FormbeginPlugin",
+        "Molajo\\Plugin\\Formselectlist\\FormselectlistPlugin",
+        "Molajo\\Plugin\\Pagetypelist\\PagetypelistPlugin",
+        "Molajo\\Plugin\\Paging\\PagingPlugin",
+        "Molajo\\Plugin\\UIFoundation\\UIFoundationPlugin"
+    ],
+    "onAfterCreate": [
+        "Molajo\\Plugin\\Catalog\\CatalogPlugin",
+        "Molajo\\Plugin\\Create\\CreatePlugin",
+        "Molajo\\Plugin\\Extensioninstance\\ExtensioninstancePlugin",
+        "Molajo\\Plugin\\Publishedstatus\\PublishedstatusPlugin",
+        "Molajo\\Plugin\\Useractivity\\UseractivityPlugin"
+    ],
+    "onAfterUpdate": [
+        "Molajo\\Plugin\\Catalog\\CatalogPlugin",
+        "Molajo\\Plugin\\Checkin\\CheckinPlugin",
+        "Molajo\\Plugin\\Publishedstatus\\PublishedstatusPlugin",
+        "Molajo\\Plugin\\Useractivity\\UseractivityPlugin",
+        "Molajo\\Plugin\\Username\\UsernamePlugin",
+        "Molajo\\Plugin\\Version\\VersionPlugin"
+    ],
+    "onBeforeDelete": [
+        "Molajo\\Plugin\\Catalog\\CatalogPlugin",
+        "Molajo\\Plugin\\Checkout\\CheckoutPlugin",
+        "Molajo\\Plugin\\Extensioninstance\\ExtensioninstancePlugin"
+    ],
+    "onAfterDelete": [
+        "Molajo\\Plugin\\Catalog\\CatalogPlugin",
+        "Molajo\\Plugin\\Create\\CreatePlugin",
+        "Molajo\\Plugin\\Extensioninstance\\ExtensioninstancePlugin",
+        "Molajo\\Plugin\\Useractivity\\UseractivityPlugin"
+    ],
+    "onAfterReadall": [
+        "Molajo\\Plugin\\Contentlist\\ContentlistPlugin",
+        "Molajo\\Plugin\\Feed\\FeedPlugin"
+    ],
+    "onAfterRenderView": [
+        "Molajo\\Plugin\\Csrftoken\\CsrftokenPlugin"
+    ],
+    "onAfterRoute": [
+        "Molajo\\Plugin\\Datalist\\DatalistPlugin",
+        "Molajo\\Plugin\\Menuitems\\MenuitemsPlugin",
+        "Molajo\\Plugin\\Pagetypes\\PagetypesPlugin"
+    ],
+    "onBeforeRead": [
+        "Molajo\\Plugin\\Defer\\DeferPlugin",
+        "Molajo\\Plugin\\Head\\HeadPlugin",
+        "Molajo\\Plugin\\Publishedstatus\\PublishedstatusPlugin"
+    ],
+    "onAfterInitialise": [
+        "Molajo\\Plugin\\Events\\EventsPlugin"
+    ],
+    "onAfterInclude": [
+        "Molajo\\Plugin\\Formselectlist\\FormselectlistPlugin"
+    ],
+    "onBeforeParseHead": [
+        "Molajo\\Plugin\\Googleanalytics\\GoogleanalyticsPlugin",
+        "Molajo\\Plugin\\Messages\\MessagesPlugin"
+    ],
+    "onBeforeLogin": [
+        "Molajo\\Plugin\\Login\\LoginPlugin"
+    ],
+    "onAfterLogin": [
+        "Molajo\\Plugin\\Login\\LoginPlugin"
+    ],
+    "onBeforeLogout": [
+        "Molajo\\Plugin\\Logout\\LogoutPlugin"
+    ],
+    "onAfterLogout": [
+        "Molajo\\Plugin\\Logout\\LogoutPlugin"
+    ],
+    "onBeforeParse": [
+        "Molajo\\Plugin\\Pagetypeapplication\\PagetypeapplicationPlugin",
+        "Molajo\\Plugin\\Pagetypeconfiguration\\PagetypeconfigurationPlugin",
+        "Molajo\\Plugin\\Pagetypedashboard\\PagetypedashboardPlugin",
+        "Molajo\\Plugin\\Pagetypeedit\\PagetypeeditPlugin",
+        "Molajo\\Plugin\\Pagetypegrid\\PagetypegridPlugin",
+        "Molajo\\Plugin\\Pagetypeitem\\PagetypeitemPlugin",
+        "Molajo\\Plugin\\Pagetypelist\\PagetypelistPlugin",
+        "Molajo\\Plugin\\Pagination\\PaginationPlugin",
+        "Molajo\\Plugin\\UIFoundation\\UIFoundationPlugin"
+    ],
+    "onAfterReadAll": [
+        "Molajo\\Plugin\\Templatelist\\TemplatelistPlugin"
+    ]
+}

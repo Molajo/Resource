@@ -132,7 +132,6 @@ class AbstractHandler implements HandlerInterface
      *
      * @return  void|mixed|string|array
      * @since   1.0
-     * @throws  \Exception\Resources\ResourcesException
      */
     public function get($resource_namespace, $multiple = false)
     {
@@ -300,7 +299,6 @@ class AbstractHandler implements HandlerInterface
      *
      * @return  void|mixed
      * @since   1.0
-     * @throws  \Exception\Resources\ResourcesException
      */
     public function handlePath($scheme, $located_path, array $options = array())
     {
@@ -315,7 +313,6 @@ class AbstractHandler implements HandlerInterface
      *
      * @return  mixed
      * @since   1.0
-     * @throws  \Exception\Resources\ResourcesException
      */
     public function getCollection($scheme, array $options = array())
     {

@@ -1,6 +1,6 @@
 <?php
 /**
- * Js Resources
+ * Js Resource
  *
  * @package    Molajo
  * @copyright  2013 Amy Stephen. All rights reserved.
@@ -11,7 +11,7 @@ namespace Molajo\Resource\Handler;
 use CommonApi\Resource\HandlerInterface;
 
 /**
- * Js Resources
+ * Js Resource
  *
  * @package    Molajo
  * @copyright  2013 Amy Stephen. All rights reserved.
@@ -77,35 +77,6 @@ class JsdeclarationsHandler extends AbstractHandler implements HandlerInterface
     }
 
     /**
-     * Locates folder/file associated with Namespace for Resource
-     *
-     * @param   string $resource_namespace
-     *
-     * @return  void|mixed
-     * @since   1.0
-     * @throws  \Exception\Resources\ResourcesException
-     */
-    public function get($resource_namespace, $multiple = false)
-    {
-        return parent::get($resource_namespace);
-    }
-
-    /**
-     * Set a namespace prefix by mapping to the filesystem path
-     *
-     * @param   string  $namespace_prefix
-     * @param   string  $namespace_base_directory
-     * @param   boolean $prepend
-     *
-     * @return  $this
-     * @since   1.0
-     */
-    public function setNamespace($namespace_prefix, $namespace_base_directory, $prepend = false)
-    {
-        return parent::setNamespace($namespace_prefix, $namespace_base_directory, $prepend);
-    }
-
-    /**
      * Handle located folder/file associated with URI Namespace for Resource
      *
      * @param   string $scheme
@@ -114,7 +85,6 @@ class JsdeclarationsHandler extends AbstractHandler implements HandlerInterface
      *
      * @return  void|mixed
      * @since   1.0
-     * @throws  \Exception\Resources\ResourcesException
      */
     public function handlePath($scheme, $located_path, array $options = array())
     {
@@ -122,22 +92,7 @@ class JsdeclarationsHandler extends AbstractHandler implements HandlerInterface
             return $located_path;
         }
 
-        return;
-    }
-
-    /**
-     * Retrieve a collection of a specific handler
-     *
-     * @param   string $scheme
-     * @param   array  $options
-     *
-     * @return  mixed
-     * @since   1.0
-     * @throws  \Exception\Resources\ResourcesException
-     */
-    public function getCollection($scheme, array $options = array())
-    {
-        return $this->resource_map;
+        return false;
     }
 
     /**

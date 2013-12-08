@@ -12,7 +12,6 @@ use stdClass;
 use Exception;
 use ReflectionClass;
 use ReflectionParameter;
-use Exception\Resources\ResourcesException;
 use CommonApi\Resource\ClassMapInterface;
 
 /**
@@ -84,7 +83,6 @@ class ClassMap implements ClassMapInterface
      *
      * @return  $this
      * @since   1.0
-     * @throws  \Exception\Resources\ResourcesException
      */
     public function createMap()
     {
@@ -253,7 +251,6 @@ class ClassMap implements ClassMapInterface
      *
      * @return  $this
      * @since   1.0
-     * @throws  \Exception\Resources\ResourcesException
      */
     protected function setConcreteClass($fqns, $path, array $interface_usage = array())
     {
@@ -333,7 +330,6 @@ class ClassMap implements ClassMapInterface
      *
      * @return  $this
      * @since   1.0
-     * @throws  \Exception\Resources\ResourcesException
      */
     protected function processDependencies($class_method_array, $parameter)
     {
@@ -421,8 +417,6 @@ class ClassMap implements ClassMapInterface
         if (count($concretes) > 0) {
 
             foreach ($concretes as $interface) {
-
-                $paths = array();
 
                 if ($interface->instance_of === null) {
                 } else {

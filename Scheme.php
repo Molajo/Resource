@@ -10,7 +10,7 @@ namespace Molajo\Resource;
 
 use stdClass;
 use CommonApi\Resource\SchemeInterface;
-use Exception\Resources\ResourcesException;
+use CommonApi\Exception\RuntimeException;
 
 /**
  * Scheme
@@ -42,7 +42,6 @@ class Scheme implements SchemeInterface
      */
     public function __construct($scheme_filename)
     {
-
         $this->readSchemes($scheme_filename);
     }
 
@@ -72,7 +71,7 @@ class Scheme implements SchemeInterface
      *
      * @return  void
      * @since   1.0
-     * @throws  \Exception\Resources\ResourcesException
+     * @throws  \CommonApi\Exception\RuntimeException
      */
     protected function readSchemes($filename)
     {
@@ -80,7 +79,7 @@ class Scheme implements SchemeInterface
 
         if (file_exists($filename)) {
         } else {
-            throw new ResourcesException ('Scheme Class: filename not found - ' . $filename);
+            throw new RuntimeException ('Scheme Class: filename not found - ' . $filename);
         }
 
         $input = file_get_contents($filename);
@@ -107,12 +106,12 @@ class Scheme implements SchemeInterface
                 } elseif ($key == 'RequireFileExtensions') {
                     $extensions = $value;
                 } else {
-                    throw new ResourcesException ('Resources File ' . $filename . ' unknown key: ' . $key);
+                    throw new RuntimeException ('Resource File ' . $filename . ' unknown key: ' . $key);
                 }
             }
 
             if ($scheme_name == '') {
-                throw new ResourcesException ('Resources File ' . $filename . ' must provide Name for each Scheme.');
+                throw new RuntimeException ('Resource File ' . $filename . ' must provide Name for each Scheme.');
             }
 
             if ($handler == '') {
@@ -144,7 +143,7 @@ class Scheme implements SchemeInterface
      *
      * @return  $this
      * @since   1.0
-     * @throws  \Exception\Resources\ResourcesException
+     * @throws  \CommonApi\Exception\RuntimeException
      */
     public function setScheme($scheme_name, $handler = 'File', array $extensions = array(), $replace = false)
     {
@@ -152,16 +151,16 @@ class Scheme implements SchemeInterface
 
         $scheme->name = strtolower(trim($scheme_name));
         if ($scheme->name == '') {
-            throw new ResourcesException ('Resources File ' . $scheme_name . ' must provide Name for each Scheme.');
+            throw new RuntimeException ('Resource File ' . $scheme_name . ' must provide Name for each Scheme.');
         }
 
         $scheme->handler = ucfirst(strtolower(trim($handler))) . 'Handler';
 
-        $scheme->handler_class = 'Molajo\\Resources\\Handler\\' . $scheme->handler;
+        $scheme->handler_class = 'Molajo\\Resource\\Handler\\' . $scheme->handler;
 
         if (class_exists($scheme->handler_class)) {
         } else {
-            throw new ResourcesException ('Resources Scheme Handler Class: ' . $scheme->handler_class);
+            throw new RuntimeException ('Resource Scheme Handler Class: ' . $scheme->handler_class);
         }
 
         $scheme->include_file_extensions = $extensions;

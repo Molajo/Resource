@@ -1,32 +1,32 @@
 =======
-Resources
+Resource
 =======
 
-[![Build Status](https://travis-ci.org/Molajo/Resources.png?branch=master)](https://travis-ci.org/Molajo/Resources)
+[![Build Status](https://travis-ci.org/Molajo/Resource.png?branch=master)](https://travis-ci.org/Molajo/Resource)
 
-*Resources* provides PHP applications with a generalized approach for locating and handling
+*Resource* provides PHP applications with a generalized approach for locating and handling
     file and folder resources using URI namespaces.
 
 ## Basic Principles
 
-With *Resources*, applications interact with filesystem resources using a URI namespace, rather than specifying
+With *Resource*, applications interact with filesystem resources using a URI namespace, rather than specifying
  file and folder names.
 
  This approach provides two important benefits:
 
  First, namespacing generalizes location
-  information so that the application no longer requires hardcoded physical locations. The *Resources* package
+  information so that the application no longer requires hardcoded physical locations. The *Resource* package
    locates the physical location based on the URI namespace resulting in flexibility as to storage location and
    facility.
 
-   Second, the *Resources* package uses an adapter handler to process process the application request
+   Second, the *Resource* package uses an adapter handler to process process the application request
    for the resource. In this sense, the treatment required for each file request can be customized based on the
    URI scheme. For example, the handler for PHP classes can defined as an SPL autoloader while the handler for
    an XML configuration file might return an XML string read from the located file. In the case of a model, one
    might return a Read Controller, instantiated with all dependencies injected and ready for queries. A request
    for an image file might return an image, resized, as needed. The possibilities are endless.
 
-## Examples of how Molajo uses Resources
+## Examples of how Molajo uses Resource
 
 ### Class Handler
 
@@ -59,7 +59,7 @@ the application for processing.
 
 ```
 <?php
-$controller = $this->dependencies['Resources']->get(
+$controller = $this->dependencies['Resource']->get(
     'query:///Molajo/Datasource/CatalogTypes.xml',
     array('Parameters' => $parameters)
 );
@@ -75,16 +75,16 @@ foreach ($catalog_types as $item) {
 
 The *Resource* Package, as used in [Molajo](https://github.com/Molajo/Standard), has URI Handlers for Themes,
 Views, JS, CSS, Files and Folders, and so on. Work on other usage types, such as Constants, Functions, and
-Interfaces is underway. While *Resources* is still a work in progress, it is an integral part of the *Molajo*
+Interfaces is underway. While *Resource* is still a work in progress, it is an integral part of the *Molajo*
 application.
 
 ##Resource Definitions##
 
 The first step is determining what resources and must be accessible to your application. Define the scheme
-and request structure. Typical resources applications use include: classes, configuration files, CSS, JS, images, etc. The *Resources*
+and request structure. Typical resources applications use include: classes, configuration files, CSS, JS, images, etc. The *Resource*
 package provides Handlers for these typical use case.
 
-All [Schemes](https://github.com/Molajo/Resources/blob/master/Files/SchemeArray.json) must be defined and handlers
+All [Schemes](https://github.com/Molajo/Resource/blob/master/Files/SchemeArray.json) must be defined and handlers
 created for each scheme:
 
 ```json
@@ -124,7 +124,7 @@ for that namespace:
 ```
 
 If overrides are required, define a generalized
-[prioritization](https://github.com/Molajo/Resources/blob/master/Files/PriorityArray.json)
+[prioritization](https://github.com/Molajo/Resource/blob/master/Files/PriorityArray.json)
 approaches for selecting which file is needed:
 
 ```json
@@ -146,23 +146,23 @@ approaches for selecting which file is needed:
 ]
 ```
 
-From that information, [resource maps](https://github.com/Molajo/Resources/blob/master/Files/Output/ResourceMap.json)
+From that information, [resource maps](https://github.com/Molajo/Resource/blob/master/Files/Output/ResourceMap.json)
 can be compiled for performance purposes, if desired, although 100% dynamic resource location is supported.
 
 This process also creates compiled data used by *Molajo's IoCC package* for [identifying concrete class dependencies]
-(https://github.com/Molajo/Resources/blob/master/Files/Output/ClassDependencies.json)
-and for [mapping concretes to interfaces](https://github.com/Molajo/Resources/blob/master/Files/Output/ClassMap.json).
+(https://github.com/Molajo/Resource/blob/master/Files/Output/ClassDependencies.json)
+and for [mapping concretes to interfaces](https://github.com/Molajo/Resource/blob/master/Files/Output/ClassMap.json).
 
-###IoCC Services for Resources
+###IoCC Services for Resource
 
-Following are examples of how Molajo instantiates the *Resources* class and handlers:
+Following are examples of how Molajo instantiates the *Resource* class and handlers:
 
-* At start-up, the [Resources DI Injector](https://github.com/Molajo/Standard/blob/master/Application/Service/Resources/ResourcesInjector.php)
+* At start-up, the [Resource DI Injector](https://github.com/Molajo/Standard/blob/master/Application/Service/Resource/ResourceInjector.php)
  instantiates the base handlers, and then injects those instances into constructed adapter.
 * In some cases, a URI handler cannot be constructed until it's dependencies are available. As an example,
 after the database is connected, the Query Handler can constructed and injected into the Resource Handler.
-The [Resources Query DI Injector](https://github.com/Molajo/Standard/blob/master/Application/Service/Resourcesquery/ResourcesqueryInjector.php)
+The [Resource Query DI Injector](https://github.com/Molajo/Standard/blob/master/Application/Service/Resourcequery/ResourcequeryInjector.php)
 does just that once the database connection is available.
 
-## This is just a general description of the *Resources* package, feedback is welcome. Remember
+## This is just a general description of the *Resource* package, feedback is welcome. Remember
 it's still a work in progress and not ready for production use.

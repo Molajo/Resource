@@ -218,7 +218,6 @@ class ResourceMap implements MapInterface
      *
      * @return  int|object
      * @since   1.0
-     * @throws  \Exception\Resources\ResourcesException
      */
     protected function testFileForNamespaceRules(
         $namespace_prefix,
@@ -312,7 +311,6 @@ class ResourceMap implements MapInterface
      *
      * @return  $this
      * @since   1.0
-     * @throws  \Exception\Resources\ResourcesException
      */
     protected function mergeFQNSPaths($nspath, $fqns)
     {
@@ -354,7 +352,6 @@ class ResourceMap implements MapInterface
      *
      * @return  int
      * @since   1.0
-     * @throws  \Exception\Resources\ResourcesException
      */
     protected function processExcludeFolders($file_path, $base_name, $skip = 1)
     {

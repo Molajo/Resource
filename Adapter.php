@@ -12,7 +12,7 @@ use Exception;
 use CommonApi\Resource\AdapterInterface;
 use CommonApi\Resource\SchemeInterface;
 use CommonApi\Resource\HandlerInterface;
-use Exception\Resources\ResourcesException;
+use CommonApi\Exception\RuntimeException;
 
 /**
  * Resource Adapter
@@ -166,7 +166,6 @@ class Adapter implements AdapterInterface
      *
      * @return  $this
      * @since   1.0
-     * @throws  \Exception\Resources\ResourcesException
      */
     public function setHandlerInstance($handler = 'File', $handler_instance)
     {
@@ -212,7 +211,7 @@ class Adapter implements AdapterInterface
      *
      * @return  object|array
      * @since   1.0
-     * @throws  \Exception\Resources\ResourcesException
+     * @throws  \CommonApi\Exception\RuntimeException
      */
     public function getScheme($scheme = '')
     {
@@ -225,21 +224,21 @@ class Adapter implements AdapterInterface
         $this->scheme_properties = $this->scheme->getScheme($this->scheme_value);
 
         if ($this->scheme_properties === false) {
-            throw new ResourcesException ('Resources getScheme Scheme not found: ' . $this->scheme_value);
+            throw new RuntimeException ('Resource getScheme Scheme not found: ' . $this->scheme_value);
         }
 
         $this->handler_value = $this->scheme_properties->handler;
 
         if (isset($this->handler_instance_array[$this->handler_value])) {
         } else {
-            echo 'in Resources Adapter ' . $this->handler_value . ' <br />';
+            echo 'in Resource Adapter ' . $this->handler_value . ' <br />';
             echo '<pre>';
             foreach ($this->handler_instance_array as $key => $value) {
                 echo $key . '<br />';
             }
             var_dump($this->handler_instance_array);
             echo '</pre>';
-            throw new ResourcesException ('Resources getScheme Handler not found: ' . $this->handler_value);
+            throw new RuntimeException ('Resource getScheme Handler not found: ' . $this->handler_value);
         }
 
         return $this->scheme_properties;
@@ -255,7 +254,6 @@ class Adapter implements AdapterInterface
      *
      * @return  $this
      * @since   1.0
-     * @throws  \Exception\Resources\ResourcesException
      */
     public function setScheme($scheme_name, $handler = 'File', array $extensions = array(), $replace = false)
     {
@@ -271,7 +269,6 @@ class Adapter implements AdapterInterface
      *
      * @return  boolean
      * @since   1.0
-     * @throws  \Exception\Resources\ResourcesException
      */
     public function exists($uri_namespace)
     {
@@ -304,7 +301,6 @@ class Adapter implements AdapterInterface
      *
      * @return  void|mixed
      * @since   1.0
-     * @throws  \Exception\Resources\ResourcesException
      */
     public function get($uri_namespace, array $options = array())
     {
@@ -322,7 +318,6 @@ class Adapter implements AdapterInterface
      *
      * @return  void|mixed
      * @since   1.0
-     * @throws  \Exception\Resources\ResourcesException
      */
     public function locateNamespace($namespace, $scheme = 'Class', array $options = array())
     {
@@ -354,7 +349,6 @@ class Adapter implements AdapterInterface
      *
      * @return  void|mixed
      * @since   1.0
-     * @throws  \Exception\Resources\ResourcesException
      */
     public function handlePath($scheme_value, $located_path, array $options = array())
     {
@@ -382,7 +376,6 @@ class Adapter implements AdapterInterface
      *
      * @return  mixed
      * @since   1.0
-     * @throws  \Exception\Resources\ResourcesException
      */
     public function getCollection($scheme_value, array $options = array())
     {

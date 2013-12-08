@@ -45,35 +45,6 @@ class HeadHandler extends AbstractHandler implements HandlerInterface
     }
 
     /**
-     * Set a namespace prefix by mapping to the filesystem path
-     *
-     * @param   string  $namespace_prefix
-     * @param   string  $namespace_base_directory
-     * @param   boolean $prepend
-     *
-     * @return  $this
-     * @since   1.0
-     */
-    public function setNamespace($namespace_prefix, $namespace_base_directory, $prepend = false)
-    {
-        return parent::setNamespace($namespace_prefix, $namespace_base_directory, $prepend);
-    }
-
-    /**
-     * Locates folder/file associated with Namespace for Resource
-     *
-     * @param   string $resource_namespace
-     *
-     * @return  void|mixed
-     * @since   1.0
-     * @throws  \Exception\Resources\ResourcesException
-     */
-    public function get($resource_namespace, $multiple = false)
-    {
-        return parent::get($resource_namespace);
-    }
-
-    /**
      * Handle requires located file
      *
      * @param   string $scheme
@@ -82,7 +53,6 @@ class HeadHandler extends AbstractHandler implements HandlerInterface
      *
      * @return  void|mixed
      * @since   1.0
-     * @throws  \Exception\Resources\ResourcesException
      */
     public function handlePath($scheme, $located_path, array $options = array())
     {
@@ -93,20 +63,5 @@ class HeadHandler extends AbstractHandler implements HandlerInterface
         }
 
         return;
-    }
-
-    /**
-     * Retrieve a collection of a specific handler
-     *
-     * @param   string $scheme
-     * @param   array  $options
-     *
-     * @return  mixed
-     * @since   1.0
-     * @throws  \Exception\Resources\ResourcesException
-     */
-    public function getCollection($scheme, array $options = array())
-    {
-        return null;
     }
 }

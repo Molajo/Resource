@@ -1,6 +1,6 @@
 <?php
 /**
- * Folder Resources
+ * Folder Resource
  *
  * @package    Molajo
  * @copyright  2013 Amy Stephen. All rights reserved.
@@ -13,7 +13,7 @@ use CommonApi\Resource\HandlerInterface;
 //todo: add scoping overrides, etc. and multiple folders returned when needed
 
 /**
- * Folder Resources
+ * Folder Resource
  *
  * @package    Molajo
  * @copyright  2013 Amy Stephen. All rights reserved.
@@ -54,7 +54,6 @@ class FolderHandler extends AbstractHandler implements HandlerInterface
      *
      * @return  void|mixed|string|array
      * @since   1.0
-     * @throws  \Exception\Resources\ResourcesException
      */
     public function get($resource_namespace, $multiple = false)
     {
@@ -196,7 +195,6 @@ class FolderHandler extends AbstractHandler implements HandlerInterface
      *
      * @return  void|mixed
      * @since   1.0
-     * @throws  \Exception\Resources\ResourcesException
      */
     public function handlePath($scheme, $located_path, array $options = array())
     {

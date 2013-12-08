@@ -11,7 +11,7 @@ namespace Molajo\Resource;
 use stdClass;
 use Exception;
 use CommonApi\Resource\ExtensionsInterface;
-use Exception\Resources\ResourcesException;
+use CommonApi\Exception\RuntimeException;
 
 /**
  * Extensions
@@ -32,7 +32,7 @@ class ExtensionMap implements ExtensionsInterface
     protected $parameters = null;
 
     /**
-     * Resources Instance
+     * Resource Instance
      *
      * @var    object
      * @since  1.0
@@ -71,7 +71,7 @@ class ExtensionMap implements ExtensionsInterface
      *
      * @return  $this
      * @since   1.0
-     * @throws  \Exception\Resources\ResourcesException
+     * @throws  \CommonApi\Exception\RuntimeException
      */
     public function createMap()
     {
@@ -102,7 +102,7 @@ class ExtensionMap implements ExtensionsInterface
         try {
             $results = $controller->getData();
         } catch (Exception $e) {
-            throw new ResourcesException ($e->getMessage());
+            throw new RuntimeException ($e->getMessage());
         }
 
         $catalog_type             = new stdClass();
@@ -133,7 +133,7 @@ class ExtensionMap implements ExtensionsInterface
      *
      * @return  array|stdClass
      * @since   1.0
-     * @throws  \Exception\Resources\ResourcesException
+     * @throws  \CommonApi\Exception\RuntimeException
      */
     protected function getExtensions($catalog_type_id, $catalog_type_model_name)
     {
@@ -222,7 +222,7 @@ class ExtensionMap implements ExtensionsInterface
             $extensions = $controller->getData();
 
         } catch (Exception $e) {
-            throw new ResourcesException ($e->getMessage());
+            throw new RuntimeException ($e->getMessage());
         }
 
         if (is_array($extensions) && count($extensions) > 0) {
@@ -253,7 +253,7 @@ class ExtensionMap implements ExtensionsInterface
      *
      * @return  object
      * @since   1.0
-     * @throws  \Exception\Resources\ResourcesException
+     * @throws  \CommonApi\Exception\RuntimeException
      */
     protected function getExtension($id, $alias, $catalog_type_model_name)
     {
@@ -279,7 +279,7 @@ class ExtensionMap implements ExtensionsInterface
             $extension = $controller->getData();
         } catch (Exception $e) {
             echo 'RenderingExtensionsInjector: Extension not found: ' . $alias;
-            throw new ResourcesException ($e->getMessage());
+            throw new RuntimeException ($e->getMessage());
         }
 
         return $extension;

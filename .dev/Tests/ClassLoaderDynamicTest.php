@@ -1,6 +1,6 @@
 <?php
 /**
- * Class Resources Tests
+ * Class Resource Tests
  *
  * @package    Molajo
  * @copyright  2013 Amy Stephen. All rights reserved.
@@ -12,7 +12,7 @@ use Molajo\Resource\Adapter;
 use PHPUnit_Framework_TestCase;
 
 /**
- * Class Resources Tests
+ * Class Resource Tests
  *
  * @package    Molajo
  * @copyright  2013 Amy Stephen. All rights reserved.
@@ -22,9 +22,9 @@ use PHPUnit_Framework_TestCase;
 class ClassHandlerDynamicTest extends PHPUnit_Framework_TestCase
 {
     /**
-     * Resources Adapter
+     * Resource Adapter
      *
-     * @var    object  Molajo/Application/Resources/Adapter
+     * @var    object  Molajo/Application/Resource/Adapter
      * @since  1.0
      */
     protected $resources;
@@ -79,7 +79,7 @@ class ClassHandlerDynamicTest extends PHPUnit_Framework_TestCase
         $resource_map_filename    = null;
         $namespace_prefixes       = array();
 
-        $class       = 'Molajo\\Resources\\Utilities\\ResourceMap';
+        $class       = 'Molajo\\Resource\\Utilities\\ResourceMap';
         $resourcemap = new $class (
             $namespace_prefixes,
             $base_path,
@@ -90,7 +90,7 @@ class ClassHandlerDynamicTest extends PHPUnit_Framework_TestCase
             $this->valid_extensions_array
         );
 
-        $class   = 'Molajo\\Resources\\Handler\\ClassHandler';
+        $class   = 'Molajo\\Resource\\Handler\\ClassHandler';
         $handler = new $class (
             $file_extensions,
             $namespace_prefixes,
@@ -103,14 +103,14 @@ class ClassHandlerDynamicTest extends PHPUnit_Framework_TestCase
             $resourcemap
         );
 
-        $class           = 'Molajo\\Resources\\Adapter';
+        $class           = 'Molajo\\Resource\\Adapter';
         $this->resources = new $class (
             $handler,
             'Class'
         );
 
         $this->resources->addNamespace('Molajo\\Test', '.dev/Classes');
-        $this->resources->addNamespace('Molajo\\Resources', '.dev/Psr0/Molajo/Resources');
+        $this->resources->addNamespace('Molajo\\Resource', '.dev/Psr0/Molajo/Resource');
         $this->resources->addNamespace('Molajo', '.dev/Extension');
     }
 
