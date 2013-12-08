@@ -791,11 +791,11 @@
         "path": "Application\/Service\/Image\/ImageInjector.php",
         "fqns": "Molajo\\Service\\Image\\ImageInjector"
     },
-    "Application\/Service\/Language\/LanguageInjector.php": {
-        "file_name": "LanguageInjector.php",
-        "base_name": "LanguageInjector",
-        "path": "Application\/Service\/Language\/LanguageInjector.php",
-        "fqns": "Molajo\\Service\\Language\\LanguageInjector"
+    "Application\/Service\/Language\/LanguageServiceProvider.php": {
+        "file_name": "LanguageServiceProvider.php",
+        "base_name": "LanguageServiceProvider",
+        "path": "Application\/Service\/Language\/LanguageServiceProvider.php",
+        "fqns": "Molajo\\Service\\Language\\LanguageServiceProvider"
     },
     "Application\/Service\/Log\/LogInjector.php": {
         "file_name": "LogInjector.php",
@@ -1397,17 +1397,17 @@
         "path": "Vendor\/Molajo\/IoC\/Controller.php",
         "fqns": "Molajo\\IoC\\Controller"
     },
-    "Vendor\/Molajo\/IoC\/Handler\/AbstractInjector.php": {
-        "file_name": "AbstractInjector.php",
-        "base_name": "AbstractInjector",
-        "path": "Vendor\/Molajo\/IoC\/Handler\/AbstractInjector.php",
-        "fqns": "Molajo\\IoC\\Handler\\AbstractInjector"
+    "Vendor\/Molajo\/IoC\/Handler\/AbstractServiceProvider.php": {
+        "file_name": "AbstractServiceProvider.php",
+        "base_name": "AbstractServiceProvider",
+        "path": "Vendor\/Molajo\/IoC\/Handler\/AbstractServiceProvider.php",
+        "fqns": "Molajo\\IoC\\Handler\\AbstractServiceProvider"
     },
     "Vendor\/Molajo\/IoC\/Handler\/StandardInjector.php": {
         "file_name": "StandardInjector.php",
         "base_name": "StandardInjector",
         "path": "Vendor\/Molajo\/IoC\/Handler\/StandardInjector.php",
-        "fqns": "Molajo\\IoC\\Handler\\StandardInjector"
+        "fqns": "Molajo\\IoC\\StandardServiceProvider"
     },
     "Vendor\/Molajo\/IoC\/ServiceItemAdapter.php": {
         "file_name": "ServiceItemAdapter.php",
@@ -2135,11 +2135,11 @@
         "path": "Vendor\/commonapi\/ioc\/ControllerInterface.php",
         "fqns": "CommonApi\\IoC\\ControllerInterface"
     },
-    "Vendor\/commonapi\/ioc\/ServiceHandlerInterface.php": {
-        "file_name": "ServiceHandlerInterface.php",
-        "base_name": "ServiceHandlerInterface",
-        "path": "Vendor\/commonapi\/ioc\/ServiceHandlerInterface.php",
-        "fqns": "CommonApi\\IoC\\ServiceHandlerInterface"
+    "Vendor\/commonapi\/ioc\/ServiceProviderInterface.php": {
+        "file_name": "ServiceProviderInterface.php",
+        "base_name": "ServiceProviderInterface",
+        "path": "Vendor\/commonapi\/ioc\/ServiceProviderInterface.php",
+        "fqns": "CommonApi\\IoC\\ServiceProviderInterface"
     },
     "Vendor\/commonapi\/ioc\/ServiceItemInterface.php": {
         "file_name": "ServiceItemInterface.php",

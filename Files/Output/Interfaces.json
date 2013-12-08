@@ -150,15 +150,15 @@
             "Molajo\\Controller\\FrontController"
         ]
     },
-    "CommonApi\\IoC\\ServiceHandlerInterface": {
-        "name": "ServiceHandlerInterface",
+    "CommonApi\\IoC\\ServiceProviderInterface": {
+        "name": "ServiceProviderInterface",
         "namespace": "CommonApi\\IoC",
-        "fqns": "CommonApi\\IoC\\ServiceHandlerInterface",
-        "path": "Vendor\/commonapi\/ioc\/ServiceHandlerInterface.php",
+        "fqns": "CommonApi\\IoC\\ServiceProviderInterface",
+        "path": "Vendor\/commonapi\/ioc\/ServiceProviderInterface.php",
         "parent": false,
         "implemented_by": [
-            "Molajo\\IoC\\Handler\\AbstractInjector",
-            "Molajo\\IoC\\Handler\\StandardInjector",
+            "Molajo\\IoC\\Handler\\AbstractServiceProvider",
+            "Molajo\\IoC\\StandardServiceProvider",
             "Molajo\\Service\\Application\\ApplicationInjector",
             "Molajo\\Service\\Authorisation\\AuthorisationInjector",
             "Molajo\\Service\\Cache\\CacheInjector",
@@ -178,7 +178,7 @@
             "Molajo\\Service\\Filesystem\\FilesystemInjector",
             "Molajo\\Service\\Fileupload\\FileuploadInjector",
             "Molajo\\Service\\Image\\ImageInjector",
-            "Molajo\\Service\\Language\\LanguageInjector",
+            "Molajo\\Service\\Language\\LanguageServiceProvider",
             "Molajo\\Service\\Log\\LogInjector",
             "Molajo\\Service\\Registration\\RegistrationInjector",
             "Molajo\\Service\\Render\\RenderInjector",

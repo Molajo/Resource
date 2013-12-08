@@ -284,8 +284,8 @@
     "commonapi\\ioc\\readme.md": [
         "\/Users\/amystephen\/Sites\/Standard\/Vendor\/commonapi\/ioc\/README.md"
     ],
-    "commonapi\\ioc\\servicehandlerinterface": [
-        "\/Users\/amystephen\/Sites\/Standard\/Vendor\/commonapi\/ioc\/ServiceHandlerInterface.php"
+    "commonapi\\ioc\\ServiceProviderInterface": [
+        "\/Users\/amystephen\/Sites\/Standard\/Vendor\/commonapi\/ioc\/ServiceProviderInterface.php"
     ],
     "commonapi\\ioc\\serviceiteminterface": [
         "\/Users\/amystephen\/Sites\/Standard\/Vendor\/commonapi\/ioc\/ServiceItemInterface.php"
@@ -3662,8 +3662,8 @@
     "molajo\\ioc\\handler": [
         "\/Users\/amystephen\/Sites\/Standard\/Vendor\/Molajo\/IoC\/Handler"
     ],
-    "molajo\\ioc\\handler\\abstractinjector": [
-        "\/Users\/amystephen\/Sites\/Standard\/Vendor\/Molajo\/IoC\/Handler\/AbstractInjector.php"
+    "molajo\\ioc\\handler\\AbstractServiceProvider": [
+        "\/Users\/amystephen\/Sites\/Standard\/Vendor\/Molajo\/IoC\/Handler\/AbstractServiceProvider.php"
     ],
     "molajo\\ioc\\handler\\standardinjector": [
         "\/Users\/amystephen\/Sites\/Standard\/Vendor\/Molajo\/IoC\/Handler\/StandardInjector.php"
@@ -7703,7 +7703,7 @@
         "\/Users\/amystephen\/Sites\/Standard\/Application\/Service\/Language\/Configuration.xml"
     ],
     "molajo\\service\\language\\languageinjector": [
-        "\/Users\/amystephen\/Sites\/Standard\/Application\/Service\/Language\/LanguageInjector.php"
+        "\/Users\/amystephen\/Sites\/Standard\/Application\/Service\/Language\/LanguageServiceProvider.php"
     ],
     "molajo\\service\\log": [
         "\/Users\/amystephen\/Sites\/Standard\/Application\/Service\/Log"

@@ -1,6 +1,6 @@
 <?php
 /**
- * Resource Injector
+ * Resource Service Provider
  *
  * @package    Molajo
  * @license    http:/www.opensource.org/licenses/mit-license.html MIT License
@@ -10,18 +10,18 @@ namespace Molajo\Service\Resource;
 
 use Exception;
 use CommonApi\Exception\RuntimeException;
-use Molajo\IoC\Handler\AbstractInjector;
-use CommonApi\IoC\ServiceHandlerInterface;
+use Molajo\IoC\AbstractServiceProvider;
+use CommonApi\IoC\ServiceProviderInterface;
 
 /**
- * Resource Dependency Injector
+ * Resource Service Provider
  *
  * @author     Amy Stephen
  * @license    http:/www.opensource.org/licenses/mit-license.html MIT License
  * @copyright  2013 Amy Stephen. All rights reserved.
  * @since      1.0
  */
-class ResourceInjector extends AbstractInjector implements ServiceHandlerInterface
+class ResourceServiceProvider extends AbstractServiceProvider implements ServiceProviderInterface
 {
     /**
      * Constructor
@@ -64,8 +64,8 @@ class ResourceInjector extends AbstractInjector implements ServiceHandlerInterfa
 
         /**
          * NOTE:
-         *  Css, Cssdeclarations, Jsdeclarations, and JsHandler loaded in ApplicationInjector
-         *  QueryHandler loaded following DatabaseInjector
+         *  Css, Cssdeclarations, Jsdeclarations, and JsHandler loaded in Application Service Provider
+         *  QueryHandler loaded following Database Service Provider
          */
         $handler_instance['AssetHandler']
             = $this->createHandler(

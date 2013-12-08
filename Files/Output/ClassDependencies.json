@@ -14378,9 +14378,9 @@
         "fqns": "Molajo\\Service\\Application\\ApplicationInjector",
         "file_name": "\/Users\/amystephen\/Sites\/Standard\/Application\/Service\/Application\/ApplicationInjector.php",
         "path": "Application\/Service\/Application\/ApplicationInjector.php",
-        "parent": "Molajo\\IoC\\Handler\\AbstractInjector",
+        "parent": "Molajo\\IoC\\Handler\\AbstractServiceProvider",
         "implemented_interfaces": [
-            "CommonApi\\IoC\\ServiceHandlerInterface"
+            "CommonApi\\IoC\\ServiceProviderInterface"
         ],
         "constructor_parameters": [
             {
@@ -14423,9 +14423,9 @@
         "fqns": "Molajo\\Service\\Authorisation\\AuthorisationInjector",
         "file_name": "\/Users\/amystephen\/Sites\/Standard\/Application\/Service\/Authorisation\/AuthorisationInjector.php",
         "path": "Application\/Service\/Authorisation\/AuthorisationInjector.php",
-        "parent": "Molajo\\IoC\\Handler\\AbstractInjector",
+        "parent": "Molajo\\IoC\\Handler\\AbstractServiceProvider",
         "implemented_interfaces": [
-            "CommonApi\\IoC\\ServiceHandlerInterface"
+            "CommonApi\\IoC\\ServiceProviderInterface"
         ],
         "constructor_parameters": [
             {
@@ -14470,9 +14470,9 @@
         "fqns": "Molajo\\Service\\Cache\\CacheInjector",
         "file_name": "\/Users\/amystephen\/Sites\/Standard\/Application\/Service\/Cache\/CacheInjector.php",
         "path": "Application\/Service\/Cache\/CacheInjector.php",
-        "parent": "Molajo\\IoC\\Handler\\AbstractInjector",
+        "parent": "Molajo\\IoC\\Handler\\AbstractServiceProvider",
         "implemented_interfaces": [
-            "CommonApi\\IoC\\ServiceHandlerInterface"
+            "CommonApi\\IoC\\ServiceProviderInterface"
         ],
         "constructor_parameters": [
             {
@@ -14515,9 +14515,9 @@
         "fqns": "Molajo\\Service\\Cachemodel\\CachemodelInjector",
         "file_name": "\/Users\/amystephen\/Sites\/Standard\/Application\/Service\/Cachemodel\/CachemodelInjector.php",
         "path": "Application\/Service\/Cachemodel\/CachemodelInjector.php",
-        "parent": "Molajo\\IoC\\Handler\\AbstractInjector",
+        "parent": "Molajo\\IoC\\Handler\\AbstractServiceProvider",
         "implemented_interfaces": [
-            "CommonApi\\IoC\\ServiceHandlerInterface"
+            "CommonApi\\IoC\\ServiceProviderInterface"
         ],
         "constructor_parameters": [
             {
@@ -14560,9 +14560,9 @@
         "fqns": "Molajo\\Service\\Cachepage\\CachepageInjector",
         "file_name": "\/Users\/amystephen\/Sites\/Standard\/Application\/Service\/Cachepage\/CachepageInjector.php",
         "path": "Application\/Service\/Cachepage\/CachepageInjector.php",
-        "parent": "Molajo\\IoC\\Handler\\AbstractInjector",
+        "parent": "Molajo\\IoC\\Handler\\AbstractServiceProvider",
         "implemented_interfaces": [
-            "CommonApi\\IoC\\ServiceHandlerInterface"
+            "CommonApi\\IoC\\ServiceProviderInterface"
         ],
         "constructor_parameters": [
             {
@@ -14605,9 +14605,9 @@
         "fqns": "Molajo\\Service\\Cachequery\\CachequeryInjector",
         "file_name": "\/Users\/amystephen\/Sites\/Standard\/Application\/Service\/Cachequery\/CachequeryInjector.php",
         "path": "Application\/Service\/Cachequery\/CachequeryInjector.php",
-        "parent": "Molajo\\IoC\\Handler\\AbstractInjector",
+        "parent": "Molajo\\IoC\\Handler\\AbstractServiceProvider",
         "implemented_interfaces": [
-            "CommonApi\\IoC\\ServiceHandlerInterface"
+            "CommonApi\\IoC\\ServiceProviderInterface"
         ],
         "constructor_parameters": [
             {
@@ -14650,9 +14650,9 @@
         "fqns": "Molajo\\Service\\Cachetemplate\\CachetemplateInjector",
         "file_name": "\/Users\/amystephen\/Sites\/Standard\/Application\/Service\/Cachetemplate\/CachetemplateInjector.php",
         "path": "Application\/Service\/Cachetemplate\/CachetemplateInjector.php",
-        "parent": "Molajo\\IoC\\Handler\\AbstractInjector",
+        "parent": "Molajo\\IoC\\Handler\\AbstractServiceProvider",
         "implemented_interfaces": [
-            "CommonApi\\IoC\\ServiceHandlerInterface"
+            "CommonApi\\IoC\\ServiceProviderInterface"
         ],
         "constructor_parameters": [
             {
@@ -14695,9 +14695,9 @@
         "fqns": "Molajo\\Service\\Customfields\\CustomfieldsInjector",
         "file_name": "\/Users\/amystephen\/Sites\/Standard\/Application\/Service\/Customfields\/CustomfieldsInjector.php",
         "path": "Application\/Service\/Customfields\/CustomfieldsInjector.php",
-        "parent": "Molajo\\IoC\\Handler\\AbstractInjector",
+        "parent": "Molajo\\IoC\\Handler\\AbstractServiceProvider",
         "implemented_interfaces": [
-            "CommonApi\\IoC\\ServiceHandlerInterface"
+            "CommonApi\\IoC\\ServiceProviderInterface"
         ],
         "constructor_parameters": [
             {
@@ -14740,9 +14740,9 @@
         "fqns": "Molajo\\Service\\Database\\DatabaseInjector",
         "file_name": "\/Users\/amystephen\/Sites\/Standard\/Application\/Service\/Database\/DatabaseInjector.php",
         "path": "Application\/Service\/Database\/DatabaseInjector.php",
-        "parent": "Molajo\\IoC\\Handler\\AbstractInjector",
+        "parent": "Molajo\\IoC\\Handler\\AbstractServiceProvider",
         "implemented_interfaces": [
-            "CommonApi\\IoC\\ServiceHandlerInterface"
+            "CommonApi\\IoC\\ServiceProviderInterface"
         ],
         "constructor_parameters": [
             {
@@ -14785,9 +14785,9 @@
         "fqns": "Molajo\\Service\\Date\\DateInjector",
         "file_name": "\/Users\/amystephen\/Sites\/Standard\/Application\/Service\/Date\/DateInjector.php",
         "path": "Application\/Service\/Date\/DateInjector.php",
-        "parent": "Molajo\\IoC\\Handler\\AbstractInjector",
+        "parent": "Molajo\\IoC\\Handler\\AbstractServiceProvider",
         "implemented_interfaces": [
-            "CommonApi\\IoC\\ServiceHandlerInterface"
+            "CommonApi\\IoC\\ServiceProviderInterface"
         ],
         "constructor_parameters": [
             {
@@ -14830,9 +14830,9 @@
         "fqns": "Molajo\\Service\\Dispatcher\\DispatcherInjector",
         "file_name": "\/Users\/amystephen\/Sites\/Standard\/Application\/Service\/Dispatcher\/DispatcherInjector.php",
         "path": "Application\/Service\/Dispatcher\/DispatcherInjector.php",
-        "parent": "Molajo\\IoC\\Handler\\AbstractInjector",
+        "parent": "Molajo\\IoC\\Handler\\AbstractServiceProvider",
         "implemented_interfaces": [
-            "CommonApi\\IoC\\ServiceHandlerInterface"
+            "CommonApi\\IoC\\ServiceProviderInterface"
         ],
         "constructor_parameters": [
             {
@@ -14875,9 +14875,9 @@
         "fqns": "Molajo\\Service\\Email\\EmailInjector",
         "file_name": "\/Users\/amystephen\/Sites\/Standard\/Application\/Service\/Email\/EmailInjector.php",
         "path": "Application\/Service\/Email\/EmailInjector.php",
-        "parent": "Molajo\\IoC\\Handler\\AbstractInjector",
+        "parent": "Molajo\\IoC\\Handler\\AbstractServiceProvider",
         "implemented_interfaces": [
-            "CommonApi\\IoC\\ServiceHandlerInterface"
+            "CommonApi\\IoC\\ServiceProviderInterface"
         ],
         "constructor_parameters": [
             {
@@ -14920,9 +14920,9 @@
         "fqns": "Molajo\\Service\\Errorhandling\\ErrorhandlingInjector",
         "file_name": "\/Users\/amystephen\/Sites\/Standard\/Application\/Service\/Errorhandling\/ErrorhandlingInjector.php",
         "path": "Application\/Service\/Errorhandling\/ErrorhandlingInjector.php",
-        "parent": "Molajo\\IoC\\Handler\\AbstractInjector",
+        "parent": "Molajo\\IoC\\Handler\\AbstractServiceProvider",
         "implemented_interfaces": [
-            "CommonApi\\IoC\\ServiceHandlerInterface"
+            "CommonApi\\IoC\\ServiceProviderInterface"
         ],
         "constructor_parameters": [
             {
@@ -14965,9 +14965,9 @@
         "fqns": "Molajo\\Service\\Event\\EventInjector",
         "file_name": "\/Users\/amystephen\/Sites\/Standard\/Application\/Service\/Event\/EventInjector.php",
         "path": "Application\/Service\/Event\/EventInjector.php",
-        "parent": "Molajo\\IoC\\Handler\\AbstractInjector",
+        "parent": "Molajo\\IoC\\Handler\\AbstractServiceProvider",
         "implemented_interfaces": [
-            "CommonApi\\IoC\\ServiceHandlerInterface"
+            "CommonApi\\IoC\\ServiceProviderInterface"
         ],
         "constructor_parameters": [
             {
@@ -15010,9 +15010,9 @@
         "fqns": "Molajo\\Service\\Exceptionhandling\\ExceptionhandlingInjector",
         "file_name": "\/Users\/amystephen\/Sites\/Standard\/Application\/Service\/Exceptionhandling\/ExceptionhandlingInjector.php",
         "path": "Application\/Service\/Exceptionhandling\/ExceptionhandlingInjector.php",
-        "parent": "Molajo\\IoC\\Handler\\AbstractInjector",
+        "parent": "Molajo\\IoC\\Handler\\AbstractServiceProvider",
         "implemented_interfaces": [
-            "CommonApi\\IoC\\ServiceHandlerInterface"
+            "CommonApi\\IoC\\ServiceProviderInterface"
         ],
         "constructor_parameters": [
             {
@@ -15055,9 +15055,9 @@
         "fqns": "Molajo\\Service\\Extensions\\ExtensionsInjector",
         "file_name": "\/Users\/amystephen\/Sites\/Standard\/Application\/Service\/Extensions\/ExtensionsInjector.php",
         "path": "Application\/Service\/Extensions\/ExtensionsInjector.php",
-        "parent": "Molajo\\IoC\\Handler\\AbstractInjector",
+        "parent": "Molajo\\IoC\\Handler\\AbstractServiceProvider",
         "implemented_interfaces": [
-            "CommonApi\\IoC\\ServiceHandlerInterface"
+            "CommonApi\\IoC\\ServiceProviderInterface"
         ],
         "constructor_parameters": [
             {
@@ -15100,9 +15100,9 @@
         "fqns": "Molajo\\Service\\Filesystem\\FilesystemInjector",
         "file_name": "\/Users\/amystephen\/Sites\/Standard\/Application\/Service\/Filesystem\/FilesystemInjector.php",
         "path": "Application\/Service\/Filesystem\/FilesystemInjector.php",
-        "parent": "Molajo\\IoC\\Handler\\AbstractInjector",
+        "parent": "Molajo\\IoC\\Handler\\AbstractServiceProvider",
         "implemented_interfaces": [
-            "CommonApi\\IoC\\ServiceHandlerInterface"
+            "CommonApi\\IoC\\ServiceProviderInterface"
         ],
         "constructor_parameters": [
             {
@@ -15145,9 +15145,9 @@
         "fqns": "Molajo\\Service\\Fileupload\\FileuploadInjector",
         "file_name": "\/Users\/amystephen\/Sites\/Standard\/Application\/Service\/Fileupload\/FileuploadInjector.php",
         "path": "Application\/Service\/Fileupload\/FileuploadInjector.php",
-        "parent": "Molajo\\IoC\\Handler\\AbstractInjector",
+        "parent": "Molajo\\IoC\\Handler\\AbstractServiceProvider",
         "implemented_interfaces": [
-            "CommonApi\\IoC\\ServiceHandlerInterface"
+            "CommonApi\\IoC\\ServiceProviderInterface"
         ],
         "constructor_parameters": [
             {
@@ -15190,9 +15190,9 @@
         "fqns": "Molajo\\Service\\Image\\ImageInjector",
         "file_name": "\/Users\/amystephen\/Sites\/Standard\/Application\/Service\/Image\/ImageInjector.php",
         "path": "Application\/Service\/Image\/ImageInjector.php",
-        "parent": "Molajo\\IoC\\Handler\\AbstractInjector",
+        "parent": "Molajo\\IoC\\Handler\\AbstractServiceProvider",
         "implemented_interfaces": [
-            "CommonApi\\IoC\\ServiceHandlerInterface"
+            "CommonApi\\IoC\\ServiceProviderInterface"
         ],
         "constructor_parameters": [
             {
@@ -15229,15 +15229,15 @@
             "scheduleNextService"
         ]
     },
-    "Molajo\\Service\\Language\\LanguageInjector": {
-        "name": "LanguageInjector",
+    "Molajo\\Service\\Language\\LanguageServiceProvider": {
+        "name": "LanguageServiceProvider",
         "namespace": "Molajo\\Service\\Language",
-        "fqns": "Molajo\\Service\\Language\\LanguageInjector",
-        "file_name": "\/Users\/amystephen\/Sites\/Standard\/Application\/Service\/Language\/LanguageInjector.php",
-        "path": "Application\/Service\/Language\/LanguageInjector.php",
-        "parent": "Molajo\\IoC\\Handler\\AbstractInjector",
+        "fqns": "Molajo\\Service\\Language\\LanguageServiceProvider",
+        "file_name": "\/Users\/amystephen\/Sites\/Standard\/Application\/Service\/Language\/LanguageServiceProvider.php",
+        "path": "Application\/Service\/Language\/LanguageServiceProvider.php",
+        "parent": "Molajo\\IoC\\Handler\\AbstractServiceProvider",
         "implemented_interfaces": [
-            "CommonApi\\IoC\\ServiceHandlerInterface"
+            "CommonApi\\IoC\\ServiceProviderInterface"
         ],
         "constructor_parameters": [
             {
@@ -15281,9 +15281,9 @@
         "fqns": "Molajo\\Service\\Log\\LogInjector",
         "file_name": "\/Users\/amystephen\/Sites\/Standard\/Application\/Service\/Log\/LogInjector.php",
         "path": "Application\/Service\/Log\/LogInjector.php",
-        "parent": "Molajo\\IoC\\Handler\\AbstractInjector",
+        "parent": "Molajo\\IoC\\Handler\\AbstractServiceProvider",
         "implemented_interfaces": [
-            "CommonApi\\IoC\\ServiceHandlerInterface"
+            "CommonApi\\IoC\\ServiceProviderInterface"
         ],
         "constructor_parameters": [
             {
@@ -15336,9 +15336,9 @@
         "fqns": "Molajo\\Service\\Registration\\RegistrationInjector",
         "file_name": "\/Users\/amystephen\/Sites\/Standard\/Vendor\/Molajo\/User\/Service\/Registration\/RegistrationInjector.php",
         "path": "Application\/Service\/Registration\/RegistrationInjector.php",
-        "parent": "Molajo\\IoC\\Handler\\AbstractInjector",
+        "parent": "Molajo\\IoC\\Handler\\AbstractServiceProvider",
         "implemented_interfaces": [
-            "CommonApi\\IoC\\ServiceHandlerInterface"
+            "CommonApi\\IoC\\ServiceProviderInterface"
         ],
         "constructor_parameters": [
             {
@@ -15381,9 +15381,9 @@
         "fqns": "Molajo\\Service\\Render\\RenderInjector",
         "file_name": "\/Users\/amystephen\/Sites\/Standard\/Application\/Service\/Render\/RenderInjector.php",
         "path": "Application\/Service\/Render\/RenderInjector.php",
-        "parent": "Molajo\\IoC\\Handler\\AbstractInjector",
+        "parent": "Molajo\\IoC\\Handler\\AbstractServiceProvider",
         "implemented_interfaces": [
-            "CommonApi\\IoC\\ServiceHandlerInterface"
+            "CommonApi\\IoC\\ServiceProviderInterface"
         ],
         "constructor_parameters": [
             {
@@ -15426,9 +15426,9 @@
         "fqns": "Molajo\\Service\\Resource\\ResourceInjector",
         "file_name": "\/Users\/amystephen\/Sites\/Standard\/Application\/Service\/Resource\/ResourceInjector.php",
         "path": "Application\/Service\/Resource\/ResourceInjector.php",
-        "parent": "Molajo\\IoC\\Handler\\AbstractInjector",
+        "parent": "Molajo\\IoC\\Handler\\AbstractServiceProvider",
         "implemented_interfaces": [
-            "CommonApi\\IoC\\ServiceHandlerInterface"
+            "CommonApi\\IoC\\ServiceProviderInterface"
         ],
         "constructor_parameters": [
             {
@@ -15471,9 +15471,9 @@
         "fqns": "Molajo\\Service\\Resources\\ResourcesInjector",
         "file_name": "\/Users\/amystephen\/Sites\/Standard\/Application\/Service\/Resources\/ResourcesInjector.php",
         "path": "Application\/Service\/Resources\/ResourcesInjector.php",
-        "parent": "Molajo\\IoC\\Handler\\AbstractInjector",
+        "parent": "Molajo\\IoC\\Handler\\AbstractServiceProvider",
         "implemented_interfaces": [
-            "CommonApi\\IoC\\ServiceHandlerInterface"
+            "CommonApi\\IoC\\ServiceProviderInterface"
         ],
         "constructor_parameters": [
             {
@@ -15516,9 +15516,9 @@
         "fqns": "Molajo\\Service\\Resourcescss\\ResourcescssInjector",
         "file_name": "\/Users\/amystephen\/Sites\/Standard\/Application\/Service\/Resourcescss\/ResourcescssInjector.php",
         "path": "Application\/Service\/Resourcescss\/ResourcescssInjector.php",
-        "parent": "Molajo\\IoC\\Handler\\AbstractInjector",
+        "parent": "Molajo\\IoC\\Handler\\AbstractServiceProvider",
         "implemented_interfaces": [
-            "CommonApi\\IoC\\ServiceHandlerInterface"
+            "CommonApi\\IoC\\ServiceProviderInterface"
         ],
         "constructor_parameters": [
             {
@@ -15561,9 +15561,9 @@
         "fqns": "Molajo\\Service\\Resourcescssdeclarations\\ResourcescssdeclarationsInjector",
         "file_name": "\/Users\/amystephen\/Sites\/Standard\/Application\/Service\/Resourcescssdeclarations\/ResourcescssdeclarationsInjector.php",
         "path": "Application\/Service\/Resourcescssdeclarations\/ResourcescssdeclarationsInjector.php",
-        "parent": "Molajo\\IoC\\Handler\\AbstractInjector",
+        "parent": "Molajo\\IoC\\Handler\\AbstractServiceProvider",
         "implemented_interfaces": [
-            "CommonApi\\IoC\\ServiceHandlerInterface"
+            "CommonApi\\IoC\\ServiceProviderInterface"
         ],
         "constructor_parameters": [
             {
@@ -15606,9 +15606,9 @@
         "fqns": "Molajo\\Service\\Resourcesdata\\ResourcesdataInjector",
         "file_name": "\/Users\/amystephen\/Sites\/Standard\/Application\/Service\/Resourcesdata\/ResourcesdataInjector.php",
         "path": "Application\/Service\/Resourcesdata\/ResourcesdataInjector.php",
-        "parent": "Molajo\\IoC\\Handler\\AbstractInjector",
+        "parent": "Molajo\\IoC\\Handler\\AbstractServiceProvider",
         "implemented_interfaces": [
-            "CommonApi\\IoC\\ServiceHandlerInterface"
+            "CommonApi\\IoC\\ServiceProviderInterface"
         ],
         "constructor_parameters": [
             {
@@ -15652,9 +15652,9 @@
         "fqns": "Molajo\\Service\\Resourcesjs\\ResourcesjsInjector",
         "file_name": "\/Users\/amystephen\/Sites\/Standard\/Application\/Service\/Resourcesjs\/ResourcesjsInjector.php",
         "path": "Application\/Service\/Resourcesjs\/ResourcesjsInjector.php",
-        "parent": "Molajo\\IoC\\Handler\\AbstractInjector",
+        "parent": "Molajo\\IoC\\Handler\\AbstractServiceProvider",
         "implemented_interfaces": [
-            "CommonApi\\IoC\\ServiceHandlerInterface"
+            "CommonApi\\IoC\\ServiceProviderInterface"
         ],
         "constructor_parameters": [
             {
@@ -15697,9 +15697,9 @@
         "fqns": "Molajo\\Service\\Resourcesjsdeclarations\\ResourcesjsdeclarationsInjector",
         "file_name": "\/Users\/amystephen\/Sites\/Standard\/Application\/Service\/Resourcesjsdeclarations\/ResourcesjsdeclarationsInjector.php",
         "path": "Application\/Service\/Resourcesjsdeclarations\/ResourcesjsdeclarationsInjector.php",
-        "parent": "Molajo\\IoC\\Handler\\AbstractInjector",
+        "parent": "Molajo\\IoC\\Handler\\AbstractServiceProvider",
         "implemented_interfaces": [
-            "CommonApi\\IoC\\ServiceHandlerInterface"
+            "CommonApi\\IoC\\ServiceProviderInterface"
         ],
         "constructor_parameters": [
             {
@@ -15742,9 +15742,9 @@
         "fqns": "Molajo\\Service\\Resourcesquery\\ResourcesqueryInjector",
         "file_name": "\/Users\/amystephen\/Sites\/Standard\/Application\/Service\/Resourcesquery\/ResourcesqueryInjector.php",
         "path": "Application\/Service\/Resourcesquery\/ResourcesqueryInjector.php",
-        "parent": "Molajo\\IoC\\Handler\\AbstractInjector",
+        "parent": "Molajo\\IoC\\Handler\\AbstractServiceProvider",
         "implemented_interfaces": [
-            "CommonApi\\IoC\\ServiceHandlerInterface"
+            "CommonApi\\IoC\\ServiceProviderInterface"
         ],
         "constructor_parameters": [
             {
@@ -15787,9 +15787,9 @@
         "fqns": "Molajo\\Service\\Resourcesrendering\\ResourcesrenderingInjector",
         "file_name": "\/Users\/amystephen\/Sites\/Standard\/Application\/Service\/Resourcesrendering\/ResourcesrenderingInjector.php",
         "path": "Application\/Service\/Resourcesrendering\/ResourcesrenderingInjector.php",
-        "parent": "Molajo\\IoC\\Handler\\AbstractInjector",
+        "parent": "Molajo\\IoC\\Handler\\AbstractServiceProvider",
         "implemented_interfaces": [
-            "CommonApi\\IoC\\ServiceHandlerInterface"
+            "CommonApi\\IoC\\ServiceProviderInterface"
         ],
         "constructor_parameters": [
             {
@@ -15832,9 +15832,9 @@
         "fqns": "Molajo\\Service\\Response\\ResponseInjector",
         "file_name": "\/Users\/amystephen\/Sites\/Standard\/Application\/Service\/Response\/ResponseInjector.php",
         "path": "Application\/Service\/Response\/ResponseInjector.php",
-        "parent": "Molajo\\IoC\\Handler\\AbstractInjector",
+        "parent": "Molajo\\IoC\\Handler\\AbstractServiceProvider",
         "implemented_interfaces": [
-            "CommonApi\\IoC\\ServiceHandlerInterface"
+            "CommonApi\\IoC\\ServiceProviderInterface"
         ],
         "constructor_parameters": [
             {
@@ -15877,9 +15877,9 @@
         "fqns": "Molajo\\Service\\Route\\RouteInjector",
         "file_name": "\/Users\/amystephen\/Sites\/Standard\/Application\/Service\/Route\/RouteInjector.php",
         "path": "Application\/Service\/Route\/RouteInjector.php",
-        "parent": "Molajo\\IoC\\Handler\\AbstractInjector",
+        "parent": "Molajo\\IoC\\Handler\\AbstractServiceProvider",
         "implemented_interfaces": [
-            "CommonApi\\IoC\\ServiceHandlerInterface"
+            "CommonApi\\IoC\\ServiceProviderInterface"
         ],
         "constructor_parameters": [
             {
@@ -15923,9 +15923,9 @@
         "fqns": "Molajo\\Service\\Search\\SearchInjector",
         "file_name": "\/Users\/amystephen\/Sites\/Standard\/Application\/Service\/Search\/SearchInjector.php",
         "path": "Application\/Service\/Search\/SearchInjector.php",
-        "parent": "Molajo\\IoC\\Handler\\AbstractInjector",
+        "parent": "Molajo\\IoC\\Handler\\AbstractServiceProvider",
         "implemented_interfaces": [
-            "CommonApi\\IoC\\ServiceHandlerInterface"
+            "CommonApi\\IoC\\ServiceProviderInterface"
         ],
         "constructor_parameters": [
             {
@@ -15968,9 +15968,9 @@
         "fqns": "Molajo\\Service\\Site\\SiteInjector",
         "file_name": "\/Users\/amystephen\/Sites\/Standard\/Application\/Service\/Site\/SiteInjector.php",
         "path": "Application\/Service\/Site\/SiteInjector.php",
-        "parent": "Molajo\\IoC\\Handler\\AbstractInjector",
+        "parent": "Molajo\\IoC\\Handler\\AbstractServiceProvider",
         "implemented_interfaces": [
-            "CommonApi\\IoC\\ServiceHandlerInterface"
+            "CommonApi\\IoC\\ServiceProviderInterface"
         ],
         "constructor_parameters": [
             {
@@ -16014,9 +16014,9 @@
         "fqns": "Molajo\\Service\\Text\\TextInjector",
         "file_name": "\/Users\/amystephen\/Sites\/Standard\/Application\/Service\/Text\/TextInjector.php",
         "path": "Application\/Service\/Text\/TextInjector.php",
-        "parent": "Molajo\\IoC\\Handler\\AbstractInjector",
+        "parent": "Molajo\\IoC\\Handler\\AbstractServiceProvider",
         "implemented_interfaces": [
-            "CommonApi\\IoC\\ServiceHandlerInterface"
+            "CommonApi\\IoC\\ServiceProviderInterface"
         ],
         "constructor_parameters": [
             {
@@ -16060,9 +16060,9 @@
         "fqns": "Molajo\\Service\\Url\\UrlInjector",
         "file_name": "\/Users\/amystephen\/Sites\/Standard\/Application\/Service\/Url\/UrlInjector.php",
         "path": "Application\/Service\/Url\/UrlInjector.php",
-        "parent": "Molajo\\IoC\\Handler\\AbstractInjector",
+        "parent": "Molajo\\IoC\\Handler\\AbstractServiceProvider",
         "implemented_interfaces": [
-            "CommonApi\\IoC\\ServiceHandlerInterface"
+            "CommonApi\\IoC\\ServiceProviderInterface"
         ],
         "constructor_parameters": [
             {
@@ -21458,15 +21458,15 @@
             "removeService"
         ]
     },
-    "Molajo\\IoC\\Handler\\AbstractInjector": {
-        "name": "AbstractInjector",
+    "Molajo\\IoC\\Handler\\AbstractServiceProvider": {
+        "name": "AbstractServiceProvider",
         "namespace": "Molajo\\IoC\\Handler",
-        "fqns": "Molajo\\IoC\\Handler\\AbstractInjector",
-        "file_name": "\/Users\/amystephen\/Sites\/Standard\/Vendor\/Molajo\/IoC\/Handler\/AbstractInjector.php",
-        "path": "Vendor\/Molajo\/IoC\/Handler\/AbstractInjector.php",
+        "fqns": "Molajo\\IoC\\Handler\\AbstractServiceProvider",
+        "file_name": "\/Users\/amystephen\/Sites\/Standard\/Vendor\/Molajo\/IoC\/Handler\/AbstractServiceProvider.php",
+        "path": "Vendor\/Molajo\/IoC\/Handler\/AbstractServiceProvider.php",
         "parent": false,
         "implemented_interfaces": [
-            "CommonApi\\IoC\\ServiceHandlerInterface"
+            "CommonApi\\IoC\\ServiceProviderInterface"
         ],
         "constructor_parameters": [
             {
@@ -21503,15 +21503,15 @@
             "scheduleNextService"
         ]
     },
-    "Molajo\\IoC\\Handler\\StandardInjector": {
+    "Molajo\\IoC\\StandardServiceProvider": {
         "name": "StandardInjector",
         "namespace": "Molajo\\IoC\\Handler",
-        "fqns": "Molajo\\IoC\\Handler\\StandardInjector",
+        "fqns": "Molajo\\IoC\\StandardServiceProvider",
         "file_name": "\/Users\/amystephen\/Sites\/Standard\/Vendor\/Molajo\/IoC\/Handler\/StandardInjector.php",
         "path": "Vendor\/Molajo\/IoC\/Handler\/StandardInjector.php",
-        "parent": "Molajo\\IoC\\Handler\\AbstractInjector",
+        "parent": "Molajo\\IoC\\Handler\\AbstractServiceProvider",
         "implemented_interfaces": [
-            "CommonApi\\IoC\\ServiceHandlerInterface"
+            "CommonApi\\IoC\\ServiceProviderInterface"
         ],
         "constructor_parameters": [
             {
@@ -21563,11 +21563,11 @@
                 "name": "handler",
                 "default_available": false,
                 "default_value": null,
-                "instance_of": "CommonApi\\IoC\\ServiceHandlerInterface",
+                "instance_of": "CommonApi\\IoC\\ServiceProviderInterface",
                 "is_instantiable": false,
                 "implemented_by": [
-                    "Molajo\\IoC\\Handler\\AbstractInjector",
-                    "Molajo\\IoC\\Handler\\StandardInjector",
+                    "Molajo\\IoC\\Handler\\AbstractServiceProvider",
+                    "Molajo\\IoC\\StandardServiceProvider",
                     "Molajo\\Service\\Application\\ApplicationInjector",
                     "Molajo\\Service\\Authorisation\\AuthorisationInjector",
                     "Molajo\\Service\\Cache\\CacheInjector",
@@ -21587,7 +21587,7 @@
                     "Molajo\\Service\\Filesystem\\FilesystemInjector",
                     "Molajo\\Service\\Fileupload\\FileuploadInjector",
                     "Molajo\\Service\\Image\\ImageInjector",
-                    "Molajo\\Service\\Language\\LanguageInjector",
+                    "Molajo\\Service\\Language\\LanguageServiceProvider",
                     "Molajo\\Service\\Log\\LogInjector",
                     "Molajo\\Service\\Registration\\RegistrationInjector",
                     "Molajo\\Service\\Render\\RenderInjector",
@@ -21610,7 +21610,7 @@
                 "concrete": false
             }
         ],
-        "constructor_docComment": "\/**\n     * The Constructor is invoked by Controller->setServiceWorkObject for each Service\n     *\n     * @param  ServiceHandlerInterface $handler\n     *\n     * @since  1.0\n     *\/",
+        "constructor_docComment": "\/**\n     * The Constructor is invoked by Controller->setServiceWorkObject for each Service\n     *\n     * @param  ServiceProviderInterface $handler\n     *\n     * @since  1.0\n     *\/",
         "implemented_by": [
 
         ],

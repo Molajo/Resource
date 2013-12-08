@@ -1,6 +1,6 @@
 <?php
 /**
- * Resource Data Dependency Injector
+ * Resource Data Service Provider
  *
  * @package    Molajo
  * @license    http://www.opensource.org/licenses/mit-license.html MIT License
@@ -9,19 +9,19 @@
 namespace Molajo\Service\Resourcedata;
 
 use Exception;
-use Molajo\IoC\Handler\AbstractInjector;
-use CommonApi\IoC\ServiceHandlerInterface;
+use Molajo\IoC\AbstractServiceProvider;
+use CommonApi\IoC\ServiceProviderInterface;
 use CommonApi\Exception\RuntimeException;
 
 /**
- * Resource Data Dependency Injector
+ * Resource Data Service Provider
  *
  * @author     Amy Stephen
  * @license    http://www.opensource.org/licenses/mit-license.html MIT License
  * @copyright  2013 Amy Stephen. All rights reserved.
  * @since      1.0
  */
-class ResourcedataInjector extends AbstractInjector implements ServiceHandlerInterface
+class ResourcedataServiceProvider extends AbstractServiceProvider implements ServiceProviderInterface
 {
     /**
      * Valid Data Object Types
@@ -275,7 +275,7 @@ class ResourcedataInjector extends AbstractInjector implements ServiceHandlerInt
         } catch (Exception $e) {
 
             throw new RuntimeException
-            ('IoC: Injector Instance Failed for ' . $this->service_namespace
+            ('IoC Service Provider Instance Failed for ' . $this->service_namespace
             . ' failed.' . $e->getMessage());
         }
 
@@ -447,7 +447,7 @@ class ResourcedataInjector extends AbstractInjector implements ServiceHandlerInt
             $dirRead->close();
         } catch (RuntimeException $e) {
             throw new RuntimeException
-            ('IoC Injector Configuration: loadDatalists cannot find Datalists file for folder: ' . $folder);
+            ('IoC Service Provider Configuration: loadDatalists cannot find Datalists file for folder: ' . $folder);
         }
 
         return $datalistsArray;
@@ -471,7 +471,7 @@ class ResourcedataInjector extends AbstractInjector implements ServiceHandlerInt
                 $this->options['Resource']
             );
         } catch (Exception $e) {
-            throw new RuntimeException ('Resource Data Injector createDataobjectHandler failed: '
+            throw new RuntimeException ('Resource Data Service Provider createDataobjectHandler failed: '
             . $e->getMessage());
         }
 
@@ -497,7 +497,7 @@ class ResourcedataInjector extends AbstractInjector implements ServiceHandlerInt
             );
 
         } catch (Exception $e) {
-            throw new RuntimeException ('Resource Data Injector createModelHandler failed: '
+            throw new RuntimeException ('Resource Data Service Provider createModelHandler failed: '
             . $e->getMessage());
         }
 
@@ -532,7 +532,7 @@ class ResourcedataInjector extends AbstractInjector implements ServiceHandlerInt
                 $dataobject_handler
             );
         } catch (Exception $e) {
-            throw new RuntimeException ('Resource Data Injector createXmlHandler failed: '
+            throw new RuntimeException ('Resource Data Service Provider createXmlHandler failed: '
             . $e->getMessage());
         }
 

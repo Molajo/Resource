@@ -278,7 +278,7 @@ class ExtensionMap implements ExtensionsInterface
         try {
             $extension = $controller->getData();
         } catch (Exception $e) {
-            echo 'RenderingExtensionsInjector: Extension not found: ' . $alias;
+            echo 'RenderingExtensionsServiceProvider: Extension not found: ' . $alias;
             throw new RuntimeException ($e->getMessage());
         }
 
