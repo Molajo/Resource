@@ -199,17 +199,17 @@
             "Molajo\\Service\\Url\\UrlInjector"
         ],
         "dependency_for": [
-            "Molajo\\IoC\\ServiceItemAdapter"
+            "Molajo\\IoC\\ServiceProviderAdapter"
         ]
     },
-    "CommonApi\\IoC\\ServiceItemInterface": {
-        "name": "ServiceItemInterface",
+    "CommonApi\\IoC\\ServiceProviderAdapterInterface": {
+        "name": "ServiceProviderAdapterInterface",
         "namespace": "CommonApi\\IoC",
-        "fqns": "CommonApi\\IoC\\ServiceItemInterface",
-        "path": "Vendor\/commonapi\/ioc\/ServiceItemInterface.php",
+        "fqns": "CommonApi\\IoC\\ServiceProviderAdapterInterface",
+        "path": "Vendor\/commonapi\/ioc\/ServiceProviderAdapterInterface.php",
         "parent": false,
         "implemented_by": [
-            "Molajo\\IoC\\ServiceItemAdapter"
+            "Molajo\\IoC\\ServiceProviderAdapter"
         ],
         "dependency_for": [
 

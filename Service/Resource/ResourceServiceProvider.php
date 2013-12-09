@@ -131,7 +131,7 @@ class ResourceServiceProvider extends AbstractServiceProvider implements Service
      * @return  $this
      * @since   1.0
      */
-    public function processFulfilledDependencies(array $dependency_instances = null)
+    public function onBeforeInstantiation(array $dependency_instances = null)
     {
         $this->dependencies['Scheme']                 = $this->options['Scheme'];
         $this->dependencies['handler_instance_array'] = $this->options['handler_instance_array'];
@@ -140,7 +140,7 @@ class ResourceServiceProvider extends AbstractServiceProvider implements Service
     }
 
     /**
-     * IoC Controller triggers the DI Handler to create the Class for the Service
+     * Service Provider Controller triggers the Service Provider to create the Class for the Service
      *
      * @return  $this
      * @since   1.0
@@ -164,7 +164,7 @@ class ResourceServiceProvider extends AbstractServiceProvider implements Service
      * @return  object
      * @since   1.0
      */
-    public function performAfterInstantiationLogic()
+    public function onAfterInstantiation()
     {
         $this->service_instance->setNamespace(
             'PasswordLib\\PasswordLib',
@@ -180,7 +180,7 @@ class ResourceServiceProvider extends AbstractServiceProvider implements Service
      * @return  object
      * @since   1.0
      */
-    public function scheduleNextService()
+    public function scheduleServices()
     {
         $this->schedule_service = array();
 

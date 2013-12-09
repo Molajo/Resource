@@ -1403,17 +1403,17 @@
         "path": "Vendor\/Molajo\/IoC\/Handler\/AbstractServiceProvider.php",
         "fqns": "Molajo\\IoC\\Handler\\AbstractServiceProvider"
     },
-    "Vendor\/Molajo\/IoC\/Handler\/StandardInjector.php": {
-        "file_name": "StandardInjector.php",
-        "base_name": "StandardInjector",
-        "path": "Vendor\/Molajo\/IoC\/Handler\/StandardInjector.php",
+    "Vendor\/Molajo\/IoC\/Handler\/StandardServiceProvider.php": {
+        "file_name": "StandardServiceProvider.php",
+        "base_name": "StandardServiceProvider",
+        "path": "Vendor\/Molajo\/IoC\/Handler\/StandardServiceProvider.php",
         "fqns": "Molajo\\IoC\\StandardServiceProvider"
     },
-    "Vendor\/Molajo\/IoC\/ServiceItemAdapter.php": {
-        "file_name": "ServiceItemAdapter.php",
-        "base_name": "ServiceItemAdapter",
-        "path": "Vendor\/Molajo\/IoC\/ServiceItemAdapter.php",
-        "fqns": "Molajo\\IoC\\ServiceItemAdapter"
+    "Vendor\/Molajo\/IoC\/ServiceProviderAdapter.php": {
+        "file_name": "ServiceProviderAdapter.php",
+        "base_name": "ServiceProviderAdapter",
+        "path": "Vendor\/Molajo\/IoC\/ServiceProviderAdapter.php",
+        "fqns": "Molajo\\IoC\\ServiceProviderAdapter"
     },
     "Vendor\/Molajo\/Language\/Adapter.php": {
         "file_name": "Adapter.php",
@@ -2141,11 +2141,11 @@
         "path": "Vendor\/commonapi\/ioc\/ServiceProviderInterface.php",
         "fqns": "CommonApi\\IoC\\ServiceProviderInterface"
     },
-    "Vendor\/commonapi\/ioc\/ServiceItemInterface.php": {
-        "file_name": "ServiceItemInterface.php",
-        "base_name": "ServiceItemInterface",
-        "path": "Vendor\/commonapi\/ioc\/ServiceItemInterface.php",
-        "fqns": "CommonApi\\IoC\\ServiceItemInterface"
+    "Vendor\/commonapi\/ioc\/ServiceProviderAdapterInterface.php": {
+        "file_name": "ServiceProviderAdapterInterface.php",
+        "base_name": "ServiceProviderAdapterInterface",
+        "path": "Vendor\/commonapi\/ioc\/ServiceProviderAdapterInterface.php",
+        "fqns": "CommonApi\\IoC\\ServiceProviderAdapterInterface"
     },
     "Vendor\/commonapi\/language\/DatabaseModelInterface.php": {
         "file_name": "DatabaseModelInterface.php",

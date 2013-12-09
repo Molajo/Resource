@@ -4960,10 +4960,10 @@
             "saveForeignKeyValue"
         ]
     },
-    "Molajo\\Plugin\\Exception\\AuthenticateEventException": {
+    "Molajo\\Plugin\\Exception\\RuntimeException": {
 
     },
-    "Molajo\\Plugin\\Exception\\CreateEventException": {
+    "Molajo\\Plugin\\Exception\\RuntimeException": {
 
     },
     "Molajo\\Plugin\\Exception\\DeleteEventException": {
@@ -4972,7 +4972,7 @@
     "Molajo\\Plugin\\Exception\\DispatcherException": {
 
     },
-    "Molajo\\Plugin\\Exception\\DisplayEventException": {
+    "Molajo\\Plugin\\Exception\\RuntimeException": {
 
     },
     "Molajo\\Plugin\\Exception\\EventDispatcherException": {
@@ -4981,16 +4981,16 @@
     "Molajo\\Plugin\\Exception\\EventException": {
 
     },
-    "Molajo\\Plugin\\Exception\\PluginException": {
+    "Molajo\\Plugin\\Exception\\RuntimeException": {
 
     },
     "Molajo\\Plugin\\Exception\\ReadEventException": {
 
     },
-    "Molajo\\Plugin\\Exception\\SystemEventException": {
+    "Molajo\\Plugin\\Exception\\RuntimeException": {
 
     },
-    "Molajo\\Plugin\\Exception\\UpdateEventException": {
+    "Molajo\\Plugin\\Exception\\RuntimeException": {
 
     },
     "Molajo\\Plugin\\Extensioninstance\\ExtensioninstancePlugin": {
@@ -13041,28 +13041,28 @@
             "getQueryString"
         ]
     },
-    "Molajo\\Model\\Exception\\CreateModelException": {
+    "Molajo\\Model\\Exception\\CreateRuntimeException": {
 
     },
-    "Molajo\\Model\\Exception\\DeleteModelException": {
+    "Molajo\\Model\\Exception\\DeleteRuntimeException": {
 
     },
-    "Molajo\\Model\\Exception\\DisplayModelException": {
+    "Molajo\\Model\\Exception\\DisplayRuntimeException": {
 
     },
-    "Molajo\\Model\\Exception\\LoginModelException": {
+    "Molajo\\Model\\Exception\\LoginRuntimeException": {
 
     },
-    "Molajo\\Model\\Exception\\LogoutModelException": {
+    "Molajo\\Model\\Exception\\LogoutRuntimeException": {
 
     },
-    "Molajo\\Model\\Exception\\ModelException": {
+    "Molajo\\Model\\Exception\\RuntimeException": {
 
     },
-    "Molajo\\Model\\Exception\\ReadModelException": {
+    "Molajo\\Model\\Exception\\ReadRuntimeException": {
 
     },
-    "Molajo\\Model\\Exception\\UpdateModelException": {
+    "Molajo\\Model\\Exception\\UpdateRuntimeException": {
 
     },
     "Molajo\\Model\\Model": {
@@ -14403,18 +14403,18 @@
         "method": [
             "__construct",
             "setDependencies",
-            "processFulfilledDependencies",
+            "onBeforeInstantiation",
             "getServiceName",
             "getServiceNamespace",
             "getServiceOptions",
             "getStoreInstanceIndicator",
             "instantiateService",
             "instantiateStatic",
-            "performAfterInstantiationLogic",
+            "onAfterInstantiation",
             "getServiceInstance",
             "setService",
             "removeService",
-            "scheduleNextService"
+            "scheduleServices"
         ]
     },
     "Molajo\\Service\\Authorisation\\AuthorisationInjector": {
@@ -14448,7 +14448,7 @@
         "method": [
             "__construct",
             "setDependencies",
-            "processFulfilledDependencies",
+            "onBeforeInstantiation",
             "instantiateService",
             "getTaskToAction",
             "getTaskToController",
@@ -14457,11 +14457,11 @@
             "getServiceOptions",
             "getStoreInstanceIndicator",
             "instantiateStatic",
-            "performAfterInstantiationLogic",
+            "onAfterInstantiation",
             "getServiceInstance",
             "setService",
             "removeService",
-            "scheduleNextService"
+            "scheduleServices"
         ]
     },
     "Molajo\\Service\\Cache\\CacheInjector": {
@@ -14500,13 +14500,13 @@
             "getServiceNamespace",
             "getServiceOptions",
             "getStoreInstanceIndicator",
-            "processFulfilledDependencies",
+            "onBeforeInstantiation",
             "instantiateStatic",
-            "performAfterInstantiationLogic",
+            "onAfterInstantiation",
             "getServiceInstance",
             "setService",
             "removeService",
-            "scheduleNextService"
+            "scheduleServices"
         ]
     },
     "Molajo\\Service\\Cachemodel\\CachemodelInjector": {
@@ -14545,13 +14545,13 @@
             "getServiceOptions",
             "getStoreInstanceIndicator",
             "setDependencies",
-            "processFulfilledDependencies",
+            "onBeforeInstantiation",
             "instantiateStatic",
-            "performAfterInstantiationLogic",
+            "onAfterInstantiation",
             "getServiceInstance",
             "setService",
             "removeService",
-            "scheduleNextService"
+            "scheduleServices"
         ]
     },
     "Molajo\\Service\\Cachepage\\CachepageInjector": {
@@ -14590,13 +14590,13 @@
             "getServiceOptions",
             "getStoreInstanceIndicator",
             "setDependencies",
-            "processFulfilledDependencies",
+            "onBeforeInstantiation",
             "instantiateStatic",
-            "performAfterInstantiationLogic",
+            "onAfterInstantiation",
             "getServiceInstance",
             "setService",
             "removeService",
-            "scheduleNextService"
+            "scheduleServices"
         ]
     },
     "Molajo\\Service\\Cachequery\\CachequeryInjector": {
@@ -14635,13 +14635,13 @@
             "getServiceOptions",
             "getStoreInstanceIndicator",
             "setDependencies",
-            "processFulfilledDependencies",
+            "onBeforeInstantiation",
             "instantiateStatic",
-            "performAfterInstantiationLogic",
+            "onAfterInstantiation",
             "getServiceInstance",
             "setService",
             "removeService",
-            "scheduleNextService"
+            "scheduleServices"
         ]
     },
     "Molajo\\Service\\Cachetemplate\\CachetemplateInjector": {
@@ -14680,13 +14680,13 @@
             "getServiceOptions",
             "getStoreInstanceIndicator",
             "setDependencies",
-            "processFulfilledDependencies",
+            "onBeforeInstantiation",
             "instantiateStatic",
-            "performAfterInstantiationLogic",
+            "onAfterInstantiation",
             "getServiceInstance",
             "setService",
             "removeService",
-            "scheduleNextService"
+            "scheduleServices"
         ]
     },
     "Molajo\\Service\\Customfields\\CustomfieldsInjector": {
@@ -14724,14 +14724,14 @@
             "getServiceOptions",
             "getStoreInstanceIndicator",
             "setDependencies",
-            "processFulfilledDependencies",
+            "onBeforeInstantiation",
             "instantiateService",
             "instantiateStatic",
-            "performAfterInstantiationLogic",
+            "onAfterInstantiation",
             "getServiceInstance",
             "setService",
             "removeService",
-            "scheduleNextService"
+            "scheduleServices"
         ]
     },
     "Molajo\\Service\\Database\\DatabaseInjector": {
@@ -14770,13 +14770,13 @@
             "getServiceNamespace",
             "getServiceOptions",
             "getStoreInstanceIndicator",
-            "processFulfilledDependencies",
+            "onBeforeInstantiation",
             "instantiateStatic",
-            "performAfterInstantiationLogic",
+            "onAfterInstantiation",
             "getServiceInstance",
             "setService",
             "removeService",
-            "scheduleNextService"
+            "scheduleServices"
         ]
     },
     "Molajo\\Service\\Date\\DateInjector": {
@@ -14815,13 +14815,13 @@
             "getServiceNamespace",
             "getServiceOptions",
             "getStoreInstanceIndicator",
-            "processFulfilledDependencies",
+            "onBeforeInstantiation",
             "instantiateStatic",
-            "performAfterInstantiationLogic",
+            "onAfterInstantiation",
             "getServiceInstance",
             "setService",
             "removeService",
-            "scheduleNextService"
+            "scheduleServices"
         ]
     },
     "Molajo\\Service\\Dispatcher\\DispatcherInjector": {
@@ -14860,13 +14860,13 @@
             "getServiceNamespace",
             "getServiceOptions",
             "getStoreInstanceIndicator",
-            "processFulfilledDependencies",
+            "onBeforeInstantiation",
             "instantiateStatic",
-            "performAfterInstantiationLogic",
+            "onAfterInstantiation",
             "getServiceInstance",
             "setService",
             "removeService",
-            "scheduleNextService"
+            "scheduleServices"
         ]
     },
     "Molajo\\Service\\Email\\EmailInjector": {
@@ -14900,18 +14900,18 @@
         "method": [
             "__construct",
             "setDependencies",
-            "processFulfilledDependencies",
+            "onBeforeInstantiation",
             "instantiateService",
             "getServiceName",
             "getServiceNamespace",
             "getServiceOptions",
             "getStoreInstanceIndicator",
             "instantiateStatic",
-            "performAfterInstantiationLogic",
+            "onAfterInstantiation",
             "getServiceInstance",
             "setService",
             "removeService",
-            "scheduleNextService"
+            "scheduleServices"
         ]
     },
     "Molajo\\Service\\Errorhandling\\ErrorhandlingInjector": {
@@ -14945,18 +14945,18 @@
         "method": [
             "__construct",
             "setDependencies",
-            "processFulfilledDependencies",
+            "onBeforeInstantiation",
             "getServiceName",
             "getServiceNamespace",
             "getServiceOptions",
             "getStoreInstanceIndicator",
             "instantiateService",
             "instantiateStatic",
-            "performAfterInstantiationLogic",
+            "onAfterInstantiation",
             "getServiceInstance",
             "setService",
             "removeService",
-            "scheduleNextService"
+            "scheduleServices"
         ]
     },
     "Molajo\\Service\\Event\\EventInjector": {
@@ -14995,13 +14995,13 @@
             "getServiceNamespace",
             "getServiceOptions",
             "getStoreInstanceIndicator",
-            "processFulfilledDependencies",
+            "onBeforeInstantiation",
             "instantiateStatic",
-            "performAfterInstantiationLogic",
+            "onAfterInstantiation",
             "getServiceInstance",
             "setService",
             "removeService",
-            "scheduleNextService"
+            "scheduleServices"
         ]
     },
     "Molajo\\Service\\Exceptionhandling\\ExceptionhandlingInjector": {
@@ -15040,13 +15040,13 @@
             "getServiceOptions",
             "getStoreInstanceIndicator",
             "setDependencies",
-            "processFulfilledDependencies",
+            "onBeforeInstantiation",
             "instantiateStatic",
-            "performAfterInstantiationLogic",
+            "onAfterInstantiation",
             "getServiceInstance",
             "setService",
             "removeService",
-            "scheduleNextService"
+            "scheduleServices"
         ]
     },
     "Molajo\\Service\\Extensions\\ExtensionsInjector": {
@@ -15080,18 +15080,18 @@
         "method": [
             "__construct",
             "setDependencies",
-            "processFulfilledDependencies",
+            "onBeforeInstantiation",
             "instantiateService",
             "getServiceName",
             "getServiceNamespace",
             "getServiceOptions",
             "getStoreInstanceIndicator",
             "instantiateStatic",
-            "performAfterInstantiationLogic",
+            "onAfterInstantiation",
             "getServiceInstance",
             "setService",
             "removeService",
-            "scheduleNextService"
+            "scheduleServices"
         ]
     },
     "Molajo\\Service\\Filesystem\\FilesystemInjector": {
@@ -15130,13 +15130,13 @@
             "getServiceOptions",
             "getStoreInstanceIndicator",
             "setDependencies",
-            "processFulfilledDependencies",
+            "onBeforeInstantiation",
             "instantiateStatic",
-            "performAfterInstantiationLogic",
+            "onAfterInstantiation",
             "getServiceInstance",
             "setService",
             "removeService",
-            "scheduleNextService"
+            "scheduleServices"
         ]
     },
     "Molajo\\Service\\Fileupload\\FileuploadInjector": {
@@ -15175,13 +15175,13 @@
             "getServiceNamespace",
             "getServiceOptions",
             "getStoreInstanceIndicator",
-            "processFulfilledDependencies",
+            "onBeforeInstantiation",
             "instantiateStatic",
-            "performAfterInstantiationLogic",
+            "onAfterInstantiation",
             "getServiceInstance",
             "setService",
             "removeService",
-            "scheduleNextService"
+            "scheduleServices"
         ]
     },
     "Molajo\\Service\\Image\\ImageInjector": {
@@ -15220,13 +15220,13 @@
             "getServiceNamespace",
             "getServiceOptions",
             "getStoreInstanceIndicator",
-            "processFulfilledDependencies",
+            "onBeforeInstantiation",
             "instantiateStatic",
-            "performAfterInstantiationLogic",
+            "onAfterInstantiation",
             "getServiceInstance",
             "setService",
             "removeService",
-            "scheduleNextService"
+            "scheduleServices"
         ]
     },
     "Molajo\\Service\\Language\\LanguageServiceProvider": {
@@ -15262,14 +15262,14 @@
             "setDependencies",
             "instantiateService",
             "instantiateDatabaseHandler",
-            "scheduleNextService",
+            "scheduleServices",
             "getServiceName",
             "getServiceNamespace",
             "getServiceOptions",
             "getStoreInstanceIndicator",
-            "processFulfilledDependencies",
+            "onBeforeInstantiation",
             "instantiateStatic",
-            "performAfterInstantiationLogic",
+            "onAfterInstantiation",
             "getServiceInstance",
             "setService",
             "removeService"
@@ -15321,13 +15321,13 @@
             "getServiceNamespace",
             "getServiceOptions",
             "getStoreInstanceIndicator",
-            "processFulfilledDependencies",
+            "onBeforeInstantiation",
             "instantiateStatic",
-            "performAfterInstantiationLogic",
+            "onAfterInstantiation",
             "getServiceInstance",
             "setService",
             "removeService",
-            "scheduleNextService"
+            "scheduleServices"
         ]
     },
     "Molajo\\Service\\Registration\\RegistrationInjector": {
@@ -15365,14 +15365,14 @@
             "getServiceOptions",
             "getStoreInstanceIndicator",
             "setDependencies",
-            "processFulfilledDependencies",
+            "onBeforeInstantiation",
             "instantiateService",
             "instantiateStatic",
-            "performAfterInstantiationLogic",
+            "onAfterInstantiation",
             "getServiceInstance",
             "setService",
             "removeService",
-            "scheduleNextService"
+            "scheduleServices"
         ]
     },
     "Molajo\\Service\\Render\\RenderInjector": {
@@ -15411,13 +15411,13 @@
             "getServiceOptions",
             "getStoreInstanceIndicator",
             "setDependencies",
-            "processFulfilledDependencies",
+            "onBeforeInstantiation",
             "instantiateStatic",
-            "performAfterInstantiationLogic",
+            "onAfterInstantiation",
             "getServiceInstance",
             "setService",
             "removeService",
-            "scheduleNextService"
+            "scheduleServices"
         ]
     },
     "Molajo\\Service\\Resource\\ResourceInjector": {
@@ -15456,13 +15456,13 @@
             "getServiceOptions",
             "getStoreInstanceIndicator",
             "setDependencies",
-            "processFulfilledDependencies",
+            "onBeforeInstantiation",
             "instantiateStatic",
-            "performAfterInstantiationLogic",
+            "onAfterInstantiation",
             "getServiceInstance",
             "setService",
             "removeService",
-            "scheduleNextService"
+            "scheduleServices"
         ]
     },
     "Molajo\\Service\\Resource\\ResourceInjector": {
@@ -15496,10 +15496,10 @@
         "method": [
             "__construct",
             "setDependencies",
-            "processFulfilledDependencies",
+            "onBeforeInstantiation",
             "instantiateService",
-            "performAfterInstantiationLogic",
-            "scheduleNextService",
+            "onAfterInstantiation",
+            "scheduleServices",
             "getServiceName",
             "getServiceNamespace",
             "getServiceOptions",
@@ -15541,8 +15541,8 @@
         "method": [
             "__construct",
             "setDependencies",
-            "processFulfilledDependencies",
-            "performAfterInstantiationLogic",
+            "onBeforeInstantiation",
+            "onAfterInstantiation",
             "getServiceName",
             "getServiceNamespace",
             "getServiceOptions",
@@ -15552,7 +15552,7 @@
             "getServiceInstance",
             "setService",
             "removeService",
-            "scheduleNextService"
+            "scheduleServices"
         ]
     },
     "Molajo\\Service\\Resourcecssdeclarations\\ResourcecssdeclarationsInjector": {
@@ -15586,8 +15586,8 @@
         "method": [
             "__construct",
             "setDependencies",
-            "processFulfilledDependencies",
-            "performAfterInstantiationLogic",
+            "onBeforeInstantiation",
+            "onAfterInstantiation",
             "getServiceName",
             "getServiceNamespace",
             "getServiceOptions",
@@ -15597,7 +15597,7 @@
             "getServiceInstance",
             "setService",
             "removeService",
-            "scheduleNextService"
+            "scheduleServices"
         ]
     },
     "Molajo\\Service\\Resourcedata\\ResourcedataInjector": {
@@ -15632,15 +15632,15 @@
             "__construct",
             "setDependencies",
             "instantiateService",
-            "performAfterInstantiationLogic",
+            "onAfterInstantiation",
             "setService",
-            "scheduleNextService",
+            "scheduleServices",
             "createXmlHandler",
             "getServiceName",
             "getServiceNamespace",
             "getServiceOptions",
             "getStoreInstanceIndicator",
-            "processFulfilledDependencies",
+            "onBeforeInstantiation",
             "instantiateStatic",
             "getServiceInstance",
             "removeService"
@@ -15677,8 +15677,8 @@
         "method": [
             "__construct",
             "setDependencies",
-            "processFulfilledDependencies",
-            "performAfterInstantiationLogic",
+            "onBeforeInstantiation",
+            "onAfterInstantiation",
             "getServiceName",
             "getServiceNamespace",
             "getServiceOptions",
@@ -15688,7 +15688,7 @@
             "getServiceInstance",
             "setService",
             "removeService",
-            "scheduleNextService"
+            "scheduleServices"
         ]
     },
     "Molajo\\Service\\Resourcejsdeclarations\\ResourcejsdeclarationsInjector": {
@@ -15722,8 +15722,8 @@
         "method": [
             "__construct",
             "setDependencies",
-            "processFulfilledDependencies",
-            "performAfterInstantiationLogic",
+            "onBeforeInstantiation",
+            "onAfterInstantiation",
             "getServiceName",
             "getServiceNamespace",
             "getServiceOptions",
@@ -15733,7 +15733,7 @@
             "getServiceInstance",
             "setService",
             "removeService",
-            "scheduleNextService"
+            "scheduleServices"
         ]
     },
     "Molajo\\Service\\Resourcequery\\ResourcequeryInjector": {
@@ -15767,8 +15767,8 @@
         "method": [
             "__construct",
             "setDependencies",
-            "processFulfilledDependencies",
-            "performAfterInstantiationLogic",
+            "onBeforeInstantiation",
+            "onAfterInstantiation",
             "getServiceName",
             "getServiceNamespace",
             "getServiceOptions",
@@ -15778,7 +15778,7 @@
             "getServiceInstance",
             "setService",
             "removeService",
-            "scheduleNextService"
+            "scheduleServices"
         ]
     },
     "Molajo\\Service\\Resourcerendering\\ResourcerenderingInjector": {
@@ -15812,18 +15812,18 @@
         "method": [
             "__construct",
             "setDependencies",
-            "processFulfilledDependencies",
+            "onBeforeInstantiation",
             "getServiceName",
             "getServiceNamespace",
             "getServiceOptions",
             "getStoreInstanceIndicator",
             "instantiateService",
             "instantiateStatic",
-            "performAfterInstantiationLogic",
+            "onAfterInstantiation",
             "getServiceInstance",
             "setService",
             "removeService",
-            "scheduleNextService"
+            "scheduleServices"
         ]
     },
     "Molajo\\Service\\Response\\ResponseInjector": {
@@ -15861,14 +15861,14 @@
             "getServiceOptions",
             "getStoreInstanceIndicator",
             "setDependencies",
-            "processFulfilledDependencies",
+            "onBeforeInstantiation",
             "instantiateService",
             "instantiateStatic",
-            "performAfterInstantiationLogic",
+            "onAfterInstantiation",
             "getServiceInstance",
             "setService",
             "removeService",
-            "scheduleNextService"
+            "scheduleServices"
         ]
     },
     "Molajo\\Service\\Route\\RouteInjector": {
@@ -15902,7 +15902,7 @@
         "method": [
             "__construct",
             "setDependencies",
-            "processFulfilledDependencies",
+            "onBeforeInstantiation",
             "instantiateService",
             "getApplicationFilters",
             "getServiceName",
@@ -15910,11 +15910,11 @@
             "getServiceOptions",
             "getStoreInstanceIndicator",
             "instantiateStatic",
-            "performAfterInstantiationLogic",
+            "onAfterInstantiation",
             "getServiceInstance",
             "setService",
             "removeService",
-            "scheduleNextService"
+            "scheduleServices"
         ]
     },
     "Molajo\\Service\\Search\\SearchInjector": {
@@ -15952,14 +15952,14 @@
             "getServiceOptions",
             "getStoreInstanceIndicator",
             "setDependencies",
-            "processFulfilledDependencies",
+            "onBeforeInstantiation",
             "instantiateService",
             "instantiateStatic",
-            "performAfterInstantiationLogic",
+            "onAfterInstantiation",
             "getServiceInstance",
             "setService",
             "removeService",
-            "scheduleNextService"
+            "scheduleServices"
         ]
     },
     "Molajo\\Service\\Site\\SiteInjector": {
@@ -15999,13 +15999,13 @@
             "getServiceNamespace",
             "getServiceOptions",
             "getStoreInstanceIndicator",
-            "processFulfilledDependencies",
+            "onBeforeInstantiation",
             "instantiateStatic",
-            "performAfterInstantiationLogic",
+            "onAfterInstantiation",
             "getServiceInstance",
             "setService",
             "removeService",
-            "scheduleNextService"
+            "scheduleServices"
         ]
     },
     "Molajo\\Service\\Text\\TextInjector": {
@@ -16045,13 +16045,13 @@
             "getServiceNamespace",
             "getServiceOptions",
             "getStoreInstanceIndicator",
-            "processFulfilledDependencies",
+            "onBeforeInstantiation",
             "instantiateStatic",
-            "performAfterInstantiationLogic",
+            "onAfterInstantiation",
             "getServiceInstance",
             "setService",
             "removeService",
-            "scheduleNextService"
+            "scheduleServices"
         ]
     },
     "Molajo\\Service\\Url\\UrlInjector": {
@@ -16090,13 +16090,13 @@
             "getServiceNamespace",
             "getServiceOptions",
             "getStoreInstanceIndicator",
-            "processFulfilledDependencies",
+            "onBeforeInstantiation",
             "instantiateStatic",
-            "performAfterInstantiationLogic",
+            "onAfterInstantiation",
             "getServiceInstance",
             "setService",
             "removeService",
-            "scheduleNextService"
+            "scheduleServices"
         ]
     },
     "Molajo\\Site2\\1\\Logs\\debug": {
@@ -17667,10 +17667,10 @@
             "triggerListeners"
         ]
     },
-    "Molajo\\Event\\Exception\\AuthenticateEventException": {
+    "Molajo\\Event\\Exception\\RuntimeException": {
 
     },
-    "Molajo\\Event\\Exception\\CreateEventException": {
+    "Molajo\\Event\\Exception\\RuntimeException": {
 
     },
     "Molajo\\Event\\Exception\\DeleteEventException": {
@@ -17679,7 +17679,7 @@
     "Molajo\\Event\\Exception\\DispatcherException": {
 
     },
-    "Molajo\\Event\\Exception\\DisplayEventException": {
+    "Molajo\\Event\\Exception\\RuntimeException": {
 
     },
     "Molajo\\Event\\Exception\\EventDataException": {
@@ -17700,7 +17700,7 @@
     "Molajo\\Event\\Exception\\ScheduleException": {
 
     },
-    "Molajo\\Event\\Exception\\UpdateEventException": {
+    "Molajo\\Event\\Exception\\RuntimeException": {
 
     },
     "Molajo\\Fieldhandler\\Adapter": {
@@ -21425,7 +21425,7 @@
                 "concrete": false
             },
             {
-                "name": "handler_folders",
+                "name": "service_provider_folders",
                 "default_available": true,
                 "default_value": [
 
@@ -21441,7 +21441,7 @@
                 "is_instantiable": false
             }
         ],
-        "constructor_docComment": "\/**\n     * Constructor\n     *\n     * @param  ContainerInterface $container\n     * @param  array                 $handler_folders\n     * @param  string                $class_dependencies\n     *\n     * @since  1.0\n     *\/",
+        "constructor_docComment": "\/**\n     * Constructor\n     *\n     * @param  ContainerInterface $container\n     * @param  array                 $service_provider_folders\n     * @param  string                $class_dependencies\n     *\n     * @since  1.0\n     *\/",
         "implemented_by": [
 
         ],
@@ -21493,22 +21493,22 @@
             "getServiceOptions",
             "getStoreInstanceIndicator",
             "setDependencies",
-            "processFulfilledDependencies",
+            "onBeforeInstantiation",
             "instantiateService",
             "instantiateStatic",
-            "performAfterInstantiationLogic",
+            "onAfterInstantiation",
             "getServiceInstance",
             "setService",
             "removeService",
-            "scheduleNextService"
+            "scheduleServices"
         ]
     },
     "Molajo\\IoC\\StandardServiceProvider": {
-        "name": "StandardInjector",
+        "name": "StandardServiceProvider",
         "namespace": "Molajo\\IoC\\Handler",
         "fqns": "Molajo\\IoC\\StandardServiceProvider",
-        "file_name": "\/Users\/amystephen\/Sites\/Standard\/Vendor\/Molajo\/IoC\/Handler\/StandardInjector.php",
-        "path": "Vendor\/Molajo\/IoC\/Handler\/StandardInjector.php",
+        "file_name": "\/Users\/amystephen\/Sites\/Standard\/Vendor\/Molajo\/IoC\/Handler\/StandardServiceProvider.php",
+        "path": "Vendor\/Molajo\/IoC\/Handler\/StandardServiceProvider.php",
         "parent": "Molajo\\IoC\\Handler\\AbstractServiceProvider",
         "implemented_interfaces": [
             "CommonApi\\IoC\\ServiceProviderInterface"
@@ -21538,25 +21538,25 @@
             "getServiceOptions",
             "getStoreInstanceIndicator",
             "setDependencies",
-            "processFulfilledDependencies",
+            "onBeforeInstantiation",
             "instantiateService",
             "instantiateStatic",
-            "performAfterInstantiationLogic",
+            "onAfterInstantiation",
             "getServiceInstance",
             "setService",
             "removeService",
-            "scheduleNextService"
+            "scheduleServices"
         ]
     },
-    "Molajo\\IoC\\ServiceItemAdapter": {
-        "name": "ServiceItemAdapter",
+    "Molajo\\IoC\\ServiceProviderAdapter": {
+        "name": "ServiceProviderAdapter",
         "namespace": "Molajo\\IoC",
-        "fqns": "Molajo\\IoC\\ServiceItemAdapter",
-        "file_name": "\/Users\/amystephen\/Sites\/Standard\/Vendor\/Molajo\/IoC\/ServiceItemAdapter.php",
-        "path": "Vendor\/Molajo\/IoC\/ServiceItemAdapter.php",
+        "fqns": "Molajo\\IoC\\ServiceProviderAdapter",
+        "file_name": "\/Users\/amystephen\/Sites\/Standard\/Vendor\/Molajo\/IoC\/ServiceProviderAdapter.php",
+        "path": "Vendor\/Molajo\/IoC\/ServiceProviderAdapter.php",
         "parent": false,
         "implemented_interfaces": [
-            "CommonApi\\IoC\\ServiceItemInterface"
+            "CommonApi\\IoC\\ServiceProviderAdapterInterface"
         ],
         "constructor_parameters": [
             {
@@ -21627,13 +21627,13 @@
             "removeDependency",
             "setDependencyInstance",
             "getRemainingDependencyCount",
-            "processFulfilledDependencies",
+            "onBeforeInstantiation",
             "instantiateService",
-            "performAfterInstantiationLogic",
+            "onAfterInstantiation",
             "getServiceInstance",
             "setService",
             "removeService",
-            "scheduleNextService"
+            "scheduleServices"
         ]
     },
     "Molajo\\Language\\Adapter": {
@@ -21693,7 +21693,7 @@
     "Molajo\\Language\\Exception\\LanguageException": {
 
     },
-    "Molajo\\Language\\Exception\\LanguageModelException": {
+    "Molajo\\Language\\Exception\\LanguageRuntimeException": {
 
     },
     "Molajo\\Language\\Handler\\AbstractHandler": {
@@ -22098,7 +22098,7 @@
     "Molajo\\Render\\Exception\\RenderException": {
 
     },
-    "Molajo\\Render\\Exception\\RenderModelException": {
+    "Molajo\\Render\\Exception\\RenderRuntimeException": {
 
     },
     "Molajo\\Render\\Handler\\AbstractHandler": {
@@ -22485,10 +22485,10 @@
             "readFile"
         ]
     },
-    "Molajo\\Resource\\Exception\\ConfigurationException": {
+    "Molajo\\Resource\\Exception\\RuntimeException": {
 
     },
-    "Molajo\\Resource\\Exception\\RegistryException": {
+    "Molajo\\Resource\\Exception\\RuntimeException": {
 
     },
     "Molajo\\Resource\\Exception\\ResourceException": {
@@ -23343,7 +23343,7 @@
     "Molajo\\Route\\Exception\\RouteException": {
 
     },
-    "Molajo\\Route\\Exception\\RouteModelException": {
+    "Molajo\\Route\\Exception\\RouteRuntimeException": {
 
     },
     "Molajo\\Route\\Handler\\AbstractHandler": {

@@ -287,8 +287,8 @@
     "commonapi\\ioc\\ServiceProviderInterface": [
         "\/Users\/amystephen\/Sites\/Standard\/Vendor\/commonapi\/ioc\/ServiceProviderInterface.php"
     ],
-    "commonapi\\ioc\\serviceiteminterface": [
-        "\/Users\/amystephen\/Sites\/Standard\/Vendor\/commonapi\/ioc\/ServiceItemInterface.php"
+    "commonapi\\ioc\\ServiceProviderAdapterInterface": [
+        "\/Users\/amystephen\/Sites\/Standard\/Vendor\/commonapi\/ioc\/ServiceProviderAdapterInterface.php"
     ],
     "commonapi\\language": [
         "\/Users\/amystephen\/Sites\/Standard\/Vendor\/commonapi\/language\/"
@@ -3665,8 +3665,8 @@
     "molajo\\ioc\\handler\\AbstractServiceProvider": [
         "\/Users\/amystephen\/Sites\/Standard\/Vendor\/Molajo\/IoC\/Handler\/AbstractServiceProvider.php"
     ],
-    "molajo\\ioc\\handler\\standardinjector": [
-        "\/Users\/amystephen\/Sites\/Standard\/Vendor\/Molajo\/IoC\/Handler\/StandardInjector.php"
+    "molajo\\ioc\\handler\\StandardServiceProvider": [
+        "\/Users\/amystephen\/Sites\/Standard\/Vendor\/Molajo\/IoC\/Handler\/StandardServiceProvider.php"
     ],
     "molajo\\ioc\\license": [
         "\/Users\/amystephen\/Sites\/Standard\/Vendor\/Molajo\/IoC\/LICENSE"
@@ -3675,7 +3675,7 @@
         "\/Users\/amystephen\/Sites\/Standard\/Vendor\/Molajo\/IoC\/README.md"
     ],
     "molajo\\ioc\\serviceitemadapter": [
-        "\/Users\/amystephen\/Sites\/Standard\/Vendor\/Molajo\/IoC\/ServiceItemAdapter.php"
+        "\/Users\/amystephen\/Sites\/Standard\/Vendor\/Molajo\/IoC\/ServiceProviderAdapter.php"
     ],
     "molajo\\language": [
         "\/Users\/amystephen\/Sites\/Standard\/Vendor\/Molajo\/Language\/"

@@ -289,7 +289,7 @@ class ResourcedataServiceProvider extends AbstractServiceProvider implements Ser
      * @since   1.0
      * @throws  \CommonApi\Exception\RuntimeException;
      */
-    public function performAfterInstantiationLogic()
+    public function onAfterInstantiation()
     {
         $dataObjectHandler = $this->createDataobjectHandler();
         $modelHandler      = $this->createModelHandler();
@@ -316,7 +316,7 @@ class ResourcedataServiceProvider extends AbstractServiceProvider implements Ser
      * @return  $this
      * @since   1.0
      */
-    public function scheduleNextService()
+    public function scheduleServices()
     {
         $this->schedule_service                      = array();
         $this->options                               = array();
