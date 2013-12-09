@@ -25,6 +25,8 @@
         "commonapi/resource": "dev-master"
     },
     "autoload": {
-        "classmap": "./"
+        "psr-0": {
+            "Molajo\\Resource": "./"
+        }
     }
 }
