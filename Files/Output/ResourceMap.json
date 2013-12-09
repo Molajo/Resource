@@ -1130,8 +1130,8 @@
     "molajo\\controller\\numbertotext\\exception": [
         "\/Users\/amystephen\/Sites\/Standard\/Vendor\/Molajo\/NumberToText\/Exception"
     ],
-    "molajo\\controller\\numbertotext\\exception\\numbertotextexception": [
-        "\/Users\/amystephen\/Sites\/Standard\/Vendor\/Molajo\/NumberToText\/Exception\/NumberToTextException.php"
+    "molajo\\controller\\numbertotext\\exception\\RuntimeException": [
+        "\/Users\/amystephen\/Sites\/Standard\/Vendor\/Molajo\/NumberToText\/Exception\/RuntimeException.php"
     ],
     "molajo\\controller\\numbertotext\\mit-license.txt": [
         "\/Users\/amystephen\/Sites\/Standard\/Vendor\/Molajo\/NumberToText\/MIT-LICENSE.txt"

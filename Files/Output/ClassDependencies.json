@@ -4966,25 +4966,25 @@
     "Molajo\\Plugin\\Exception\\RuntimeException": {
 
     },
-    "Molajo\\Plugin\\Exception\\DeleteEventException": {
-
-    },
-    "Molajo\\Plugin\\Exception\\DispatcherException": {
+    "Molajo\\Plugin\\Exception\\RuntimeException": {
 
     },
     "Molajo\\Plugin\\Exception\\RuntimeException": {
 
     },
-    "Molajo\\Plugin\\Exception\\EventDispatcherException": {
-
-    },
-    "Molajo\\Plugin\\Exception\\EventException": {
+    "Molajo\\Plugin\\Exception\\RuntimeException": {
 
     },
     "Molajo\\Plugin\\Exception\\RuntimeException": {
 
     },
-    "Molajo\\Plugin\\Exception\\ReadEventException": {
+    "Molajo\\Plugin\\Exception\\RuntimeException": {
+
+    },
+    "Molajo\\Plugin\\Exception\\RuntimeException": {
+
+    },
+    "Molajo\\Plugin\\Exception\\RuntimeException": {
 
     },
     "Molajo\\Plugin\\Exception\\RuntimeException": {
@@ -13059,7 +13059,7 @@
     "Molajo\\Model\\Exception\\RuntimeException": {
 
     },
-    "Molajo\\Model\\Exception\\ReadRuntimeException": {
+    "Molajo\\Model\\Exception\\RuntimeException": {
 
     },
     "Molajo\\Model\\Exception\\UpdateRuntimeException": {
@@ -16427,7 +16427,7 @@
     "Molajo\\Cache\\Exception\\AbstractHandlerException": {
 
     },
-    "Molajo\\Cache\\Exception\\AdapterException": {
+    "Molajo\\Cache\\Exception\\RuntimeException": {
 
     },
     "Molajo\\Cache\\Exception\\ApcHandlerException": {
@@ -16923,7 +16923,7 @@
     "Molajo\\Database\\Exception\\AbstractHandlerException": {
 
     },
-    "Molajo\\Database\\Exception\\AdapterException": {
+    "Molajo\\Database\\Exception\\RuntimeException": {
 
     },
     "Molajo\\Database\\Exception\\ConnectionException": {
@@ -17081,7 +17081,7 @@
     "Molajo\\Email\\Exception\\AbstractHandlerException": {
 
     },
-    "Molajo\\Email\\Exception\\AdapterException": {
+    "Molajo\\Email\\Exception\\RuntimeException": {
 
     },
     "Molajo\\Email\\Exception\\ConnectionException": {
@@ -17673,28 +17673,28 @@
     "Molajo\\Event\\Exception\\RuntimeException": {
 
     },
-    "Molajo\\Event\\Exception\\DeleteEventException": {
-
-    },
-    "Molajo\\Event\\Exception\\DispatcherException": {
+    "Molajo\\Event\\Exception\\RuntimeException": {
 
     },
     "Molajo\\Event\\Exception\\RuntimeException": {
 
     },
-    "Molajo\\Event\\Exception\\EventDataException": {
+    "Molajo\\Event\\Exception\\RuntimeException": {
 
     },
-    "Molajo\\Event\\Exception\\EventDispatcherException": {
+    "Molajo\\Event\\Exception\\RuntimeException": {
 
     },
-    "Molajo\\Event\\Exception\\EventException": {
+    "Molajo\\Event\\Exception\\RuntimeException": {
+
+    },
+    "Molajo\\Event\\Exception\\RuntimeException": {
 
     },
     "Molajo\\Event\\Exception\\EventListenerException": {
 
     },
-    "Molajo\\Event\\Exception\\ReadEventException": {
+    "Molajo\\Event\\Exception\\RuntimeException": {
 
     },
     "Molajo\\Event\\Exception\\ScheduleException": {
@@ -20859,7 +20859,7 @@
     "Molajo\\Filesystem\\Exception\\AbstractHandlerException": {
 
     },
-    "Molajo\\Filesystem\\Exception\\AdapterException": {
+    "Molajo\\Filesystem\\Exception\\RuntimeException": {
 
     },
     "Molajo\\Filesystem\\Exception\\ConnectionException": {
@@ -21687,10 +21687,10 @@
     "Molajo\\Language\\Api\\LanguageInterface": {
 
     },
-    "Molajo\\Language\\Exception\\AdapterException": {
+    "Molajo\\Language\\Exception\\RuntimeException": {
 
     },
-    "Molajo\\Language\\Exception\\LanguageException": {
+    "Molajo\\Language\\Exception\\RuntimeException": {
 
     },
     "Molajo\\Language\\Exception\\LanguageRuntimeException": {
@@ -21969,12 +21969,12 @@
             "convert"
         ]
     },
-    "Molajo\\Controller\\NumberToText\\Exception\\NumberToTextException": {
-        "name": "NumberToTextException",
+    "Molajo\\Controller\\NumberToText\\Exception\\RuntimeException": {
+        "name": "RuntimeException",
         "namespace": "Molajo\\Controller\\NumberToText\\Exception",
-        "fqns": "Molajo\\Controller\\NumberToText\\Exception\\NumberToTextException",
-        "file_name": "\/Users\/amystephen\/Sites\/Standard\/Vendor\/Molajo\/NumberToText\/Exception\/NumberToTextException.php",
-        "path": "Vendor\/Molajo\/NumberToText\/Exception\/NumberToTextException.php",
+        "fqns": "Molajo\\Controller\\NumberToText\\Exception\\RuntimeException",
+        "file_name": "\/Users\/amystephen\/Sites\/Standard\/Vendor\/Molajo\/NumberToText\/Exception\/RuntimeException.php",
+        "path": "Vendor\/Molajo\/NumberToText\/Exception\/RuntimeException.php",
         "parent": "Exception",
         "implemented_interfaces": [
             "CommonApi\\NumberToText\\ExceptionInterface"
@@ -22092,10 +22092,10 @@
     "Molajo\\Render\\Api\\RenderInterface": {
 
     },
-    "Molajo\\Render\\Exception\\AdapterException": {
+    "Molajo\\Render\\Exception\\RuntimeException": {
 
     },
-    "Molajo\\Render\\Exception\\RenderException": {
+    "Molajo\\Render\\Exception\\RuntimeException": {
 
     },
     "Molajo\\Render\\Exception\\RenderRuntimeException": {
@@ -23337,10 +23337,10 @@
     "Molajo\\Route\\Api\\RouteInterface": {
 
     },
-    "Molajo\\Route\\Exception\\AdapterException": {
+    "Molajo\\Route\\Exception\\RuntimeException": {
 
     },
-    "Molajo\\Route\\Exception\\RouteException": {
+    "Molajo\\Route\\Exception\\RuntimeException": {
 
     },
     "Molajo\\Route\\Exception\\RouteRuntimeException": {
@@ -23683,22 +23683,22 @@
             "logout"
         ]
     },
-    "Molajo\\User\\Exception\\ActivityException": {
+    "Molajo\\User\\Exception\\RuntimeException": {
 
     },
-    "Molajo\\User\\Exception\\AuthenticationException": {
+    "Molajo\\User\\Exception\\RuntimeException": {
 
     },
-    "Molajo\\User\\Exception\\AuthenticationUserException": {
+    "Molajo\\User\\Exception\\RuntimeException": {
 
     },
-    "Molajo\\User\\Exception\\AuthorisationException": {
+    "Molajo\\User\\Exception\\RuntimeException": {
 
     },
-    "Molajo\\User\\Exception\\CookieException": {
+    "Molajo\\User\\Exception\\RuntimeException": {
 
     },
-    "Molajo\\User\\Exception\\DataException": {
+    "Molajo\\User\\Exception\\RuntimeException": {
 
     },
     "Molajo\\User\\Exception\\EncryptException": {
@@ -23722,7 +23722,7 @@
     "Molajo\\User\\Exception\\RegistrationException": {
 
     },
-    "Molajo\\User\\Exception\\SessionException": {
+    "Molajo\\User\\Exception\\RuntimeException": {
 
     },
     "Molajo\\User\\Exception\\SystemException": {

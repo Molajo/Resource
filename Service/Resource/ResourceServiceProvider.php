@@ -60,7 +60,7 @@ class ResourceServiceProvider extends AbstractServiceProvider implements Service
 
         $handler_instance = array();
 
-        $resource_map = $this->readFile(BASE_FOLDER . '/Vendor/Molajo/Resource/Files/Output/ResourceMap.json');
+        $resource_map = $this->readFile(BASE_FOLDER . '/vendor/molajo/resource/Files/Output/ResourceMap.json');
 
         /**
          * NOTE:
@@ -220,7 +220,7 @@ class ResourceServiceProvider extends AbstractServiceProvider implements Service
     {
         $class = 'Molajo\\Resource\\Scheme';
 
-        $input = BASE_FOLDER . '/Vendor/Molajo/Resource/Files/Input/SchemeArray.json';
+        $input = BASE_FOLDER . '/vendor/molajo/resource/Files/Input/SchemeArray.json';
 
         try {
             $scheme = new $class ($input);

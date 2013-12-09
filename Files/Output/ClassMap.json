@@ -1469,11 +1469,11 @@
         "path": "Vendor\/Molajo\/NumberToText\/Controller.php",
         "fqns": "Molajo\\Controller\\NumberToText\\Controller"
     },
-    "Vendor\/Molajo\/NumberToText\/Exception\/NumberToTextException.php": {
-        "file_name": "NumberToTextException.php",
-        "base_name": "NumberToTextException",
-        "path": "Vendor\/Molajo\/NumberToText\/Exception\/NumberToTextException.php",
-        "fqns": "Molajo\\Controller\\NumberToText\\Exception\\NumberToTextException"
+    "Vendor\/Molajo\/NumberToText\/Exception\/RuntimeException.php": {
+        "file_name": "RuntimeException.php",
+        "base_name": "RuntimeException",
+        "path": "Vendor\/Molajo\/NumberToText\/Exception\/RuntimeException.php",
+        "fqns": "Molajo\\Controller\\NumberToText\\Exception\\RuntimeException"
     },
     "Vendor\/Molajo\/NumberToText\/Translations\/Translate.php": {
         "file_name": "Translate.php",
