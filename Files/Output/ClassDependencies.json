@@ -610,7 +610,7 @@
         ],
         "constructor_parameters": [
             {
-                "name": "ioc_controller",
+                "name": "service_provider_controller",
                 "default_available": false,
                 "default_value": null,
                 "instance_of": "CommonApi\\IoC\\ControllerInterface",
@@ -621,7 +621,7 @@
                 "concrete": false
             }
         ],
-        "constructor_docComment": "\/**\n     * Constructor\n     *\n     * @param  ControllerInterface $ioc_controller\n     *\n     * @since  1.0\n     *\/",
+        "constructor_docComment": "\/**\n     * Constructor\n     *\n     * @param  ControllerInterface $service_provider_controller\n     *\n     * @since  1.0\n     *\/",
         "implemented_by": [
 
         ],
