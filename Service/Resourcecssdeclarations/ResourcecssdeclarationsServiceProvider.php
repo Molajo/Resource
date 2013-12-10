@@ -69,7 +69,7 @@ class ResourcecssdeclarationsServiceProvider extends AbstractServiceProvider imp
 
         $this->dependencies['base_path']             = BASE_FOLDER;
         $this->dependencies['resource_map']          = $this->readFile(
-            BASE_FOLDER . '/vendor/molajo/resource/Files/Output/ResourceMap.json'
+            BASE_FOLDER . '/vendor/molajo/resource/Source/Files/Output/ResourceMap.json'
         );
         $this->options['Scheme']                     = $this->createScheme();
         $this->dependencies['namespace_prefixes']    = array();
@@ -103,7 +103,7 @@ class ResourcecssdeclarationsServiceProvider extends AbstractServiceProvider imp
     {
         $class = 'Molajo\\Resource\\Scheme';
 
-        $input = BASE_FOLDER . '/vendor/molajo/resource/Files/Input/SchemeArray.json';
+        $input = BASE_FOLDER . '/vendor/molajo/resource/Source/Files/Input/SchemeArray.json';
 
         try {
             $scheme = new $class ($input);

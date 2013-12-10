@@ -1,0 +1,283 @@
+{
+    "CommonApi\\Authorisation\\AuthorisationInterface": {
+        "name": "AuthorisationInterface",
+        "namespace": "CommonApi\\Authorisation",
+        "fqns": "CommonApi\\Authorisation\\AuthorisationInterface",
+        "path": "Vendor\/commonapi\/authorisation\/AuthorisationInterface.php",
+        "parent": false,
+        "implemented_by": [
+            "Molajo\\Authorisation\\Adapter",
+            "Molajo\\Authorisation\\Handler\\AbstractHandler",
+            "Molajo\\Authorisation\\Handler\\Database"
+        ],
+        "dependency_for": [
+            "Molajo\\Authorisation\\Adapter",
+            "Molajo\\Controller\\Controller",
+            "Molajo\\Controller\\ReadController",
+            "Molajo\\Event\\Event",
+            "Molajo\\Model\\CreateModel",
+            "Molajo\\Model\\DeleteModel",
+            "Molajo\\Model\\Model",
+            "Molajo\\Model\\ReadModel",
+            "Molajo\\Model\\UpdateModel",
+            "Molajo\\Plugin\\AbstractPlugin",
+            "Molajo\\Plugin\\Activity\\ActivityPlugin",
+            "Molajo\\Plugin\\Ajax\\AjaxPlugin",
+            "Molajo\\Plugin\\Alias\\AliasPlugin",
+            "Molajo\\Plugin\\Application\\ApplicationPlugin",
+            "Molajo\\Plugin\\AuthenticateEventPlugin",
+            "Molajo\\Plugin\\Author\\AuthorPlugin",
+            "Molajo\\Plugin\\Blockquote\\BlockquotePlugin",
+            "Molajo\\Plugin\\Catalog\\CatalogPlugin",
+            "Molajo\\Plugin\\Checkin\\CheckinPlugin",
+            "Molajo\\Plugin\\Checkout\\CheckoutPlugin",
+            "Molajo\\Plugin\\Children\\ChildrenPlugin",
+            "Molajo\\Plugin\\Comments\\CommentsPlugin",
+            "Molajo\\Plugin\\Contentlist\\ContentlistPlugin",
+            "Molajo\\Plugin\\Copyright\\CopyrightPlugin",
+            "Molajo\\Plugin\\CreateEventPlugin",
+            "Molajo\\Plugin\\Create\\CreatePlugin",
+            "Molajo\\Plugin\\Csrftoken\\CsrftokenPlugin",
+            "Molajo\\Plugin\\Cssclassandids\\CssclassandidsPlugin",
+            "Molajo\\Plugin\\Datalist\\DatalistPlugin",
+            "Molajo\\Plugin\\Dateformats\\DateformatsPlugin",
+            "Molajo\\Plugin\\Defer\\DeferPlugin",
+            "Molajo\\Plugin\\DisplayEventPlugin",
+            "Molajo\\Plugin\\Email\\EmailPlugin",
+            "Molajo\\Plugin\\Events\\EventsPlugin",
+            "Molajo\\Plugin\\Extensioninstance\\ExtensioninstancePlugin",
+            "Molajo\\Plugin\\Featured\\FeaturedPlugin",
+            "Molajo\\Plugin\\Feed\\FeedPlugin",
+            "Molajo\\Plugin\\Fields\\FieldsPlugin",
+            "Molajo\\Plugin\\Formbegin\\FormbeginPlugin",
+            "Molajo\\Plugin\\Formselectlist\\FormselectlistPlugin",
+            "Molajo\\Plugin\\Fullname\\FullnamePlugin",
+            "Molajo\\Plugin\\Googleanalytics\\GoogleanalyticsPlugin",
+            "Molajo\\Plugin\\Gravatar\\GravatarPlugin",
+            "Molajo\\Plugin\\Head\\HeadPlugin",
+            "Molajo\\Plugin\\IFrame\\IFramePlugin",
+            "Molajo\\Plugin\\Images\\ImagesPlugin",
+            "Molajo\\Plugin\\Ipaddress\\IpaddressPlugin",
+            "Molajo\\Plugin\\Itemurl\\ItemurlPlugin",
+            "Molajo\\Plugin\\Itemuserpermissions\\ItemuserpermissionsPlugin",
+            "Molajo\\Plugin\\Linebreaks\\LinebreaksPlugin",
+            "Molajo\\Plugin\\Links\\LinksPlugin",
+            "Molajo\\Plugin\\Login\\LoginPlugin",
+            "Molajo\\Plugin\\Logout\\LogoutPlugin",
+            "Molajo\\Plugin\\Menuitems\\MenuitemsPlugin",
+            "Molajo\\Plugin\\Messages\\MessagesPlugin",
+            "Molajo\\Plugin\\MockImage\\MockimagePlugin",
+            "Molajo\\Plugin\\Mockdata\\MockdataPlugin",
+            "Molajo\\Plugin\\Ordering\\OrderingPlugin",
+            "Molajo\\Plugin\\Pagetypeapplication\\PagetypeapplicationPlugin",
+            "Molajo\\Plugin\\Pagetypeconfiguration\\PagetypeconfigurationPlugin",
+            "Molajo\\Plugin\\Pagetypedashboard\\PagetypedashboardPlugin",
+            "Molajo\\Plugin\\Pagetypeedit\\PagetypeeditPlugin",
+            "Molajo\\Plugin\\Pagetypegrid\\PagetypegridPlugin",
+            "Molajo\\Plugin\\Pagetypeitem\\PagetypeitemPlugin",
+            "Molajo\\Plugin\\Pagetypelist\\PagetypelistPlugin",
+            "Molajo\\Plugin\\Pagetypes\\PagetypesPlugin",
+            "Molajo\\Plugin\\Pagination\\PaginationPlugin",
+            "Molajo\\Plugin\\Paging\\PagingPlugin",
+            "Molajo\\Plugin\\Password\\PasswordPlugin",
+            "Molajo\\Plugin\\Publishedstatus\\PublishedstatusPlugin",
+            "Molajo\\Plugin\\ReadEventPlugin",
+            "Molajo\\Plugin\\Readmore\\ReadmorePlugin",
+            "Molajo\\Plugin\\Referencedata\\ReferencedataPlugin",
+            "Molajo\\Plugin\\Sites\\SitesPlugin",
+            "Molajo\\Plugin\\Smilies\\SmiliesPlugin",
+            "Molajo\\Plugin\\Snippet\\SnippetPlugin",
+            "Molajo\\Plugin\\Status\\StatusPlugin",
+            "Molajo\\Plugin\\SystemEventPlugin",
+            "Molajo\\Plugin\\Templatelist\\TemplatelistPlugin",
+            "Molajo\\Plugin\\UIFoundation\\UIFoundationPlugin",
+            "Molajo\\Plugin\\UpdateEventPlugin",
+            "Molajo\\Plugin\\Useractivity\\UseractivityPlugin",
+            "Molajo\\Plugin\\Username\\UsernamePlugin",
+            "Molajo\\Plugin\\Version\\VersionPlugin",
+            "Molajo\\Plugin\\Weather\\WeatherPlugin",
+            "Molajo\\Resource\\Handler\\QueryHandler"
+        ]
+    },
+    "CommonApi\\Exception\\ExceptionInterface": {
+        "name": "ExceptionInterface",
+        "namespace": "CommonApi\\Exception",
+        "fqns": "CommonApi\\Exception\\ExceptionInterface",
+        "path": "Vendor\/commonapi\/exception\/ExceptionInterface.php",
+        "parent": false,
+        "implemented_by": [
+            "CommonApi\\Exception\\BadFunctionCallException",
+            "CommonApi\\Exception\\BadMethodCallException",
+            "CommonApi\\Exception\\DomainException",
+            "CommonApi\\Exception\\InvalidArgumentException",
+            "CommonApi\\Exception\\LengthException",
+            "CommonApi\\Exception\\LogicException",
+            "CommonApi\\Exception\\OutOfBoundsException",
+            "CommonApi\\Exception\\OutOfRangeException",
+            "CommonApi\\Exception\\OverflowException",
+            "CommonApi\\Exception\\RangeException",
+            "CommonApi\\Exception\\RuntimeException",
+            "CommonApi\\Exception\\UnderflowException",
+            "CommonApi\\Exception\\UnexpectedValueException"
+        ],
+        "dependency_for": [
+
+        ]
+    },
+    "CommonApi\\IoC\\ContainerInterface": {
+        "name": "ContainerInterface",
+        "namespace": "CommonApi\\IoC",
+        "fqns": "CommonApi\\IoC\\ContainerInterface",
+        "path": "Vendor\/commonapi\/ioc\/ContainerInterface.php",
+        "parent": false,
+        "implemented_by": [
+            "Molajo\\IoC\\Container"
+        ],
+        "dependency_for": [
+            "Molajo\\IoC\\ServiceProviderController"
+        ]
+    },
+    "CommonApi\\IoC\\ControllerInterface": {
+        "name": "ControllerInterface",
+        "namespace": "CommonApi\\IoC",
+        "fqns": "CommonApi\\IoC\\ControllerInterface",
+        "path": "Vendor\/commonapi\/ioc\/ControllerInterface.php",
+        "parent": false,
+        "implemented_by": [
+            "Molajo\\IoC\\ServiceProviderController"
+        ],
+        "dependency_for": [
+            "Molajo\\Controller\\FrontController"
+        ]
+    },
+    "CommonApi\\IoC\\ServiceProviderInterface": {
+        "name": "ServiceProviderInterface",
+        "namespace": "CommonApi\\IoC",
+        "fqns": "CommonApi\\IoC\\ServiceProviderInterface",
+        "path": "Vendor\/commonapi\/ioc\/ServiceProviderInterface.php",
+        "parent": false,
+        "implemented_by": [
+            "Molajo\\IoC\\Handler\\AbstractServiceProvider",
+            "Molajo\\IoC\\StandardServiceProvider",
+            "Molajo\\Service\\Application\\ApplicationInjector",
+            "Molajo\\Service\\Authorisation\\AuthorisationInjector",
+            "Molajo\\Service\\Cache\\CacheInjector",
+            "Molajo\\Service\\Cachemodel\\CachemodelInjector",
+            "Molajo\\Service\\Cachepage\\CachepageInjector",
+            "Molajo\\Service\\Cachequery\\CachequeryInjector",
+            "Molajo\\Service\\Cachetemplate\\CachetemplateInjector",
+            "Molajo\\Service\\Customfields\\CustomfieldsInjector",
+            "Molajo\\Service\\Database\\DatabaseInjector",
+            "Molajo\\Service\\Date\\DateInjector",
+            "Molajo\\Service\\Dispatcher\\DispatcherInjector",
+            "Molajo\\Service\\Email\\EmailInjector",
+            "Molajo\\Service\\Errorhandling\\ErrorhandlingInjector",
+            "Molajo\\Service\\Event\\EventInjector",
+            "Molajo\\Service\\Exceptionhandling\\ExceptionhandlingInjector",
+            "Molajo\\Service\\Extensions\\ExtensionsInjector",
+            "Molajo\\Service\\Filesystem\\FilesystemInjector",
+            "Molajo\\Service\\Fileupload\\FileuploadInjector",
+            "Molajo\\Service\\Image\\ImageInjector",
+            "Molajo\\Service\\Language\\LanguageServiceProvider",
+            "Molajo\\Service\\Log\\LogInjector",
+            "Molajo\\Service\\Registration\\RegistrationInjector",
+            "Molajo\\Service\\Render\\RenderInjector",
+            "Molajo\\Service\\Resource\\ResourceInjector",
+            "Molajo\\Service\\Resource\\ResourceInjector",
+            "Molajo\\Service\\Resourcecss\\ResourcecssInjector",
+            "Molajo\\Service\\Resourcecssdeclarations\\ResourcecssdeclarationsInjector",
+            "Molajo\\Service\\Resourcedata\\ResourcedataInjector",
+            "Molajo\\Service\\Resourcejs\\ResourcejsInjector",
+            "Molajo\\Service\\Resourcejsdeclarations\\ResourcejsdeclarationsInjector",
+            "Molajo\\Service\\Resourcequery\\ResourcequeryInjector",
+            "Molajo\\Service\\Resourcerendering\\ResourcerenderingInjector",
+            "Molajo\\Service\\Response\\ResponseInjector",
+            "Molajo\\Service\\Route\\RouteInjector",
+            "Molajo\\Service\\Search\\SearchInjector",
+            "Molajo\\Service\\Site\\SiteInjector",
+            "Molajo\\Service\\Text\\TextInjector",
+            "Molajo\\Service\\Url\\UrlInjector"
+        ],
+        "dependency_for": [
+            "Molajo\\IoC\\ServiceProviderAdapter"
+        ]
+    },
+    "CommonApi\\IoC\\ServiceProviderAdapterInterface": {
+        "name": "ServiceProviderAdapterInterface",
+        "namespace": "CommonApi\\IoC",
+        "fqns": "CommonApi\\IoC\\ServiceProviderAdapterInterface",
+        "path": "Vendor\/commonapi\/ioc\/ServiceProviderAdapterInterface.php",
+        "parent": false,
+        "implemented_by": [
+            "Molajo\\IoC\\ServiceProviderAdapter"
+        ],
+        "dependency_for": [
+
+        ]
+    },
+    "CommonApi\\Log\\AdapterInterface": {
+        "name": "AdapterInterface",
+        "namespace": "CommonApi\\Log",
+        "fqns": "CommonApi\\Log\\AdapterInterface",
+        "path": "Vendor\/Molajo\/Log\/Api\/AdapterInterface.php",
+        "parent": false,
+        "implemented_by": [
+
+        ],
+        "dependency_for": [
+
+        ]
+    },
+    "CommonApi\\Log\\ConnectionInterface": {
+        "name": "ConnectionInterface",
+        "namespace": "CommonApi\\Log",
+        "fqns": "CommonApi\\Log\\ConnectionInterface",
+        "path": "Vendor\/Molajo\/Log\/Api\/ConnectionInterface.php",
+        "parent": false,
+        "implemented_by": [
+
+        ],
+        "dependency_for": [
+
+        ]
+    },
+    "CommonApi\\Log\\ExceptionInterface": {
+        "name": "ExceptionInterface",
+        "namespace": "CommonApi\\Log",
+        "fqns": "CommonApi\\Log\\ExceptionInterface",
+        "path": "Vendor\/Molajo\/Log\/Api\/ExceptionInterface.php",
+        "parent": false,
+        "implemented_by": [
+
+        ],
+        "dependency_for": [
+
+        ]
+    },
+    "CommonApi\\Log\\LoggerAwareInterface": {
+        "name": "LoggerAwareInterface",
+        "namespace": "CommonApi\\Log",
+        "fqns": "CommonApi\\Log\\LoggerAwareInterface",
+        "path": "Vendor\/Molajo\/Log\/Api\/LoggerAwareInterface.php",
+        "parent": false,
+        "implemented_by": [
+
+        ],
+        "dependency_for": [
+
+        ]
+    },
+    "CommonApi\\Log\\LoggerInterface": {
+        "name": "LoggerInterface",
+        "namespace": "CommonApi\\Log",
+        "fqns": "CommonApi\\Log\\LoggerInterface",
+        "path": "Vendor\/Molajo\/Log\/Api\/LoggerInterface.php",
+        "parent": false,
+        "implemented_by": [
+
+        ],
+        "dependency_for": [
+
+        ]
+    }
+}

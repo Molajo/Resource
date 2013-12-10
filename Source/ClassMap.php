@@ -504,7 +504,9 @@ class ClassMap implements ClassMapInterface
                         $class_instance = new \ReflectionClass($concrete->fqns);
                         $abstract       = $class_instance->isAbstract();
 
-                        if (substr($method, 0, 2) == 'on' && $abstract === false) {
+                        if (substr($method, 0, 2) == 'on'
+                            && $abstract === false
+                            && strrpos('plugin', $concrete->fqns) > 0) {
 
                             $reflectionMethod = new \ReflectionMethod(new $concrete->fqns, $method);
                             $results          = $reflectionMethod->getDeclaringClass();
