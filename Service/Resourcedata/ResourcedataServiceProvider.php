@@ -234,7 +234,7 @@ class ResourcedataServiceProvider extends AbstractServiceProvider implements Ser
         $datalistsArray = array();
         $datalistsArray = $this->loadDatalists(
             $datalistsArray,
-            BASE_FOLDER . '/Application/Model/Datalist'
+            BASE_FOLDER . '/vendor/molajo/framework/Source/Model/Datalist'
         );
         $datalistsArray = array_unique($datalistsArray);
 
@@ -345,12 +345,6 @@ class ResourcedataServiceProvider extends AbstractServiceProvider implements Ser
         $options['service_name']               = 'Client';
         $this->schedule_service['Client']      = $options;
 
-        $options                             = array();
-        $options['service_namespace']        = 'Molajo\\Http\\Redirect';
-        $options['store_instance_indicator'] = true;
-        $options['service_name']             = 'Redirect';
-        $this->schedule_service['Redirect']  = $options;
-
         return $this->schedule_service;
     }
 
@@ -433,7 +427,6 @@ class ResourcedataServiceProvider extends AbstractServiceProvider implements Ser
     protected function loadDatalists($datalistsArray, $folder)
     {
         try {
-
             $dirRead = dir($folder);
             $path    = $dirRead->path;
 

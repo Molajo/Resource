@@ -94,7 +94,7 @@
                 "concrete": true
             },
             {
-                "name": "request_uri",
+                "name": "request_path",
                 "default_available": false,
                 "default_value": null,
                 "instance_of": null,
@@ -108,7 +108,7 @@
                 "is_instantiable": false
             }
         ],
-        "constructor_docComment": "\/**\n     * Constructor\n     *\n     * @param                                 $applications\n     * @param                                 $model_registry\n     * @param DatabaseInterface               $database\n     * @param CustomfieldsInterface $customfields\n     * @param                                 $request_uri\n     * @param                                 $request_base_url\n     *\n     * @since  1.0\n     *\/",
+        "constructor_docComment": "\/**\n     * Constructor\n     *\n     * @param                                 $applications\n     * @param                                 $model_registry\n     * @param DatabaseInterface               $database\n     * @param CustomfieldsInterface $customfields\n     * @param                                 $request_path\n     * @param                                 $request_base_url\n     *\n     * @since  1.0\n     *\/",
         "implemented_by": [
 
         ],

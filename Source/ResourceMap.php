@@ -1,6 +1,6 @@
 <?php
 /**
- * Resource Map
+ * Class Map
  *
  * @package    Molajo
  * @copyright  2013 Amy Stephen. All rights reserved.
@@ -9,413 +9,556 @@
 namespace Molajo\Resource;
 
 use stdClass;
-use RecursiveIteratorIterator;
-use RecursiveDirectoryIterator;
-use CommonApi\Resource\MapInterface;
+use Exception;
+use ReflectionClass;
+use ReflectionParameter;
+use CommonApi\Resource\ClassMapInterface;
 
 /**
- * Resource Map
+ * Class Map
  *
  * @package    Molajo
  * @copyright  2013 Amy Stephen. All rights reserved.
  * @license    http://www.opensource.org/licenses/mit-license.html MIT License
  * @since      1.0
  */
-class ResourceMap implements MapInterface
+class ClassMap implements ClassMapInterface
 {
-    /**
-     * Resource Map Filename
-     *
-     * @var    string
-     * @since  1.0
-     */
-    protected $resource_map_filename;
-
     /**
      * Interface Map Filename
      *
      * @var    string
      * @since  1.0
      */
-    protected $interface_map_filename;
+    protected $class_map_filename;
 
     /**
-     * Base Path - root of the website from which paths are defined
+     * Interfaces Filename
      *
      * @var    string
      * @since  1.0
      */
-    protected $base_path;
+    protected $interface_classes_filename;
 
     /**
-     * Namespace Prefixes + Path
+     * Class Dependencies
      *
-     * @var    array
+     * @var    string
      * @since  1.0
      */
-    protected $namespace_prefixes = array();
+    protected $concrete_classes_filename;
 
     /**
-     * Temporary Work File to accumulate Resource Map
+     * Events
      *
-     * @var    array
+     * @var    string
      * @since  1.0
      */
-    protected $resource_map = array();
-
-    /**
-     * Temporary Work File to accumulate PHP Class Files
-     *
-     * @var    array
-     * @since  1.0
-     */
-    protected $php_files = array();
+    protected $events_filename;
 
     /**
      * Constructor
      *
-     * @param  string $base_path
-     * @param  string $resource_map_filename
-     * @param  string $interface_map_filename
-     * @param  string $exclude_folders
+     * @param  string $class_map_filename
+     * @param  string $interface_classes_filename
+     * @param  string $concrete_classes_filename
+     * @param  string $events_filename
      *
      * @since  1.0
      */
     public function __construct(
-        $base_path,
-        $resource_map_filename,
-        $interface_map_filename,
-        $exclude_folders
+        $class_map_filename,
+        $interface_classes_filename,
+        $concrete_classes_filename,
+        $events_filename
     ) {
-        $this->base_path              = $base_path;
-        $this->resource_map_filename  = $resource_map_filename;
-        $this->interface_map_filename = $interface_map_filename;
-
-        $this->readFile($exclude_folders, 'exclude_folders');
+        $this->class_map_filename         = $class_map_filename;
+        $this->interface_classes_filename = $interface_classes_filename;
+        $this->concrete_classes_filename  = $concrete_classes_filename;
+        $this->events_filename            = $events_filename;
     }
 
     /**
-     * Set a namespace prefix by mapping to the filesystem path
-     *
-     * @param   string  $namespace_prefix
-     * @param   string  $namespace_base_directory
-     * @param   boolean $prepend
+     * Create interface to concrete references
      *
      * @return  $this
-     * @since   1.0
-     */
-    public function setNamespace($namespace_prefix, $namespace_base_directory, $prepend = false)
-    {
-        if (isset($this->namespace_prefixes[$namespace_prefix])) {
-
-            $hold = $this->namespace_prefixes[$namespace_prefix];
-
-            if ($prepend === false) {
-                $hold[]                                      = $namespace_base_directory;
-                $this->namespace_prefixes[$namespace_prefix] = $hold;
-            } else {
-                $new   = array();
-                $new[] = $namespace_base_directory;
-                foreach ($hold as $h) {
-                    $new[] = $h;
-                }
-                $this->namespace_prefixes[$namespace_prefix] = $new;
-            }
-        } else {
-            $this->namespace_prefixes[$namespace_prefix] = array($namespace_base_directory);
-        }
-
-        return $this;
-    }
-
-    /**
-     * Create resource map of folder/file locations and Fully Qualified Namespaces
-     *
-     * @return  object
      * @since   1.0
      */
     public function createMap()
     {
-        $this->resource_map = array();
-        $this->php_files    = array();
+        $php_files = $this->readFile($this->class_map_filename);
 
-        foreach ($this->namespace_prefixes as $namespace_prefix => $namespace_base_directories) {
+        if (count($php_files) > 0) {
+        } else {
+            return array();
+        }
 
-            foreach ($namespace_base_directories as $namespace_base_directory) {
+        $interfaces      = array();
+        $interface_usage = array();
+        $concretes       = array();
 
-                if (trim($namespace_base_directory) == '') {
-                } else {
-                    if (is_dir($this->base_path . '/' . $namespace_base_directory)
-                        && $namespace_base_directory !== ''
-                    ) {
+        foreach ($php_files as $file) {
 
-                        $paths   = array();
-                        $paths[] = $this->base_path . '/' . $namespace_base_directory;
-                        $this->resource_map[strtolower($namespace_prefix)]
-                                 = array_unique($paths);
+            $result = $this->setInterfaceClass($file->fqns, $file->path);
 
-                        $objects = new RecursiveIteratorIterator
-                        (new RecursiveDirectoryIterator($this->base_path . '/' . $namespace_base_directory),
-                            RecursiveIteratorIterator::SELF_FIRST);
+            /** Concrete */
+            if ($result === false) {
+                $temp                   = $this->setConcreteClass($file->fqns, $file->path, $interface_usage);
+                $concretes[$file->fqns] = $temp[0];
+                $interface_usage        = $temp[1];
+            } else {
+                /** Interface */
+                $interfaces[$file->fqns] = $result;
+            }
+        }
+
+        $interfaces = $this->setAggregateInterfaceUsage($interfaces, $interface_usage);
+
+        foreach ($concretes as $dependency) {
+
+            if (isset($dependency->constructor_parameters)
+                && count($dependency->constructor_parameters) > 0
+            ) {
+
+                foreach ($dependency->constructor_parameters as $parameter) {
+
+                    if ($parameter->instance_of === null) {
                     } else {
 
-                        if ($namespace_base_directory == '') {
+                        $instance_of = $parameter->instance_of;
+
+                        if (isset($interfaces[$instance_of]->implemented_by)) {
+                            $parameter->implemented_by = $interfaces[$instance_of]->implemented_by;
+                            $parameter->concrete       = false;
                         } else {
-                            echo 'createResourceMap: Not a folder '
-                                . $this->base_path . '/' . $namespace_base_directory . '<br />';
-                            die;
+                            $parameter->implemented_by = null;
+                            $parameter->concrete       = true;
                         }
-
-                        break;
-                    }
-
-                    foreach ($objects as $file_path => $file_object) {
-
-                        $file_name      = $file_object->getFileName();
-                        $file_extension = $file_object->getExtension();
-                        $is_directory   = $file_object->isDir();
-                        $php_class      = 0;
-
-                        /** Test Namespace Rules */
-                        $this->testFileForNamespaceRules(
-                            $namespace_prefix,
-                            $namespace_base_directory,
-                            $is_directory,
-                            $file_path,
-                            $file_name,
-                            $file_extension,
-                            $php_class
-                        );
                     }
                 }
             }
         }
 
-        ksort($this->resource_map);
-        ksort($this->php_files);
+        $results   = $this->setAggregateConcreteInterfaceUsage($concretes, $concretes);
+        $concretes = $results[0];
+        $events    = $results[1];
 
         if (version_compare(PHP_VERSION, '5.4.0', '>=')) {
-            file_put_contents($this->resource_map_filename, json_encode($this->resource_map, JSON_PRETTY_PRINT));
-            file_put_contents($this->interface_map_filename, json_encode($this->php_files, JSON_PRETTY_PRINT));
+            file_put_contents($this->interface_classes_filename, json_encode($interfaces, JSON_PRETTY_PRINT));
+            file_put_contents(
+                $this->concrete_classes_filename,
+                json_encode($concretes, JSON_PRETTY_PRINT)
+            );
+            file_put_contents($this->events_filename, json_encode($events, JSON_PRETTY_PRINT));
         } else {
-            file_put_contents($this->resource_map_filename, json_encode($this->resource_map));
-            file_put_contents($this->interface_map_filename, json_encode($this->php_files));
+            file_put_contents($this->interface_classes_filename, json_encode($interfaces));
+            file_put_contents($this->concrete_classes_filename, json_encode($concretes));
+            file_put_contents($this->events_filename, json_encode($events));
         }
-
-        return $this->resource_map;
-    }
-
-    /**
-     * Test Path for this Namespace Prefix
-     *
-     * @param   string $namespace_prefix
-     * @param   string $base_directory
-     * @param   int    $is_directory
-     * @param   string $file_path
-     * @param   string $file_name
-     * @param   string $file_extension
-     * @param   string $php_class
-     *
-     * @return  int|object
-     * @since   1.0
-     */
-    protected function testFileForNamespaceRules(
-        $namespace_prefix,
-        $base_directory,
-        $is_directory,
-        $file_path,
-        $file_name,
-        $file_extension,
-        $php_class
-    ) {
-        $skip = 0;
-
-        if ($is_directory == 1) {
-            $pathinfo  = pathinfo($file_path);
-            $base_name = $pathinfo['basename'];
-
-        } else {
-
-            if ($file_extension == 'php') {
-
-                $base_name = substr($file_name, 0, strlen($file_name) - strlen($file_extension) - 1);
-
-                if (strtolower(substr($file_name, 0, 4)) == 'hold') {
-                    $skip = 1;
-                } elseif (strtolower(substr($file_name, 0, 3)) == 'xxx') {
-                    $skip = 1;
-                } elseif (strtolower($base_name) == 'index') {
-                    $skip = 1;
-                } else {
-                    $php_class = 1;
-                }
-            } else {
-                $base_name = $file_name;
-            }
-        }
-
-        if ($skip == 1) {
-            return $this;
-        }
-
-        /** Namespace Rules */
-        $file_path = substr($file_path, strlen($this->base_path . '/'), 9999);
-
-        $skip = $this->processExcludeFolders($file_path, $base_name, $skip);
-        if ($skip == 1) {
-            return $this;
-        }
-
-        if ($is_directory === true) {
-            $path = $file_path;
-        } else {
-            $path = substr($file_path, 0, strlen($file_path) - strlen($file_name) - 1);
-        }
-
-        $class_namespace_path = substr($path, strlen($base_directory), 9999);
-
-        if ($class_namespace_path == '') {
-            $fqns = $namespace_prefix;
-        } else {
-            $fqns = $namespace_prefix . '\\' . str_replace('/', '\\', $class_namespace_path);
-        }
-
-        $nspath = $path;
-
-        if ($is_directory === true) {
-        } else {
-            $fqns   = $fqns . '\\' . $base_name;
-            $nspath = $nspath . '/' . $file_name;
-            if ($php_class === 1) {
-                $temp = new stdClass();
-
-                $temp->file_name = $file_name;
-                $temp->base_name = $base_name;
-                $temp->path      = $nspath;
-                $temp->fqns      = $fqns;
-
-                $this->php_files[$nspath] = $temp;
-            }
-        }
-
-        $this->mergeFQNSPaths($nspath, $fqns);
 
         return $this;
     }
 
     /**
-     * Get Resource Map Tags
+     * Process Interface for Metadata
      *
-     * @param   string $nspath
-     * @param   string $fqns
+     * @param  string $fqns
+     * @param  string $path
+     *
+     * @since  1.0
+     * @return array
+     */
+    protected function setInterfaceClass($fqns, $path)
+    {
+        try {
+            $reflection = new ReflectionClass($fqns);
+        } catch (Exception $e) {
+            return false;
+        }
+
+        if ($reflection->isInterface()) {
+        } else {
+            return false;
+        }
+
+        $interface_object            = new stdClass();
+        $interface_object->name      = $reflection->getShortName();
+        $interface_object->namespace = $reflection->getNamespaceName();
+        $interface_object->fqns      = $reflection->getName();
+        $interface_object->path      = $path;
+
+        $parent = $reflection->getParentClass();
+
+        if ($parent === false) {
+            $interface_object->parent = false;
+        } else {
+            $interface_object->parent = $parent->name;
+        }
+
+        return $interface_object;
+    }
+
+    /**
+     * For each Interface, determine Concrete Classes which Implement the Interface and
+     *  Requirements for a Concrete Class expressed by the Interface as a Type Hint in the Method Parameters
+     *
+     * @param  array $interfaces
+     * @param  array $interface_usage
+     *
+     * @since  1.0
+     * @return array
+     */
+    protected function setAggregateInterfaceUsage(array $interfaces, array $interface_usage)
+    {
+        if (count($interfaces) === 0) {
+            return $interfaces;
+        }
+
+        ksort($interface_usage);
+        ksort($interfaces);
+
+        foreach ($interfaces as $interface) {
+
+            if (isset($interface_usage[$interface->fqns])) {
+
+                if (isset($interface_usage[$interface->fqns]->implemented_by)) {
+                    $interface->implemented_by = $interface_usage[$interface->fqns]->implemented_by;
+                } else {
+                    $interface->implemented_by = array();
+                }
+
+                if (isset($interface_usage[$interface->fqns]->dependency_for)) {
+                    $interface->dependency_for = $interface_usage[$interface->fqns]->dependency_for;
+                } else {
+                    $interface->dependency_for = array();
+                }
+            } else {
+
+                $interface->implemented_by = array();
+                $interface->dependency_for = array();
+            }
+        }
+
+        return $interfaces;
+    }
+
+    /**
+     * Process Concrete Class for Dependencies and Metadata
+     *
+     * @param  string $fqns
+     * @param  string $path
+     * @param  array  $interface_usage
      *
      * @return  $this
      * @since   1.0
      */
-    protected function mergeFQNSPaths($nspath, $fqns)
+    protected function setConcreteClass($fqns, $path, array $interface_usage = array())
     {
-        if ($nspath === '') {
-            return $this;
+        $class_object = new stdClass();
+
+        try {
+            $reflection = new ReflectionClass($fqns);
+        } catch (Exception $e) {
+            return array($class_object, $interface_usage);
         }
 
-        $fqns = strtolower($fqns);
+        if ($reflection->isInterface()) {
+            return array($class_object, $interface_usage);
+        }
 
-        if (isset($this->resource_map[$fqns])) {
+        $class_object->name      = $reflection->getShortName();
+        $class_object->namespace = $reflection->getNamespaceName();
+        $class_object->fqns      = $reflection->getName();
+        $class_object->file_name = $reflection->getFileName();
+        $class_object->path      = $path;
 
-            $existing = $this->resource_map[$fqns];
+        $parent = $reflection->getParentClass();
 
-            if (is_array($existing)) {
-                $paths = $existing;
-                if (count($paths) == 0) {
-                    $paths = array();
+        if ($parent === false) {
+            $class_object->parent = false;
+        } else {
+            $class_object->parent = $parent->name;
+        }
+
+        $implemented                          = $reflection->getInterfaceNames();
+        $class_object->implemented_interfaces = $implemented;
+
+        if (count($implemented) > 0) {
+            foreach ($implemented as $interface) {
+                $interface_usage = $this->setConcreteInterfaceUsageImplementations(
+                    $interface,
+                    $interface_usage,
+                    $class_object->fqns
+                );
+            }
+        }
+
+        $class_object->constructor_parameters = array();
+
+        if (method_exists($fqns, '__construct')) {
+            $construct                            = $reflection->getMethod('__construct');
+            $class_object->constructor_docComment = $construct->getDocComment();
+            $parameters                           = $construct->getParameters();
+
+            if (count($parameters) > 0) {
+
+                $temp = array();
+                foreach ($parameters as $parameter) {
+                    $temp[] = $this->processDependencies(array($fqns, '__construct'), $parameter);
                 }
+
+                $class_object->constructor_parameters = $temp;
+
+                $interface_usage
+                    = $this->setConcreteInterfaceUsageDependencyTypeHints
+                    (
+                        $class_object->fqns,
+                        $class_object->constructor_parameters,
+                        $interface_usage
+                    );
+            }
+        }
+
+        return array($class_object, $interface_usage);
+    }
+
+    /**
+     * Process Dependencies for the Class
+     *
+     * @param   array  $class_method_array
+     * @param   object $parameter
+     *
+     * @return  $this
+     * @since   1.0
+     */
+    protected function processDependencies($class_method_array, $parameter)
+    {
+        $parameters_object = new stdClass();
+        $param             = new ReflectionParameter($class_method_array, $parameter->name);
+
+        $parameters_object->name = $param->getName();
+
+        if ($param->isDefaultValueAvailable() === true) {
+            $parameters_object->default_available = true;
+            $parameters_object->default_value     = $param->getDefaultValue();
+        } else {
+            $parameters_object->default_available = false;
+            $parameters_object->default_value     = null;
+        }
+
+        $instance_dependency = $param->getClass();
+
+        if ($instance_dependency === null) {
+            $parameters_object->instance_of     = null;
+            $parameters_object->is_instantiable = false;
+        } else {
+            $parameters_object->instance_of     = $instance_dependency->name;
+            $parameters_object->is_instantiable = $instance_dependency->isInstantiable();
+        }
+
+        return $parameters_object;
+    }
+
+    /**
+     * Process Implemented Interfaces for the Class
+     *
+     * @param  string $interface
+     * @param  array  $interface_usage
+     * @param  string $concrete_fqns
+     *
+     * @return mixed
+     * @since  1.0
+     */
+    protected function setConcreteInterfaceUsageImplementations($interface, $interface_usage, $concrete_fqns)
+    {
+        $paths = array();
+
+        if (isset($interface_usage[$interface])) {
+
+            $temp = $interface_usage[$interface];
+
+            if (isset($temp->implemented_by)) {
+                $paths = $temp->implemented_by;
+            }
+
+            if (is_array($paths)) {
             } else {
                 $paths = array();
             }
         } else {
+            $temp  = new stdClass();
             $paths = array();
         }
 
-        $paths[] = $this->base_path . '/' . $nspath;
+        $paths[] = $concrete_fqns;
 
-        $this->resource_map[$fqns] = array_unique($paths);
+        array_unique($paths);
+        sort($paths);
 
-        return $this;
+        $temp->implemented_by = $paths;
+
+        $interface_usage[$interface] = $temp;
+
+        return $interface_usage;
     }
 
     /**
-     * Process Exclude Folders Definitions
+     * Add to Dependency Interfaces List
      *
-     * @param   string $file_path
-     * @param   string $base_name
-     * @param   int    $skip
+     * @param  string $fqns
+     * @param  array  $concretes
+     * @param  array  $interface_usage
      *
-     * @return  int
-     * @since   1.0
+     * @return mixed
+     * @since  1.0
      */
-    protected function processExcludeFolders($file_path, $base_name, $skip = 1)
+    protected function setConcreteInterfaceUsageDependencyTypeHints($fqns, array $concretes, array $interface_usage)
     {
-        if ($skip === 1) {
-            return $skip;
-        }
+        if (count($concretes) > 0) {
 
-        if (substr($base_name, 0, 1) == '.') {
-            return 1;
-        }
+            foreach ($concretes as $interface) {
 
-        if (count($this->exclude_folders) === 0) {
-            return $skip;
-        }
+                if ($interface->instance_of === null) {
+                } else {
+                    if (isset($interface_usage[$interface->instance_of])) {
+                    } else {
+                        $interface_usage[$interface->instance_of]                 = new stdClass();
+                        $interface_usage[$interface->instance_of]->dependency_for = array();
+                    }
 
-        $skip = 0;
+                    if (isset($interface_usage[$interface->instance_of]->dependency_for)) {
+                        $dependency_for = $interface_usage[$interface->instance_of]->dependency_for;
+                    } else {
+                        $interface_usage[$interface->instance_of]->dependency_for = array();
+                        $dependency_for                                           = array();
+                    }
 
-        foreach ($this->exclude_folders as $exclude) {
+                    if (is_array($dependency_for)) {
+                    } else {
+                        $dependency_for = array();
+                    }
 
-            if ($base_name == $exclude) {
-                $skip = 1;
-                break;
-            } elseif (strpos($file_path, '/' . $exclude) == false) {
-            } else {
-                $skip = 1;
-                break;
+                    if ($interface_usage[$interface->instance_of]->dependency_for === null) {
+                    } else {
+                        $dependency_for[] = $fqns;
+                    }
+
+                    array_unique($dependency_for);
+                    sort($dependency_for);
+
+                    if (count($dependency_for) === 0) {
+                        $dependency_for = null;
+                    }
+                    $interface_usage[$interface->instance_of]->dependency_for = $dependency_for;
+                }
             }
         }
 
-        return $skip;
+        return $interface_usage;
+    }
+
+    /**
+     * For each Interface, determine Concrete Classes which Implement the Interface and
+     *  Requirements for a Concrete Class expressed by the Interface as a Type Hint in the Method Parameters
+     *
+     * @param  array $concretes
+     * @param  array $concretes_all
+     *
+     * @since  1.0
+     * @return array
+     */
+    protected function setAggregateConcreteInterfaceUsage(array $concretes, array $concretes_all)
+    {
+        $events = array();
+
+        foreach ($concretes as $concrete) {
+
+            if (empty($concrete->fqns)) {
+            } else {
+
+                if (isset($concretes_all[$concrete->fqns])) {
+
+                    if (isset($concretes_all[$concrete->fqns]->implemented_by)) {
+                        $concrete->implemented_by = $concretes_all[$concrete->fqns]->implemented_by;
+                    } else {
+                        $concrete->implemented_by = array();
+                    }
+
+                    if (isset($concretes[$concrete->name]->dependency_for)) {
+                        $concrete->dependency_for = $concretes_all[$concrete->fqns]->dependency_for;
+                    } else {
+                        $concrete->dependency_for = array();
+                    }
+                } else {
+
+                    $concrete->implemented_by = array();
+                    $concrete->dependency_for = array();
+                }
+
+                $concrete->method = get_class_methods($concrete->fqns);
+
+                if (count($concrete->method) > 0) {
+
+                    foreach ($concrete->method as $method) {
+
+                        $class_instance = new \ReflectionClass($concrete->fqns);
+                        $abstract       = $class_instance->isAbstract();
+
+                        $method_indicator = false;
+                        if (substr($method, 0, 2) == 'on') {
+                            $method_indicator = true;
+                        }
+
+                        $plugin_indicator = false;
+                        if (strpos($concrete->fqns, 'Plugin') > 0) {
+                            $plugin_indicator = true;
+                        }
+
+                        $abstract_indicator = false;
+                        if ($class_instance->isAbstract() === false) {
+                            $abstract_indicator = true;
+                        }
+
+                        if ($method_indicator === true && $plugin_indicator === true && $abstract_indicator === true) {
+
+                            $reflectionMethod = new \ReflectionMethod(new $concrete->fqns, $method);
+                            $results          = $reflectionMethod->getDeclaringClass();
+
+                            if ($results->name == $concrete->fqns) {
+                                if (isset($events[$method])) {
+                                    $classes = $events[$method];
+                                } else {
+                                    $classes = array();
+                                }
+                                $classes[]       = $concrete->fqns;
+                                $events[$method] = array_unique($classes);
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        return array($concretes, $events);
     }
 
     /**
      * Read File
      *
-     * @param  string $file_name
-     * @param  string $property_name_array
+     * @param   string $filename
      *
-     * @since  1.0
+     * @return  mixed|string
+     * @since   1.0
      */
-    protected function readFile($file_name, $property_name_array)
+    protected function readFile($filename)
     {
-        $temp_array = array();
-
-        if (file_exists($file_name)) {
+        if (file_exists($filename)) {
         } else {
-            $file_name = __DIR__ . '/' . $file_name;
+            return '';
         }
 
-        if (file_exists($file_name)) {
-        } else {
-            return;
-        }
+        $input = file_get_contents($filename);
 
-        $input = file_get_contents($file_name);
-        $temp  = json_decode($input);
-
-        if (count($temp) > 0) {
-            $temp_array = array();
-            foreach ($temp as $key => $value) {
-                $temp_array[$key] = $value;
-            }
-        }
-
-        $this->$property_name_array = $temp_array;
+        return json_decode($input);
     }
 }
