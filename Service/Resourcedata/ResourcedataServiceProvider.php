@@ -322,28 +322,8 @@ class ResourcedataServiceProvider extends AbstractServiceProvider implements Ser
         $this->options                               = array();
         $this->schedule_service['Dispatcher']        = $this->options;
         $this->schedule_service['Registry']          = $this->options;
-        $this->schedule_service['Resource']         = $this->options;
-        $this->schedule_service['Data']              = $this->options;
         $this->schedule_service['Exceptionhandling'] = $this->options;
         $this->schedule_service['Fieldhandler']      = $this->options;
-
-        $options                               = array();
-        $options['service_namespace']          = 'Molajo\\Http\\Request';
-        $options['store_properties_indicator'] = true;
-        $options['service_name']               = 'Request';
-        $this->schedule_service['Request']     = $options;
-
-        $options                               = array();
-        $options['service_namespace']          = 'Molajo\\Http\\Server';
-        $options['store_properties_indicator'] = true;
-        $options['service_name']               = 'Server';
-        $this->schedule_service['Server']      = $options;
-
-        $options                               = array();
-        $options['service_namespace']          = 'Molajo\\Http\\Client';
-        $options['store_properties_indicator'] = true;
-        $options['service_name']               = 'Client';
-        $this->schedule_service['Client']      = $options;
 
         return $this->schedule_service;
     }

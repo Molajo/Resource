@@ -201,7 +201,7 @@ class ResourceServiceProvider extends AbstractServiceProvider implements Service
         $this->schedule_service['Resourcedata'] = $options;
 
         $options                                     = array();
-        $options['service_namespace']                = 'Exception\\ControllerHandlingController';
+        $options['service_namespace']                = 'Molajo\\Controller\\ExceptionHandling';
         $options['store_instance_indicator']         = true;
         $options['service_name']                     = 'Exceptionhandling';
         $this->schedule_service['Exceptionhandling'] = $options;

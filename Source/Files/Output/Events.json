@@ -33,6 +33,7 @@
         "Molajo\\Plugin\\Children\\ChildrenPlugin",
         "Molajo\\Plugin\\Copyright\\CopyrightPlugin",
         "Molajo\\Plugin\\Cssclassandids\\CssclassandidsPlugin",
+        "Molajo\\Plugin\\Customfields\\CustomfieldsPlugin",
         "Molajo\\Plugin\\Dateformats\\DateformatsPlugin",
         "Molajo\\Plugin\\Email\\EmailPlugin",
         "Molajo\\Plugin\\Fullname\\FullnamePlugin",
@@ -97,7 +98,8 @@
     "onAfterRoute": [
         "Molajo\\Plugin\\Datalist\\DatalistPlugin",
         "Molajo\\Plugin\\Menuitems\\MenuitemsPlugin",
-        "Molajo\\Plugin\\Pagetypes\\PagetypesPlugin"
+        "Molajo\\Plugin\\Pagetypes\\PagetypesPlugin",
+        "Molajo\\Plugin\\Resource\\ResourcePlugin"
     ],
     "onBeforeRead": [
         "Molajo\\Plugin\\Defer\\DeferPlugin",
