@@ -114,7 +114,7 @@
 
         ],
         "method": [
-            "onAfterResource",
+            "onBeforeExecute",
             "onAfterInitialise",
             "onAfterRoute",
             "onAfterAuthorise",
@@ -230,7 +230,7 @@
 
         ],
         "method": [
-            "onAfterResource",
+            "onBeforeExecute",
             "getMenuBreadcrumbIds",
             "onAfterInitialise",
             "onAfterRoute",
@@ -289,7 +289,7 @@
 
         ],
         "method": [
-            "onAfterResource",
+            "onBeforeExecute",
             "getAuthorProfile",
             "onAfterInitialise",
             "onAfterRoute",
@@ -638,7 +638,7 @@
 
         ],
         "method": [
-            "onAfterResource",
+            "onBeforeExecute",
             "onAfterInitialise",
             "onAfterRoute",
             "onAfterAuthorise",
@@ -756,7 +756,7 @@
             "onAfterInitialise",
             "onAfterRoute",
             "onAfterAuthorise",
-            "onAfterResource",
+            "onBeforeExecute",
             "onAfterExecute",
             "__construct",
             "get",
@@ -1270,7 +1270,7 @@
             "onAfterInitialise",
             "onAfterRoute",
             "onAfterAuthorise",
-            "onAfterResource",
+            "onBeforeExecute",
             "onAfterExecute",
             "__construct",
             "get",
@@ -1385,7 +1385,7 @@
 
         ],
         "method": [
-            "onAfterResource",
+            "onBeforeExecute",
             "onAfterInitialise",
             "onAfterRoute",
             "onAfterAuthorise",
@@ -1497,7 +1497,7 @@
 
         ],
         "method": [
-            "onAfterResource",
+            "onBeforeExecute",
             "onAfterInitialise",
             "onAfterRoute",
             "onAfterAuthorise",
@@ -2408,7 +2408,7 @@
             "onAfterRoute",
             "onAfterInitialise",
             "onAfterAuthorise",
-            "onAfterResource",
+            "onBeforeExecute",
             "onAfterExecute",
             "__construct",
             "get",
@@ -3101,7 +3101,7 @@
             "onAfterRoute",
             "onAfterInitialise",
             "onAfterAuthorise",
-            "onAfterResource",
+            "onBeforeExecute",
             "onAfterExecute",
             "__construct",
             "get",
@@ -3504,7 +3504,7 @@
             "onAfterRoute",
             "onAfterInitialise",
             "onAfterAuthorise",
-            "onAfterResource",
+            "onBeforeExecute",
             "onAfterExecute",
             "__construct",
             "get",
@@ -5721,6 +5721,7 @@
 
         ],
         "method": [
+            "get",
             "__construct",
             "includeTheme",
             "parseTokens",
@@ -5790,20 +5791,16 @@
                 "is_instantiable": false
             },
             {
-                "name": "language_controller",
-                "default_available": false,
-                "default_value": null,
-                "instance_of": "CommonApi\\Language\\LanguageInterface",
-                "is_instantiable": false,
-                "implemented_by": [
-                    "Molajo\\Language\\Adapter",
-                    "Molajo\\Language\\Handler\\AbstractHandler",
-                    "Molajo\\Language\\Handler\\Database"
+                "name": "options",
+                "default_available": true,
+                "default_value": [
+
                 ],
-                "concrete": false
+                "instance_of": null,
+                "is_instantiable": false
             }
         ],
-        "constructor_docComment": "\/**\n     * Constructor\n     *\n     * @since   1.0\n     *\/",
+        "constructor_docComment": "\/**\n     * Constructor\n     *\n     * @param  string $plugin_name\n     * @param  string $event_name\n     * @param  array  $data\n     *\n     * @since  1.0\n     *\/",
         "implemented_by": [
 
         ],
@@ -5812,6 +5809,7 @@
         ],
         "method": [
             "__construct",
+            "get",
             "includeTheme",
             "parseTokens",
             "renderView",
@@ -13760,7 +13758,7 @@
             "onAfterInitialise",
             "onAfterRoute",
             "onAfterAuthorise",
-            "onAfterResource",
+            "onBeforeExecute",
             "onAfterExecute",
             "__construct",
             "get",
@@ -14163,6 +14161,52 @@
             "loadArray",
             "listRegistry",
             "getData"
+        ]
+    },
+    "Molajo\\Resource\\ExtensionMap": {
+        "name": "ExtensionMap",
+        "namespace": "Molajo\\Resource",
+        "fqns": "Molajo\\Resource\\ExtensionMap",
+        "file_name": "\/Users\/amystephen\/Sites\/Molajo\/Molajo\/vendor\/molajo\/framework\/Source\/Resource\/ExtensionMap.php",
+        "path": "vendor\/molajo\/framework\/Source\/Resource\/ExtensionMap.php",
+        "parent": false,
+        "implemented_interfaces": [
+            "CommonApi\\Resource\\ExtensionsInterface"
+        ],
+        "constructor_parameters": [
+            {
+                "name": "resource",
+                "default_available": false,
+                "default_value": null,
+                "instance_of": null,
+                "is_instantiable": false
+            },
+            {
+                "name": "runtime_data",
+                "default_available": false,
+                "default_value": null,
+                "instance_of": null,
+                "is_instantiable": false
+            },
+            {
+                "name": "extensions_filename",
+                "default_available": true,
+                "default_value": null,
+                "instance_of": null,
+                "is_instantiable": false
+            }
+        ],
+        "constructor_docComment": "\/**\n     * Constructor\n     *\n     * @param  object $resource\n     * @param  object $runtime_data\n     * @param  string $extensions_filename\n     *\n     * @since  1.0\n     *\/",
+        "implemented_by": [
+
+        ],
+        "dependency_for": [
+
+        ],
+        "method": [
+            "__construct",
+            "createMap",
+            "getCatalogTypes"
         ]
     },
     "Molajo\\Resource\\Handler\\MenuitemHandler": {
@@ -15623,51 +15667,6 @@
             "setConcreteInterfaceUsageDependencyTypeHints",
             "setAggregateConcreteInterfaceUsage",
             "readFile"
-        ]
-    },
-    "Molajo\\Resource\\ExtensionMap": {
-        "name": "ExtensionMap",
-        "namespace": "Molajo\\Resource",
-        "fqns": "Molajo\\Resource\\ExtensionMap",
-        "file_name": "\/Users\/amystephen\/Sites\/Molajo\/Molajo\/vendor\/molajo\/resource\/Source\/ExtensionMap.php",
-        "path": "vendor\/molajo\/resource\/Source\/ExtensionMap.php",
-        "parent": false,
-        "implemented_interfaces": [
-            "CommonApi\\Resource\\ExtensionsInterface"
-        ],
-        "constructor_parameters": [
-            {
-                "name": "resource",
-                "default_available": false,
-                "default_value": null,
-                "instance_of": null,
-                "is_instantiable": false
-            },
-            {
-                "name": "parameters",
-                "default_available": false,
-                "default_value": null,
-                "instance_of": null,
-                "is_instantiable": false
-            },
-            {
-                "name": "extensions_filename",
-                "default_available": true,
-                "default_value": null,
-                "instance_of": null,
-                "is_instantiable": false
-            }
-        ],
-        "constructor_docComment": "\/**\n     * Constructor\n     *\n     * @param  object $resource\n     * @param  object $parameters\n     * @param  string $extensions_filename\n     *\n     * @since  1.0\n     *\/",
-        "implemented_by": [
-
-        ],
-        "dependency_for": [
-
-        ],
-        "method": [
-            "__construct",
-            "createMap"
         ]
     },
     "Molajo\\Resource\\Handler\\AbstractHandler": {

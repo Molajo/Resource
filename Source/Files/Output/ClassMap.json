@@ -1925,6 +1925,12 @@
         "path": "vendor\/molajo\/framework\/Source\/Resource\/Configuration\/Registry.php",
         "fqns": "Molajo\\Resource\\Configuration\\Registry"
     },
+    "vendor\/molajo\/framework\/Source\/Resource\/ExtensionMap.php": {
+        "file_name": "ExtensionMap.php",
+        "base_name": "ExtensionMap",
+        "path": "vendor\/molajo\/framework\/Source\/Resource\/ExtensionMap.php",
+        "fqns": "Molajo\\Resource\\ExtensionMap"
+    },
     "vendor\/molajo\/framework\/Source\/Resource\/Handler\/MenuitemHandler.php": {
         "file_name": "MenuitemHandler.php",
         "base_name": "MenuitemHandler",
@@ -2074,12 +2080,6 @@
         "base_name": "ClassMap",
         "path": "vendor\/molajo\/resource\/Source\/ClassMap.php",
         "fqns": "Molajo\\Resource\\ClassMap"
-    },
-    "vendor\/molajo\/resource\/Source\/ExtensionMap.php": {
-        "file_name": "ExtensionMap.php",
-        "base_name": "ExtensionMap",
-        "path": "vendor\/molajo\/resource\/Source\/ExtensionMap.php",
-        "fqns": "Molajo\\Resource\\ExtensionMap"
     },
     "vendor\/molajo\/resource\/Source\/Handler\/AbstractHandler.php": {
         "file_name": "AbstractHandler.php",

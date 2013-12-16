@@ -764,6 +764,9 @@
     "molajo\\controller\\exceptionhandling": [
         "\/Users\/amystephen\/Sites\/Molajo\/Molajo\/vendor\/molajo\/framework\/Source\/Controller\/ExceptionHandling.php"
     ],
+    "molajo\\controller\\extensionmap": [
+        "\/Users\/amystephen\/Sites\/Molajo\/Molajo\/vendor\/molajo\/framework\/Source\/Resource\/ExtensionMap.php"
+    ],
     "molajo\\controller\\frontcontroller": [
         "\/Users\/amystephen\/Sites\/Molajo\/Molajo\/vendor\/molajo\/framework\/Source\/Controller\/FrontController.php"
     ],
@@ -6793,7 +6796,7 @@
         "\/Users\/amystephen\/Sites\/Molajo\/Molajo\/Source\/Resource\/Contacts\/Menuitem\/Contacts\/Configuration.xml"
     ],
     "molajo\\resource\\extensionmap": [
-        "\/Users\/amystephen\/Sites\/Molajo\/Molajo\/vendor\/molajo\/resource\/Source\/ExtensionMap.php"
+        "\/Users\/amystephen\/Sites\/Molajo\/Molajo\/vendor\/molajo\/framework\/Source\/Resource\/ExtensionMap.php"
     ],
     "molajo\\resource\\files": [
         "\/Users\/amystephen\/Sites\/Molajo\/Molajo\/Source\/Resource\/Files",

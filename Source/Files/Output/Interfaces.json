@@ -792,7 +792,6 @@
             "Molajo\\Language\\Adapter",
             "Molajo\\Language\\Handler\\Database",
             "Molajo\\Language\\Handler\\Database",
-            "Molajo\\Render\\Handler\\Molajito",
             "Molajo\\Resource\\Handler\\QueryHandler"
         ]
     },

@@ -1,5 +1,5 @@
 {
-    "onAfterResource": [
+    "onBeforeExecute": [
         "Molajo\\Plugin\\Ajax\\AjaxPlugin",
         "Molajo\\Plugin\\Application\\ApplicationPlugin",
         "Molajo\\Plugin\\Author\\AuthorPlugin",
