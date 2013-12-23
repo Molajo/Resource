@@ -19,6 +19,7 @@
             "Molajo\\Model\\Model",
             "Molajo\\Model\\ReadModel",
             "Molajo\\Model\\UpdateModel",
+            "Molajo\\Render\\Handler\\Molajito",
             "Molajo\\Resource\\Handler\\QueryHandler"
         ]
     },
@@ -132,7 +133,7 @@
             "Molajo\\Controller\\DateController"
         ],
         "dependency_for": [
-
+            "Molajo\\Render\\Handler\\Molajito"
         ]
     },
     "CommonApi\\Controller\\DeleteInterface": {
@@ -289,7 +290,7 @@
             "Molajo\\Controller\\UrlController"
         ],
         "dependency_for": [
-
+            "Molajo\\Render\\Handler\\Molajito"
         ]
     },
     "CommonApi\\Database\\ConnectionInterface": {
@@ -691,6 +692,7 @@
         "path": "vendor\/commonapi\/ioc\/ContainerInterface.php",
         "parent": false,
         "implemented_by": [
+            "Molajo\\Controller\\FrontController",
             "Molajo\\IoC\\Container"
         ],
         "dependency_for": [
@@ -792,6 +794,7 @@
             "Molajo\\Language\\Adapter",
             "Molajo\\Language\\Handler\\Database",
             "Molajo\\Language\\Handler\\Database",
+            "Molajo\\Render\\Handler\\Molajito",
             "Molajo\\Resource\\Handler\\QueryHandler"
         ]
     },
@@ -841,6 +844,7 @@
             "Molajo\\Model\\Model",
             "Molajo\\Model\\ReadModel",
             "Molajo\\Model\\UpdateModel",
+            "Molajo\\Render\\Handler\\Molajito",
             "Molajo\\Render\\Pagination",
             "Molajo\\Resource\\Handler\\QueryHandler",
             "Molajo\\User\\Activity",
@@ -929,7 +933,6 @@
         "path": "vendor\/commonapi\/render\/RenderInterface.php",
         "parent": false,
         "implemented_by": [
-            "Molajo\\Render\\Adapter",
             "Molajo\\Render\\Handler\\AbstractHandler",
             "Molajo\\Render\\Handler\\Molajito"
         ],

@@ -7904,8 +7904,8 @@
     "molajo\\site2\\2\\public\\css": [
         "\/Users\/amystephen\/Sites\/Molajo\/Molajo\/Sites\/2\/Public\/Css"
     ],
-    "molajo\\site2\\2\\public\\css\\custom.css": [
-        "\/Users\/amystephen\/Sites\/Molajo\/Molajo\/Sites\/2\/Public\/Css\/custom.css"
+    "molajo\\site2\\2\\public\\css\\customize.css": [
+        "\/Users\/amystephen\/Sites\/Molajo\/Molajo\/Sites\/2\/Public\/Css\/Customize.css"
     ],
     "molajo\\site2\\2\\public\\css\\foundation.css": [
         "\/Users\/amystephen\/Sites\/Molajo\/Molajo\/Sites\/2\/Public\/Css\/foundation.css"
@@ -7937,20 +7937,17 @@
     "molajo\\site2\\2\\public\\js\\foundation\\foundation.abide.js": [
         "\/Users\/amystephen\/Sites\/Molajo\/Molajo\/Sites\/2\/Public\/Js\/foundation\/foundation.abide.js"
     ],
-    "molajo\\site2\\2\\public\\js\\foundation\\foundation.alerts.js": [
-        "\/Users\/amystephen\/Sites\/Molajo\/Molajo\/Sites\/2\/Public\/Js\/foundation\/foundation.alerts.js"
+    "molajo\\site2\\2\\public\\js\\foundation\\foundation.accordion.js": [
+        "\/Users\/amystephen\/Sites\/Molajo\/Molajo\/Sites\/2\/Public\/Js\/foundation\/foundation.accordion.js"
+    ],
+    "molajo\\site2\\2\\public\\js\\foundation\\foundation.alert.js": [
+        "\/Users\/amystephen\/Sites\/Molajo\/Molajo\/Sites\/2\/Public\/Js\/foundation\/foundation.alert.js"
     ],
     "molajo\\site2\\2\\public\\js\\foundation\\foundation.clearing.js": [
         "\/Users\/amystephen\/Sites\/Molajo\/Molajo\/Sites\/2\/Public\/Js\/foundation\/foundation.clearing.js"
     ],
-    "molajo\\site2\\2\\public\\js\\foundation\\foundation.cookie.js": [
-        "\/Users\/amystephen\/Sites\/Molajo\/Molajo\/Sites\/2\/Public\/Js\/foundation\/foundation.cookie.js"
-    ],
     "molajo\\site2\\2\\public\\js\\foundation\\foundation.dropdown.js": [
         "\/Users\/amystephen\/Sites\/Molajo\/Molajo\/Sites\/2\/Public\/Js\/foundation\/foundation.dropdown.js"
-    ],
-    "molajo\\site2\\2\\public\\js\\foundation\\foundation.forms.js": [
-        "\/Users\/amystephen\/Sites\/Molajo\/Molajo\/Sites\/2\/Public\/Js\/foundation\/foundation.forms.js"
     ],
     "molajo\\site2\\2\\public\\js\\foundation\\foundation.interchange.js": [
         "\/Users\/amystephen\/Sites\/Molajo\/Molajo\/Sites\/2\/Public\/Js\/foundation\/foundation.interchange.js"
@@ -7964,23 +7961,32 @@
     "molajo\\site2\\2\\public\\js\\foundation\\foundation.magellan.js": [
         "\/Users\/amystephen\/Sites\/Molajo\/Molajo\/Sites\/2\/Public\/Js\/foundation\/foundation.magellan.js"
     ],
+    "molajo\\site2\\2\\public\\js\\foundation\\foundation.offcanvas.js": [
+        "\/Users\/amystephen\/Sites\/Molajo\/Molajo\/Sites\/2\/Public\/Js\/foundation\/foundation.offcanvas.js"
+    ],
     "molajo\\site2\\2\\public\\js\\foundation\\foundation.orbit.js": [
         "\/Users\/amystephen\/Sites\/Molajo\/Molajo\/Sites\/2\/Public\/Js\/foundation\/foundation.orbit.js"
-    ],
-    "molajo\\site2\\2\\public\\js\\foundation\\foundation.placeholder.js": [
-        "\/Users\/amystephen\/Sites\/Molajo\/Molajo\/Sites\/2\/Public\/Js\/foundation\/foundation.placeholder.js"
     ],
     "molajo\\site2\\2\\public\\js\\foundation\\foundation.reveal.js": [
         "\/Users\/amystephen\/Sites\/Molajo\/Molajo\/Sites\/2\/Public\/Js\/foundation\/foundation.reveal.js"
     ],
-    "molajo\\site2\\2\\public\\js\\foundation\\foundation.section.js": [
-        "\/Users\/amystephen\/Sites\/Molajo\/Molajo\/Sites\/2\/Public\/Js\/foundation\/foundation.section.js"
+    "molajo\\site2\\2\\public\\js\\foundation\\foundation.tab.js": [
+        "\/Users\/amystephen\/Sites\/Molajo\/Molajo\/Sites\/2\/Public\/Js\/foundation\/foundation.tab.js"
     ],
-    "molajo\\site2\\2\\public\\js\\foundation\\foundation.tooltips.js": [
-        "\/Users\/amystephen\/Sites\/Molajo\/Molajo\/Sites\/2\/Public\/Js\/foundation\/foundation.tooltips.js"
+    "molajo\\site2\\2\\public\\js\\foundation\\foundation.tooltip.js": [
+        "\/Users\/amystephen\/Sites\/Molajo\/Molajo\/Sites\/2\/Public\/Js\/foundation\/foundation.tooltip.js"
     ],
     "molajo\\site2\\2\\public\\js\\foundation\\foundation.topbar.js": [
         "\/Users\/amystephen\/Sites\/Molajo\/Molajo\/Sites\/2\/Public\/Js\/foundation\/foundation.topbar.js"
+    ],
+    "molajo\\site2\\2\\public\\js\\foundation\\jquery.cookie.js": [
+        "\/Users\/amystephen\/Sites\/Molajo\/Molajo\/Sites\/2\/Public\/Js\/foundation\/jquery.cookie.js"
+    ],
+    "molajo\\site2\\2\\public\\js\\jquery.js": [
+        "\/Users\/amystephen\/Sites\/Molajo\/Molajo\/Sites\/2\/Public\/Js\/jquery.js"
+    ],
+    "molajo\\site2\\2\\public\\js\\modernizr.js": [
+        "\/Users\/amystephen\/Sites\/Molajo\/Molajo\/Sites\/2\/Public\/Js\/modernizr.js"
     ],
     "molajo\\site2\\2\\public\\js\\vendor": [
         "\/Users\/amystephen\/Sites\/Molajo\/Molajo\/Sites\/2\/Public\/Js\/vendor"
@@ -7988,11 +7994,20 @@
     "molajo\\site2\\2\\public\\js\\vendor\\custom.modernizr.js": [
         "\/Users\/amystephen\/Sites\/Molajo\/Molajo\/Sites\/2\/Public\/Js\/vendor\/custom.modernizr.js"
     ],
+    "molajo\\site2\\2\\public\\js\\vendor\\fastclick.js": [
+        "\/Users\/amystephen\/Sites\/Molajo\/Molajo\/Sites\/2\/Public\/Js\/vendor\/fastclick.js"
+    ],
+    "molajo\\site2\\2\\public\\js\\vendor\\jquery.autocomplete.js": [
+        "\/Users\/amystephen\/Sites\/Molajo\/Molajo\/Sites\/2\/Public\/Js\/vendor\/jquery.autocomplete.js"
+    ],
+    "molajo\\site2\\2\\public\\js\\vendor\\jquery.cookie.js": [
+        "\/Users\/amystephen\/Sites\/Molajo\/Molajo\/Sites\/2\/Public\/Js\/vendor\/jquery.cookie.js"
+    ],
     "molajo\\site2\\2\\public\\js\\vendor\\jquery.js": [
         "\/Users\/amystephen\/Sites\/Molajo\/Molajo\/Sites\/2\/Public\/Js\/vendor\/jquery.js"
     ],
-    "molajo\\site2\\2\\public\\js\\vendor\\zepto.js": [
-        "\/Users\/amystephen\/Sites\/Molajo\/Molajo\/Sites\/2\/Public\/Js\/vendor\/zepto.js"
+    "molajo\\site2\\2\\public\\js\\vendor\\placeholder.js": [
+        "\/Users\/amystephen\/Sites\/Molajo\/Molajo\/Sites\/2\/Public\/Js\/vendor\/placeholder.js"
     ],
     "molajo\\site2\\2\\public\\media": [
         "\/Users\/amystephen\/Sites\/Molajo\/Molajo\/Sites\/2\/Public\/Media"
@@ -8489,8 +8504,8 @@
     "molajo\\sites\\2\\public\\css": [
         "\/Users\/amystephen\/Sites\/Molajo\/Molajo\/Sites\/2\/Public\/Css"
     ],
-    "molajo\\sites\\2\\public\\css\\custom.css": [
-        "\/Users\/amystephen\/Sites\/Molajo\/Molajo\/Sites\/2\/Public\/Css\/custom.css"
+    "molajo\\sites\\2\\public\\css\\customize.css": [
+        "\/Users\/amystephen\/Sites\/Molajo\/Molajo\/Sites\/2\/Public\/Css\/Customize.css"
     ],
     "molajo\\sites\\2\\public\\css\\foundation.css": [
         "\/Users\/amystephen\/Sites\/Molajo\/Molajo\/Sites\/2\/Public\/Css\/foundation.css"
@@ -8522,20 +8537,17 @@
     "molajo\\sites\\2\\public\\js\\foundation\\foundation.abide.js": [
         "\/Users\/amystephen\/Sites\/Molajo\/Molajo\/Sites\/2\/Public\/Js\/foundation\/foundation.abide.js"
     ],
-    "molajo\\sites\\2\\public\\js\\foundation\\foundation.alerts.js": [
-        "\/Users\/amystephen\/Sites\/Molajo\/Molajo\/Sites\/2\/Public\/Js\/foundation\/foundation.alerts.js"
+    "molajo\\sites\\2\\public\\js\\foundation\\foundation.accordion.js": [
+        "\/Users\/amystephen\/Sites\/Molajo\/Molajo\/Sites\/2\/Public\/Js\/foundation\/foundation.accordion.js"
+    ],
+    "molajo\\sites\\2\\public\\js\\foundation\\foundation.alert.js": [
+        "\/Users\/amystephen\/Sites\/Molajo\/Molajo\/Sites\/2\/Public\/Js\/foundation\/foundation.alert.js"
     ],
     "molajo\\sites\\2\\public\\js\\foundation\\foundation.clearing.js": [
         "\/Users\/amystephen\/Sites\/Molajo\/Molajo\/Sites\/2\/Public\/Js\/foundation\/foundation.clearing.js"
     ],
-    "molajo\\sites\\2\\public\\js\\foundation\\foundation.cookie.js": [
-        "\/Users\/amystephen\/Sites\/Molajo\/Molajo\/Sites\/2\/Public\/Js\/foundation\/foundation.cookie.js"
-    ],
     "molajo\\sites\\2\\public\\js\\foundation\\foundation.dropdown.js": [
         "\/Users\/amystephen\/Sites\/Molajo\/Molajo\/Sites\/2\/Public\/Js\/foundation\/foundation.dropdown.js"
-    ],
-    "molajo\\sites\\2\\public\\js\\foundation\\foundation.forms.js": [
-        "\/Users\/amystephen\/Sites\/Molajo\/Molajo\/Sites\/2\/Public\/Js\/foundation\/foundation.forms.js"
     ],
     "molajo\\sites\\2\\public\\js\\foundation\\foundation.interchange.js": [
         "\/Users\/amystephen\/Sites\/Molajo\/Molajo\/Sites\/2\/Public\/Js\/foundation\/foundation.interchange.js"
@@ -8549,23 +8561,32 @@
     "molajo\\sites\\2\\public\\js\\foundation\\foundation.magellan.js": [
         "\/Users\/amystephen\/Sites\/Molajo\/Molajo\/Sites\/2\/Public\/Js\/foundation\/foundation.magellan.js"
     ],
+    "molajo\\sites\\2\\public\\js\\foundation\\foundation.offcanvas.js": [
+        "\/Users\/amystephen\/Sites\/Molajo\/Molajo\/Sites\/2\/Public\/Js\/foundation\/foundation.offcanvas.js"
+    ],
     "molajo\\sites\\2\\public\\js\\foundation\\foundation.orbit.js": [
         "\/Users\/amystephen\/Sites\/Molajo\/Molajo\/Sites\/2\/Public\/Js\/foundation\/foundation.orbit.js"
-    ],
-    "molajo\\sites\\2\\public\\js\\foundation\\foundation.placeholder.js": [
-        "\/Users\/amystephen\/Sites\/Molajo\/Molajo\/Sites\/2\/Public\/Js\/foundation\/foundation.placeholder.js"
     ],
     "molajo\\sites\\2\\public\\js\\foundation\\foundation.reveal.js": [
         "\/Users\/amystephen\/Sites\/Molajo\/Molajo\/Sites\/2\/Public\/Js\/foundation\/foundation.reveal.js"
     ],
-    "molajo\\sites\\2\\public\\js\\foundation\\foundation.section.js": [
-        "\/Users\/amystephen\/Sites\/Molajo\/Molajo\/Sites\/2\/Public\/Js\/foundation\/foundation.section.js"
+    "molajo\\sites\\2\\public\\js\\foundation\\foundation.tab.js": [
+        "\/Users\/amystephen\/Sites\/Molajo\/Molajo\/Sites\/2\/Public\/Js\/foundation\/foundation.tab.js"
     ],
-    "molajo\\sites\\2\\public\\js\\foundation\\foundation.tooltips.js": [
-        "\/Users\/amystephen\/Sites\/Molajo\/Molajo\/Sites\/2\/Public\/Js\/foundation\/foundation.tooltips.js"
+    "molajo\\sites\\2\\public\\js\\foundation\\foundation.tooltip.js": [
+        "\/Users\/amystephen\/Sites\/Molajo\/Molajo\/Sites\/2\/Public\/Js\/foundation\/foundation.tooltip.js"
     ],
     "molajo\\sites\\2\\public\\js\\foundation\\foundation.topbar.js": [
         "\/Users\/amystephen\/Sites\/Molajo\/Molajo\/Sites\/2\/Public\/Js\/foundation\/foundation.topbar.js"
+    ],
+    "molajo\\sites\\2\\public\\js\\foundation\\jquery.cookie.js": [
+        "\/Users\/amystephen\/Sites\/Molajo\/Molajo\/Sites\/2\/Public\/Js\/foundation\/jquery.cookie.js"
+    ],
+    "molajo\\sites\\2\\public\\js\\jquery.js": [
+        "\/Users\/amystephen\/Sites\/Molajo\/Molajo\/Sites\/2\/Public\/Js\/jquery.js"
+    ],
+    "molajo\\sites\\2\\public\\js\\modernizr.js": [
+        "\/Users\/amystephen\/Sites\/Molajo\/Molajo\/Sites\/2\/Public\/Js\/modernizr.js"
     ],
     "molajo\\sites\\2\\public\\js\\vendor": [
         "\/Users\/amystephen\/Sites\/Molajo\/Molajo\/Sites\/2\/Public\/Js\/vendor"
@@ -8573,11 +8594,20 @@
     "molajo\\sites\\2\\public\\js\\vendor\\custom.modernizr.js": [
         "\/Users\/amystephen\/Sites\/Molajo\/Molajo\/Sites\/2\/Public\/Js\/vendor\/custom.modernizr.js"
     ],
+    "molajo\\sites\\2\\public\\js\\vendor\\fastclick.js": [
+        "\/Users\/amystephen\/Sites\/Molajo\/Molajo\/Sites\/2\/Public\/Js\/vendor\/fastclick.js"
+    ],
+    "molajo\\sites\\2\\public\\js\\vendor\\jquery.autocomplete.js": [
+        "\/Users\/amystephen\/Sites\/Molajo\/Molajo\/Sites\/2\/Public\/Js\/vendor\/jquery.autocomplete.js"
+    ],
+    "molajo\\sites\\2\\public\\js\\vendor\\jquery.cookie.js": [
+        "\/Users\/amystephen\/Sites\/Molajo\/Molajo\/Sites\/2\/Public\/Js\/vendor\/jquery.cookie.js"
+    ],
     "molajo\\sites\\2\\public\\js\\vendor\\jquery.js": [
         "\/Users\/amystephen\/Sites\/Molajo\/Molajo\/Sites\/2\/Public\/Js\/vendor\/jquery.js"
     ],
-    "molajo\\sites\\2\\public\\js\\vendor\\zepto.js": [
-        "\/Users\/amystephen\/Sites\/Molajo\/Molajo\/Sites\/2\/Public\/Js\/vendor\/zepto.js"
+    "molajo\\sites\\2\\public\\js\\vendor\\placeholder.js": [
+        "\/Users\/amystephen\/Sites\/Molajo\/Molajo\/Sites\/2\/Public\/Js\/vendor\/placeholder.js"
     ],
     "molajo\\sites\\2\\public\\media": [
         "\/Users\/amystephen\/Sites\/Molajo\/Molajo\/Sites\/2\/Public\/Media"

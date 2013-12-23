@@ -5,7 +5,8 @@
         "Molajo\\Plugin\\Author\\AuthorPlugin",
         "Molajo\\Plugin\\Comments\\CommentsPlugin",
         "Molajo\\Plugin\\Featured\\FeaturedPlugin",
-        "Molajo\\Plugin\\Fields\\FieldsPlugin"
+        "Molajo\\Plugin\\Fields\\FieldsPlugin",
+        "Molajo\\Plugin\\Menuitems\\MenuitemsPlugin"
     ],
     "onBeforeCreate": [
         "Molajo\\Plugin\\Alias\\AliasPlugin",
@@ -54,13 +55,8 @@
         "Molajo\\Plugin\\Useractivity\\UseractivityPlugin",
         "Molajo\\Plugin\\Weather\\WeatherPlugin"
     ],
-    "onBeforeRenderView": [
-        "Molajo\\Plugin\\Catalog\\CatalogPlugin",
-        "Molajo\\Plugin\\Formbegin\\FormbeginPlugin",
-        "Molajo\\Plugin\\Formselectlist\\FormselectlistPlugin",
-        "Molajo\\Plugin\\Pagetypelist\\PagetypelistPlugin",
-        "Molajo\\Plugin\\Paging\\PagingPlugin",
-        "Molajo\\Plugin\\UIFoundation\\UIFoundationPlugin"
+    "onBeforeRender": [
+        "Molajo\\Plugin\\Catalog\\CatalogPlugin"
     ],
     "onAfterCreate": [
         "Molajo\\Plugin\\Catalog\\CatalogPlugin",
@@ -97,7 +93,6 @@
     ],
     "onAfterRoute": [
         "Molajo\\Plugin\\Datalist\\DatalistPlugin",
-        "Molajo\\Plugin\\Menuitems\\MenuitemsPlugin",
         "Molajo\\Plugin\\Pagetypes\\PagetypesPlugin",
         "Molajo\\Plugin\\Resource\\ResourcePlugin"
     ],
@@ -108,6 +103,13 @@
     ],
     "onAfterInitialise": [
         "Molajo\\Plugin\\Events\\EventsPlugin"
+    ],
+    "onBeforeRenderView": [
+        "Molajo\\Plugin\\Formbegin\\FormbeginPlugin",
+        "Molajo\\Plugin\\Formselectlist\\FormselectlistPlugin",
+        "Molajo\\Plugin\\Pagetypelist\\PagetypelistPlugin",
+        "Molajo\\Plugin\\Paging\\PagingPlugin",
+        "Molajo\\Plugin\\UIFoundation\\UIFoundationPlugin"
     ],
     "onAfterInclude": [
         "Molajo\\Plugin\\Formselectlist\\FormselectlistPlugin"

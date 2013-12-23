@@ -404,7 +404,7 @@
 
         ],
         "method": [
-            "onBeforeRenderView",
+            "onBeforeRender",
             "onAfterCreate",
             "onAfterUpdate",
             "onBeforeUpdate",
@@ -414,6 +414,7 @@
             "logCatalogActivity",
             "onBeforeParse",
             "onBeforeParseHead",
+            "onBeforeRenderView",
             "onAfterRenderView",
             "onAfterParse",
             "__construct",
@@ -2405,10 +2406,10 @@
 
         ],
         "method": [
-            "onAfterRoute",
-            "onAfterInitialise",
-            "onAfterAuthorise",
             "onBeforeExecute",
+            "onAfterInitialise",
+            "onAfterRoute",
+            "onAfterAuthorise",
             "onAfterExecute",
             "__construct",
             "get",
@@ -5696,24 +5697,23 @@
         "path": "vendor\/molajo\/Render\/Source\/Adapter.php",
         "parent": false,
         "implemented_interfaces": [
-            "CommonApi\\Render\\RenderInterface"
+
         ],
         "constructor_parameters": [
             {
-                "name": "adapter",
+                "name": "render_handler",
                 "default_available": false,
                 "default_value": null,
                 "instance_of": "CommonApi\\Render\\RenderInterface",
                 "is_instantiable": false,
                 "implemented_by": [
-                    "Molajo\\Render\\Adapter",
                     "Molajo\\Render\\Handler\\AbstractHandler",
                     "Molajo\\Render\\Handler\\Molajito"
                 ],
                 "concrete": false
             }
         ],
-        "constructor_docComment": "\/**\n     * Class Constructor\n     *\n     * @param   RenderInterface $adapter\n     *\n     * @since   1.0\n     *\/",
+        "constructor_docComment": "\/**\n     * Class Constructor\n     *\n     * @param   RenderInterface $render_handler\n     *\n     * @since   1.0\n     *\/",
         "implemented_by": [
 
         ],
@@ -5721,12 +5721,8 @@
 
         ],
         "method": [
-            "get",
             "__construct",
-            "includeTheme",
-            "parseTokens",
-            "renderView",
-            "injectRenderedOutput"
+            "render"
         ]
     },
     "Molajo\\Render\\Handler\\AbstractHandler": {
@@ -5740,24 +5736,8 @@
             "CommonApi\\Render\\RenderInterface"
         ],
         "constructor_parameters": [
-            {
-                "name": "exclude_tokens",
-                "default_available": true,
-                "default_value": [
 
-                ],
-                "instance_of": null,
-                "is_instantiable": false
-            },
-            {
-                "name": "triggerEvent",
-                "default_available": true,
-                "default_value": null,
-                "instance_of": null,
-                "is_instantiable": false
-            }
         ],
-        "constructor_docComment": "\/**\n     * Constructor\n     *\n     * @param  array  $sequence\n     * @param  array  $final\n     * @param  object $resource\n     * @param  object $extensions\n     *\n     * @since   1.0\n     *\/",
         "implemented_by": [
 
         ],
@@ -5765,11 +5745,7 @@
 
         ],
         "method": [
-            "__construct",
-            "includeTheme",
-            "parseTokens",
-            "renderView",
-            "injectRenderedOutput"
+            "render"
         ]
     },
     "Molajo\\Render\\Handler\\Molajito": {
@@ -5784,14 +5760,88 @@
         ],
         "constructor_parameters": [
             {
-                "name": "triggerEvent",
+                "name": "fieldhandler",
+                "default_available": false,
+                "default_value": null,
+                "instance_of": "CommonApi\\Model\\FieldhandlerInterface",
+                "is_instantiable": false,
+                "implemented_by": [
+                    "Molajo\\Fieldhandler\\Adapter",
+                    "Molajo\\User\\Utilities\\Fieldhandler"
+                ],
+                "concrete": false
+            },
+            {
+                "name": "date_controller",
+                "default_available": false,
+                "default_value": null,
+                "instance_of": "CommonApi\\Controller\\DateInterface",
+                "is_instantiable": false,
+                "implemented_by": [
+                    "Molajo\\Controller\\DateController"
+                ],
+                "concrete": false
+            },
+            {
+                "name": "url_controller",
+                "default_available": false,
+                "default_value": null,
+                "instance_of": "CommonApi\\Controller\\UrlInterface",
+                "is_instantiable": false,
+                "implemented_by": [
+                    "Molajo\\Controller\\UrlController"
+                ],
+                "concrete": false
+            },
+            {
+                "name": "language_controller",
+                "default_available": false,
+                "default_value": null,
+                "instance_of": "CommonApi\\Language\\LanguageInterface",
+                "is_instantiable": false,
+                "implemented_by": [
+                    "Molajo\\Language\\Adapter",
+                    "Molajo\\Language\\Handler\\AbstractHandler",
+                    "Molajo\\Language\\Handler\\Database"
+                ],
+                "concrete": false
+            },
+            {
+                "name": "authorisation_controller",
+                "default_available": false,
+                "default_value": null,
+                "instance_of": "CommonApi\\Authorisation\\AuthorisationInterface",
+                "is_instantiable": false,
+                "implemented_by": [
+                    "Molajo\\Authorisation\\Adapter",
+                    "Molajo\\Authorisation\\Handler\\AbstractHandler",
+                    "Molajo\\Authorisation\\Handler\\Database"
+                ],
+                "concrete": false
+            },
+            {
+                "name": "resource",
                 "default_available": false,
                 "default_value": null,
                 "instance_of": null,
                 "is_instantiable": false
             },
             {
-                "name": "options",
+                "name": "runtime_data",
+                "default_available": false,
+                "default_value": null,
+                "instance_of": null,
+                "is_instantiable": false
+            },
+            {
+                "name": "event_callback",
+                "default_available": true,
+                "default_value": null,
+                "instance_of": null,
+                "is_instantiable": false
+            },
+            {
+                "name": "exclude_tokens",
                 "default_available": true,
                 "default_value": [
 
@@ -5800,7 +5850,7 @@
                 "is_instantiable": false
             }
         ],
-        "constructor_docComment": "\/**\n     * Constructor\n     *\n     * @param  string $plugin_name\n     * @param  string $event_name\n     * @param  array  $data\n     *\n     * @since  1.0\n     *\/",
+        "constructor_docComment": "\/**\n     * Constructor\n     *\n     * @param  FieldhandlerInterface  $fieldhandler\n     * @param  DateInterface          $date_controller\n     * @param  UrlInterface           $url_controller\n     * @param  LanguageInterface      $language_controller\n     * @param  AuthorisationInterface $authorisation_controller\n     * @param  object                 $resource\n     * @param  object                 $runtime_data\n     * @param  callable               $event_callback\n     * @param  array                  $exclude_tokens\n     *\n     * @since  1.0\n     *\/",
         "implemented_by": [
 
         ],
@@ -5809,11 +5859,9 @@
         ],
         "method": [
             "__construct",
-            "get",
+            "render",
             "includeTheme",
-            "parseTokens",
-            "renderView",
-            "injectRenderedOutput"
+            "parseTokens"
         ]
     },
     "Molajo\\Render\\Handler\\Mustache": {
@@ -7841,7 +7889,7 @@
         "method": [
             "__construct",
             "registerForEvent",
-            "triggerEvent"
+            "scheduleEvent"
         ]
     },
     "Molajo\\Event\\Event": {
@@ -11954,14 +12002,21 @@
                 "concrete": false
             },
             {
-                "name": "triggerEvent",
+                "name": "schedule_event",
                 "default_available": false,
                 "default_value": null,
                 "instance_of": null,
                 "is_instantiable": false
+            },
+            {
+                "name": "sql",
+                "default_available": true,
+                "default_value": "",
+                "instance_of": null,
+                "is_instantiable": false
             }
         ],
-        "constructor_docComment": "\/**\n     * Class Constructor\n     *\n     * @param AuthorisationInterface $authorisation\n     * @param UserInterface          $user\n     * @param LanguageInterface      $language\n     * @param ModelInterface         $model\n     * @param object                 $runtime_data\n     * @param null                   $page_type\n     * @param FieldhandlerInterface  $fieldhandler\n     * @param CacheInterface         $cache\n     * @param callable               $triggerEvent\n     *\n     * @since   1.0\n     *\/",
+        "constructor_docComment": "\/**\n     * Class Constructor\n     *\n     * @param AuthorisationInterface $authorisation\n     * @param UserInterface          $user\n     * @param LanguageInterface      $language\n     * @param ModelInterface         $model\n     * @param object                 $runtime_data\n     * @param null                   $page_type\n     * @param FieldhandlerInterface  $fieldhandler\n     * @param CacheInterface         $cache\n     * @param callable               $schedule_event\n     * @param string                 $sql\n     *\n     * @since   1.0\n     *\/",
         "implemented_by": [
 
         ],
@@ -12258,7 +12313,8 @@
         "path": "vendor\/molajo\/framework\/Source\/Controller\/FrontController.php",
         "parent": false,
         "implemented_interfaces": [
-            "CommonApi\\Controller\\FrontControllerInterface"
+            "CommonApi\\Controller\\FrontControllerInterface",
+            "CommonApi\\IoC\\ContainerInterface"
         ],
         "constructor_parameters": [
             {
@@ -12271,9 +12327,25 @@
                     "Molajo\\IoC\\ServiceProviderController"
                 ],
                 "concrete": false
+            },
+            {
+                "name": "base_folder",
+                "default_available": false,
+                "default_value": null,
+                "instance_of": null,
+                "is_instantiable": false
+            },
+            {
+                "name": "steps",
+                "default_available": true,
+                "default_value": [
+
+                ],
+                "instance_of": null,
+                "is_instantiable": false
             }
         ],
-        "constructor_docComment": "\/**\n     * Constructor\n     *\n     * @param  ServiceProviderControllerInterface $service_provider_controller\n     *\n     * @since  1.0\n     *\/",
+        "constructor_docComment": "\/**\n     * Constructor\n     *\n     * @param ServiceProviderControllerInterface $service_provider_controller\n     * @param                                    $base_folder\n     * @param array                              $steps\n     *\n     * @since  1.0\n     *\/",
         "implemented_by": [
 
         ],
@@ -12285,9 +12357,14 @@
             "driver",
             "processStep",
             "processStepMethod",
-            "triggerEvent",
+            "scheduleEvent",
             "handleErrors",
-            "shutdown"
+            "shutdown",
+            "getServices",
+            "getService",
+            "setService",
+            "cloneService",
+            "removeService"
         ]
     },
     "Molajo\\Controller\\ImageController": {
@@ -12501,14 +12578,21 @@
                 "concrete": false
             },
             {
-                "name": "triggerEvent",
+                "name": "schedule_event",
                 "default_available": false,
                 "default_value": null,
                 "instance_of": null,
                 "is_instantiable": false
+            },
+            {
+                "name": "sql",
+                "default_available": true,
+                "default_value": "",
+                "instance_of": null,
+                "is_instantiable": false
             }
         ],
-        "constructor_docComment": "\/**\n     * Class Constructor\n     *\n     * @param AuthorisationInterface $authorisation\n     * @param UserInterface          $user\n     * @param LanguageInterface      $language\n     * @param ModelInterface         $model\n     * @param object                 $runtime_data\n     * @param null                   $page_type\n     * @param FieldhandlerInterface  $fieldhandler\n     * @param CacheInterface         $cache\n     * @param callable               $triggerEvent\n     *\n     * @since   1.0\n     *\/",
+        "constructor_docComment": "\/**\n     * Class Constructor\n     *\n     * @param AuthorisationInterface $authorisation\n     * @param UserInterface          $user\n     * @param LanguageInterface      $language\n     * @param ModelInterface         $model\n     * @param object                 $runtime_data\n     * @param null                   $page_type\n     * @param FieldhandlerInterface  $fieldhandler\n     * @param CacheInterface         $cache\n     * @param callable               $schedule_event\n     * @param string                 $sql\n     *\n     * @since   1.0\n     *\/",
         "implemented_by": [
 
         ],
@@ -13287,10 +13371,8 @@
 
         ],
         "method": [
-            "setBaseQuery",
-            "useSpecialJoins",
-            "setModelCriteria",
-            "getQueryResults",
+            "setQuery",
+            "getData",
             "__construct",
             "get",
             "set",
@@ -14525,14 +14607,14 @@
                 "concrete": false
             },
             {
-                "name": "triggerevent",
+                "name": "schedule_event",
                 "default_available": false,
                 "default_value": null,
                 "instance_of": null,
                 "is_instantiable": false
             }
         ],
-        "constructor_docComment": "\/**\n     * Constructor\n     *\n     * @param  string                          $base_path\n     * @param  array                           $resource_map\n     * @param  array                           $namespace_prefixes\n     * @param  array                           $valid_file_extensions\n     * @param  DatabaseInterface               $database\n     * @param                                  $query\n     * @param  string                          $null_date\n     * @param  string                          $current_date\n     * @param  AuthorisationInterface          $authorisation\n     * @param  FieldhandlerInterface           $fieldhandler\n     * @param  Object                          $resource\n     * @param  RegistryInterface               $registry\n     * @param  CacheInterface                  $cache\n     * @param  UserInterface                   $user\n     * @param  LanguageInterface               $language\n     * @param  callback                        $trigger_event\n     *\n     * @since  1.0\n     *\/",
+        "constructor_docComment": "\/**\n     * Constructor\n     *\n     * @param  string                          $base_path\n     * @param  array                           $resource_map\n     * @param  array                           $namespace_prefixes\n     * @param  array                           $valid_file_extensions\n     * @param  DatabaseInterface               $database\n     * @param                                  $query\n     * @param  string                          $null_date\n     * @param  string                          $current_date\n     * @param  AuthorisationInterface          $authorisation\n     * @param  FieldhandlerInterface           $fieldhandler\n     * @param  Object                          $resource\n     * @param  RegistryInterface               $registry\n     * @param  CacheInterface                  $cache\n     * @param  UserInterface                   $user\n     * @param  LanguageInterface               $language\n     * @param  callback                        $schedule_event\n     *\n     * @since  1.0\n     *\/",
         "implemented_by": [
 
         ],
@@ -15097,6 +15179,7 @@
                 "instance_of": "CommonApi\\IoC\\ContainerInterface",
                 "is_instantiable": false,
                 "implemented_by": [
+                    "Molajo\\Controller\\FrontController",
                     "Molajo\\IoC\\Container"
                 ],
                 "concrete": false
@@ -15219,13 +15302,13 @@
         ],
         "method": [
             "__construct",
+            "setDependencies",
+            "onBeforeInstantiation",
             "instantiateService",
             "getServiceName",
             "getServiceNamespace",
             "getServiceOptions",
             "getStoreInstanceIndicator",
-            "setDependencies",
-            "onBeforeInstantiation",
             "instantiateStatic",
             "onAfterInstantiation",
             "getServiceInstance",
