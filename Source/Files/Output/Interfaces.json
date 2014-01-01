@@ -420,6 +420,7 @@
             "Molajo\\Plugin\\Activity\\ActivityPlugin",
             "Molajo\\Plugin\\Catalog\\CatalogPlugin",
             "Molajo\\Plugin\\DisplayEventPlugin",
+            "Molajo\\Plugin\\Featured\\FeaturedPlugin",
             "Molajo\\Plugin\\Formbegin\\FormbeginPlugin",
             "Molajo\\Plugin\\Formselectlist\\FormselectlistPlugin",
             "Molajo\\Plugin\\Googleanalytics\\GoogleanalyticsPlugin",
@@ -517,7 +518,6 @@
             "Molajo\\Plugin\\Comments\\CommentsPlugin",
             "Molajo\\Plugin\\Copyright\\CopyrightPlugin",
             "Molajo\\Plugin\\Events\\EventsPlugin",
-            "Molajo\\Plugin\\Featured\\FeaturedPlugin",
             "Molajo\\Plugin\\Fields\\FieldsPlugin",
             "Molajo\\Plugin\\Menuitems\\MenuitemsPlugin",
             "Molajo\\Plugin\\Pagetypes\\PagetypesPlugin",
@@ -692,11 +692,23 @@
         "path": "vendor\/commonapi\/ioc\/ContainerInterface.php",
         "parent": false,
         "implemented_by": [
-            "Molajo\\Controller\\FrontController",
             "Molajo\\IoC\\Container"
         ],
         "dependency_for": [
-            "Molajo\\IoC\\ServiceProviderController"
+            "Molajo\\Controller\\FrontController"
+        ]
+    },
+    "CommonApi\\IoC\\ServiceProviderAdapterInterface": {
+        "name": "ServiceProviderAdapterInterface",
+        "namespace": "CommonApi\\IoC",
+        "fqns": "CommonApi\\IoC\\ServiceProviderAdapterInterface",
+        "path": "vendor\/commonapi\/ioc\/ServiceProviderAdapterInterface.php",
+        "parent": false,
+        "implemented_by": [
+            "Molajo\\IoC\\ServiceProviderAdapter"
+        ],
+        "dependency_for": [
+
         ]
     },
     "CommonApi\\IoC\\ServiceProviderInterface": {
@@ -1043,7 +1055,7 @@
         "path": "vendor\/commonapi\/resource\/MapInterface.php",
         "parent": false,
         "implemented_by": [
-            "Molajo\\IoC\\MapServiceProviderNamespaces",
+            "Molajo\\IoC\\MapServiceProviders",
             "Molajo\\Resource\\ResourceMap"
         ],
         "dependency_for": [
@@ -1271,32 +1283,6 @@
             "Molajo\\Controller\\Controller",
             "Molajo\\Controller\\ReadController",
             "Molajo\\Resource\\Handler\\QueryHandler"
-        ]
-    },
-    "Molajo\\IoC\\Api\\ServiceProviderAdapterInterface": {
-        "name": "ServiceProviderAdapterInterface",
-        "namespace": "Molajo\\IoC\\Api",
-        "fqns": "Molajo\\IoC\\Api\\ServiceProviderAdapterInterface",
-        "path": "vendor\/molajo\/ioc\/Source\/Api\/ServiceProviderAdapterInterface.php",
-        "parent": false,
-        "implemented_by": [
-            "Molajo\\IoC\\ServiceProviderAdapter"
-        ],
-        "dependency_for": [
-
-        ]
-    },
-    "Molajo\\IoC\\Api\\ServiceProviderControllerInterface": {
-        "name": "ServiceProviderControllerInterface",
-        "namespace": "Molajo\\IoC\\Api",
-        "fqns": "Molajo\\IoC\\Api\\ServiceProviderControllerInterface",
-        "path": "vendor\/molajo\/ioc\/Source\/Api\/ServiceProviderControllerInterface.php",
-        "parent": false,
-        "implemented_by": [
-            "Molajo\\IoC\\ServiceProviderController"
-        ],
-        "dependency_for": [
-            "Molajo\\Controller\\FrontController"
         ]
     }
 }

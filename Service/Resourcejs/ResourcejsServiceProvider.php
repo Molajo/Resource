@@ -63,9 +63,9 @@ class ResourcejsServiceProvider extends AbstractServiceProvider implements Servi
      * @since   1.0
      * @throws  \CommonApi\Exception\RuntimeException;
      */
-    public function onBeforeInstantiation(array $dependency_instances = null)
+    public function onBeforeInstantiation(array $dependency_values = null)
     {
-        parent::onBeforeInstantiation($dependency_instances);
+        parent::onBeforeInstantiation($dependency_values);
 
         $this->dependencies['base_path']             = BASE_FOLDER;
         $this->dependencies['resource_map']          = $this->readFile(

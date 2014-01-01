@@ -64,9 +64,8 @@
             "__construct",
             "get",
             "getField",
-            "getFieldValue",
             "getFieldsByType",
-            "set",
+            "getFieldValue",
             "setField",
             "saveForeignKeyValue"
         ]
@@ -115,16 +114,22 @@
         ],
         "method": [
             "onBeforeExecute",
+            "onBeforeInitialise",
             "onAfterInitialise",
+            "onBeforeRoute",
             "onAfterRoute",
+            "onBeforeAuthorise",
             "onAfterAuthorise",
             "onAfterExecute",
+            "onBeforeRender",
+            "onAfterRender",
+            "onBeforeResponse",
+            "onAfterResponse",
             "__construct",
             "get",
             "getField",
-            "getFieldValue",
             "getFieldsByType",
-            "set",
+            "getFieldValue",
             "setField",
             "saveForeignKeyValue"
         ]
@@ -180,9 +185,8 @@
             "__construct",
             "get",
             "getField",
-            "getFieldValue",
             "getFieldsByType",
-            "set",
+            "getFieldValue",
             "setField",
             "saveForeignKeyValue"
         ]
@@ -232,16 +236,22 @@
         "method": [
             "onBeforeExecute",
             "getMenuBreadcrumbIds",
+            "onBeforeInitialise",
             "onAfterInitialise",
+            "onBeforeRoute",
             "onAfterRoute",
+            "onBeforeAuthorise",
             "onAfterAuthorise",
             "onAfterExecute",
+            "onBeforeRender",
+            "onAfterRender",
+            "onBeforeResponse",
+            "onAfterResponse",
             "__construct",
             "get",
             "getField",
-            "getFieldValue",
             "getFieldsByType",
-            "set",
+            "getFieldValue",
             "setField",
             "saveForeignKeyValue"
         ]
@@ -291,16 +301,22 @@
         "method": [
             "onBeforeExecute",
             "getAuthorProfile",
+            "onBeforeInitialise",
             "onAfterInitialise",
+            "onBeforeRoute",
             "onAfterRoute",
+            "onBeforeAuthorise",
             "onAfterAuthorise",
             "onAfterExecute",
+            "onBeforeRender",
+            "onAfterRender",
+            "onBeforeResponse",
+            "onAfterResponse",
             "__construct",
             "get",
             "getField",
-            "getFieldValue",
             "getFieldsByType",
-            "set",
+            "getFieldValue",
             "setField",
             "saveForeignKeyValue"
         ]
@@ -354,9 +370,8 @@
             "__construct",
             "get",
             "getField",
-            "getFieldValue",
             "getFieldsByType",
-            "set",
+            "getFieldValue",
             "setField",
             "saveForeignKeyValue"
         ]
@@ -420,9 +435,8 @@
             "__construct",
             "get",
             "getField",
-            "getFieldValue",
             "getFieldsByType",
-            "set",
+            "getFieldValue",
             "setField",
             "saveForeignKeyValue"
         ]
@@ -476,9 +490,8 @@
             "__construct",
             "get",
             "getField",
-            "getFieldValue",
             "getFieldsByType",
-            "set",
+            "getFieldValue",
             "setField",
             "saveForeignKeyValue"
         ]
@@ -533,9 +546,8 @@
             "__construct",
             "get",
             "getField",
-            "getFieldValue",
             "getFieldsByType",
-            "set",
+            "getFieldValue",
             "setField",
             "saveForeignKeyValue"
         ]
@@ -589,9 +601,8 @@
             "__construct",
             "get",
             "getField",
-            "getFieldValue",
             "getFieldsByType",
-            "set",
+            "getFieldValue",
             "setField",
             "saveForeignKeyValue"
         ]
@@ -640,16 +651,22 @@
         ],
         "method": [
             "onBeforeExecute",
+            "onBeforeInitialise",
             "onAfterInitialise",
+            "onBeforeRoute",
             "onAfterRoute",
+            "onBeforeAuthorise",
             "onAfterAuthorise",
             "onAfterExecute",
+            "onBeforeRender",
+            "onAfterRender",
+            "onBeforeResponse",
+            "onAfterResponse",
             "__construct",
             "get",
             "getField",
-            "getFieldValue",
             "getFieldsByType",
-            "set",
+            "getFieldValue",
             "setField",
             "saveForeignKeyValue"
         ]
@@ -703,9 +720,8 @@
             "__construct",
             "get",
             "getField",
-            "getFieldValue",
             "getFieldsByType",
-            "set",
+            "getFieldValue",
             "setField",
             "saveForeignKeyValue"
         ]
@@ -754,17 +770,23 @@
         ],
         "method": [
             "onAfterRead",
+            "onBeforeInitialise",
             "onAfterInitialise",
+            "onBeforeRoute",
             "onAfterRoute",
+            "onBeforeAuthorise",
             "onAfterAuthorise",
             "onBeforeExecute",
             "onAfterExecute",
+            "onBeforeRender",
+            "onAfterRender",
+            "onBeforeResponse",
+            "onAfterResponse",
             "__construct",
             "get",
             "getField",
-            "getFieldValue",
             "getFieldsByType",
-            "set",
+            "getFieldValue",
             "setField",
             "saveForeignKeyValue"
         ]
@@ -821,9 +843,8 @@
             "__construct",
             "get",
             "getField",
-            "getFieldValue",
             "getFieldsByType",
-            "set",
+            "getFieldValue",
             "setField",
             "saveForeignKeyValue"
         ]
@@ -880,9 +901,8 @@
             "__construct",
             "get",
             "getField",
-            "getFieldValue",
             "getFieldsByType",
-            "set",
+            "getFieldValue",
             "setField",
             "saveForeignKeyValue"
         ]
@@ -936,9 +956,8 @@
             "__construct",
             "get",
             "getField",
-            "getFieldValue",
             "getFieldsByType",
-            "set",
+            "getFieldValue",
             "setField",
             "saveForeignKeyValue"
         ]
@@ -992,9 +1011,8 @@
             "__construct",
             "get",
             "getField",
-            "getFieldValue",
             "getFieldsByType",
-            "set",
+            "getFieldValue",
             "setField",
             "saveForeignKeyValue"
         ]
@@ -1046,9 +1064,8 @@
             "__construct",
             "get",
             "getField",
-            "getFieldValue",
             "getFieldsByType",
-            "set",
+            "getFieldValue",
             "setField",
             "saveForeignKeyValue"
         ]
@@ -1105,9 +1122,8 @@
             "__construct",
             "get",
             "getField",
-            "getFieldValue",
             "getFieldsByType",
-            "set",
+            "getFieldValue",
             "setField",
             "saveForeignKeyValue"
         ]
@@ -1161,9 +1177,8 @@
             "__construct",
             "get",
             "getField",
-            "getFieldValue",
             "getFieldsByType",
-            "set",
+            "getFieldValue",
             "setField",
             "saveForeignKeyValue"
         ]
@@ -1218,9 +1233,8 @@
             "__construct",
             "get",
             "getField",
-            "getFieldValue",
             "getFieldsByType",
-            "set",
+            "getFieldValue",
             "setField",
             "saveForeignKeyValue"
         ]
@@ -1269,16 +1283,22 @@
         ],
         "method": [
             "onAfterInitialise",
+            "onBeforeInitialise",
+            "onBeforeRoute",
             "onAfterRoute",
+            "onBeforeAuthorise",
             "onAfterAuthorise",
             "onBeforeExecute",
             "onAfterExecute",
+            "onBeforeRender",
+            "onAfterRender",
+            "onBeforeResponse",
+            "onAfterResponse",
             "__construct",
             "get",
             "getField",
-            "getFieldValue",
             "getFieldsByType",
-            "set",
+            "getFieldValue",
             "setField",
             "saveForeignKeyValue"
         ]
@@ -1336,9 +1356,8 @@
             "__construct",
             "get",
             "getField",
-            "getFieldValue",
             "getFieldsByType",
-            "set",
+            "getFieldValue",
             "setField",
             "saveForeignKeyValue"
         ]
@@ -1349,9 +1368,9 @@
         "fqns": "Molajo\\Plugin\\Featured\\FeaturedPlugin",
         "file_name": "\/Users\/amystephen\/Sites\/Molajo\/Molajo\/Source\/Plugin\/Featured\/FeaturedPlugin.php",
         "path": "Source\/Plugin\/Featured\/FeaturedPlugin.php",
-        "parent": "Molajo\\Plugin\\SystemEventPlugin",
+        "parent": "Molajo\\Plugin\\DisplayEventPlugin",
         "implemented_interfaces": [
-            "CommonApi\\Event\\SystemInterface"
+            "CommonApi\\Event\\DisplayInterface"
         ],
         "constructor_parameters": [
             {
@@ -1386,17 +1405,16 @@
 
         ],
         "method": [
-            "onBeforeExecute",
-            "onAfterInitialise",
-            "onAfterRoute",
-            "onAfterAuthorise",
-            "onAfterExecute",
+            "onBeforeRenderView",
+            "onBeforeParse",
+            "onBeforeParseHead",
+            "onAfterRenderView",
+            "onAfterParse",
             "__construct",
             "get",
             "getField",
-            "getFieldValue",
             "getFieldsByType",
-            "set",
+            "getFieldValue",
             "setField",
             "saveForeignKeyValue"
         ]
@@ -1448,9 +1466,8 @@
             "__construct",
             "get",
             "getField",
-            "getFieldValue",
             "getFieldsByType",
-            "set",
+            "getFieldValue",
             "setField",
             "saveForeignKeyValue"
         ]
@@ -1499,16 +1516,22 @@
         ],
         "method": [
             "onBeforeExecute",
+            "onBeforeInitialise",
             "onAfterInitialise",
+            "onBeforeRoute",
             "onAfterRoute",
+            "onBeforeAuthorise",
             "onAfterAuthorise",
             "onAfterExecute",
+            "onBeforeRender",
+            "onAfterRender",
+            "onBeforeResponse",
+            "onAfterResponse",
             "__construct",
             "get",
             "getField",
-            "getFieldValue",
             "getFieldsByType",
-            "set",
+            "getFieldValue",
             "setField",
             "saveForeignKeyValue"
         ]
@@ -1564,9 +1587,8 @@
             "__construct",
             "get",
             "getField",
-            "getFieldValue",
             "getFieldsByType",
-            "set",
+            "getFieldValue",
             "setField",
             "saveForeignKeyValue"
         ]
@@ -1623,9 +1645,8 @@
             "__construct",
             "get",
             "getField",
-            "getFieldValue",
             "getFieldsByType",
-            "set",
+            "getFieldValue",
             "setField",
             "saveForeignKeyValue"
         ]
@@ -1679,9 +1700,8 @@
             "__construct",
             "get",
             "getField",
-            "getFieldValue",
             "getFieldsByType",
-            "set",
+            "getFieldValue",
             "setField",
             "saveForeignKeyValue"
         ]
@@ -1737,9 +1757,8 @@
             "__construct",
             "get",
             "getField",
-            "getFieldValue",
             "getFieldsByType",
-            "set",
+            "getFieldValue",
             "setField",
             "saveForeignKeyValue"
         ]
@@ -1794,9 +1813,8 @@
             "__construct",
             "get",
             "getField",
-            "getFieldValue",
             "getFieldsByType",
-            "set",
+            "getFieldValue",
             "setField",
             "saveForeignKeyValue"
         ]
@@ -1850,9 +1868,8 @@
             "__construct",
             "get",
             "getField",
-            "getFieldValue",
             "getFieldsByType",
-            "set",
+            "getFieldValue",
             "setField",
             "saveForeignKeyValue"
         ]
@@ -1906,9 +1923,8 @@
             "__construct",
             "get",
             "getField",
-            "getFieldValue",
             "getFieldsByType",
-            "set",
+            "getFieldValue",
             "setField",
             "saveForeignKeyValue"
         ]
@@ -1962,9 +1978,8 @@
             "__construct",
             "get",
             "getField",
-            "getFieldValue",
             "getFieldsByType",
-            "set",
+            "getFieldValue",
             "setField",
             "saveForeignKeyValue"
         ]
@@ -2020,9 +2035,8 @@
             "__construct",
             "get",
             "getField",
-            "getFieldValue",
             "getFieldsByType",
-            "set",
+            "getFieldValue",
             "setField",
             "saveForeignKeyValue"
         ]
@@ -2076,9 +2090,8 @@
             "__construct",
             "get",
             "getField",
-            "getFieldValue",
             "getFieldsByType",
-            "set",
+            "getFieldValue",
             "setField",
             "saveForeignKeyValue"
         ]
@@ -2130,9 +2143,8 @@
             "__construct",
             "get",
             "getField",
-            "getFieldValue",
             "getFieldsByType",
-            "set",
+            "getFieldValue",
             "setField",
             "saveForeignKeyValue"
         ]
@@ -2186,9 +2198,8 @@
             "__construct",
             "get",
             "getField",
-            "getFieldValue",
             "getFieldsByType",
-            "set",
+            "getFieldValue",
             "setField",
             "saveForeignKeyValue"
         ]
@@ -2242,9 +2253,8 @@
             "__construct",
             "get",
             "getField",
-            "getFieldValue",
             "getFieldsByType",
-            "set",
+            "getFieldValue",
             "setField",
             "saveForeignKeyValue"
         ]
@@ -2299,9 +2309,8 @@
             "__construct",
             "get",
             "getField",
-            "getFieldValue",
             "getFieldsByType",
-            "set",
+            "getFieldValue",
             "setField",
             "saveForeignKeyValue"
         ]
@@ -2356,9 +2365,8 @@
             "__construct",
             "get",
             "getField",
-            "getFieldValue",
             "getFieldsByType",
-            "set",
+            "getFieldValue",
             "setField",
             "saveForeignKeyValue"
         ]
@@ -2407,16 +2415,22 @@
         ],
         "method": [
             "onBeforeExecute",
+            "onBeforeInitialise",
             "onAfterInitialise",
+            "onBeforeRoute",
             "onAfterRoute",
+            "onBeforeAuthorise",
             "onAfterAuthorise",
             "onAfterExecute",
+            "onBeforeRender",
+            "onAfterRender",
+            "onBeforeResponse",
+            "onAfterResponse",
             "__construct",
             "get",
             "getField",
-            "getFieldValue",
             "getFieldsByType",
-            "set",
+            "getFieldValue",
             "setField",
             "saveForeignKeyValue"
         ]
@@ -2472,9 +2486,8 @@
             "__construct",
             "get",
             "getField",
-            "getFieldValue",
             "getFieldsByType",
-            "set",
+            "getFieldValue",
             "setField",
             "saveForeignKeyValue"
         ]
@@ -2528,9 +2541,8 @@
             "__construct",
             "get",
             "getField",
-            "getFieldValue",
             "getFieldsByType",
-            "set",
+            "getFieldValue",
             "setField",
             "saveForeignKeyValue"
         ]
@@ -2584,9 +2596,8 @@
             "__construct",
             "get",
             "getField",
-            "getFieldValue",
             "getFieldsByType",
-            "set",
+            "getFieldValue",
             "setField",
             "saveForeignKeyValue"
         ]
@@ -2642,9 +2653,8 @@
             "__construct",
             "get",
             "getField",
-            "getFieldValue",
             "getFieldsByType",
-            "set",
+            "getFieldValue",
             "setField",
             "saveForeignKeyValue"
         ]
@@ -2700,9 +2710,8 @@
             "__construct",
             "get",
             "getField",
-            "getFieldValue",
             "getFieldsByType",
-            "set",
+            "getFieldValue",
             "setField",
             "saveForeignKeyValue"
         ]
@@ -2758,9 +2767,8 @@
             "__construct",
             "get",
             "getField",
-            "getFieldValue",
             "getFieldsByType",
-            "set",
+            "getFieldValue",
             "setField",
             "saveForeignKeyValue"
         ]
@@ -2817,9 +2825,8 @@
             "__construct",
             "get",
             "getField",
-            "getFieldValue",
             "getFieldsByType",
-            "set",
+            "getFieldValue",
             "setField",
             "saveForeignKeyValue"
         ]
@@ -2875,9 +2882,8 @@
             "__construct",
             "get",
             "getField",
-            "getFieldValue",
             "getFieldsByType",
-            "set",
+            "getFieldValue",
             "setField",
             "saveForeignKeyValue"
         ]
@@ -2933,9 +2939,8 @@
             "__construct",
             "get",
             "getField",
-            "getFieldValue",
             "getFieldsByType",
-            "set",
+            "getFieldValue",
             "setField",
             "saveForeignKeyValue"
         ]
@@ -2991,9 +2996,8 @@
             "__construct",
             "get",
             "getField",
-            "getFieldValue",
             "getFieldsByType",
-            "set",
+            "getFieldValue",
             "setField",
             "saveForeignKeyValue"
         ]
@@ -3049,9 +3053,8 @@
             "__construct",
             "get",
             "getField",
-            "getFieldValue",
             "getFieldsByType",
-            "set",
+            "getFieldValue",
             "setField",
             "saveForeignKeyValue"
         ]
@@ -3100,16 +3103,22 @@
         ],
         "method": [
             "onAfterRoute",
+            "onBeforeInitialise",
             "onAfterInitialise",
+            "onBeforeRoute",
+            "onBeforeAuthorise",
             "onAfterAuthorise",
             "onBeforeExecute",
             "onAfterExecute",
+            "onBeforeRender",
+            "onAfterRender",
+            "onBeforeResponse",
+            "onAfterResponse",
             "__construct",
             "get",
             "getField",
-            "getFieldValue",
             "getFieldsByType",
-            "set",
+            "getFieldValue",
             "setField",
             "saveForeignKeyValue"
         ]
@@ -3165,9 +3174,8 @@
             "__construct",
             "get",
             "getField",
-            "getFieldValue",
             "getFieldsByType",
-            "set",
+            "getFieldValue",
             "setField",
             "saveForeignKeyValue"
         ]
@@ -3223,9 +3231,8 @@
             "__construct",
             "get",
             "getField",
-            "getFieldValue",
             "getFieldsByType",
-            "set",
+            "getFieldValue",
             "setField",
             "saveForeignKeyValue"
         ]
@@ -3276,9 +3283,8 @@
             "__construct",
             "get",
             "getField",
-            "getFieldValue",
             "getFieldsByType",
-            "set",
+            "getFieldValue",
             "setField",
             "saveForeignKeyValue"
         ]
@@ -3336,9 +3342,8 @@
             "__construct",
             "get",
             "getField",
-            "getFieldValue",
             "getFieldsByType",
-            "set",
+            "getFieldValue",
             "setField",
             "saveForeignKeyValue"
         ]
@@ -3396,9 +3401,8 @@
             "__construct",
             "get",
             "getField",
-            "getFieldValue",
             "getFieldsByType",
-            "set",
+            "getFieldValue",
             "setField",
             "saveForeignKeyValue"
         ]
@@ -3452,9 +3456,8 @@
             "__construct",
             "get",
             "getField",
-            "getFieldValue",
             "getFieldsByType",
-            "set",
+            "getFieldValue",
             "setField",
             "saveForeignKeyValue"
         ]
@@ -3503,16 +3506,22 @@
         ],
         "method": [
             "onAfterRoute",
+            "onBeforeInitialise",
             "onAfterInitialise",
+            "onBeforeRoute",
+            "onBeforeAuthorise",
             "onAfterAuthorise",
             "onBeforeExecute",
             "onAfterExecute",
+            "onBeforeRender",
+            "onAfterRender",
+            "onBeforeResponse",
+            "onAfterResponse",
             "__construct",
             "get",
             "getField",
-            "getFieldValue",
             "getFieldsByType",
-            "set",
+            "getFieldValue",
             "setField",
             "saveForeignKeyValue"
         ]
@@ -3563,9 +3572,8 @@
             "__construct",
             "get",
             "getField",
-            "getFieldValue",
             "getFieldsByType",
-            "set",
+            "getFieldValue",
             "setField",
             "saveForeignKeyValue"
         ]
@@ -3619,9 +3627,8 @@
             "__construct",
             "get",
             "getField",
-            "getFieldValue",
             "getFieldsByType",
-            "set",
+            "getFieldValue",
             "setField",
             "saveForeignKeyValue"
         ]
@@ -3675,9 +3682,8 @@
             "__construct",
             "get",
             "getField",
-            "getFieldValue",
             "getFieldsByType",
-            "set",
+            "getFieldValue",
             "setField",
             "saveForeignKeyValue"
         ]
@@ -3731,9 +3737,8 @@
             "__construct",
             "get",
             "getField",
-            "getFieldValue",
             "getFieldsByType",
-            "set",
+            "getFieldValue",
             "setField",
             "saveForeignKeyValue"
         ]
@@ -3787,9 +3792,8 @@
             "__construct",
             "get",
             "getField",
-            "getFieldValue",
             "getFieldsByType",
-            "set",
+            "getFieldValue",
             "setField",
             "saveForeignKeyValue"
         ]
@@ -3845,9 +3849,8 @@
             "__construct",
             "get",
             "getField",
-            "getFieldValue",
             "getFieldsByType",
-            "set",
+            "getFieldValue",
             "setField",
             "saveForeignKeyValue"
         ]
@@ -3905,9 +3908,8 @@
             "__construct",
             "get",
             "getField",
-            "getFieldValue",
             "getFieldsByType",
-            "set",
+            "getFieldValue",
             "setField",
             "saveForeignKeyValue"
         ]
@@ -3961,9 +3963,8 @@
             "__construct",
             "get",
             "getField",
-            "getFieldValue",
             "getFieldsByType",
-            "set",
+            "getFieldValue",
             "setField",
             "saveForeignKeyValue"
         ]
@@ -4019,9 +4020,8 @@
             "__construct",
             "get",
             "getField",
-            "getFieldValue",
             "getFieldsByType",
-            "set",
+            "getFieldValue",
             "setField",
             "saveForeignKeyValue"
         ]
@@ -4075,9 +4075,8 @@
             "__construct",
             "get",
             "getField",
-            "getFieldValue",
             "getFieldsByType",
-            "set",
+            "getFieldValue",
             "setField",
             "saveForeignKeyValue"
         ]
@@ -4874,7 +4873,6 @@
             "setDependencies",
             "instantiateService",
             "onAfterInstantiation",
-            "getServiceName",
             "getServiceNamespace",
             "getServiceOptions",
             "getStoreInstanceIndicator",
@@ -4918,7 +4916,6 @@
             "__construct",
             "setDependencies",
             "instantiateService",
-            "getServiceName",
             "getServiceNamespace",
             "getServiceOptions",
             "getStoreInstanceIndicator",
@@ -4961,13 +4958,12 @@
         ],
         "method": [
             "__construct",
-            "setDependencies",
             "instantiateService",
             "onAfterInstantiation",
-            "getServiceName",
             "getServiceNamespace",
             "getServiceOptions",
             "getStoreInstanceIndicator",
+            "setDependencies",
             "onBeforeInstantiation",
             "instantiateStatic",
             "getServiceInstance",
@@ -5008,7 +5004,6 @@
             "__construct",
             "setDependencies",
             "instantiateService",
-            "getServiceName",
             "getServiceNamespace",
             "getServiceOptions",
             "getStoreInstanceIndicator",
@@ -5054,7 +5049,6 @@
             "setDependencies",
             "instantiateService",
             "onAfterInstantiation",
-            "getServiceName",
             "getServiceNamespace",
             "getServiceOptions",
             "getStoreInstanceIndicator",
@@ -5098,7 +5092,6 @@
             "__construct",
             "setDependencies",
             "instantiateService",
-            "getServiceName",
             "getServiceNamespace",
             "getServiceOptions",
             "getStoreInstanceIndicator",
@@ -5386,7 +5379,6 @@
             "instantiateService",
             "scheduleServices",
             "instantiateDatabaseHandler",
-            "getServiceName",
             "getServiceNamespace",
             "getServiceOptions",
             "getStoreInstanceIndicator",
@@ -6052,7 +6044,6 @@
             "setDependencies",
             "onBeforeInstantiation",
             "instantiateService",
-            "getServiceName",
             "getServiceNamespace",
             "getServiceOptions",
             "getStoreInstanceIndicator",
@@ -6318,7 +6309,6 @@
             "__construct",
             "setDependencies",
             "instantiateService",
-            "getServiceName",
             "getServiceNamespace",
             "getServiceOptions",
             "getStoreInstanceIndicator",
@@ -6362,7 +6352,6 @@
         "method": [
             "__construct",
             "instantiateService",
-            "getServiceName",
             "getServiceNamespace",
             "getServiceOptions",
             "getStoreInstanceIndicator",
@@ -6407,7 +6396,6 @@
         "method": [
             "__construct",
             "instantiateService",
-            "getServiceName",
             "getServiceNamespace",
             "getServiceOptions",
             "getStoreInstanceIndicator",
@@ -6452,7 +6440,6 @@
         "method": [
             "__construct",
             "instantiateService",
-            "getServiceName",
             "getServiceNamespace",
             "getServiceOptions",
             "getStoreInstanceIndicator",
@@ -6497,7 +6484,6 @@
         "method": [
             "__construct",
             "instantiateService",
-            "getServiceName",
             "getServiceNamespace",
             "getServiceOptions",
             "getStoreInstanceIndicator",
@@ -7010,7 +6996,6 @@
             "__construct",
             "setDependencies",
             "instantiateService",
-            "getServiceName",
             "getServiceNamespace",
             "getServiceOptions",
             "getStoreInstanceIndicator",
@@ -7204,7 +7189,6 @@
             "setDependencies",
             "onBeforeInstantiation",
             "instantiateService",
-            "getServiceName",
             "getServiceNamespace",
             "getServiceOptions",
             "getStoreInstanceIndicator",
@@ -7789,7 +7773,6 @@
             "__construct",
             "setDependencies",
             "instantiateService",
-            "getServiceName",
             "getServiceNamespace",
             "getServiceOptions",
             "getStoreInstanceIndicator",
@@ -7834,7 +7817,6 @@
             "__construct",
             "setDependencies",
             "instantiateService",
-            "getServiceName",
             "getServiceNamespace",
             "getServiceOptions",
             "getStoreInstanceIndicator",
@@ -7965,6 +7947,401 @@
             "triggerListeners"
         ]
     },
+    "Molajo\\Plugin\\AbstractPlugin": {
+        "name": "AbstractPlugin",
+        "namespace": "Molajo\\Plugin",
+        "fqns": "Molajo\\Plugin\\AbstractPlugin",
+        "file_name": "\/Users\/amystephen\/Sites\/Molajo\/Molajo\/vendor\/molajo\/framework\/Source\/Plugin\/AbstractPlugin.php",
+        "path": "vendor\/molajo\/framework\/Source\/Plugin\/AbstractPlugin.php",
+        "parent": false,
+        "implemented_interfaces": [
+
+        ],
+        "constructor_parameters": [
+            {
+                "name": "plugin_name",
+                "default_available": true,
+                "default_value": "",
+                "instance_of": null,
+                "is_instantiable": false
+            },
+            {
+                "name": "event_name",
+                "default_available": true,
+                "default_value": "",
+                "instance_of": null,
+                "is_instantiable": false
+            },
+            {
+                "name": "data",
+                "default_available": true,
+                "default_value": [
+
+                ],
+                "instance_of": null,
+                "is_instantiable": false
+            }
+        ],
+        "constructor_docComment": "\/**\n     * Constructor\n     *\n     * @param   string $plugin_name\n     * @param   string $event_name\n     * @param   array  $data\n     *\n     * @since  1.0\n     *\/",
+        "implemented_by": [
+
+        ],
+        "dependency_for": [
+
+        ],
+        "method": [
+            "__construct",
+            "get",
+            "getField",
+            "getFieldsByType",
+            "getFieldValue",
+            "setField",
+            "saveForeignKeyValue"
+        ]
+    },
+    "Molajo\\Plugin\\AuthenticateEventPlugin": {
+        "name": "AuthenticateEventPlugin",
+        "namespace": "Molajo\\Plugin",
+        "fqns": "Molajo\\Plugin\\AuthenticateEventPlugin",
+        "file_name": "\/Users\/amystephen\/Sites\/Molajo\/Molajo\/vendor\/molajo\/event\/Source\/Plugin\/AuthenticateEventPlugin.php",
+        "path": "vendor\/molajo\/event\/Source\/Plugin\/AuthenticateEventPlugin.php",
+        "parent": "Molajo\\Plugin\\AbstractPlugin",
+        "implemented_interfaces": [
+            "CommonApi\\Event\\AuthenticateInterface"
+        ],
+        "constructor_parameters": [
+            {
+                "name": "plugin_name",
+                "default_available": true,
+                "default_value": "",
+                "instance_of": null,
+                "is_instantiable": false
+            },
+            {
+                "name": "event_name",
+                "default_available": true,
+                "default_value": "",
+                "instance_of": null,
+                "is_instantiable": false
+            },
+            {
+                "name": "data",
+                "default_available": true,
+                "default_value": [
+
+                ],
+                "instance_of": null,
+                "is_instantiable": false
+            }
+        ],
+        "constructor_docComment": "\/**\n     * Constructor\n     *\n     * @param   string $plugin_name\n     * @param   string $event_name\n     * @param   array  $data\n     *\n     * @since  1.0\n     *\/",
+        "implemented_by": [
+
+        ],
+        "dependency_for": [
+
+        ],
+        "method": [
+            "onBeforeLogin",
+            "onAfterLogin",
+            "onBeforeLogout",
+            "onAfterLogout",
+            "__construct",
+            "get",
+            "getField",
+            "getFieldsByType",
+            "getFieldValue",
+            "setField",
+            "saveForeignKeyValue"
+        ]
+    },
+    "Molajo\\Plugin\\CreateEventPlugin": {
+        "name": "CreateEventPlugin",
+        "namespace": "Molajo\\Plugin",
+        "fqns": "Molajo\\Plugin\\CreateEventPlugin",
+        "file_name": "\/Users\/amystephen\/Sites\/Molajo\/Molajo\/vendor\/molajo\/event\/Source\/Plugin\/CreateEventPlugin.php",
+        "path": "vendor\/molajo\/event\/Source\/Plugin\/CreateEventPlugin.php",
+        "parent": "Molajo\\Plugin\\UpdateEventPlugin",
+        "implemented_interfaces": [
+            "CommonApi\\Event\\UpdateInterface",
+            "CommonApi\\Event\\CreateInterface"
+        ],
+        "constructor_parameters": [
+            {
+                "name": "plugin_name",
+                "default_available": true,
+                "default_value": "",
+                "instance_of": null,
+                "is_instantiable": false
+            },
+            {
+                "name": "event_name",
+                "default_available": true,
+                "default_value": "",
+                "instance_of": null,
+                "is_instantiable": false
+            },
+            {
+                "name": "data",
+                "default_available": true,
+                "default_value": [
+
+                ],
+                "instance_of": null,
+                "is_instantiable": false
+            }
+        ],
+        "constructor_docComment": "\/**\n     * Constructor\n     *\n     * @param   string $plugin_name\n     * @param   string $event_name\n     * @param   array  $data\n     *\n     * @since  1.0\n     *\/",
+        "implemented_by": [
+
+        ],
+        "dependency_for": [
+
+        ],
+        "method": [
+            "onBeforeCreate",
+            "onAfterCreate",
+            "onBeforeUpdate",
+            "onAfterUpdate",
+            "__construct",
+            "get",
+            "getField",
+            "getFieldsByType",
+            "getFieldValue",
+            "setField",
+            "saveForeignKeyValue"
+        ]
+    },
+    "Molajo\\Plugin\\DisplayEventPlugin": {
+        "name": "DisplayEventPlugin",
+        "namespace": "Molajo\\Plugin",
+        "fqns": "Molajo\\Plugin\\DisplayEventPlugin",
+        "file_name": "\/Users\/amystephen\/Sites\/Molajo\/Molajo\/vendor\/molajo\/event\/Source\/Plugin\/DisplayEventPlugin.php",
+        "path": "vendor\/molajo\/event\/Source\/Plugin\/DisplayEventPlugin.php",
+        "parent": "Molajo\\Plugin\\AbstractPlugin",
+        "implemented_interfaces": [
+            "CommonApi\\Event\\DisplayInterface"
+        ],
+        "constructor_parameters": [
+            {
+                "name": "plugin_name",
+                "default_available": true,
+                "default_value": "",
+                "instance_of": null,
+                "is_instantiable": false
+            },
+            {
+                "name": "event_name",
+                "default_available": true,
+                "default_value": "",
+                "instance_of": null,
+                "is_instantiable": false
+            },
+            {
+                "name": "data",
+                "default_available": true,
+                "default_value": [
+
+                ],
+                "instance_of": null,
+                "is_instantiable": false
+            }
+        ],
+        "constructor_docComment": "\/**\n     * Constructor\n     *\n     * @param   string $plugin_name\n     * @param   string $event_name\n     * @param   array  $data\n     *\n     * @since  1.0\n     *\/",
+        "implemented_by": [
+
+        ],
+        "dependency_for": [
+
+        ],
+        "method": [
+            "onBeforeParse",
+            "onBeforeParseHead",
+            "onBeforeRenderView",
+            "onAfterRenderView",
+            "onAfterParse",
+            "__construct",
+            "get",
+            "getField",
+            "getFieldsByType",
+            "getFieldValue",
+            "setField",
+            "saveForeignKeyValue"
+        ]
+    },
+    "Molajo\\Plugin\\ReadEventPlugin": {
+        "name": "ReadEventPlugin",
+        "namespace": "Molajo\\Plugin",
+        "fqns": "Molajo\\Plugin\\ReadEventPlugin",
+        "file_name": "\/Users\/amystephen\/Sites\/Molajo\/Molajo\/vendor\/molajo\/event\/Source\/Plugin\/ReadEventPlugin.php",
+        "path": "vendor\/molajo\/event\/Source\/Plugin\/ReadEventPlugin.php",
+        "parent": "Molajo\\Plugin\\AbstractPlugin",
+        "implemented_interfaces": [
+            "CommonApi\\Event\\ReadInterface"
+        ],
+        "constructor_parameters": [
+            {
+                "name": "plugin_name",
+                "default_available": true,
+                "default_value": "",
+                "instance_of": null,
+                "is_instantiable": false
+            },
+            {
+                "name": "event_name",
+                "default_available": true,
+                "default_value": "",
+                "instance_of": null,
+                "is_instantiable": false
+            },
+            {
+                "name": "data",
+                "default_available": true,
+                "default_value": [
+
+                ],
+                "instance_of": null,
+                "is_instantiable": false
+            }
+        ],
+        "constructor_docComment": "\/**\n     * Constructor\n     *\n     * @param   string $plugin_name\n     * @param   string $event_name\n     * @param   array  $data\n     *\n     * @since  1.0\n     *\/",
+        "implemented_by": [
+
+        ],
+        "dependency_for": [
+
+        ],
+        "method": [
+            "onBeforeRead",
+            "onAfterRead",
+            "onAfterReadall",
+            "__construct",
+            "get",
+            "getField",
+            "getFieldsByType",
+            "getFieldValue",
+            "setField",
+            "saveForeignKeyValue"
+        ]
+    },
+    "Molajo\\Plugin\\SystemEventPlugin": {
+        "name": "SystemEventPlugin",
+        "namespace": "Molajo\\Plugin",
+        "fqns": "Molajo\\Plugin\\SystemEventPlugin",
+        "file_name": "\/Users\/amystephen\/Sites\/Molajo\/Molajo\/vendor\/molajo\/event\/Source\/Plugin\/SystemEventPlugin.php",
+        "path": "vendor\/molajo\/event\/Source\/Plugin\/SystemEventPlugin.php",
+        "parent": "Molajo\\Plugin\\AbstractPlugin",
+        "implemented_interfaces": [
+            "CommonApi\\Event\\SystemInterface"
+        ],
+        "constructor_parameters": [
+            {
+                "name": "plugin_name",
+                "default_available": true,
+                "default_value": "",
+                "instance_of": null,
+                "is_instantiable": false
+            },
+            {
+                "name": "event_name",
+                "default_available": true,
+                "default_value": "",
+                "instance_of": null,
+                "is_instantiable": false
+            },
+            {
+                "name": "data",
+                "default_available": true,
+                "default_value": [
+
+                ],
+                "instance_of": null,
+                "is_instantiable": false
+            }
+        ],
+        "constructor_docComment": "\/**\n     * Constructor\n     *\n     * @param   string $plugin_name\n     * @param   string $event_name\n     * @param   array  $data\n     *\n     * @since  1.0\n     *\/",
+        "implemented_by": [
+
+        ],
+        "dependency_for": [
+
+        ],
+        "method": [
+            "onBeforeInitialise",
+            "onAfterInitialise",
+            "onBeforeRoute",
+            "onAfterRoute",
+            "onBeforeAuthorise",
+            "onAfterAuthorise",
+            "onBeforeExecute",
+            "onAfterExecute",
+            "onBeforeRender",
+            "onAfterRender",
+            "onBeforeResponse",
+            "onAfterResponse",
+            "__construct",
+            "get",
+            "getField",
+            "getFieldsByType",
+            "getFieldValue",
+            "setField",
+            "saveForeignKeyValue"
+        ]
+    },
+    "Molajo\\Plugin\\UpdateEventPlugin": {
+        "name": "UpdateEventPlugin",
+        "namespace": "Molajo\\Plugin",
+        "fqns": "Molajo\\Plugin\\UpdateEventPlugin",
+        "file_name": "\/Users\/amystephen\/Sites\/Molajo\/Molajo\/vendor\/molajo\/event\/Source\/Plugin\/UpdateEventPlugin.php",
+        "path": "vendor\/molajo\/event\/Source\/Plugin\/UpdateEventPlugin.php",
+        "parent": "Molajo\\Plugin\\AbstractPlugin",
+        "implemented_interfaces": [
+            "CommonApi\\Event\\UpdateInterface"
+        ],
+        "constructor_parameters": [
+            {
+                "name": "plugin_name",
+                "default_available": true,
+                "default_value": "",
+                "instance_of": null,
+                "is_instantiable": false
+            },
+            {
+                "name": "event_name",
+                "default_available": true,
+                "default_value": "",
+                "instance_of": null,
+                "is_instantiable": false
+            },
+            {
+                "name": "data",
+                "default_available": true,
+                "default_value": [
+
+                ],
+                "instance_of": null,
+                "is_instantiable": false
+            }
+        ],
+        "constructor_docComment": "\/**\n     * Constructor\n     *\n     * @param   string $plugin_name\n     * @param   string $event_name\n     * @param   array  $data\n     *\n     * @since  1.0\n     *\/",
+        "implemented_by": [
+
+        ],
+        "dependency_for": [
+
+        ],
+        "method": [
+            "onBeforeUpdate",
+            "onAfterUpdate",
+            "__construct",
+            "get",
+            "getField",
+            "getFieldsByType",
+            "getFieldValue",
+            "setField",
+            "saveForeignKeyValue"
+        ]
+    },
     "Molajo\\Service\\Fieldhandler\\FieldhandlerServiceProvider": {
         "name": "FieldhandlerServiceProvider",
         "namespace": "Molajo\\Service\\Fieldhandler",
@@ -7995,7 +8372,6 @@
         ],
         "method": [
             "__construct",
-            "getServiceName",
             "getServiceNamespace",
             "getServiceOptions",
             "getStoreInstanceIndicator",
@@ -11131,7 +11507,6 @@
         "method": [
             "__construct",
             "instantiateService",
-            "getServiceName",
             "getServiceNamespace",
             "getServiceOptions",
             "getStoreInstanceIndicator",
@@ -11392,7 +11767,6 @@
             "__construct",
             "setDependencies",
             "onBeforeInstantiation",
-            "getServiceName",
             "getServiceNamespace",
             "getServiceOptions",
             "getStoreInstanceIndicator",
@@ -11437,7 +11811,6 @@
             "__construct",
             "setDependencies",
             "instantiateService",
-            "getServiceName",
             "getServiceNamespace",
             "getServiceOptions",
             "getStoreInstanceIndicator",
@@ -11482,7 +11855,6 @@
             "__construct",
             "setDependencies",
             "onBeforeInstantiation",
-            "getServiceName",
             "getServiceNamespace",
             "getServiceOptions",
             "getStoreInstanceIndicator",
@@ -11526,7 +11898,6 @@
         "method": [
             "__construct",
             "instantiateService",
-            "getServiceName",
             "getServiceNamespace",
             "getServiceOptions",
             "getStoreInstanceIndicator",
@@ -11573,7 +11944,6 @@
             "setDependencies",
             "onBeforeInstantiation",
             "instantiateService",
-            "getServiceName",
             "getServiceNamespace",
             "getServiceOptions",
             "getStoreInstanceIndicator",
@@ -11617,7 +11987,6 @@
             "__construct",
             "setDependencies",
             "instantiateService",
-            "getServiceName",
             "getServiceNamespace",
             "getServiceOptions",
             "getStoreInstanceIndicator",
@@ -11663,7 +12032,6 @@
             "setDependencies",
             "onBeforeInstantiation",
             "onAfterInstantiation",
-            "getServiceName",
             "getServiceNamespace",
             "getServiceOptions",
             "getStoreInstanceIndicator",
@@ -11708,7 +12076,6 @@
             "setDependencies",
             "instantiateService",
             "sites",
-            "getServiceName",
             "getServiceNamespace",
             "getServiceOptions",
             "getStoreInstanceIndicator",
@@ -11754,7 +12121,6 @@
             "setDependencies",
             "instantiateService",
             "getTextList",
-            "getServiceName",
             "getServiceNamespace",
             "getServiceOptions",
             "getStoreInstanceIndicator",
@@ -11799,7 +12165,6 @@
             "__construct",
             "setDependencies",
             "instantiateService",
-            "getServiceName",
             "getServiceNamespace",
             "getServiceOptions",
             "getStoreInstanceIndicator",
@@ -12125,7 +12490,6 @@
             "get",
             "set",
             "getDate",
-            "__toString",
             "convertCCYYMMDD",
             "getNumberofDaysAgo",
             "getPrettyDate",
@@ -12313,18 +12677,17 @@
         "path": "vendor\/molajo\/framework\/Source\/Controller\/FrontController.php",
         "parent": false,
         "implemented_interfaces": [
-            "CommonApi\\Controller\\FrontControllerInterface",
-            "CommonApi\\IoC\\ContainerInterface"
+            "CommonApi\\Controller\\FrontControllerInterface"
         ],
         "constructor_parameters": [
             {
-                "name": "service_provider_controller",
+                "name": "iocc",
                 "default_available": false,
                 "default_value": null,
-                "instance_of": "Molajo\\IoC\\Api\\ServiceProviderControllerInterface",
+                "instance_of": "CommonApi\\IoC\\ContainerInterface",
                 "is_instantiable": false,
                 "implemented_by": [
-                    "Molajo\\IoC\\ServiceProviderController"
+                    "Molajo\\IoC\\Container"
                 ],
                 "concrete": false
             },
@@ -12334,18 +12697,9 @@
                 "default_value": null,
                 "instance_of": null,
                 "is_instantiable": false
-            },
-            {
-                "name": "steps",
-                "default_available": true,
-                "default_value": [
-
-                ],
-                "instance_of": null,
-                "is_instantiable": false
             }
         ],
-        "constructor_docComment": "\/**\n     * Constructor\n     *\n     * @param ServiceProviderControllerInterface $service_provider_controller\n     * @param                                    $base_folder\n     * @param array                              $steps\n     *\n     * @since  1.0\n     *\/",
+        "constructor_docComment": "\/**\n     * Constructor\n     *\n     * @param  ContainerInterface $iocc\n     * @param  string             $base_folder\n     *\n     * @since  1.0\n     *\/",
         "implemented_by": [
 
         ],
@@ -12358,13 +12712,14 @@
             "processStep",
             "processStepMethod",
             "scheduleEvent",
+            "scheduleServices",
+            "scheduleService",
+            "getContainerEntry",
+            "setContainerEntry",
+            "removeContainerEntry",
+            "cloneContainerInstance",
             "handleErrors",
-            "shutdown",
-            "getServices",
-            "getService",
-            "setService",
-            "cloneService",
-            "removeService"
+            "shutdown"
         ]
     },
     "Molajo\\Controller\\ImageController": {
@@ -13512,401 +13867,6 @@
             "getQueryString"
         ]
     },
-    "Molajo\\Plugin\\AbstractPlugin": {
-        "name": "AbstractPlugin",
-        "namespace": "Molajo\\Plugin",
-        "fqns": "Molajo\\Plugin\\AbstractPlugin",
-        "file_name": "\/Users\/amystephen\/Sites\/Molajo\/Molajo\/vendor\/molajo\/framework\/Source\/Plugin\/AbstractPlugin.php",
-        "path": "vendor\/molajo\/framework\/Source\/Plugin\/AbstractPlugin.php",
-        "parent": false,
-        "implemented_interfaces": [
-
-        ],
-        "constructor_parameters": [
-            {
-                "name": "plugin_name",
-                "default_available": true,
-                "default_value": "",
-                "instance_of": null,
-                "is_instantiable": false
-            },
-            {
-                "name": "event_name",
-                "default_available": true,
-                "default_value": "",
-                "instance_of": null,
-                "is_instantiable": false
-            },
-            {
-                "name": "data",
-                "default_available": true,
-                "default_value": [
-
-                ],
-                "instance_of": null,
-                "is_instantiable": false
-            }
-        ],
-        "constructor_docComment": "\/**\n     * Constructor\n     *\n     * @param   string $plugin_name\n     * @param   string $event_name\n     * @param   array  $data\n     *\n     * @since  1.0\n     *\/",
-        "implemented_by": [
-
-        ],
-        "dependency_for": [
-
-        ],
-        "method": [
-            "__construct",
-            "get",
-            "getField",
-            "getFieldValue",
-            "getFieldsByType",
-            "set",
-            "setField",
-            "saveForeignKeyValue"
-        ]
-    },
-    "Molajo\\Plugin\\AuthenticateEventPlugin": {
-        "name": "AuthenticateEventPlugin",
-        "namespace": "Molajo\\Plugin",
-        "fqns": "Molajo\\Plugin\\AuthenticateEventPlugin",
-        "file_name": "\/Users\/amystephen\/Sites\/Molajo\/Molajo\/vendor\/molajo\/framework\/Source\/Plugin\/AuthenticateEventPlugin.php",
-        "path": "vendor\/molajo\/framework\/Source\/Plugin\/AuthenticateEventPlugin.php",
-        "parent": "Molajo\\Plugin\\AbstractPlugin",
-        "implemented_interfaces": [
-            "CommonApi\\Event\\AuthenticateInterface"
-        ],
-        "constructor_parameters": [
-            {
-                "name": "plugin_name",
-                "default_available": true,
-                "default_value": "",
-                "instance_of": null,
-                "is_instantiable": false
-            },
-            {
-                "name": "event_name",
-                "default_available": true,
-                "default_value": "",
-                "instance_of": null,
-                "is_instantiable": false
-            },
-            {
-                "name": "data",
-                "default_available": true,
-                "default_value": [
-
-                ],
-                "instance_of": null,
-                "is_instantiable": false
-            }
-        ],
-        "constructor_docComment": "\/**\n     * Constructor\n     *\n     * @param   string $plugin_name\n     * @param   string $event_name\n     * @param   array  $data\n     *\n     * @since  1.0\n     *\/",
-        "implemented_by": [
-
-        ],
-        "dependency_for": [
-
-        ],
-        "method": [
-            "onBeforeLogin",
-            "onAfterLogin",
-            "onBeforeLogout",
-            "onAfterLogout",
-            "__construct",
-            "get",
-            "getField",
-            "getFieldValue",
-            "getFieldsByType",
-            "set",
-            "setField",
-            "saveForeignKeyValue"
-        ]
-    },
-    "Molajo\\Plugin\\CreateEventPlugin": {
-        "name": "CreateEventPlugin",
-        "namespace": "Molajo\\Plugin",
-        "fqns": "Molajo\\Plugin\\CreateEventPlugin",
-        "file_name": "\/Users\/amystephen\/Sites\/Molajo\/Molajo\/vendor\/molajo\/framework\/Source\/Plugin\/CreateEventPlugin.php",
-        "path": "vendor\/molajo\/framework\/Source\/Plugin\/CreateEventPlugin.php",
-        "parent": "Molajo\\Plugin\\UpdateEventPlugin",
-        "implemented_interfaces": [
-            "CommonApi\\Event\\UpdateInterface",
-            "CommonApi\\Event\\CreateInterface"
-        ],
-        "constructor_parameters": [
-            {
-                "name": "plugin_name",
-                "default_available": true,
-                "default_value": "",
-                "instance_of": null,
-                "is_instantiable": false
-            },
-            {
-                "name": "event_name",
-                "default_available": true,
-                "default_value": "",
-                "instance_of": null,
-                "is_instantiable": false
-            },
-            {
-                "name": "data",
-                "default_available": true,
-                "default_value": [
-
-                ],
-                "instance_of": null,
-                "is_instantiable": false
-            }
-        ],
-        "constructor_docComment": "\/**\n     * Constructor\n     *\n     * @param   string $plugin_name\n     * @param   string $event_name\n     * @param   array  $data\n     *\n     * @since  1.0\n     *\/",
-        "implemented_by": [
-
-        ],
-        "dependency_for": [
-
-        ],
-        "method": [
-            "onBeforeCreate",
-            "onAfterCreate",
-            "onBeforeUpdate",
-            "onAfterUpdate",
-            "__construct",
-            "get",
-            "getField",
-            "getFieldValue",
-            "getFieldsByType",
-            "set",
-            "setField",
-            "saveForeignKeyValue"
-        ]
-    },
-    "Molajo\\Plugin\\DisplayEventPlugin": {
-        "name": "DisplayEventPlugin",
-        "namespace": "Molajo\\Plugin",
-        "fqns": "Molajo\\Plugin\\DisplayEventPlugin",
-        "file_name": "\/Users\/amystephen\/Sites\/Molajo\/Molajo\/vendor\/molajo\/framework\/Source\/Plugin\/DisplayEventPlugin.php",
-        "path": "vendor\/molajo\/framework\/Source\/Plugin\/DisplayEventPlugin.php",
-        "parent": "Molajo\\Plugin\\AbstractPlugin",
-        "implemented_interfaces": [
-            "CommonApi\\Event\\DisplayInterface"
-        ],
-        "constructor_parameters": [
-            {
-                "name": "plugin_name",
-                "default_available": true,
-                "default_value": "",
-                "instance_of": null,
-                "is_instantiable": false
-            },
-            {
-                "name": "event_name",
-                "default_available": true,
-                "default_value": "",
-                "instance_of": null,
-                "is_instantiable": false
-            },
-            {
-                "name": "data",
-                "default_available": true,
-                "default_value": [
-
-                ],
-                "instance_of": null,
-                "is_instantiable": false
-            }
-        ],
-        "constructor_docComment": "\/**\n     * Constructor\n     *\n     * @param   string $plugin_name\n     * @param   string $event_name\n     * @param   array  $data\n     *\n     * @since  1.0\n     *\/",
-        "implemented_by": [
-
-        ],
-        "dependency_for": [
-
-        ],
-        "method": [
-            "onBeforeParse",
-            "onBeforeParseHead",
-            "onBeforeRenderView",
-            "onAfterRenderView",
-            "onAfterParse",
-            "__construct",
-            "get",
-            "getField",
-            "getFieldValue",
-            "getFieldsByType",
-            "set",
-            "setField",
-            "saveForeignKeyValue"
-        ]
-    },
-    "Molajo\\Plugin\\ReadEventPlugin": {
-        "name": "ReadEventPlugin",
-        "namespace": "Molajo\\Plugin",
-        "fqns": "Molajo\\Plugin\\ReadEventPlugin",
-        "file_name": "\/Users\/amystephen\/Sites\/Molajo\/Molajo\/vendor\/molajo\/framework\/Source\/Plugin\/ReadEventPlugin.php",
-        "path": "vendor\/molajo\/framework\/Source\/Plugin\/ReadEventPlugin.php",
-        "parent": "Molajo\\Plugin\\AbstractPlugin",
-        "implemented_interfaces": [
-            "CommonApi\\Event\\ReadInterface"
-        ],
-        "constructor_parameters": [
-            {
-                "name": "plugin_name",
-                "default_available": true,
-                "default_value": "",
-                "instance_of": null,
-                "is_instantiable": false
-            },
-            {
-                "name": "event_name",
-                "default_available": true,
-                "default_value": "",
-                "instance_of": null,
-                "is_instantiable": false
-            },
-            {
-                "name": "data",
-                "default_available": true,
-                "default_value": [
-
-                ],
-                "instance_of": null,
-                "is_instantiable": false
-            }
-        ],
-        "constructor_docComment": "\/**\n     * Constructor\n     *\n     * @param   string $plugin_name\n     * @param   string $event_name\n     * @param   array  $data\n     *\n     * @since  1.0\n     *\/",
-        "implemented_by": [
-
-        ],
-        "dependency_for": [
-
-        ],
-        "method": [
-            "onBeforeRead",
-            "onAfterRead",
-            "onAfterReadall",
-            "__construct",
-            "get",
-            "getField",
-            "getFieldValue",
-            "getFieldsByType",
-            "set",
-            "setField",
-            "saveForeignKeyValue"
-        ]
-    },
-    "Molajo\\Plugin\\SystemEventPlugin": {
-        "name": "SystemEventPlugin",
-        "namespace": "Molajo\\Plugin",
-        "fqns": "Molajo\\Plugin\\SystemEventPlugin",
-        "file_name": "\/Users\/amystephen\/Sites\/Molajo\/Molajo\/vendor\/molajo\/framework\/Source\/Plugin\/SystemEventPlugin.php",
-        "path": "vendor\/molajo\/framework\/Source\/Plugin\/SystemEventPlugin.php",
-        "parent": "Molajo\\Plugin\\AbstractPlugin",
-        "implemented_interfaces": [
-            "CommonApi\\Event\\SystemInterface"
-        ],
-        "constructor_parameters": [
-            {
-                "name": "plugin_name",
-                "default_available": true,
-                "default_value": "",
-                "instance_of": null,
-                "is_instantiable": false
-            },
-            {
-                "name": "event_name",
-                "default_available": true,
-                "default_value": "",
-                "instance_of": null,
-                "is_instantiable": false
-            },
-            {
-                "name": "data",
-                "default_available": true,
-                "default_value": [
-
-                ],
-                "instance_of": null,
-                "is_instantiable": false
-            }
-        ],
-        "constructor_docComment": "\/**\n     * Constructor\n     *\n     * @param   string $plugin_name\n     * @param   string $event_name\n     * @param   array  $data\n     *\n     * @since  1.0\n     *\/",
-        "implemented_by": [
-
-        ],
-        "dependency_for": [
-
-        ],
-        "method": [
-            "onAfterInitialise",
-            "onAfterRoute",
-            "onAfterAuthorise",
-            "onBeforeExecute",
-            "onAfterExecute",
-            "__construct",
-            "get",
-            "getField",
-            "getFieldValue",
-            "getFieldsByType",
-            "set",
-            "setField",
-            "saveForeignKeyValue"
-        ]
-    },
-    "Molajo\\Plugin\\UpdateEventPlugin": {
-        "name": "UpdateEventPlugin",
-        "namespace": "Molajo\\Plugin",
-        "fqns": "Molajo\\Plugin\\UpdateEventPlugin",
-        "file_name": "\/Users\/amystephen\/Sites\/Molajo\/Molajo\/vendor\/molajo\/framework\/Source\/Plugin\/UpdateEventPlugin.php",
-        "path": "vendor\/molajo\/framework\/Source\/Plugin\/UpdateEventPlugin.php",
-        "parent": "Molajo\\Plugin\\AbstractPlugin",
-        "implemented_interfaces": [
-            "CommonApi\\Event\\UpdateInterface"
-        ],
-        "constructor_parameters": [
-            {
-                "name": "plugin_name",
-                "default_available": true,
-                "default_value": "",
-                "instance_of": null,
-                "is_instantiable": false
-            },
-            {
-                "name": "event_name",
-                "default_available": true,
-                "default_value": "",
-                "instance_of": null,
-                "is_instantiable": false
-            },
-            {
-                "name": "data",
-                "default_available": true,
-                "default_value": [
-
-                ],
-                "instance_of": null,
-                "is_instantiable": false
-            }
-        ],
-        "constructor_docComment": "\/**\n     * Constructor\n     *\n     * @param   string $plugin_name\n     * @param   string $event_name\n     * @param   array  $data\n     *\n     * @since  1.0\n     *\/",
-        "implemented_by": [
-
-        ],
-        "dependency_for": [
-
-        ],
-        "method": [
-            "onBeforeUpdate",
-            "onAfterUpdate",
-            "__construct",
-            "get",
-            "getField",
-            "getFieldValue",
-            "getFieldsByType",
-            "set",
-            "setField",
-            "saveForeignKeyValue"
-        ]
-    },
     "Molajo\\Resource\\Api\\ConfigurationDataInterface": {
 
     },
@@ -14965,7 +14925,6 @@
         ],
         "method": [
             "__construct",
-            "getServiceName",
             "getServiceNamespace",
             "getServiceOptions",
             "getStoreInstanceIndicator",
@@ -14991,8 +14950,31 @@
             "CommonApi\\IoC\\ContainerInterface"
         ],
         "constructor_parameters": [
+            {
+                "name": "service_provider_aliases",
+                "default_available": true,
+                "default_value": [
 
+                ],
+                "instance_of": null,
+                "is_instantiable": false
+            },
+            {
+                "name": "class_dependencies_filename",
+                "default_available": true,
+                "default_value": null,
+                "instance_of": null,
+                "is_instantiable": false
+            },
+            {
+                "name": "standard_service_provider_namespace",
+                "default_available": true,
+                "default_value": "Molajo\\IoC\\StandardServiceProvider",
+                "instance_of": null,
+                "is_instantiable": false
+            }
         ],
+        "constructor_docComment": "\/**\n     * Constructor\n     *\n     * @param  ContainerInterface $container\n     * @param  null|string        $class_dependencies_filename\n     *\n     * @since  1.0\n     *\/",
         "implemented_by": [
 
         ],
@@ -15000,18 +14982,22 @@
 
         ],
         "method": [
-            "getService",
-            "setService",
-            "cloneService",
-            "removeService"
+            "__construct",
+            "scheduleServices",
+            "scheduleService",
+            "has",
+            "get",
+            "set",
+            "remove",
+            "cloneInstance"
         ]
     },
-    "Molajo\\IoC\\MapServiceProviderNamespaces": {
-        "name": "MapServiceProviderNamespaces",
+    "Molajo\\IoC\\MapServiceProviders": {
+        "name": "MapServiceProviders",
         "namespace": "Molajo\\IoC",
-        "fqns": "Molajo\\IoC\\MapServiceProviderNamespaces",
-        "file_name": "\/Users\/amystephen\/Sites\/Molajo\/Molajo\/vendor\/molajo\/ioc\/Source\/MapServiceProviderNamespaces.php",
-        "path": "vendor\/molajo\/ioc\/Source\/MapServiceProviderNamespaces.php",
+        "fqns": "Molajo\\IoC\\MapServiceProviders",
+        "file_name": "\/Users\/amystephen\/Sites\/Molajo\/Molajo\/vendor\/molajo\/ioc\/Source\/MapServiceProviders.php",
+        "path": "vendor\/molajo\/ioc\/Source\/MapServiceProviders.php",
         "parent": false,
         "implemented_interfaces": [
             "CommonApi\\Resource\\MapInterface"
@@ -15034,13 +15020,6 @@
                 "is_instantiable": false
             },
             {
-                "name": "service_provider_map_filename",
-                "default_available": true,
-                "default_value": null,
-                "instance_of": null,
-                "is_instantiable": false
-            },
-            {
                 "name": "service_provider_alias_filename",
                 "default_available": true,
                 "default_value": null,
@@ -15048,7 +15027,7 @@
                 "is_instantiable": false
             }
         ],
-        "constructor_docComment": "\/**\n     * Constructor\n     *\n     * @param  array  $service_provider_folders\n     * @param  string $service_provider_namespace_prefix\n     * @param  null   $service_provider_map_filename\n     * @param  null   $service_provider_alias_filename\n     *\n     * @since  1.0\n     *\/",
+        "constructor_docComment": "\/**\n     * Constructor\n     *\n     * @param  array  $service_provider_folders\n     * @param  string $service_provider_namespace_prefix\n     * @param  null   $service_provider_alias_filename\n     *\n     * @since  1.0\n     *\/",
         "implemented_by": [
 
         ],
@@ -15068,7 +15047,7 @@
         "path": "vendor\/molajo\/ioc\/Source\/ServiceProviderAdapter.php",
         "parent": false,
         "implemented_interfaces": [
-            "Molajo\\IoC\\Api\\ServiceProviderAdapterInterface"
+            "CommonApi\\IoC\\ServiceProviderAdapterInterface"
         ],
         "constructor_parameters": [
             {
@@ -15144,7 +15123,6 @@
         ],
         "method": [
             "__construct",
-            "getServiceName",
             "getServiceNamespace",
             "getServiceOptions",
             "getStoreInstanceIndicator",
@@ -15159,72 +15137,6 @@
             "setService",
             "removeService",
             "scheduleServices"
-        ]
-    },
-    "Molajo\\IoC\\ServiceProviderController": {
-        "name": "ServiceProviderController",
-        "namespace": "Molajo\\IoC",
-        "fqns": "Molajo\\IoC\\ServiceProviderController",
-        "file_name": "\/Users\/amystephen\/Sites\/Molajo\/Molajo\/vendor\/molajo\/ioc\/Source\/ServiceProviderController.php",
-        "path": "vendor\/molajo\/ioc\/Source\/ServiceProviderController.php",
-        "parent": false,
-        "implemented_interfaces": [
-            "Molajo\\IoC\\Api\\ServiceProviderControllerInterface"
-        ],
-        "constructor_parameters": [
-            {
-                "name": "container",
-                "default_available": false,
-                "default_value": null,
-                "instance_of": "CommonApi\\IoC\\ContainerInterface",
-                "is_instantiable": false,
-                "implemented_by": [
-                    "Molajo\\Controller\\FrontController",
-                    "Molajo\\IoC\\Container"
-                ],
-                "concrete": false
-            },
-            {
-                "name": "class_dependencies",
-                "default_available": true,
-                "default_value": null,
-                "instance_of": null,
-                "is_instantiable": false
-            },
-            {
-                "name": "service_provider_namespaces",
-                "default_available": true,
-                "default_value": [
-
-                ],
-                "instance_of": null,
-                "is_instantiable": false
-            },
-            {
-                "name": "service_provider_aliases",
-                "default_available": true,
-                "default_value": [
-
-                ],
-                "instance_of": null,
-                "is_instantiable": false
-            }
-        ],
-        "constructor_docComment": "\/**\n     * Constructor\n     *\n     * @param  ContainerInterface $container\n     * @param  string             $class_dependencies\n     *\n     * @since  1.0\n     *\/",
-        "implemented_by": [
-
-        ],
-        "dependency_for": [
-
-        ],
-        "method": [
-            "__construct",
-            "setServiceAlias",
-            "getServices",
-            "getService",
-            "setService",
-            "cloneService",
-            "removeService"
         ]
     },
     "Molajo\\IoC\\StandardServiceProvider": {
@@ -15257,7 +15169,6 @@
         ],
         "method": [
             "__construct",
-            "getServiceName",
             "getServiceNamespace",
             "getServiceOptions",
             "getStoreInstanceIndicator",
@@ -15305,7 +15216,6 @@
             "setDependencies",
             "onBeforeInstantiation",
             "instantiateService",
-            "getServiceName",
             "getServiceNamespace",
             "getServiceOptions",
             "getStoreInstanceIndicator",
@@ -15349,7 +15259,6 @@
             "__construct",
             "setDependencies",
             "onBeforeInstantiation",
-            "getServiceName",
             "getServiceNamespace",
             "getServiceOptions",
             "getStoreInstanceIndicator",
@@ -15397,7 +15306,6 @@
             "instantiateService",
             "onAfterInstantiation",
             "scheduleServices",
-            "getServiceName",
             "getServiceNamespace",
             "getServiceOptions",
             "getStoreInstanceIndicator",
@@ -15440,7 +15348,6 @@
             "setDependencies",
             "onBeforeInstantiation",
             "onAfterInstantiation",
-            "getServiceName",
             "getServiceNamespace",
             "getServiceOptions",
             "getStoreInstanceIndicator",
@@ -15485,7 +15392,6 @@
             "setDependencies",
             "onBeforeInstantiation",
             "onAfterInstantiation",
-            "getServiceName",
             "getServiceNamespace",
             "getServiceOptions",
             "getStoreInstanceIndicator",
@@ -15531,16 +15437,15 @@
             "instantiateService",
             "onAfterInstantiation",
             "setService",
-            "scheduleServices",
             "createXmlHandler",
-            "getServiceName",
             "getServiceNamespace",
             "getServiceOptions",
             "getStoreInstanceIndicator",
             "onBeforeInstantiation",
             "instantiateStatic",
             "getServiceInstance",
-            "removeService"
+            "removeService",
+            "scheduleServices"
         ]
     },
     "Molajo\\Service\\Resourcejs\\ResourcejsServiceProvider": {
@@ -15576,7 +15481,6 @@
             "setDependencies",
             "onBeforeInstantiation",
             "onAfterInstantiation",
-            "getServiceName",
             "getServiceNamespace",
             "getServiceOptions",
             "getStoreInstanceIndicator",
@@ -15621,7 +15525,6 @@
             "setDependencies",
             "onBeforeInstantiation",
             "onAfterInstantiation",
-            "getServiceName",
             "getServiceNamespace",
             "getServiceOptions",
             "getStoreInstanceIndicator",
@@ -16541,7 +16444,6 @@
             "onBeforeInstantiation",
             "instantiateService",
             "getApplicationFilters",
-            "getServiceName",
             "getServiceNamespace",
             "getServiceOptions",
             "getStoreInstanceIndicator",
@@ -16735,7 +16637,6 @@
         "method": [
             "__construct",
             "onBeforeInstantiation",
-            "getServiceName",
             "getServiceNamespace",
             "getServiceOptions",
             "getStoreInstanceIndicator",
@@ -16785,7 +16686,6 @@
             "onAfterInstantiation",
             "scheduleServices",
             "redirect",
-            "getServiceName",
             "getServiceNamespace",
             "getServiceOptions",
             "getStoreInstanceIndicator",
@@ -16827,7 +16727,6 @@
         "method": [
             "__construct",
             "instantiateService",
-            "getServiceName",
             "getServiceNamespace",
             "getServiceOptions",
             "getStoreInstanceIndicator",
@@ -16872,7 +16771,6 @@
         "method": [
             "__construct",
             "onBeforeInstantiation",
-            "getServiceName",
             "getServiceNamespace",
             "getServiceOptions",
             "getStoreInstanceIndicator",
@@ -16917,7 +16815,6 @@
         "method": [
             "__construct",
             "instantiateService",
-            "getServiceName",
             "getServiceNamespace",
             "getServiceOptions",
             "getStoreInstanceIndicator",
@@ -16961,15 +16858,14 @@
         ],
         "method": [
             "__construct",
+            "setDependencies",
+            "instantiateService",
             "setService",
             "scheduleServices",
-            "getServiceName",
             "getServiceNamespace",
             "getServiceOptions",
             "getStoreInstanceIndicator",
-            "setDependencies",
             "onBeforeInstantiation",
-            "instantiateService",
             "instantiateStatic",
             "onAfterInstantiation",
             "getServiceInstance",
@@ -17007,7 +16903,6 @@
         "method": [
             "__construct",
             "onBeforeInstantiation",
-            "getServiceName",
             "getServiceNamespace",
             "getServiceOptions",
             "getStoreInstanceIndicator",
@@ -17054,7 +16949,6 @@
             "setDependencies",
             "onBeforeInstantiation",
             "instantiateService",
-            "getServiceName",
             "getServiceNamespace",
             "getServiceOptions",
             "getStoreInstanceIndicator",
@@ -17096,7 +16990,6 @@
         ],
         "method": [
             "__construct",
-            "getServiceName",
             "getServiceNamespace",
             "getServiceOptions",
             "getStoreInstanceIndicator",
@@ -17141,7 +17034,6 @@
         ],
         "method": [
             "__construct",
-            "getServiceName",
             "getServiceNamespace",
             "getServiceOptions",
             "getStoreInstanceIndicator",
@@ -17188,7 +17080,6 @@
             "__construct",
             "onBeforeInstantiation",
             "getTemplates",
-            "getServiceName",
             "getServiceNamespace",
             "getServiceOptions",
             "getStoreInstanceIndicator",
@@ -17243,7 +17134,6 @@
             "instantiateService",
             "getSessionInput",
             "scheduleServices",
-            "getServiceName",
             "getServiceNamespace",
             "getServiceOptions",
             "getStoreInstanceIndicator",
@@ -17287,7 +17177,6 @@
             "setDependencies",
             "onBeforeInstantiation",
             "scheduleServices",
-            "getServiceName",
             "getServiceNamespace",
             "getServiceOptions",
             "getStoreInstanceIndicator",

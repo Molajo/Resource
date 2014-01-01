@@ -175,7 +175,6 @@ class ResourcedataServiceProvider extends AbstractServiceProvider implements Ser
         $options                             = array();
         $options['service_namespace']        = 'Molajo\\Resource\\Configuration\\Registry';
         $options['store_instance_indicator'] = true;
-        $options['service_name']             = 'Registry';
         $this->dependencies['Registry']      = $options;
 
         $options = array();
@@ -308,24 +307,6 @@ class ResourcedataServiceProvider extends AbstractServiceProvider implements Ser
     public function setService()
     {
         $this->set_container_instance['Resource'] = $this->options['Resource'];
-    }
-
-    /**
-     * Schedule the Next Service
-     *
-     * @return  $this
-     * @since   1.0
-     */
-    public function scheduleServices()
-    {
-        $this->schedule_service                      = array();
-        $this->options                               = array();
-        $this->schedule_service['Dispatcher']        = $this->options;
-        $this->schedule_service['Registry']          = $this->options;
-        $this->schedule_service['Exceptionhandling'] = $this->options;
-        $this->schedule_service['Fieldhandler']      = $this->options;
-
-        return $this->schedule_service;
     }
 
     /**

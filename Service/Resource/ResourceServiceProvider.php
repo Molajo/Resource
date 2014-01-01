@@ -126,12 +126,12 @@ class ResourceServiceProvider extends AbstractServiceProvider implements Service
     /**
      * Fulfill Dependencies
      *
-     * @param   array $dependency_instances (ignored in Service Item Adapter, based in from handler)
+     * @param   array $dependency_values (ignored in Service Item Adapter, based in from handler)
      *
      * @return  $this
      * @since   1.0
      */
-    public function onBeforeInstantiation(array $dependency_instances = null)
+    public function onBeforeInstantiation(array $dependency_values = null)
     {
         $this->dependencies['Scheme']                 = $this->options['Scheme'];
         $this->dependencies['handler_instance_array'] = $this->options['handler_instance_array'];
@@ -182,26 +182,16 @@ class ResourceServiceProvider extends AbstractServiceProvider implements Service
      */
     public function scheduleServices()
     {
-        $this->schedule_service = array();
-
-        $options                             = array();
-        $options['service_namespace']        = 'Molajo\\Resource\\Configuration\\Registry';
-        $options['store_instance_indicator'] = true;
-        $options['service_name']             = 'Registry';
-        $this->schedule_service['Registry']  = $options;
-
         $options                                = array();
-        $options['service_namespace']           = 'Molajo\\Fieldhandler\\Adapter';
         $options['store_instance_indicator']    = true;
         $options['service_name']                = 'Fieldhandler';
         $this->schedule_service['Fieldhandler'] = $options;
 
-        $options                                 = array();
+        $options                                = array();
         $options['Resource']                    = $this->service_instance;
         $this->schedule_service['Resourcedata'] = $options;
 
         $options                                     = array();
-        $options['service_namespace']                = 'Molajo\\Controller\\ExceptionHandling';
         $options['store_instance_indicator']         = true;
         $options['service_name']                     = 'Exceptionhandling';
         $this->schedule_service['Exceptionhandling'] = $options;

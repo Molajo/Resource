@@ -803,6 +803,12 @@
         "path": "vendor\/commonapi\/ioc\/ContainerInterface.php",
         "fqns": "CommonApi\\IoC\\ContainerInterface"
     },
+    "vendor\/commonapi\/ioc\/ServiceProviderAdapterInterface.php": {
+        "file_name": "ServiceProviderAdapterInterface.php",
+        "base_name": "ServiceProviderAdapterInterface",
+        "path": "vendor\/commonapi\/ioc\/ServiceProviderAdapterInterface.php",
+        "fqns": "CommonApi\\IoC\\ServiceProviderAdapterInterface"
+    },
     "vendor\/commonapi\/ioc\/ServiceProviderInterface.php": {
         "file_name": "ServiceProviderInterface.php",
         "base_name": "ServiceProviderInterface",
@@ -1355,6 +1361,48 @@
         "path": "vendor\/molajo\/event\/Source\/EventDispatcher.php",
         "fqns": "Molajo\\Event\\EventDispatcher"
     },
+    "vendor\/molajo\/event\/Source\/Plugin\/AbstractPlugin.php": {
+        "file_name": "AbstractPlugin.php",
+        "base_name": "AbstractPlugin",
+        "path": "vendor\/molajo\/event\/Source\/Plugin\/AbstractPlugin.php",
+        "fqns": "Molajo\\Plugin\\AbstractPlugin"
+    },
+    "vendor\/molajo\/event\/Source\/Plugin\/AuthenticateEventPlugin.php": {
+        "file_name": "AuthenticateEventPlugin.php",
+        "base_name": "AuthenticateEventPlugin",
+        "path": "vendor\/molajo\/event\/Source\/Plugin\/AuthenticateEventPlugin.php",
+        "fqns": "Molajo\\Plugin\\AuthenticateEventPlugin"
+    },
+    "vendor\/molajo\/event\/Source\/Plugin\/CreateEventPlugin.php": {
+        "file_name": "CreateEventPlugin.php",
+        "base_name": "CreateEventPlugin",
+        "path": "vendor\/molajo\/event\/Source\/Plugin\/CreateEventPlugin.php",
+        "fqns": "Molajo\\Plugin\\CreateEventPlugin"
+    },
+    "vendor\/molajo\/event\/Source\/Plugin\/DisplayEventPlugin.php": {
+        "file_name": "DisplayEventPlugin.php",
+        "base_name": "DisplayEventPlugin",
+        "path": "vendor\/molajo\/event\/Source\/Plugin\/DisplayEventPlugin.php",
+        "fqns": "Molajo\\Plugin\\DisplayEventPlugin"
+    },
+    "vendor\/molajo\/event\/Source\/Plugin\/ReadEventPlugin.php": {
+        "file_name": "ReadEventPlugin.php",
+        "base_name": "ReadEventPlugin",
+        "path": "vendor\/molajo\/event\/Source\/Plugin\/ReadEventPlugin.php",
+        "fqns": "Molajo\\Plugin\\ReadEventPlugin"
+    },
+    "vendor\/molajo\/event\/Source\/Plugin\/SystemEventPlugin.php": {
+        "file_name": "SystemEventPlugin.php",
+        "base_name": "SystemEventPlugin",
+        "path": "vendor\/molajo\/event\/Source\/Plugin\/SystemEventPlugin.php",
+        "fqns": "Molajo\\Plugin\\SystemEventPlugin"
+    },
+    "vendor\/molajo\/event\/Source\/Plugin\/UpdateEventPlugin.php": {
+        "file_name": "UpdateEventPlugin.php",
+        "base_name": "UpdateEventPlugin",
+        "path": "vendor\/molajo\/event\/Source\/Plugin\/UpdateEventPlugin.php",
+        "fqns": "Molajo\\Plugin\\UpdateEventPlugin"
+    },
     "vendor\/molajo\/fieldhandler\/Service\/Fieldhandler\/FieldhandlerServiceProvider.php": {
         "file_name": "FieldhandlerServiceProvider.php",
         "base_name": "FieldhandlerServiceProvider",
@@ -1841,42 +1889,6 @@
         "path": "vendor\/molajo\/framework\/Source\/Plugin\/AbstractPlugin.php",
         "fqns": "Molajo\\Plugin\\AbstractPlugin"
     },
-    "vendor\/molajo\/framework\/Source\/Plugin\/AuthenticateEventPlugin.php": {
-        "file_name": "AuthenticateEventPlugin.php",
-        "base_name": "AuthenticateEventPlugin",
-        "path": "vendor\/molajo\/framework\/Source\/Plugin\/AuthenticateEventPlugin.php",
-        "fqns": "Molajo\\Plugin\\AuthenticateEventPlugin"
-    },
-    "vendor\/molajo\/framework\/Source\/Plugin\/CreateEventPlugin.php": {
-        "file_name": "CreateEventPlugin.php",
-        "base_name": "CreateEventPlugin",
-        "path": "vendor\/molajo\/framework\/Source\/Plugin\/CreateEventPlugin.php",
-        "fqns": "Molajo\\Plugin\\CreateEventPlugin"
-    },
-    "vendor\/molajo\/framework\/Source\/Plugin\/DisplayEventPlugin.php": {
-        "file_name": "DisplayEventPlugin.php",
-        "base_name": "DisplayEventPlugin",
-        "path": "vendor\/molajo\/framework\/Source\/Plugin\/DisplayEventPlugin.php",
-        "fqns": "Molajo\\Plugin\\DisplayEventPlugin"
-    },
-    "vendor\/molajo\/framework\/Source\/Plugin\/ReadEventPlugin.php": {
-        "file_name": "ReadEventPlugin.php",
-        "base_name": "ReadEventPlugin",
-        "path": "vendor\/molajo\/framework\/Source\/Plugin\/ReadEventPlugin.php",
-        "fqns": "Molajo\\Plugin\\ReadEventPlugin"
-    },
-    "vendor\/molajo\/framework\/Source\/Plugin\/SystemEventPlugin.php": {
-        "file_name": "SystemEventPlugin.php",
-        "base_name": "SystemEventPlugin",
-        "path": "vendor\/molajo\/framework\/Source\/Plugin\/SystemEventPlugin.php",
-        "fqns": "Molajo\\Plugin\\SystemEventPlugin"
-    },
-    "vendor\/molajo\/framework\/Source\/Plugin\/UpdateEventPlugin.php": {
-        "file_name": "UpdateEventPlugin.php",
-        "base_name": "UpdateEventPlugin",
-        "path": "vendor\/molajo\/framework\/Source\/Plugin\/UpdateEventPlugin.php",
-        "fqns": "Molajo\\Plugin\\UpdateEventPlugin"
-    },
     "vendor\/molajo\/framework\/Source\/Resource\/Api\/ConfigurationDataInterface.php": {
         "file_name": "ConfigurationDataInterface.php",
         "base_name": "ConfigurationDataInterface",
@@ -1979,41 +1991,23 @@
         "path": "vendor\/molajo\/ioc\/Source\/AbstractServiceProvider.php",
         "fqns": "Molajo\\IoC\\AbstractServiceProvider"
     },
-    "vendor\/molajo\/ioc\/Source\/Api\/ServiceProviderAdapterInterface.php": {
-        "file_name": "ServiceProviderAdapterInterface.php",
-        "base_name": "ServiceProviderAdapterInterface",
-        "path": "vendor\/molajo\/ioc\/Source\/Api\/ServiceProviderAdapterInterface.php",
-        "fqns": "Molajo\\IoC\\Api\\ServiceProviderAdapterInterface"
-    },
-    "vendor\/molajo\/ioc\/Source\/Api\/ServiceProviderControllerInterface.php": {
-        "file_name": "ServiceProviderControllerInterface.php",
-        "base_name": "ServiceProviderControllerInterface",
-        "path": "vendor\/molajo\/ioc\/Source\/Api\/ServiceProviderControllerInterface.php",
-        "fqns": "Molajo\\IoC\\Api\\ServiceProviderControllerInterface"
-    },
     "vendor\/molajo\/ioc\/Source\/Container.php": {
         "file_name": "Container.php",
         "base_name": "Container",
         "path": "vendor\/molajo\/ioc\/Source\/Container.php",
         "fqns": "Molajo\\IoC\\Container"
     },
-    "vendor\/molajo\/ioc\/Source\/MapServiceProviderNamespaces.php": {
-        "file_name": "MapServiceProviderNamespaces.php",
-        "base_name": "MapServiceProviderNamespaces",
-        "path": "vendor\/molajo\/ioc\/Source\/MapServiceProviderNamespaces.php",
-        "fqns": "Molajo\\IoC\\MapServiceProviderNamespaces"
+    "vendor\/molajo\/ioc\/Source\/MapServiceProviders.php": {
+        "file_name": "MapServiceProviders.php",
+        "base_name": "MapServiceProviders",
+        "path": "vendor\/molajo\/ioc\/Source\/MapServiceProviders.php",
+        "fqns": "Molajo\\IoC\\MapServiceProviders"
     },
     "vendor\/molajo\/ioc\/Source\/ServiceProviderAdapter.php": {
         "file_name": "ServiceProviderAdapter.php",
         "base_name": "ServiceProviderAdapter",
         "path": "vendor\/molajo\/ioc\/Source\/ServiceProviderAdapter.php",
         "fqns": "Molajo\\IoC\\ServiceProviderAdapter"
-    },
-    "vendor\/molajo\/ioc\/Source\/ServiceProviderController.php": {
-        "file_name": "ServiceProviderController.php",
-        "base_name": "ServiceProviderController",
-        "path": "vendor\/molajo\/ioc\/Source\/ServiceProviderController.php",
-        "fqns": "Molajo\\IoC\\ServiceProviderController"
     },
     "vendor\/molajo\/ioc\/Source\/StandardServiceProvider.php": {
         "file_name": "StandardServiceProvider.php",
