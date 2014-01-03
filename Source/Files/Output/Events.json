@@ -2,9 +2,6 @@
     "onBeforeExecute": [
         "Molajo\\Plugin\\Ajax\\AjaxPlugin",
         "Molajo\\Plugin\\Application\\ApplicationPlugin",
-        "Molajo\\Plugin\\Author\\AuthorPlugin",
-        "Molajo\\Plugin\\Comments\\CommentsPlugin",
-        "Molajo\\Plugin\\Fields\\FieldsPlugin",
         "Molajo\\Plugin\\Menuitems\\MenuitemsPlugin"
     ],
     "onBeforeCreate": [
@@ -29,13 +26,16 @@
         "Molajo\\Plugin\\Version\\VersionPlugin"
     ],
     "onAfterRead": [
+        "Molajo\\Plugin\\Author\\AuthorPlugin",
         "Molajo\\Plugin\\Blockquote\\BlockquotePlugin",
         "Molajo\\Plugin\\Children\\ChildrenPlugin",
+        "Molajo\\Plugin\\Comments\\CommentsPlugin",
         "Molajo\\Plugin\\Copyright\\CopyrightPlugin",
         "Molajo\\Plugin\\Cssclassandids\\CssclassandidsPlugin",
         "Molajo\\Plugin\\Customfields\\CustomfieldsPlugin",
         "Molajo\\Plugin\\Dateformats\\DateformatsPlugin",
         "Molajo\\Plugin\\Email\\EmailPlugin",
+        "Molajo\\Plugin\\Fields\\FieldsPlugin",
         "Molajo\\Plugin\\Fullname\\FullnamePlugin",
         "Molajo\\Plugin\\Gravatar\\GravatarPlugin",
         "Molajo\\Plugin\\IFrame\\IFramePlugin",
@@ -53,9 +53,6 @@
         "Molajo\\Plugin\\Status\\StatusPlugin",
         "Molajo\\Plugin\\Useractivity\\UseractivityPlugin",
         "Molajo\\Plugin\\Weather\\WeatherPlugin"
-    ],
-    "onBeforeRender": [
-        "Molajo\\Plugin\\Catalog\\CatalogPlugin"
     ],
     "onAfterCreate": [
         "Molajo\\Plugin\\Catalog\\CatalogPlugin",

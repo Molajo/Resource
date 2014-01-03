@@ -4,7 +4,7 @@
  *
  * @package    Molajo
  * @license    http://www.opensource.org/licenses/mit-license.html MIT License
- * @copyright  2013 Amy Stephen. All rights reserved.
+ * @copyright  2014 Amy Stephen. All rights reserved.
  */
 namespace Molajo\Service\Resourcejs;
 
@@ -17,7 +17,7 @@ use CommonApi\Exception\RuntimeException;
  *
  * @author     Amy Stephen
  * @license    http://www.opensource.org/licenses/mit-license.html MIT License
- * @copyright  2013 Amy Stephen. All rights reserved.
+ * @copyright  2014 Amy Stephen. All rights reserved.
  * @since      1.0
  */
 class ResourcejsServiceProvider extends AbstractServiceProvider implements ServiceProviderInterface
@@ -50,7 +50,7 @@ class ResourcejsServiceProvider extends AbstractServiceProvider implements Servi
     {
         parent::setDependencies($reflection);
 
-        $options                         = array();
+        $options                        = array();
         $this->dependencies['Resource'] = $options;
 
         return $this->dependencies;

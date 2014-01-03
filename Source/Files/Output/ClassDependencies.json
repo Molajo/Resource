@@ -262,9 +262,9 @@
         "fqns": "Molajo\\Plugin\\Author\\AuthorPlugin",
         "file_name": "\/Users\/amystephen\/Sites\/Molajo\/Molajo\/Source\/Plugin\/Author\/AuthorPlugin.php",
         "path": "Source\/Plugin\/Author\/AuthorPlugin.php",
-        "parent": "Molajo\\Plugin\\SystemEventPlugin",
+        "parent": "Molajo\\Plugin\\ReadEventPlugin",
         "implemented_interfaces": [
-            "CommonApi\\Event\\SystemInterface"
+            "CommonApi\\Event\\ReadInterface"
         ],
         "constructor_parameters": [
             {
@@ -299,19 +299,10 @@
 
         ],
         "method": [
-            "onBeforeExecute",
+            "onAfterRead",
             "getAuthorProfile",
-            "onBeforeInitialise",
-            "onAfterInitialise",
-            "onBeforeRoute",
-            "onAfterRoute",
-            "onBeforeAuthorise",
-            "onAfterAuthorise",
-            "onAfterExecute",
-            "onBeforeRender",
-            "onAfterRender",
-            "onBeforeResponse",
-            "onAfterResponse",
+            "onBeforeRead",
+            "onAfterReadall",
             "__construct",
             "get",
             "getField",
@@ -382,9 +373,9 @@
         "fqns": "Molajo\\Plugin\\Catalog\\CatalogPlugin",
         "file_name": "\/Users\/amystephen\/Sites\/Molajo\/Molajo\/Source\/Plugin\/Catalog\/CatalogPlugin.php",
         "path": "Source\/Plugin\/Catalog\/CatalogPlugin.php",
-        "parent": "Molajo\\Plugin\\DisplayEventPlugin",
+        "parent": "Molajo\\Plugin\\AbstractPlugin",
         "implemented_interfaces": [
-            "CommonApi\\Event\\DisplayInterface"
+
         ],
         "constructor_parameters": [
             {
@@ -419,7 +410,6 @@
 
         ],
         "method": [
-            "onBeforeRender",
             "onAfterCreate",
             "onAfterUpdate",
             "onBeforeUpdate",
@@ -427,11 +417,6 @@
             "onAfterDelete",
             "logUserActivity",
             "logCatalogActivity",
-            "onBeforeParse",
-            "onBeforeParseHead",
-            "onBeforeRenderView",
-            "onAfterRenderView",
-            "onAfterParse",
             "__construct",
             "get",
             "getField",
@@ -613,9 +598,9 @@
         "fqns": "Molajo\\Plugin\\Comments\\CommentsPlugin",
         "file_name": "\/Users\/amystephen\/Sites\/Molajo\/Molajo\/Source\/Plugin\/Comments\/CommentsPlugin.php",
         "path": "Source\/Plugin\/Comments\/CommentsPlugin.php",
-        "parent": "Molajo\\Plugin\\SystemEventPlugin",
+        "parent": "Molajo\\Plugin\\ReadEventPlugin",
         "implemented_interfaces": [
-            "CommonApi\\Event\\SystemInterface"
+            "CommonApi\\Event\\ReadInterface"
         ],
         "constructor_parameters": [
             {
@@ -650,18 +635,9 @@
 
         ],
         "method": [
-            "onBeforeExecute",
-            "onBeforeInitialise",
-            "onAfterInitialise",
-            "onBeforeRoute",
-            "onAfterRoute",
-            "onBeforeAuthorise",
-            "onAfterAuthorise",
-            "onAfterExecute",
-            "onBeforeRender",
-            "onAfterRender",
-            "onBeforeResponse",
-            "onAfterResponse",
+            "onAfterRead",
+            "onBeforeRead",
+            "onAfterReadall",
             "__construct",
             "get",
             "getField",
@@ -1478,9 +1454,9 @@
         "fqns": "Molajo\\Plugin\\Fields\\FieldsPlugin",
         "file_name": "\/Users\/amystephen\/Sites\/Molajo\/Molajo\/Source\/Plugin\/Fields\/FieldsPlugin.php",
         "path": "Source\/Plugin\/Fields\/FieldsPlugin.php",
-        "parent": "Molajo\\Plugin\\SystemEventPlugin",
+        "parent": "Molajo\\Plugin\\ReadEventPlugin",
         "implemented_interfaces": [
-            "CommonApi\\Event\\SystemInterface"
+            "CommonApi\\Event\\ReadInterface"
         ],
         "constructor_parameters": [
             {
@@ -1515,18 +1491,9 @@
 
         ],
         "method": [
-            "onBeforeExecute",
-            "onBeforeInitialise",
-            "onAfterInitialise",
-            "onBeforeRoute",
-            "onAfterRoute",
-            "onBeforeAuthorise",
-            "onAfterAuthorise",
-            "onAfterExecute",
-            "onBeforeRender",
-            "onAfterRender",
-            "onBeforeResponse",
-            "onAfterResponse",
+            "onAfterRead",
+            "onBeforeRead",
+            "onAfterReadall",
             "__construct",
             "get",
             "getField",
