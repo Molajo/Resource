@@ -2,6 +2,7 @@
     "onBeforeExecute": [
         "Molajo\\Plugin\\Ajax\\AjaxPlugin",
         "Molajo\\Plugin\\Application\\ApplicationPlugin",
+        "Molajo\\Plugin\\Comments\\CommentsPlugin",
         "Molajo\\Plugin\\Menuitems\\MenuitemsPlugin"
     ],
     "onBeforeCreate": [
@@ -25,17 +26,24 @@
         "Molajo\\Plugin\\Username\\UsernamePlugin",
         "Molajo\\Plugin\\Version\\VersionPlugin"
     ],
-    "onAfterRead": [
+    "onBeforeRenderView": [
         "Molajo\\Plugin\\Author\\AuthorPlugin",
+        "Molajo\\Plugin\\Featured\\FeaturedPlugin",
+        "Molajo\\Plugin\\Footer\\FooterPlugin",
+        "Molajo\\Plugin\\Formbegin\\FormbeginPlugin",
+        "Molajo\\Plugin\\Formselectlist\\FormselectlistPlugin",
+        "Molajo\\Plugin\\Pagetypelist\\PagetypelistPlugin",
+        "Molajo\\Plugin\\Paging\\PagingPlugin",
+        "Molajo\\Plugin\\UIFoundation\\UIFoundationPlugin"
+    ],
+    "onAfterRead": [
         "Molajo\\Plugin\\Blockquote\\BlockquotePlugin",
         "Molajo\\Plugin\\Children\\ChildrenPlugin",
-        "Molajo\\Plugin\\Comments\\CommentsPlugin",
         "Molajo\\Plugin\\Copyright\\CopyrightPlugin",
         "Molajo\\Plugin\\Cssclassandids\\CssclassandidsPlugin",
         "Molajo\\Plugin\\Customfields\\CustomfieldsPlugin",
         "Molajo\\Plugin\\Dateformats\\DateformatsPlugin",
         "Molajo\\Plugin\\Email\\EmailPlugin",
-        "Molajo\\Plugin\\Fields\\FieldsPlugin",
         "Molajo\\Plugin\\Fullname\\FullnamePlugin",
         "Molajo\\Plugin\\Gravatar\\GravatarPlugin",
         "Molajo\\Plugin\\IFrame\\IFramePlugin",
@@ -82,9 +90,10 @@
     ],
     "onAfterReadall": [
         "Molajo\\Plugin\\Contentlist\\ContentlistPlugin",
-        "Molajo\\Plugin\\Feed\\FeedPlugin"
+        "Molajo\\Plugin\\Feed\\FeedPlugin",
+        "Molajo\\Plugin\\Pagination\\PaginationPlugin"
     ],
-    "onAfterRenderView": [
+    "onBeforeResponse": [
         "Molajo\\Plugin\\Csrftoken\\CsrftokenPlugin"
     ],
     "onAfterRoute": [
@@ -100,25 +109,28 @@
     "onAfterInitialise": [
         "Molajo\\Plugin\\Events\\EventsPlugin"
     ],
-    "onBeforeRenderView": [
-        "Molajo\\Plugin\\Featured\\FeaturedPlugin",
-        "Molajo\\Plugin\\Formbegin\\FormbeginPlugin",
-        "Molajo\\Plugin\\Formselectlist\\FormselectlistPlugin",
+    "onBeforeRender": [
+        "Molajo\\Plugin\\Fields\\FieldsPlugin",
+        "Molajo\\Plugin\\Pagetypeapplication\\PagetypeapplicationPlugin",
+        "Molajo\\Plugin\\Pagetypeconfiguration\\PagetypeconfigurationPlugin",
+        "Molajo\\Plugin\\Pagetypedashboard\\PagetypedashboardPlugin",
+        "Molajo\\Plugin\\Pagetypeedit\\PagetypeeditPlugin",
+        "Molajo\\Plugin\\Pagetypegrid\\PagetypegridPlugin",
+        "Molajo\\Plugin\\Pagetypeitem\\PagetypeitemPlugin",
         "Molajo\\Plugin\\Pagetypelist\\PagetypelistPlugin",
-        "Molajo\\Plugin\\Paging\\PagingPlugin",
+        "Molajo\\Plugin\\Pagetypenew\\PagetypenewPlugin",
         "Molajo\\Plugin\\UIFoundation\\UIFoundationPlugin"
     ],
     "onAfterInclude": [
         "Molajo\\Plugin\\Formselectlist\\FormselectlistPlugin"
     ],
-    "onBeforeParseHead": [
-        "Molajo\\Plugin\\Googleanalytics\\GoogleanalyticsPlugin",
-        "Molajo\\Plugin\\Messages\\MessagesPlugin"
+    "onAfterRender": [
+        "Molajo\\Plugin\\Googleanalytics\\GoogleanalyticsPlugin"
     ],
-    "onBeforeLogin": [
+    "onBeforeAuthenticate": [
         "Molajo\\Plugin\\Login\\LoginPlugin"
     ],
-    "onAfterLogin": [
+    "onAfterAuthenticate": [
         "Molajo\\Plugin\\Login\\LoginPlugin"
     ],
     "onBeforeLogout": [
@@ -127,18 +139,13 @@
     "onAfterLogout": [
         "Molajo\\Plugin\\Logout\\LogoutPlugin"
     ],
-    "onBeforeParse": [
-        "Molajo\\Plugin\\Pagetypeapplication\\PagetypeapplicationPlugin",
-        "Molajo\\Plugin\\Pagetypeconfiguration\\PagetypeconfigurationPlugin",
-        "Molajo\\Plugin\\Pagetypedashboard\\PagetypedashboardPlugin",
-        "Molajo\\Plugin\\Pagetypeedit\\PagetypeeditPlugin",
-        "Molajo\\Plugin\\Pagetypegrid\\PagetypegridPlugin",
-        "Molajo\\Plugin\\Pagetypeitem\\PagetypeitemPlugin",
-        "Molajo\\Plugin\\Pagetypelist\\PagetypelistPlugin",
-        "Molajo\\Plugin\\Pagination\\PaginationPlugin",
-        "Molajo\\Plugin\\UIFoundation\\UIFoundationPlugin"
+    "onBeforeParseHead": [
+        "Molajo\\Plugin\\Messages\\MessagesPlugin"
     ],
     "onAfterReadAll": [
         "Molajo\\Plugin\\Templatelist\\TemplatelistPlugin"
+    ],
+    "onBeforeParse": [
+        "Molajo\\Plugin\\Foundation\\FoundationPlugin"
     ]
 }

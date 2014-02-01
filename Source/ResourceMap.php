@@ -72,6 +72,14 @@ class ResourceMap implements MapInterface
     protected $php_files = array();
 
     /**
+     * List of folders to exclude from resource mapping
+     *
+     * @var    array
+     * @since  1.0
+     */
+    protected $exclude_folders = array();
+
+    /**
      * Constructor
      *
      * @param  string $base_path
@@ -157,6 +165,7 @@ class ResourceMap implements MapInterface
                         $objects = new RecursiveIteratorIterator
                         (new RecursiveDirectoryIterator($this->base_path . '/' . $namespace_base_directory),
                             RecursiveIteratorIterator::SELF_FIRST);
+
                     } else {
 
                         if ($namespace_base_directory == '') {
@@ -169,23 +178,25 @@ class ResourceMap implements MapInterface
                         break;
                     }
 
-                    foreach ($objects as $file_path => $file_object) {
+                    if (count($objects) > 0) {
+                        foreach ($objects as $file_path => $file_object) {
 
-                        $file_name      = $file_object->getFileName();
-                        $file_extension = $file_object->getExtension();
-                        $is_directory   = $file_object->isDir();
-                        $php_class      = 0;
+                            $file_name      = $file_object->getFileName();
+                            $file_extension = $file_object->getExtension();
+                            $is_directory   = $file_object->isDir();
+                            $php_class      = 0;
 
-                        /** Test Namespace Rules */
-                        $this->testFileForNamespaceRules(
-                            $namespace_prefix,
-                            $namespace_base_directory,
-                            $is_directory,
-                            $file_path,
-                            $file_name,
-                            $file_extension,
-                            $php_class
-                        );
+                            /** Test Namespace Rules */
+                            $this->testFileForNamespaceRules(
+                                $namespace_prefix,
+                                $namespace_base_directory,
+                                $is_directory,
+                                $file_path,
+                                $file_name,
+                                $file_extension,
+                                $php_class
+                            );
+                        }
                     }
                 }
             }

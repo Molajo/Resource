@@ -12,14 +12,12 @@
         ],
         "dependency_for": [
             "Molajo\\Authorisation\\Adapter",
-            "Molajo\\Controller\\Controller",
-            "Molajo\\Controller\\ReadController",
             "Molajo\\Model\\CreateModel",
             "Molajo\\Model\\DeleteModel",
             "Molajo\\Model\\Model",
             "Molajo\\Model\\ReadModel",
             "Molajo\\Model\\UpdateModel",
-            "Molajo\\Render\\Handler\\Molajito",
+            "Molajo\\Resource\\Factory\\ReadModelFactory",
             "Molajo\\Resource\\Handler\\QueryHandler"
         ]
     },
@@ -44,13 +42,12 @@
         ],
         "dependency_for": [
             "Molajo\\Cache\\Adapter",
-            "Molajo\\Controller\\Controller",
-            "Molajo\\Controller\\ReadController",
             "Molajo\\Model\\CreateModel",
             "Molajo\\Model\\DeleteModel",
             "Molajo\\Model\\Model",
             "Molajo\\Model\\ReadModel",
             "Molajo\\Model\\UpdateModel",
+            "Molajo\\Resource\\Factory\\ReadModelFactory",
             "Molajo\\Resource\\Handler\\QueryHandler"
         ]
     },
@@ -133,7 +130,7 @@
             "Molajo\\Controller\\DateController"
         ],
         "dependency_for": [
-            "Molajo\\Render\\Handler\\Molajito"
+
         ]
     },
     "CommonApi\\Controller\\DeleteInterface": {
@@ -290,7 +287,7 @@
             "Molajo\\Controller\\UrlController"
         ],
         "dependency_for": [
-            "Molajo\\Render\\Handler\\Molajito"
+
         ]
     },
     "CommonApi\\Database\\ConnectionInterface": {
@@ -327,6 +324,7 @@
             "Molajo\\Model\\Model",
             "Molajo\\Model\\ReadModel",
             "Molajo\\Model\\UpdateModel",
+            "Molajo\\Resource\\Factory\\ReadModelFactory",
             "Molajo\\Resource\\Handler\\QueryHandler",
             "Molajo\\User\\Activity",
             "Molajo\\User\\UserData"
@@ -364,6 +362,19 @@
 
         ]
     },
+    "CommonApi\\Event\\AuthoriseInterface": {
+        "name": "AuthoriseInterface",
+        "namespace": "CommonApi\\Event",
+        "fqns": "CommonApi\\Event\\AuthoriseInterface",
+        "path": "vendor\/commonapi\/event\/AuthoriseInterface.php",
+        "parent": false,
+        "implemented_by": [
+            "Molajo\\Plugin\\AuthoriseEventPlugin"
+        ],
+        "dependency_for": [
+
+        ]
+    },
     "CommonApi\\Event\\CreateInterface": {
         "name": "CreateInterface",
         "namespace": "CommonApi\\Event",
@@ -374,7 +385,6 @@
             "Molajo\\Plugin\\Alias\\AliasPlugin",
             "Molajo\\Plugin\\CreateEventPlugin",
             "Molajo\\Plugin\\Create\\CreatePlugin",
-            "Molajo\\Plugin\\Csrftoken\\CsrftokenPlugin",
             "Molajo\\Plugin\\Dateformats\\DateformatsPlugin",
             "Molajo\\Plugin\\Extensioninstance\\ExtensioninstancePlugin",
             "Molajo\\Plugin\\Ipaddress\\IpaddressPlugin",
@@ -418,10 +428,13 @@
         "parent": false,
         "implemented_by": [
             "Molajo\\Plugin\\Activity\\ActivityPlugin",
+            "Molajo\\Plugin\\Author\\AuthorPlugin",
             "Molajo\\Plugin\\DisplayEventPlugin",
             "Molajo\\Plugin\\Featured\\FeaturedPlugin",
+            "Molajo\\Plugin\\Fields\\FieldsPlugin",
             "Molajo\\Plugin\\Formbegin\\FormbeginPlugin",
             "Molajo\\Plugin\\Formselectlist\\FormselectlistPlugin",
+            "Molajo\\Plugin\\Foundation\\FoundationPlugin",
             "Molajo\\Plugin\\Googleanalytics\\GoogleanalyticsPlugin",
             "Molajo\\Plugin\\Messages\\MessagesPlugin",
             "Molajo\\Plugin\\Pagetypeapplication\\PagetypeapplicationPlugin",
@@ -431,7 +444,7 @@
             "Molajo\\Plugin\\Pagetypegrid\\PagetypegridPlugin",
             "Molajo\\Plugin\\Pagetypeitem\\PagetypeitemPlugin",
             "Molajo\\Plugin\\Pagetypelist\\PagetypelistPlugin",
-            "Molajo\\Plugin\\Pagination\\PaginationPlugin",
+            "Molajo\\Plugin\\Pagetypenew\\PagetypenewPlugin",
             "Molajo\\Plugin\\Paging\\PagingPlugin",
             "Molajo\\Plugin\\UIFoundation\\UIFoundationPlugin"
         ],
@@ -472,16 +485,13 @@
         "path": "vendor\/commonapi\/event\/ReadInterface.php",
         "parent": false,
         "implemented_by": [
-            "Molajo\\Plugin\\Author\\AuthorPlugin",
             "Molajo\\Plugin\\Blockquote\\BlockquotePlugin",
             "Molajo\\Plugin\\Children\\ChildrenPlugin",
-            "Molajo\\Plugin\\Comments\\CommentsPlugin",
             "Molajo\\Plugin\\Contentlist\\ContentlistPlugin",
             "Molajo\\Plugin\\Cssclassandids\\CssclassandidsPlugin",
             "Molajo\\Plugin\\Customfields\\CustomfieldsPlugin",
             "Molajo\\Plugin\\Defer\\DeferPlugin",
             "Molajo\\Plugin\\Email\\EmailPlugin",
-            "Molajo\\Plugin\\Fields\\FieldsPlugin",
             "Molajo\\Plugin\\Fullname\\FullnamePlugin",
             "Molajo\\Plugin\\Gravatar\\GravatarPlugin",
             "Molajo\\Plugin\\Head\\HeadPlugin",
@@ -492,6 +502,7 @@
             "Molajo\\Plugin\\Links\\LinksPlugin",
             "Molajo\\Plugin\\MockImage\\MockimagePlugin",
             "Molajo\\Plugin\\Mockdata\\MockdataPlugin",
+            "Molajo\\Plugin\\Pagination\\PaginationPlugin",
             "Molajo\\Plugin\\Publishedstatus\\PublishedstatusPlugin",
             "Molajo\\Plugin\\ReadEventPlugin",
             "Molajo\\Plugin\\Readmore\\ReadmorePlugin",
@@ -516,6 +527,7 @@
         "implemented_by": [
             "Molajo\\Plugin\\Ajax\\AjaxPlugin",
             "Molajo\\Plugin\\Application\\ApplicationPlugin",
+            "Molajo\\Plugin\\Comments\\CommentsPlugin",
             "Molajo\\Plugin\\Copyright\\CopyrightPlugin",
             "Molajo\\Plugin\\Events\\EventsPlugin",
             "Molajo\\Plugin\\Menuitems\\MenuitemsPlugin",
@@ -538,7 +550,6 @@
             "Molajo\\Plugin\\Checkin\\CheckinPlugin",
             "Molajo\\Plugin\\CreateEventPlugin",
             "Molajo\\Plugin\\Create\\CreatePlugin",
-            "Molajo\\Plugin\\Csrftoken\\CsrftokenPlugin",
             "Molajo\\Plugin\\Dateformats\\DateformatsPlugin",
             "Molajo\\Plugin\\Extensioninstance\\ExtensioninstancePlugin",
             "Molajo\\Plugin\\Ipaddress\\IpaddressPlugin",
@@ -800,13 +811,9 @@
             "Molajo\\Language\\Handler\\Database"
         ],
         "dependency_for": [
-            "Molajo\\Controller\\Controller",
-            "Molajo\\Controller\\ReadController",
             "Molajo\\Language\\Adapter",
             "Molajo\\Language\\Handler\\Database",
-            "Molajo\\Language\\Handler\\Database",
-            "Molajo\\Render\\Handler\\Molajito",
-            "Molajo\\Resource\\Handler\\QueryHandler"
+            "Molajo\\Language\\Handler\\Database"
         ]
     },
     "CommonApi\\Model\\CreateInterface": {
@@ -847,16 +854,13 @@
         ],
         "dependency_for": [
             "Molajo\\Controller\\Application",
-            "Molajo\\Controller\\Controller",
-            "Molajo\\Controller\\ReadController",
             "Molajo\\Language\\Handler\\DatabaseModel",
             "Molajo\\Model\\CreateModel",
             "Molajo\\Model\\DeleteModel",
             "Molajo\\Model\\Model",
             "Molajo\\Model\\ReadModel",
             "Molajo\\Model\\UpdateModel",
-            "Molajo\\Render\\Handler\\Molajito",
-            "Molajo\\Render\\Pagination",
+            "Molajo\\Resource\\Factory\\ReadModelFactory",
             "Molajo\\Resource\\Handler\\QueryHandler",
             "Molajo\\User\\Activity",
             "Molajo\\User\\Authentication",
@@ -893,7 +897,7 @@
             "Molajo\\Model\\ReadModel"
         ],
         "dependency_for": [
-
+            "Molajo\\Resource\\Factory\\ReadControllerFactory"
         ]
     },
     "CommonApi\\Model\\UpdateInterface": {
@@ -924,6 +928,32 @@
 
         ]
     },
+    "CommonApi\\Render\\DataResourceInterface": {
+        "name": "DataResourceInterface",
+        "namespace": "CommonApi\\Render",
+        "fqns": "CommonApi\\Render\\DataResourceInterface",
+        "path": "vendor\/commonapi\/render\/DataResourceInterface.php",
+        "parent": false,
+        "implemented_by": [
+
+        ],
+        "dependency_for": [
+
+        ]
+    },
+    "CommonApi\\Render\\ExtensionResourceInterface": {
+        "name": "ExtensionResourceInterface",
+        "namespace": "CommonApi\\Render",
+        "fqns": "CommonApi\\Render\\ExtensionResourceInterface",
+        "path": "vendor\/commonapi\/render\/ExtensionResourceInterface.php",
+        "parent": false,
+        "implemented_by": [
+
+        ],
+        "dependency_for": [
+
+        ]
+    },
     "CommonApi\\Render\\PaginationInterface": {
         "name": "PaginationInterface",
         "namespace": "CommonApi\\Render",
@@ -937,6 +967,19 @@
 
         ]
     },
+    "CommonApi\\Render\\ParseInterface": {
+        "name": "ParseInterface",
+        "namespace": "CommonApi\\Render",
+        "fqns": "CommonApi\\Render\\ParseInterface",
+        "path": "vendor\/commonapi\/render\/ParseInterface.php",
+        "parent": false,
+        "implemented_by": [
+
+        ],
+        "dependency_for": [
+
+        ]
+    },
     "CommonApi\\Render\\RenderInterface": {
         "name": "RenderInterface",
         "namespace": "CommonApi\\Render",
@@ -945,7 +988,8 @@
         "parent": false,
         "implemented_by": [
             "Molajo\\Render\\Handler\\AbstractHandler",
-            "Molajo\\Render\\Handler\\Molajito"
+            "Molajo\\Render\\Handler\\Pagination",
+            "Molajo\\Render\\Handler\\MolajitoRender"
         ],
         "dependency_for": [
             "Molajo\\Render\\Adapter"
@@ -1279,9 +1323,66 @@
             "Molajo\\User\\User"
         ],
         "dependency_for": [
-            "Molajo\\Controller\\Controller",
-            "Molajo\\Controller\\ReadController",
-            "Molajo\\Resource\\Handler\\QueryHandler"
+
+        ]
+    },
+    "Molajo\\Resource\\Api\\ConfigurationDataInterface": {
+        "name": "ConfigurationDataInterface",
+        "namespace": "Molajo\\Resource\\Api",
+        "fqns": "Molajo\\Resource\\Api\\ConfigurationDataInterface",
+        "path": "vendor\/molajo\/framework\/Source\/Resource\/Api\/ConfigurationDataInterface.php",
+        "parent": false,
+        "implemented_by": [
+            "Molajo\\Resource\\Configuration\\Data"
+        ],
+        "dependency_for": [
+            "Molajo\\Resource\\Configuration\\AbstractHandler",
+            "Molajo\\Resource\\Configuration\\DataobjectHandler",
+            "Molajo\\Resource\\Configuration\\ModelHandler"
+        ]
+    },
+    "Molajo\\Resource\\Api\\ConfigurationInterface": {
+        "name": "ConfigurationInterface",
+        "namespace": "Molajo\\Resource\\Api",
+        "fqns": "Molajo\\Resource\\Api\\ConfigurationInterface",
+        "path": "vendor\/molajo\/framework\/Source\/Resource\/Api\/ConfigurationInterface.php",
+        "parent": false,
+        "implemented_by": [
+            "Molajo\\Resource\\Configuration\\AbstractHandler",
+            "Molajo\\Resource\\Configuration\\DataobjectHandler",
+            "Molajo\\Resource\\Configuration\\ModelHandler"
+        ],
+        "dependency_for": [
+            "Molajo\\Resource\\Handler\\XmlHandler",
+            "Molajo\\Resource\\Handler\\XmlHandler"
+        ]
+    },
+    "Molajo\\Resource\\Api\\FactoryInterface": {
+        "name": "FactoryInterface",
+        "namespace": "Molajo\\Resource\\Api",
+        "fqns": "Molajo\\Resource\\Api\\FactoryInterface",
+        "path": "vendor\/molajo\/framework\/Source\/Resource\/Api\/FactoryInterface.php",
+        "parent": false,
+        "implemented_by": [
+            "Molajo\\Resource\\Factory\\ReadControllerFactory"
+        ],
+        "dependency_for": [
+
+        ]
+    },
+    "Molajo\\Resource\\Api\\RegistryInterface": {
+        "name": "RegistryInterface",
+        "namespace": "Molajo\\Resource\\Api",
+        "fqns": "Molajo\\Resource\\Api\\RegistryInterface",
+        "path": "vendor\/molajo\/framework\/Source\/Resource\/Api\/RegistryInterface.php",
+        "parent": false,
+        "implemented_by": [
+            "Molajo\\Resource\\Configuration\\Registry"
+        ],
+        "dependency_for": [
+            "Molajo\\Resource\\Configuration\\AbstractHandler",
+            "Molajo\\Resource\\Configuration\\DataobjectHandler",
+            "Molajo\\Resource\\Configuration\\ModelHandler"
         ]
     }
 }
