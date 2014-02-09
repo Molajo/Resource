@@ -887,6 +887,12 @@
         "path": "vendor\/commonapi\/render\/DataResourceInterface.php",
         "fqns": "CommonApi\\Render\\DataResourceInterface"
     },
+    "vendor\/commonapi\/render\/EventHandlerInterface.php": {
+        "file_name": "EventHandlerInterface.php",
+        "base_name": "EventHandlerInterface",
+        "path": "vendor\/commonapi\/render\/EventHandlerInterface.php",
+        "fqns": "CommonApi\\Render\\EventHandlerInterface"
+    },
     "vendor\/commonapi\/render\/ExtensionResourceInterface.php": {
         "file_name": "ExtensionResourceInterface.php",
         "base_name": "ExtensionResourceInterface",
@@ -1049,42 +1055,6 @@
         "path": "vendor\/commonapi\/user\/UserInterface.php",
         "fqns": "CommonApi\\User\\UserInterface"
     },
-    "vendor\/molajo\/Http\/Service\/Client\/ClientServiceProvider.php": {
-        "file_name": "ClientServiceProvider.php",
-        "base_name": "ClientServiceProvider",
-        "path": "vendor\/molajo\/Http\/Service\/Client\/ClientServiceProvider.php",
-        "fqns": "Molajo\\Service\\Client\\ClientServiceProvider"
-    },
-    "vendor\/molajo\/Http\/Service\/Redirect\/RedirectServiceProvider.php": {
-        "file_name": "RedirectServiceProvider.php",
-        "base_name": "RedirectServiceProvider",
-        "path": "vendor\/molajo\/Http\/Service\/Redirect\/RedirectServiceProvider.php",
-        "fqns": "Molajo\\Service\\Redirect\\RedirectServiceProvider"
-    },
-    "vendor\/molajo\/Http\/Service\/Request\/RequestServiceProvider.php": {
-        "file_name": "RequestServiceProvider.php",
-        "base_name": "RequestServiceProvider",
-        "path": "vendor\/molajo\/Http\/Service\/Request\/RequestServiceProvider.php",
-        "fqns": "Molajo\\Service\\Request\\RequestServiceProvider"
-    },
-    "vendor\/molajo\/Http\/Service\/Response\/ResponseServiceProvider.php": {
-        "file_name": "ResponseServiceProvider.php",
-        "base_name": "ResponseServiceProvider",
-        "path": "vendor\/molajo\/Http\/Service\/Response\/ResponseServiceProvider.php",
-        "fqns": "Molajo\\Service\\Response\\ResponseServiceProvider"
-    },
-    "vendor\/molajo\/Http\/Service\/Server\/ServerServiceProvider.php": {
-        "file_name": "ServerServiceProvider.php",
-        "base_name": "ServerServiceProvider",
-        "path": "vendor\/molajo\/Http\/Service\/Server\/ServerServiceProvider.php",
-        "fqns": "Molajo\\Service\\Server\\ServerServiceProvider"
-    },
-    "vendor\/molajo\/Http\/Service\/Upload\/UploadServiceProvider.php": {
-        "file_name": "UploadServiceProvider.php",
-        "base_name": "UploadServiceProvider",
-        "path": "vendor\/molajo\/Http\/Service\/Upload\/UploadServiceProvider.php",
-        "fqns": "Molajo\\Service\\Upload\\UploadServiceProvider"
-    },
     "vendor\/molajo\/Http\/Source\/Client.php": {
         "file_name": "Client.php",
         "base_name": "Client",
@@ -1114,12 +1084,6 @@
         "base_name": "Upload",
         "path": "vendor\/molajo\/Http\/Source\/Upload.php",
         "fqns": "Molajo\\Http\\Upload"
-    },
-    "vendor\/molajo\/Language\/Service\/Language\/LanguageServiceProvider.php": {
-        "file_name": "LanguageServiceProvider.php",
-        "base_name": "LanguageServiceProvider",
-        "path": "vendor\/molajo\/Language\/Service\/Language\/LanguageServiceProvider.php",
-        "fqns": "Molajo\\Service\\Language\\LanguageServiceProvider"
     },
     "vendor\/molajo\/Language\/Source\/Adapter.php": {
         "file_name": "Adapter.php",
@@ -1158,16 +1122,10 @@
         "fqns": "Molajo\\Render\\Handler\\AbstractHandler"
     },
     "vendor\/molajo\/Render\/Source\/Handler\/Molajito.php": {
-        "file_name": "Pagination.php",
-        "base_name": "Pagination",
-        "path": "vendor\/molajo\/Render\/Source\/Handler\/Pagination.php",
-        "fqns": "Molajo\\Render\\Handler\\Pagination"
-    },
-    "vendor\/molajo\/Render\/Source\/Handler\/MolajitoRender.php": {
-        "file_name": "MolajitoRender.php",
-        "base_name": "MolajitoRender",
-        "path": "vendor\/molajo\/Render\/Source\/Handler\/MolajitoRender.php",
-        "fqns": "Molajo\\Render\\Handler\\MolajitoRender"
+        "file_name": "Molajito.php",
+        "base_name": "Molajito",
+        "path": "vendor\/molajo\/Render\/Source\/Handler\/Molajito.php",
+        "fqns": "Molajo\\Render\\Handler\\Molajito"
     },
     "vendor\/molajo\/Render\/Source\/Handler\/Mustache.php": {
         "file_name": "Mustache.php",
@@ -1180,12 +1138,6 @@
         "base_name": "Twig",
         "path": "vendor\/molajo\/Render\/Source\/Handler\/Twig.php",
         "fqns": "Molajo\\Render\\Handler\\Twig"
-    },
-    "vendor\/molajo\/Render\/Source\/Pagination.php": {
-        "file_name": "Pagination.php",
-        "base_name": "Pagination",
-        "path": "vendor\/molajo\/Render\/Source\/Pagination.php",
-        "fqns": "Molajo\\Render\\Pagination"
     },
     "vendor\/molajo\/authorisation\/Service\/Authorisation\/AuthorisationServiceProvider.php": {
         "file_name": "AuthorisationServiceProvider.php",
@@ -1409,12 +1361,6 @@
         "path": "vendor\/molajo\/event\/Source\/Plugin\/AuthenticateEventPlugin.php",
         "fqns": "Molajo\\Plugin\\AuthenticateEventPlugin"
     },
-    "vendor\/molajo\/event\/Source\/Plugin\/AuthoriseEventPlugin.php": {
-        "file_name": "AuthoriseEventPlugin.php",
-        "base_name": "AuthoriseEventPlugin",
-        "path": "vendor\/molajo\/event\/Source\/Plugin\/AuthoriseEventPlugin.php",
-        "fqns": "Molajo\\Plugin\\AuthoriseEventPlugin"
-    },
     "vendor\/molajo\/event\/Source\/Plugin\/CreateEventPlugin.php": {
         "file_name": "CreateEventPlugin.php",
         "base_name": "CreateEventPlugin",
@@ -1582,12 +1528,6 @@
         "base_name": "Html",
         "path": "vendor\/molajo\/fieldhandler\/Source\/Handler\/Html.php",
         "fqns": "Molajo\\Fieldhandler\\Handler\\Html"
-    },
-    "vendor\/molajo\/fieldhandler\/Source\/Handler\/Html5.php": {
-        "file_name": "Html5.php",
-        "base_name": "Html5",
-        "path": "vendor\/molajo\/fieldhandler\/Source\/Handler\/Html5.php",
-        "fqns": "Molajo\\Fieldhandler\\Handler\\Html5"
     },
     "vendor\/molajo\/fieldhandler\/Source\/Handler\/Int.php": {
         "file_name": "Int.php",
@@ -1781,11 +1721,29 @@
         "path": "vendor\/molajo\/framework\/Service\/Image\/ImageServiceProvider.php",
         "fqns": "Molajo\\Service\\Image\\ImageServiceProvider"
     },
+    "vendor\/molajo\/framework\/Service\/Plugindata\/PlugindataServiceProvider.php": {
+        "file_name": "PlugindataServiceProvider.php",
+        "base_name": "PlugindataServiceProvider",
+        "path": "vendor\/molajo\/framework\/Service\/Plugindata\/PlugindataServiceProvider.php",
+        "fqns": "Molajo\\Service\\Plugindata\\PlugindataServiceProvider"
+    },
     "vendor\/molajo\/framework\/Service\/Resourcequery\/ResourcequeryServiceProvider.php": {
         "file_name": "ResourcequeryServiceProvider.php",
         "base_name": "ResourcequeryServiceProvider",
         "path": "vendor\/molajo\/framework\/Service\/Resourcequery\/ResourcequeryServiceProvider.php",
         "fqns": "Molajo\\Service\\Resourcequery\\ResourcequeryServiceProvider"
+    },
+    "vendor\/molajo\/framework\/Service\/Resourcerendering\/ResourcerenderingServiceProvider.php": {
+        "file_name": "ResourcerenderingServiceProvider.php",
+        "base_name": "ResourcerenderingServiceProvider",
+        "path": "vendor\/molajo\/framework\/Service\/Resourcerendering\/ResourcerenderingServiceProvider.php",
+        "fqns": "Molajo\\Service\\Resourcerendering\\ResourcerenderingServiceProvider"
+    },
+    "vendor\/molajo\/framework\/Service\/Runtimedata\/RuntimedataServiceProvider.php": {
+        "file_name": "RuntimedataServiceProvider.php",
+        "base_name": "RuntimedataServiceProvider",
+        "path": "vendor\/molajo\/framework\/Service\/Runtimedata\/RuntimedataServiceProvider.php",
+        "fqns": "Molajo\\Service\\Runtimedata\\RuntimedataServiceProvider"
     },
     "vendor\/molajo\/framework\/Service\/Site\/SiteServiceProvider.php": {
         "file_name": "SiteServiceProvider.php",
@@ -2057,6 +2015,42 @@
         "path": "vendor\/molajo\/framework\/Source\/Resource\/Handler\/XmlHandler.php",
         "fqns": "Molajo\\Resource\\Handler\\XmlHandler"
     },
+    "vendor\/molajo\/http\/Service\/Client\/ClientServiceProvider.php": {
+        "file_name": "ClientServiceProvider.php",
+        "base_name": "ClientServiceProvider",
+        "path": "vendor\/molajo\/http\/Service\/Client\/ClientServiceProvider.php",
+        "fqns": "Molajo\\Service\\Client\\ClientServiceProvider"
+    },
+    "vendor\/molajo\/http\/Service\/Redirect\/RedirectServiceProvider.php": {
+        "file_name": "RedirectServiceProvider.php",
+        "base_name": "RedirectServiceProvider",
+        "path": "vendor\/molajo\/http\/Service\/Redirect\/RedirectServiceProvider.php",
+        "fqns": "Molajo\\Service\\Redirect\\RedirectServiceProvider"
+    },
+    "vendor\/molajo\/http\/Service\/Request\/RequestServiceProvider.php": {
+        "file_name": "RequestServiceProvider.php",
+        "base_name": "RequestServiceProvider",
+        "path": "vendor\/molajo\/http\/Service\/Request\/RequestServiceProvider.php",
+        "fqns": "Molajo\\Service\\Request\\RequestServiceProvider"
+    },
+    "vendor\/molajo\/http\/Service\/Response\/ResponseServiceProvider.php": {
+        "file_name": "ResponseServiceProvider.php",
+        "base_name": "ResponseServiceProvider",
+        "path": "vendor\/molajo\/http\/Service\/Response\/ResponseServiceProvider.php",
+        "fqns": "Molajo\\Service\\Response\\ResponseServiceProvider"
+    },
+    "vendor\/molajo\/http\/Service\/Server\/ServerServiceProvider.php": {
+        "file_name": "ServerServiceProvider.php",
+        "base_name": "ServerServiceProvider",
+        "path": "vendor\/molajo\/http\/Service\/Server\/ServerServiceProvider.php",
+        "fqns": "Molajo\\Service\\Server\\ServerServiceProvider"
+    },
+    "vendor\/molajo\/http\/Service\/Upload\/UploadServiceProvider.php": {
+        "file_name": "UploadServiceProvider.php",
+        "base_name": "UploadServiceProvider",
+        "path": "vendor\/molajo\/http\/Service\/Upload\/UploadServiceProvider.php",
+        "fqns": "Molajo\\Service\\Upload\\UploadServiceProvider"
+    },
     "vendor\/molajo\/ioc\/Source\/AbstractServiceProvider.php": {
         "file_name": "AbstractServiceProvider.php",
         "base_name": "AbstractServiceProvider",
@@ -2087,17 +2081,89 @@
         "path": "vendor\/molajo\/ioc\/Source\/StandardServiceProvider.php",
         "fqns": "Molajo\\IoC\\StandardServiceProvider"
     },
-    "vendor\/molajo\/render\/Service\/Render\/RenderServiceProvider.php": {
-        "file_name": "PaginationServiceProvider.php",
-        "base_name": "RenderServiceProvider",
-        "path": "vendor\/molajo\/render\/Service\/Render\/PaginationServiceProvider.php",
-        "fqns": "Molajo\\Service\\Render\\RenderServiceProvider"
+    "vendor\/molajo\/language\/Service\/Language\/LanguageServiceProvider.php": {
+        "file_name": "LanguageServiceProvider.php",
+        "base_name": "LanguageServiceProvider",
+        "path": "vendor\/molajo\/language\/Service\/Language\/LanguageServiceProvider.php",
+        "fqns": "Molajo\\Service\\Language\\LanguageServiceProvider"
     },
-    "vendor\/molajo\/render\/Service\/Resourcerendering\/ResourcerenderingServiceProvider.php": {
-        "file_name": "ResourcerenderingServiceProvider.php",
-        "base_name": "ResourcerenderingServiceProvider",
-        "path": "vendor\/molajo\/render\/Service\/Resourcerendering\/ResourcerenderingServiceProvider.php",
-        "fqns": "Molajo\\Service\\Resourcerendering\\ResourcerenderingServiceProvider"
+    "vendor\/molajo\/molajito\/Service\/Molajito\/MolajitoServiceProvider.php": {
+        "file_name": "MolajitoServiceProvider.php",
+        "base_name": "MolajitoServiceProvider",
+        "path": "vendor\/molajo\/molajito\/Service\/Molajito\/MolajitoServiceProvider.php",
+        "fqns": "Molajo\\Service\\Molajito\\MolajitoServiceProvider"
+    },
+    "vendor\/molajo\/molajito\/Source\/DataResource.php": {
+        "file_name": "DataResource.php",
+        "base_name": "DataResource",
+        "path": "vendor\/molajo\/molajito\/Source\/DataResource.php",
+        "fqns": "Molajito\\DataResource"
+    },
+    "vendor\/molajo\/molajito\/Source\/EventHandler.php": {
+        "file_name": "EventHandler.php",
+        "base_name": "EventHandler",
+        "path": "vendor\/molajo\/molajito\/Source\/EventHandler.php",
+        "fqns": "Molajito\\EventHandler"
+    },
+    "vendor\/molajo\/molajito\/Source\/ExtensionResource.php": {
+        "file_name": "ExtensionResource.php",
+        "base_name": "ExtensionResource",
+        "path": "vendor\/molajo\/molajito\/Source\/ExtensionResource.php",
+        "fqns": "Molajito\\ExtensionResource"
+    },
+    "vendor\/molajo\/molajito\/Source\/Molajito.php": {
+        "file_name": "Molajito.php",
+        "base_name": "Molajito",
+        "path": "vendor\/molajo\/molajito\/Source\/Molajito.php",
+        "fqns": "Molajito\\Molajito"
+    },
+    "vendor\/molajo\/molajito\/Source\/PageViewRenderer.php": {
+        "file_name": "PageViewRenderer.php",
+        "base_name": "PageViewRenderer",
+        "path": "vendor\/molajo\/molajito\/Source\/PageViewRenderer.php",
+        "fqns": "Molajito\\PageViewRenderer"
+    },
+    "vendor\/molajo\/molajito\/Source\/Parse.php": {
+        "file_name": "Parse.php",
+        "base_name": "Parse",
+        "path": "vendor\/molajo\/molajito\/Source\/Parse.php",
+        "fqns": "Molajito\\Parse"
+    },
+    "vendor\/molajo\/molajito\/Source\/Render.php": {
+        "file_name": "Render.php",
+        "base_name": "Render",
+        "path": "vendor\/molajo\/molajito\/Source\/Render.php",
+        "fqns": "Molajito\\Render"
+    },
+    "vendor\/molajo\/molajito\/Source\/TemplateViewRenderer.php": {
+        "file_name": "TemplateViewRenderer.php",
+        "base_name": "TemplateViewRenderer",
+        "path": "vendor\/molajo\/molajito\/Source\/TemplateViewRenderer.php",
+        "fqns": "Molajito\\TemplateViewRenderer"
+    },
+    "vendor\/molajo\/molajito\/Source\/ThemeRenderer.php": {
+        "file_name": "ThemeRenderer.php",
+        "base_name": "ThemeRenderer",
+        "path": "vendor\/molajo\/molajito\/Source\/ThemeRenderer.php",
+        "fqns": "Molajito\\ThemeRenderer"
+    },
+    "vendor\/molajo\/molajito\/Source\/WrapViewRenderer.php": {
+        "file_name": "WrapViewRenderer.php",
+        "base_name": "WrapViewRenderer",
+        "path": "vendor\/molajo\/molajito\/Source\/WrapViewRenderer.php",
+        "fqns": "Molajito\\WrapViewRenderer"
+    },
+    "vendor\/molajo\/pagination\/Source\/Pagination.php": {
+        "file_name": "Pagination.php",
+        "base_name": "Pagination",
+        "path": "vendor\/molajo\/pagination\/Source\/Pagination.php",
+        "fqns": "Molajo\\Pagination\\Pagination"
+    },
+    "vendor\/molajo\/render\/Service\/Render\/RenderServiceProvider.php": {
+        "file_name": "RenderServiceProvider.php",
+        "base_name": "RenderServiceProvider",
+        "path": "vendor\/molajo\/render\/Service\/Render\/RenderServiceProvider.php",
+        "fqns": "Molajo\\Service\\Render\\RenderServiceProvider"
     },
     "vendor\/molajo\/resource\/Service\/Resource\/ResourceServiceProvider.php": {
         "file_name": "ResourceServiceProvider.php",

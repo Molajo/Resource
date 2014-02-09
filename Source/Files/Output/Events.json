@@ -2,7 +2,6 @@
     "onBeforeExecute": [
         "Molajo\\Plugin\\Ajax\\AjaxPlugin",
         "Molajo\\Plugin\\Application\\ApplicationPlugin",
-        "Molajo\\Plugin\\Comments\\CommentsPlugin",
         "Molajo\\Plugin\\Menuitems\\MenuitemsPlugin"
     ],
     "onBeforeCreate": [
@@ -28,6 +27,7 @@
     ],
     "onBeforeRenderView": [
         "Molajo\\Plugin\\Author\\AuthorPlugin",
+        "Molajo\\Plugin\\Comments\\CommentsPlugin",
         "Molajo\\Plugin\\Featured\\FeaturedPlugin",
         "Molajo\\Plugin\\Footer\\FooterPlugin",
         "Molajo\\Plugin\\Formbegin\\FormbeginPlugin",
@@ -87,6 +87,9 @@
         "Molajo\\Plugin\\Create\\CreatePlugin",
         "Molajo\\Plugin\\Extensioninstance\\ExtensioninstancePlugin",
         "Molajo\\Plugin\\Useractivity\\UseractivityPlugin"
+    ],
+    "onAfterRenderView": [
+        "Molajo\\Plugin\\Comments\\CommentsPlugin"
     ],
     "onAfterReadall": [
         "Molajo\\Plugin\\Contentlist\\ContentlistPlugin",

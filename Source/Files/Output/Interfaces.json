@@ -369,7 +369,7 @@
         "path": "vendor\/commonapi\/event\/AuthoriseInterface.php",
         "parent": false,
         "implemented_by": [
-            "Molajo\\Plugin\\AuthoriseEventPlugin"
+
         ],
         "dependency_for": [
 
@@ -429,6 +429,7 @@
         "implemented_by": [
             "Molajo\\Plugin\\Activity\\ActivityPlugin",
             "Molajo\\Plugin\\Author\\AuthorPlugin",
+            "Molajo\\Plugin\\Comments\\CommentsPlugin",
             "Molajo\\Plugin\\DisplayEventPlugin",
             "Molajo\\Plugin\\Featured\\FeaturedPlugin",
             "Molajo\\Plugin\\Fields\\FieldsPlugin",
@@ -527,7 +528,6 @@
         "implemented_by": [
             "Molajo\\Plugin\\Ajax\\AjaxPlugin",
             "Molajo\\Plugin\\Application\\ApplicationPlugin",
-            "Molajo\\Plugin\\Comments\\CommentsPlugin",
             "Molajo\\Plugin\\Copyright\\CopyrightPlugin",
             "Molajo\\Plugin\\Events\\EventsPlugin",
             "Molajo\\Plugin\\Menuitems\\MenuitemsPlugin",
@@ -758,6 +758,8 @@
             "Molajo\\Service\\Language\\LanguageServiceProvider",
             "Molajo\\Service\\Mailer\\MailerServiceProvider",
             "Molajo\\Service\\Messages\\MessagesServiceProvider",
+            "Molajo\\Service\\Molajito\\MolajitoServiceProvider",
+            "Molajo\\Service\\Plugindata\\PlugindataServiceProvider",
             "Molajo\\Service\\Redirect\\RedirectServiceProvider",
             "Molajo\\Service\\Registration\\RegistrationServiceProvider",
             "Molajo\\Service\\Render\\RenderServiceProvider",
@@ -772,6 +774,7 @@
             "Molajo\\Service\\Resourcerendering\\ResourcerenderingServiceProvider",
             "Molajo\\Service\\Response\\ResponseServiceProvider",
             "Molajo\\Service\\Route\\RouteServiceProvider",
+            "Molajo\\Service\\Runtimedata\\RuntimedataServiceProvider",
             "Molajo\\Service\\Server\\ServerServiceProvider",
             "Molajo\\Service\\Session\\SessionServiceProvider",
             "Molajo\\Service\\Site\\SiteServiceProvider",
@@ -935,10 +938,24 @@
         "path": "vendor\/commonapi\/render\/DataResourceInterface.php",
         "parent": false,
         "implemented_by": [
-
+            "Molajito\\DataResource"
         ],
         "dependency_for": [
 
+        ]
+    },
+    "CommonApi\\Render\\EventHandlerInterface": {
+        "name": "EventHandlerInterface",
+        "namespace": "CommonApi\\Render",
+        "fqns": "CommonApi\\Render\\EventHandlerInterface",
+        "path": "vendor\/commonapi\/render\/EventHandlerInterface.php",
+        "parent": false,
+        "implemented_by": [
+            "Molajito\\EventHandler"
+        ],
+        "dependency_for": [
+            "Molajito\\Molajito",
+            "Molajito\\TemplateViewRenderer"
         ]
     },
     "CommonApi\\Render\\ExtensionResourceInterface": {
@@ -948,10 +965,10 @@
         "path": "vendor\/commonapi\/render\/ExtensionResourceInterface.php",
         "parent": false,
         "implemented_by": [
-
+            "Molajito\\ExtensionResource"
         ],
         "dependency_for": [
-
+            "Molajito\\Molajito"
         ]
     },
     "CommonApi\\Render\\PaginationInterface": {
@@ -961,7 +978,7 @@
         "path": "vendor\/commonapi\/render\/PaginationInterface.php",
         "parent": false,
         "implemented_by": [
-            "Molajo\\Render\\Pagination"
+            "Molajo\\Pagination\\Pagination"
         ],
         "dependency_for": [
 
@@ -974,7 +991,7 @@
         "path": "vendor\/commonapi\/render\/ParseInterface.php",
         "parent": false,
         "implemented_by": [
-
+            "Molajito\\Parse"
         ],
         "dependency_for": [
 
@@ -987,12 +1004,19 @@
         "path": "vendor\/commonapi\/render\/RenderInterface.php",
         "parent": false,
         "implemented_by": [
+            "Molajito\\Molajito",
+            "Molajito\\PageViewRenderer",
+            "Molajito\\Render",
+            "Molajito\\TemplateViewRenderer",
+            "Molajito\\ThemeRenderer",
+            "Molajito\\WrapViewRenderer",
             "Molajo\\Render\\Handler\\AbstractHandler",
-            "Molajo\\Render\\Handler\\Pagination",
-            "Molajo\\Render\\Handler\\MolajitoRender"
+            "Molajo\\Render\\Handler\\Molajito"
         ],
         "dependency_for": [
-            "Molajo\\Render\\Adapter"
+            "Molajo\\Render\\Adapter",
+            "Molajo\\Render\\Handler\\AbstractHandler",
+            "Molajo\\Render\\Handler\\Molajito"
         ]
     },
     "CommonApi\\Resource\\AdapterInterface": {

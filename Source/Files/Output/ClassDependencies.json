@@ -75,7 +75,8 @@
             "setFormSections",
             "setFormSectionFieldsets",
             "setFormFieldsetFields",
-            "getFieldsetFields"
+            "getFieldsetFields",
+            "getAllFields"
         ]
     },
     "Molajo\\Plugin\\Ajax\\AjaxPlugin": {
@@ -141,7 +142,8 @@
             "setFormSections",
             "setFormSectionFieldsets",
             "setFormFieldsetFields",
-            "getFieldsetFields"
+            "getFieldsetFields",
+            "getAllFields"
         ]
     },
     "Molajo\\Plugin\\Alias\\AliasPlugin": {
@@ -202,7 +204,8 @@
             "setFormSections",
             "setFormSectionFieldsets",
             "setFormFieldsetFields",
-            "getFieldsetFields"
+            "getFieldsetFields",
+            "getAllFields"
         ]
     },
     "Molajo\\Plugin\\Application\\ApplicationPlugin": {
@@ -269,7 +272,8 @@
             "setFormSections",
             "setFormSectionFieldsets",
             "setFormFieldsetFields",
-            "getFieldsetFields"
+            "getFieldsetFields",
+            "getAllFields"
         ]
     },
     "Molajo\\Plugin\\Author\\AuthorPlugin": {
@@ -335,7 +339,8 @@
             "setFormSections",
             "setFormSectionFieldsets",
             "setFormFieldsetFields",
-            "getFieldsetFields"
+            "getFieldsetFields",
+            "getAllFields"
         ]
     },
     "Molajo\\Plugin\\Blockquote\\BlockquotePlugin": {
@@ -394,7 +399,8 @@
             "setFormSections",
             "setFormSectionFieldsets",
             "setFormFieldsetFields",
-            "getFieldsetFields"
+            "getFieldsetFields",
+            "getAllFields"
         ]
     },
     "Molajo\\Plugin\\Catalog\\CatalogPlugin": {
@@ -457,7 +463,8 @@
             "setFormSections",
             "setFormSectionFieldsets",
             "setFormFieldsetFields",
-            "getFieldsetFields"
+            "getFieldsetFields",
+            "getAllFields"
         ]
     },
     "Molajo\\Plugin\\Checkin\\CheckinPlugin": {
@@ -516,7 +523,8 @@
             "setFormSections",
             "setFormSectionFieldsets",
             "setFormFieldsetFields",
-            "getFieldsetFields"
+            "getFieldsetFields",
+            "getAllFields"
         ]
     },
     "Molajo\\Plugin\\Checkout\\CheckoutPlugin": {
@@ -576,7 +584,8 @@
             "setFormSections",
             "setFormSectionFieldsets",
             "setFormFieldsetFields",
-            "getFieldsetFields"
+            "getFieldsetFields",
+            "getAllFields"
         ]
     },
     "Molajo\\Plugin\\Children\\ChildrenPlugin": {
@@ -635,7 +644,8 @@
             "setFormSections",
             "setFormSectionFieldsets",
             "setFormFieldsetFields",
-            "getFieldsetFields"
+            "getFieldsetFields",
+            "getAllFields"
         ]
     },
     "Molajo\\Plugin\\Comments\\CommentsPlugin": {
@@ -644,9 +654,9 @@
         "fqns": "Molajo\\Plugin\\Comments\\CommentsPlugin",
         "file_name": "\/Users\/amystephen\/Sites\/Molajo\/Molajo\/Source\/Plugin\/Comments\/CommentsPlugin.php",
         "path": "Source\/Plugin\/Comments\/CommentsPlugin.php",
-        "parent": "Molajo\\Plugin\\SystemEventPlugin",
+        "parent": "Molajo\\Plugin\\DisplayEventPlugin",
         "implemented_interfaces": [
-            "CommonApi\\Event\\SystemInterface"
+            "CommonApi\\Event\\DisplayInterface"
         ],
         "constructor_parameters": [
             {
@@ -681,16 +691,15 @@
 
         ],
         "method": [
-            "onBeforeExecute",
-            "onBeforeInitialise",
-            "onAfterInitialise",
-            "onBeforeRoute",
-            "onAfterRoute",
-            "onBeforeAuthorise",
-            "onAfterAuthorise",
-            "onAfterExecute",
-            "onBeforeResponse",
-            "onAfterResponse",
+            "onBeforeRenderView",
+            "onAfterRenderView",
+            "onBeforeRender",
+            "onBeforeParse",
+            "onAfterParse",
+            "onBeforeRenderViewHead",
+            "onBeforeRenderViewItem",
+            "onBeforeRenderViewFooter",
+            "onAfterRender",
             "__construct",
             "get",
             "getField",
@@ -701,7 +710,8 @@
             "setFormSections",
             "setFormSectionFieldsets",
             "setFormFieldsetFields",
-            "getFieldsetFields"
+            "getFieldsetFields",
+            "getAllFields"
         ]
     },
     "Molajo\\Plugin\\Contentlist\\ContentlistPlugin": {
@@ -760,7 +770,8 @@
             "setFormSections",
             "setFormSectionFieldsets",
             "setFormFieldsetFields",
-            "getFieldsetFields"
+            "getFieldsetFields",
+            "getAllFields"
         ]
     },
     "Molajo\\Plugin\\Copyright\\CopyrightPlugin": {
@@ -827,7 +838,8 @@
             "setFormSections",
             "setFormSectionFieldsets",
             "setFormFieldsetFields",
-            "getFieldsetFields"
+            "getFieldsetFields",
+            "getAllFields"
         ]
     },
     "Molajo\\Plugin\\Create\\CreatePlugin": {
@@ -889,7 +901,8 @@
             "setFormSections",
             "setFormSectionFieldsets",
             "setFormFieldsetFields",
-            "getFieldsetFields"
+            "getFieldsetFields",
+            "getAllFields"
         ]
     },
     "Molajo\\Plugin\\Csrftoken\\CsrftokenPlugin": {
@@ -948,7 +961,8 @@
             "setFormSections",
             "setFormSectionFieldsets",
             "setFormFieldsetFields",
-            "getFieldsetFields"
+            "getFieldsetFields",
+            "getAllFields"
         ]
     },
     "Molajo\\Plugin\\Cssclassandids\\CssclassandidsPlugin": {
@@ -1007,7 +1021,8 @@
             "setFormSections",
             "setFormSectionFieldsets",
             "setFormFieldsetFields",
-            "getFieldsetFields"
+            "getFieldsetFields",
+            "getAllFields"
         ]
     },
     "Molajo\\Plugin\\Customfields\\CustomfieldsPlugin": {
@@ -1066,7 +1081,8 @@
             "setFormSections",
             "setFormSectionFieldsets",
             "setFormFieldsetFields",
-            "getFieldsetFields"
+            "getFieldsetFields",
+            "getAllFields"
         ]
     },
     "Molajo\\Plugin\\Datalist\\DatalistPlugin": {
@@ -1123,7 +1139,8 @@
             "setFormSections",
             "setFormSectionFieldsets",
             "setFormFieldsetFields",
-            "getFieldsetFields"
+            "getFieldsetFields",
+            "getAllFields"
         ]
     },
     "Molajo\\Plugin\\Dateformats\\DateformatsPlugin": {
@@ -1185,7 +1202,8 @@
             "setFormSections",
             "setFormSectionFieldsets",
             "setFormFieldsetFields",
-            "getFieldsetFields"
+            "getFieldsetFields",
+            "getAllFields"
         ]
     },
     "Molajo\\Plugin\\Defer\\DeferPlugin": {
@@ -1244,7 +1262,8 @@
             "setFormSections",
             "setFormSectionFieldsets",
             "setFormFieldsetFields",
-            "getFieldsetFields"
+            "getFieldsetFields",
+            "getAllFields"
         ]
     },
     "Molajo\\Plugin\\Email\\EmailPlugin": {
@@ -1304,7 +1323,8 @@
             "setFormSections",
             "setFormSectionFieldsets",
             "setFormFieldsetFields",
-            "getFieldsetFields"
+            "getFieldsetFields",
+            "getAllFields"
         ]
     },
     "Molajo\\Plugin\\Events\\EventsPlugin": {
@@ -1370,7 +1390,8 @@
             "setFormSections",
             "setFormSectionFieldsets",
             "setFormFieldsetFields",
-            "getFieldsetFields"
+            "getFieldsetFields",
+            "getAllFields"
         ]
     },
     "Molajo\\Plugin\\Extensioninstance\\ExtensioninstancePlugin": {
@@ -1433,7 +1454,8 @@
             "setFormSections",
             "setFormSectionFieldsets",
             "setFormFieldsetFields",
-            "getFieldsetFields"
+            "getFieldsetFields",
+            "getAllFields"
         ]
     },
     "Molajo\\Plugin\\Featured\\FeaturedPlugin": {
@@ -1498,7 +1520,8 @@
             "setFormSections",
             "setFormSectionFieldsets",
             "setFormFieldsetFields",
-            "getFieldsetFields"
+            "getFieldsetFields",
+            "getAllFields"
         ]
     },
     "Molajo\\Plugin\\Feed\\FeedPlugin": {
@@ -1555,7 +1578,8 @@
             "setFormSections",
             "setFormSectionFieldsets",
             "setFormFieldsetFields",
-            "getFieldsetFields"
+            "getFieldsetFields",
+            "getAllFields"
         ]
     },
     "Molajo\\Plugin\\Fields\\FieldsPlugin": {
@@ -1620,7 +1644,8 @@
             "setFormSections",
             "setFormSectionFieldsets",
             "setFormFieldsetFields",
-            "getFieldsetFields"
+            "getFieldsetFields",
+            "getAllFields"
         ]
     },
     "Molajo\\Plugin\\Footer\\FooterPlugin": {
@@ -1677,7 +1702,8 @@
             "setFormSections",
             "setFormSectionFieldsets",
             "setFormFieldsetFields",
-            "getFieldsetFields"
+            "getFieldsetFields",
+            "getAllFields"
         ]
     },
     "Molajo\\Plugin\\Formbegin\\FormbeginPlugin": {
@@ -1742,7 +1768,8 @@
             "setFormSections",
             "setFormSectionFieldsets",
             "setFormFieldsetFields",
-            "getFieldsetFields"
+            "getFieldsetFields",
+            "getAllFields"
         ]
     },
     "Molajo\\Plugin\\Formselectlist\\FormselectlistPlugin": {
@@ -1808,7 +1835,8 @@
             "setFormSections",
             "setFormSectionFieldsets",
             "setFormFieldsetFields",
-            "getFieldsetFields"
+            "getFieldsetFields",
+            "getAllFields"
         ]
     },
     "Molajo\\Plugin\\Fullname\\FullnamePlugin": {
@@ -1867,7 +1895,8 @@
             "setFormSections",
             "setFormSectionFieldsets",
             "setFormFieldsetFields",
-            "getFieldsetFields"
+            "getFieldsetFields",
+            "getAllFields"
         ]
     },
     "Molajo\\Plugin\\Googleanalytics\\GoogleanalyticsPlugin": {
@@ -1932,7 +1961,8 @@
             "setFormSections",
             "setFormSectionFieldsets",
             "setFormFieldsetFields",
-            "getFieldsetFields"
+            "getFieldsetFields",
+            "getAllFields"
         ]
     },
     "Molajo\\Plugin\\Gravatar\\GravatarPlugin": {
@@ -1992,7 +2022,8 @@
             "setFormSections",
             "setFormSectionFieldsets",
             "setFormFieldsetFields",
-            "getFieldsetFields"
+            "getFieldsetFields",
+            "getAllFields"
         ]
     },
     "Molajo\\Plugin\\Head\\HeadPlugin": {
@@ -2051,7 +2082,8 @@
             "setFormSections",
             "setFormSectionFieldsets",
             "setFormFieldsetFields",
-            "getFieldsetFields"
+            "getFieldsetFields",
+            "getAllFields"
         ]
     },
     "Molajo\\Plugin\\IFrame\\IFramePlugin": {
@@ -2110,7 +2142,8 @@
             "setFormSections",
             "setFormSectionFieldsets",
             "setFormFieldsetFields",
-            "getFieldsetFields"
+            "getFieldsetFields",
+            "getAllFields"
         ]
     },
     "Molajo\\Plugin\\Images\\ImagesPlugin": {
@@ -2169,7 +2202,8 @@
             "setFormSections",
             "setFormSectionFieldsets",
             "setFormFieldsetFields",
-            "getFieldsetFields"
+            "getFieldsetFields",
+            "getAllFields"
         ]
     },
     "Molajo\\Plugin\\Ipaddress\\IpaddressPlugin": {
@@ -2230,7 +2264,8 @@
             "setFormSections",
             "setFormSectionFieldsets",
             "setFormFieldsetFields",
-            "getFieldsetFields"
+            "getFieldsetFields",
+            "getAllFields"
         ]
     },
     "Molajo\\Plugin\\Itemurl\\ItemurlPlugin": {
@@ -2289,7 +2324,8 @@
             "setFormSections",
             "setFormSectionFieldsets",
             "setFormFieldsetFields",
-            "getFieldsetFields"
+            "getFieldsetFields",
+            "getAllFields"
         ]
     },
     "Molajo\\Plugin\\Itemuserpermissions\\ItemuserpermissionsPlugin": {
@@ -2346,7 +2382,8 @@
             "setFormSections",
             "setFormSectionFieldsets",
             "setFormFieldsetFields",
-            "getFieldsetFields"
+            "getFieldsetFields",
+            "getAllFields"
         ]
     },
     "Molajo\\Plugin\\Linebreaks\\LinebreaksPlugin": {
@@ -2405,7 +2442,8 @@
             "setFormSections",
             "setFormSectionFieldsets",
             "setFormFieldsetFields",
-            "getFieldsetFields"
+            "getFieldsetFields",
+            "getAllFields"
         ]
     },
     "Molajo\\Plugin\\Links\\LinksPlugin": {
@@ -2464,7 +2502,8 @@
             "setFormSections",
             "setFormSectionFieldsets",
             "setFormFieldsetFields",
-            "getFieldsetFields"
+            "getFieldsetFields",
+            "getAllFields"
         ]
     },
     "Molajo\\Plugin\\Login\\LoginPlugin": {
@@ -2524,7 +2563,8 @@
             "setFormSections",
             "setFormSectionFieldsets",
             "setFormFieldsetFields",
-            "getFieldsetFields"
+            "getFieldsetFields",
+            "getAllFields"
         ]
     },
     "Molajo\\Plugin\\Logout\\LogoutPlugin": {
@@ -2584,7 +2624,8 @@
             "setFormSections",
             "setFormSectionFieldsets",
             "setFormFieldsetFields",
-            "getFieldsetFields"
+            "getFieldsetFields",
+            "getAllFields"
         ]
     },
     "Molajo\\Plugin\\Menuitems\\MenuitemsPlugin": {
@@ -2650,7 +2691,8 @@
             "setFormSections",
             "setFormSectionFieldsets",
             "setFormFieldsetFields",
-            "getFieldsetFields"
+            "getFieldsetFields",
+            "getAllFields"
         ]
     },
     "Molajo\\Plugin\\Messages\\MessagesPlugin": {
@@ -2716,7 +2758,8 @@
             "setFormSections",
             "setFormSectionFieldsets",
             "setFormFieldsetFields",
-            "getFieldsetFields"
+            "getFieldsetFields",
+            "getAllFields"
         ]
     },
     "Molajo\\Plugin\\Mockdata\\MockdataPlugin": {
@@ -2775,7 +2818,8 @@
             "setFormSections",
             "setFormSectionFieldsets",
             "setFormFieldsetFields",
-            "getFieldsetFields"
+            "getFieldsetFields",
+            "getAllFields"
         ]
     },
     "Molajo\\Plugin\\Mockimage\\MockimagePlugin": {
@@ -2834,7 +2878,8 @@
             "setFormSections",
             "setFormSectionFieldsets",
             "setFormFieldsetFields",
-            "getFieldsetFields"
+            "getFieldsetFields",
+            "getAllFields"
         ]
     },
     "Molajo\\Plugin\\Ordering\\OrderingPlugin": {
@@ -2895,7 +2940,8 @@
             "setFormSections",
             "setFormSectionFieldsets",
             "setFormFieldsetFields",
-            "getFieldsetFields"
+            "getFieldsetFields",
+            "getAllFields"
         ]
     },
     "Molajo\\Plugin\\Pagetypeapplication\\PagetypeapplicationPlugin": {
@@ -2960,7 +3006,8 @@
             "setFormSections",
             "setFormSectionFieldsets",
             "setFormFieldsetFields",
-            "getFieldsetFields"
+            "getFieldsetFields",
+            "getAllFields"
         ]
     },
     "Molajo\\Plugin\\Pagetypeconfiguration\\PagetypeconfigurationPlugin": {
@@ -3025,7 +3072,8 @@
             "setFormSections",
             "setFormSectionFieldsets",
             "setFormFieldsetFields",
-            "getFieldsetFields"
+            "getFieldsetFields",
+            "getAllFields"
         ]
     },
     "Molajo\\Plugin\\Pagetypedashboard\\PagetypedashboardPlugin": {
@@ -3072,7 +3120,6 @@
         ],
         "method": [
             "onBeforeRender",
-            "portlets",
             "onBeforeParse",
             "onAfterParse",
             "onBeforeRenderView",
@@ -3091,7 +3138,8 @@
             "setFormSections",
             "setFormSectionFieldsets",
             "setFormFieldsetFields",
-            "getFieldsetFields"
+            "getFieldsetFields",
+            "getAllFields"
         ]
     },
     "Molajo\\Plugin\\Pagetypeedit\\PagetypeeditPlugin": {
@@ -3157,7 +3205,8 @@
             "setFormSections",
             "setFormSectionFieldsets",
             "setFormFieldsetFields",
-            "getFieldsetFields"
+            "getFieldsetFields",
+            "getAllFields"
         ]
     },
     "Molajo\\Plugin\\Pagetypegrid\\PagetypegridPlugin": {
@@ -3222,7 +3271,8 @@
             "setFormSections",
             "setFormSectionFieldsets",
             "setFormFieldsetFields",
-            "getFieldsetFields"
+            "getFieldsetFields",
+            "getAllFields"
         ]
     },
     "Molajo\\Plugin\\Pagetypeitem\\PagetypeitemPlugin": {
@@ -3287,7 +3337,8 @@
             "setFormSections",
             "setFormSectionFieldsets",
             "setFormFieldsetFields",
-            "getFieldsetFields"
+            "getFieldsetFields",
+            "getAllFields"
         ]
     },
     "Molajo\\Plugin\\Pagetypelist\\PagetypelistPlugin": {
@@ -3352,7 +3403,8 @@
             "setFormSections",
             "setFormSectionFieldsets",
             "setFormFieldsetFields",
-            "getFieldsetFields"
+            "getFieldsetFields",
+            "getAllFields"
         ]
     },
     "Molajo\\Plugin\\Pagetypenew\\PagetypenewPlugin": {
@@ -3417,7 +3469,8 @@
             "setFormSections",
             "setFormSectionFieldsets",
             "setFormFieldsetFields",
-            "getFieldsetFields"
+            "getFieldsetFields",
+            "getAllFields"
         ]
     },
     "Molajo\\Plugin\\Pagetypes\\PagetypesPlugin": {
@@ -3483,7 +3536,8 @@
             "setFormSections",
             "setFormSectionFieldsets",
             "setFormFieldsetFields",
-            "getFieldsetFields"
+            "getFieldsetFields",
+            "getAllFields"
         ]
     },
     "Molajo\\Plugin\\Pagination\\PaginationPlugin": {
@@ -3542,7 +3596,8 @@
             "setFormSections",
             "setFormSectionFieldsets",
             "setFormFieldsetFields",
-            "getFieldsetFields"
+            "getFieldsetFields",
+            "getAllFields"
         ]
     },
     "Molajo\\Plugin\\Paging\\PagingPlugin": {
@@ -3607,7 +3662,8 @@
             "setFormSections",
             "setFormSectionFieldsets",
             "setFormFieldsetFields",
-            "getFieldsetFields"
+            "getFieldsetFields",
+            "getAllFields"
         ]
     },
     "Molajo\\Plugin\\Password\\PasswordPlugin": {
@@ -3663,7 +3719,8 @@
             "setFormSections",
             "setFormSectionFieldsets",
             "setFormFieldsetFields",
-            "getFieldsetFields"
+            "getFieldsetFields",
+            "getAllFields"
         ]
     },
     "Molajo\\Plugin\\Publishedstatus\\PublishedstatusPlugin": {
@@ -3726,7 +3783,8 @@
             "setFormSections",
             "setFormSectionFieldsets",
             "setFormFieldsetFields",
-            "getFieldsetFields"
+            "getFieldsetFields",
+            "getAllFields"
         ]
     },
     "Molajo\\Plugin\\Queryauthorisation\\QueryauthorisationPlugin": {
@@ -3789,7 +3847,8 @@
             "setFormSections",
             "setFormSectionFieldsets",
             "setFormFieldsetFields",
-            "getFieldsetFields"
+            "getFieldsetFields",
+            "getAllFields"
         ]
     },
     "Molajo\\Plugin\\Referencedata\\ReferencedataPlugin": {
@@ -3848,7 +3907,8 @@
             "setFormSections",
             "setFormSectionFieldsets",
             "setFormFieldsetFields",
-            "getFieldsetFields"
+            "getFieldsetFields",
+            "getAllFields"
         ]
     },
     "Molajo\\Plugin\\Resource\\ResourcePlugin": {
@@ -3914,7 +3974,8 @@
             "setFormSections",
             "setFormSectionFieldsets",
             "setFormFieldsetFields",
-            "getFieldsetFields"
+            "getFieldsetFields",
+            "getAllFields"
         ]
     },
     "Molajo\\Plugin\\Sites\\SitesPlugin": {
@@ -3970,7 +4031,8 @@
             "setFormSections",
             "setFormSectionFieldsets",
             "setFormFieldsetFields",
-            "getFieldsetFields"
+            "getFieldsetFields",
+            "getAllFields"
         ]
     },
     "Molajo\\Plugin\\Smilies\\SmiliesPlugin": {
@@ -4029,7 +4091,8 @@
             "setFormSections",
             "setFormSectionFieldsets",
             "setFormFieldsetFields",
-            "getFieldsetFields"
+            "getFieldsetFields",
+            "getAllFields"
         ]
     },
     "Molajo\\Plugin\\Snippet\\SnippetPlugin": {
@@ -4088,7 +4151,8 @@
             "setFormSections",
             "setFormSectionFieldsets",
             "setFormFieldsetFields",
-            "getFieldsetFields"
+            "getFieldsetFields",
+            "getAllFields"
         ]
     },
     "Molajo\\Plugin\\Status\\StatusPlugin": {
@@ -4147,7 +4211,8 @@
             "setFormSections",
             "setFormSectionFieldsets",
             "setFormFieldsetFields",
-            "getFieldsetFields"
+            "getFieldsetFields",
+            "getAllFields"
         ]
     },
     "Molajo\\Plugin\\Templatelist\\TemplatelistPlugin": {
@@ -4206,7 +4271,8 @@
             "setFormSections",
             "setFormSectionFieldsets",
             "setFormFieldsetFields",
-            "getFieldsetFields"
+            "getFieldsetFields",
+            "getAllFields"
         ]
     },
     "Molajo\\Plugin\\UIFoundation\\UIFoundationPlugin": {
@@ -4271,7 +4337,8 @@
             "setFormSections",
             "setFormSectionFieldsets",
             "setFormFieldsetFields",
-            "getFieldsetFields"
+            "getFieldsetFields",
+            "getAllFields"
         ]
     },
     "Molajo\\Plugin\\Useractivity\\UseractivityPlugin": {
@@ -4334,7 +4401,8 @@
             "setFormSections",
             "setFormSectionFieldsets",
             "setFormFieldsetFields",
-            "getFieldsetFields"
+            "getFieldsetFields",
+            "getAllFields"
         ]
     },
     "Molajo\\Plugin\\Username\\UsernamePlugin": {
@@ -4393,7 +4461,8 @@
             "setFormSections",
             "setFormSectionFieldsets",
             "setFormFieldsetFields",
-            "getFieldsetFields"
+            "getFieldsetFields",
+            "getAllFields"
         ]
     },
     "Molajo\\Plugin\\Version\\VersionPlugin": {
@@ -4454,7 +4523,8 @@
             "setFormSections",
             "setFormSectionFieldsets",
             "setFormFieldsetFields",
-            "getFieldsetFields"
+            "getFieldsetFields",
+            "getAllFields"
         ]
     },
     "Molajo\\Plugin\\Weather\\WeatherPlugin": {
@@ -4513,7 +4583,8 @@
             "setFormSections",
             "setFormSectionFieldsets",
             "setFormFieldsetFields",
-            "getFieldsetFields"
+            "getFieldsetFields",
+            "getAllFields"
         ]
     },
     "CommonApi\\Exception\\BadFunctionCallException": {
@@ -5272,270 +5343,6 @@
             "getTraceAsString"
         ]
     },
-    "Molajo\\Service\\Client\\ClientServiceProvider": {
-        "name": "ClientServiceProvider",
-        "namespace": "Molajo\\Service\\Client",
-        "fqns": "Molajo\\Service\\Client\\ClientServiceProvider",
-        "file_name": "\/Users\/amystephen\/Sites\/Molajo\/Molajo\/vendor\/molajo\/Http\/Service\/Client\/ClientServiceProvider.php",
-        "path": "vendor\/molajo\/Http\/Service\/Client\/ClientServiceProvider.php",
-        "parent": "Molajo\\IoC\\AbstractServiceProvider",
-        "implemented_interfaces": [
-            "CommonApi\\IoC\\ServiceProviderInterface"
-        ],
-        "constructor_parameters": [
-            {
-                "name": "options",
-                "default_available": true,
-                "default_value": [
-
-                ],
-                "instance_of": null,
-                "is_instantiable": false
-            }
-        ],
-        "constructor_docComment": "\/**\n     * Constructor\n     *\n     * @param  $options\n     *\n     * @since  1.0\n     *\/",
-        "implemented_by": [
-
-        ],
-        "dependency_for": [
-
-        ],
-        "method": [
-            "__construct",
-            "setDependencies",
-            "instantiateService",
-            "onAfterInstantiation",
-            "getServiceNamespace",
-            "getServiceOptions",
-            "getStoreInstanceIndicator",
-            "onBeforeInstantiation",
-            "instantiateStatic",
-            "getServiceInstance",
-            "setService",
-            "removeService",
-            "scheduleServices"
-        ]
-    },
-    "Molajo\\Service\\Redirect\\RedirectServiceProvider": {
-        "name": "RedirectServiceProvider",
-        "namespace": "Molajo\\Service\\Redirect",
-        "fqns": "Molajo\\Service\\Redirect\\RedirectServiceProvider",
-        "file_name": "\/Users\/amystephen\/Sites\/Molajo\/Molajo\/vendor\/molajo\/Http\/Service\/Redirect\/RedirectServiceProvider.php",
-        "path": "vendor\/molajo\/Http\/Service\/Redirect\/RedirectServiceProvider.php",
-        "parent": "Molajo\\IoC\\AbstractServiceProvider",
-        "implemented_interfaces": [
-            "CommonApi\\IoC\\ServiceProviderInterface"
-        ],
-        "constructor_parameters": [
-            {
-                "name": "options",
-                "default_available": true,
-                "default_value": [
-
-                ],
-                "instance_of": null,
-                "is_instantiable": false
-            }
-        ],
-        "constructor_docComment": "\/**\n     * Constructor\n     *\n     * @param  $options\n     *\n     * @since  1.0\n     *\/",
-        "implemented_by": [
-
-        ],
-        "dependency_for": [
-
-        ],
-        "method": [
-            "__construct",
-            "setDependencies",
-            "instantiateService",
-            "getServiceNamespace",
-            "getServiceOptions",
-            "getStoreInstanceIndicator",
-            "onBeforeInstantiation",
-            "instantiateStatic",
-            "onAfterInstantiation",
-            "getServiceInstance",
-            "setService",
-            "removeService",
-            "scheduleServices"
-        ]
-    },
-    "Molajo\\Service\\Request\\RequestServiceProvider": {
-        "name": "RequestServiceProvider",
-        "namespace": "Molajo\\Service\\Request",
-        "fqns": "Molajo\\Service\\Request\\RequestServiceProvider",
-        "file_name": "\/Users\/amystephen\/Sites\/Molajo\/Molajo\/vendor\/molajo\/Http\/Service\/Request\/RequestServiceProvider.php",
-        "path": "vendor\/molajo\/Http\/Service\/Request\/RequestServiceProvider.php",
-        "parent": "Molajo\\IoC\\AbstractServiceProvider",
-        "implemented_interfaces": [
-            "CommonApi\\IoC\\ServiceProviderInterface"
-        ],
-        "constructor_parameters": [
-            {
-                "name": "options",
-                "default_available": true,
-                "default_value": [
-
-                ],
-                "instance_of": null,
-                "is_instantiable": false
-            }
-        ],
-        "constructor_docComment": "\/**\n     * Constructor\n     *\n     * @param  $options\n     *\n     * @since  1.0\n     *\/",
-        "implemented_by": [
-
-        ],
-        "dependency_for": [
-
-        ],
-        "method": [
-            "__construct",
-            "instantiateService",
-            "onAfterInstantiation",
-            "getServiceNamespace",
-            "getServiceOptions",
-            "getStoreInstanceIndicator",
-            "setDependencies",
-            "onBeforeInstantiation",
-            "instantiateStatic",
-            "getServiceInstance",
-            "setService",
-            "removeService",
-            "scheduleServices"
-        ]
-    },
-    "Molajo\\Service\\Response\\ResponseServiceProvider": {
-        "name": "ResponseServiceProvider",
-        "namespace": "Molajo\\Service\\Response",
-        "fqns": "Molajo\\Service\\Response\\ResponseServiceProvider",
-        "file_name": "\/Users\/amystephen\/Sites\/Molajo\/Molajo\/vendor\/molajo\/Http\/Service\/Response\/ResponseServiceProvider.php",
-        "path": "vendor\/molajo\/Http\/Service\/Response\/ResponseServiceProvider.php",
-        "parent": "Molajo\\IoC\\AbstractServiceProvider",
-        "implemented_interfaces": [
-            "CommonApi\\IoC\\ServiceProviderInterface"
-        ],
-        "constructor_parameters": [
-            {
-                "name": "options",
-                "default_available": true,
-                "default_value": [
-
-                ],
-                "instance_of": null,
-                "is_instantiable": false
-            }
-        ],
-        "constructor_docComment": "\/**\n     * Constructor\n     *\n     * @param  array $option\n     *\n     * @since  1.0\n     *\/",
-        "implemented_by": [
-
-        ],
-        "dependency_for": [
-
-        ],
-        "method": [
-            "__construct",
-            "setDependencies",
-            "instantiateService",
-            "getServiceNamespace",
-            "getServiceOptions",
-            "getStoreInstanceIndicator",
-            "onBeforeInstantiation",
-            "instantiateStatic",
-            "onAfterInstantiation",
-            "getServiceInstance",
-            "setService",
-            "removeService",
-            "scheduleServices"
-        ]
-    },
-    "Molajo\\Service\\Server\\ServerServiceProvider": {
-        "name": "ServerServiceProvider",
-        "namespace": "Molajo\\Service\\Server",
-        "fqns": "Molajo\\Service\\Server\\ServerServiceProvider",
-        "file_name": "\/Users\/amystephen\/Sites\/Molajo\/Molajo\/vendor\/molajo\/Http\/Service\/Server\/ServerServiceProvider.php",
-        "path": "vendor\/molajo\/Http\/Service\/Server\/ServerServiceProvider.php",
-        "parent": "Molajo\\IoC\\AbstractServiceProvider",
-        "implemented_interfaces": [
-            "CommonApi\\IoC\\ServiceProviderInterface"
-        ],
-        "constructor_parameters": [
-            {
-                "name": "options",
-                "default_available": true,
-                "default_value": [
-
-                ],
-                "instance_of": null,
-                "is_instantiable": false
-            }
-        ],
-        "constructor_docComment": "\/**\n     * Constructor\n     *\n     * @param  $options\n     *\n     * @since  1.0\n     *\/",
-        "implemented_by": [
-
-        ],
-        "dependency_for": [
-
-        ],
-        "method": [
-            "__construct",
-            "setDependencies",
-            "instantiateService",
-            "onAfterInstantiation",
-            "getServiceNamespace",
-            "getServiceOptions",
-            "getStoreInstanceIndicator",
-            "onBeforeInstantiation",
-            "instantiateStatic",
-            "getServiceInstance",
-            "setService",
-            "removeService",
-            "scheduleServices"
-        ]
-    },
-    "Molajo\\Service\\Upload\\UploadServiceProvider": {
-        "name": "UploadServiceProvider",
-        "namespace": "Molajo\\Service\\Upload",
-        "fqns": "Molajo\\Service\\Upload\\UploadServiceProvider",
-        "file_name": "\/Users\/amystephen\/Sites\/Molajo\/Molajo\/vendor\/molajo\/Http\/Service\/Upload\/UploadServiceProvider.php",
-        "path": "vendor\/molajo\/Http\/Service\/Upload\/UploadServiceProvider.php",
-        "parent": "Molajo\\IoC\\AbstractServiceProvider",
-        "implemented_interfaces": [
-            "CommonApi\\IoC\\ServiceProviderInterface"
-        ],
-        "constructor_parameters": [
-            {
-                "name": "options",
-                "default_available": true,
-                "default_value": [
-
-                ],
-                "instance_of": null,
-                "is_instantiable": false
-            }
-        ],
-        "constructor_docComment": "\/**\n     * Constructor\n     *\n     * @param  $options\n     *\n     * @since  1.0\n     *\/",
-        "implemented_by": [
-
-        ],
-        "dependency_for": [
-
-        ],
-        "method": [
-            "__construct",
-            "setDependencies",
-            "instantiateService",
-            "getServiceNamespace",
-            "getServiceOptions",
-            "getStoreInstanceIndicator",
-            "onBeforeInstantiation",
-            "instantiateStatic",
-            "onAfterInstantiation",
-            "getServiceInstance",
-            "setService",
-            "removeService",
-            "scheduleServices"
-        ]
-    },
     "Molajo\\Http\\Client": {
         "name": "Client",
         "namespace": "Molajo\\Http",
@@ -5775,51 +5582,6 @@
             "__construct",
             "upload",
             "createFileArray"
-        ]
-    },
-    "Molajo\\Service\\Language\\LanguageServiceProvider": {
-        "name": "LanguageServiceProvider",
-        "namespace": "Molajo\\Service\\Language",
-        "fqns": "Molajo\\Service\\Language\\LanguageServiceProvider",
-        "file_name": "\/Users\/amystephen\/Sites\/Molajo\/Molajo\/vendor\/molajo\/Language\/Service\/Language\/LanguageServiceProvider.php",
-        "path": "vendor\/molajo\/Language\/Service\/Language\/LanguageServiceProvider.php",
-        "parent": "Molajo\\IoC\\AbstractServiceProvider",
-        "implemented_interfaces": [
-            "CommonApi\\IoC\\ServiceProviderInterface"
-        ],
-        "constructor_parameters": [
-            {
-                "name": "options",
-                "default_available": true,
-                "default_value": [
-
-                ],
-                "instance_of": null,
-                "is_instantiable": false
-            }
-        ],
-        "constructor_docComment": "\/**\n     * Constructor\n     *\n     * @param  $options\n     *\n     * @since  1.0\n     *\/",
-        "implemented_by": [
-
-        ],
-        "dependency_for": [
-
-        ],
-        "method": [
-            "__construct",
-            "setDependencies",
-            "instantiateService",
-            "scheduleServices",
-            "instantiateDatabaseHandler",
-            "getServiceNamespace",
-            "getServiceOptions",
-            "getStoreInstanceIndicator",
-            "onBeforeInstantiation",
-            "instantiateStatic",
-            "onAfterInstantiation",
-            "getServiceInstance",
-            "setService",
-            "removeService"
         ]
     },
     "Molajo\\Language\\Adapter": {
@@ -6134,9 +5896,14 @@
                 "instance_of": "CommonApi\\Render\\RenderInterface",
                 "is_instantiable": false,
                 "implemented_by": [
+                    "Molajito\\Molajito",
+                    "Molajito\\PageViewRenderer",
+                    "Molajito\\Render",
+                    "Molajito\\TemplateViewRenderer",
+                    "Molajito\\ThemeRenderer",
+                    "Molajito\\WrapViewRenderer",
                     "Molajo\\Render\\Handler\\AbstractHandler",
-                    "Molajo\\Render\\Handler\\Pagination",
-                    "Molajo\\Render\\Handler\\MolajitoRender"
+                    "Molajo\\Render\\Handler\\Molajito"
                 ],
                 "concrete": false
             }
@@ -6164,70 +5931,26 @@
             "CommonApi\\Render\\RenderInterface"
         ],
         "constructor_parameters": [
-
-        ],
-        "implemented_by": [
-
-        ],
-        "dependency_for": [
-
-        ],
-        "method": [
-            "render"
-        ]
-    },
-    "Molajo\\Render\\Handler\\Molajito": {
-        "name": "Pagination",
-        "namespace": "Molajo\\Render\\Handler",
-        "fqns": "Molajo\\Render\\Handler\\Pagination",
-        "file_name": "\/Users\/amystephen\/Sites\/Molajo\/Molajo\/vendor\/molajo\/Render\/Source\/Handler\/Pagination.php",
-        "path": "vendor\/molajo\/Render\/Source\/Handler\/Pagination.php",
-        "parent": "Molajo\\Render\\Handler\\AbstractHandler",
-        "implemented_interfaces": [
-            "CommonApi\\Render\\RenderInterface"
-        ],
-        "constructor_parameters": [
             {
-                "name": "resource",
+                "name": "renderer",
                 "default_available": false,
                 "default_value": null,
-                "instance_of": null,
-                "is_instantiable": false
-            },
-            {
-                "name": "runtime_data",
-                "default_available": false,
-                "default_value": null,
-                "instance_of": null,
-                "is_instantiable": false
-            },
-            {
-                "name": "event_callback",
-                "default_available": true,
-                "default_value": null,
-                "instance_of": null,
-                "is_instantiable": false
-            },
-            {
-                "name": "exclude_tokens",
-                "default_available": true,
-                "default_value": [
-
+                "instance_of": "CommonApi\\Render\\RenderInterface",
+                "is_instantiable": false,
+                "implemented_by": [
+                    "Molajito\\Molajito",
+                    "Molajito\\PageViewRenderer",
+                    "Molajito\\Render",
+                    "Molajito\\TemplateViewRenderer",
+                    "Molajito\\ThemeRenderer",
+                    "Molajito\\WrapViewRenderer",
+                    "Molajo\\Render\\Handler\\AbstractHandler",
+                    "Molajo\\Render\\Handler\\Molajito"
                 ],
-                "instance_of": null,
-                "is_instantiable": false
-            },
-            {
-                "name": "passthru_rendering_properties",
-                "default_available": true,
-                "default_value": [
-
-                ],
-                "instance_of": null,
-                "is_instantiable": false
+                "concrete": false
             }
         ],
-        "constructor_docComment": "\/**\n     * Constructor\n     *\n     * @param  object   $resource\n     * @param  object   $runtime_data\n     * @param  callable $event_callback\n     * @param  array    $exclude_tokens\n     * @param  array    $passthru_rendering_properties\n     *\n     * @since  1.0\n     *\/",
+        "constructor_docComment": "\/**\n     * Constructor\n     *\n     * @param  $renderer  RenderInterface\n     *\n     * @since  1.0\n     *\/",
         "implemented_by": [
 
         ],
@@ -6236,33 +5959,40 @@
         ],
         "method": [
             "__construct",
-            "render",
-            "includeTheme",
-            "parseTokens"
+            "render"
         ]
     },
-    "Molajo\\Render\\Handler\\MolajitoRender": {
-        "name": "MolajitoRender",
+    "Molajo\\Render\\Handler\\Molajito": {
+        "name": "Molajito",
         "namespace": "Molajo\\Render\\Handler",
-        "fqns": "Molajo\\Render\\Handler\\MolajitoRender",
-        "file_name": "\/Users\/amystephen\/Sites\/Molajo\/Molajo\/vendor\/molajo\/Render\/Source\/Handler\/MolajitoRender.php",
-        "path": "vendor\/molajo\/Render\/Source\/Handler\/MolajitoRender.php",
-        "parent": false,
+        "fqns": "Molajo\\Render\\Handler\\Molajito",
+        "file_name": "\/Users\/amystephen\/Sites\/Molajo\/Molajo\/vendor\/molajo\/Render\/Source\/Handler\/Molajito.php",
+        "path": "vendor\/molajo\/Render\/Source\/Handler\/Molajito.php",
+        "parent": "Molajo\\Render\\Handler\\AbstractHandler",
         "implemented_interfaces": [
             "CommonApi\\Render\\RenderInterface"
         ],
         "constructor_parameters": [
             {
-                "name": "options",
-                "default_available": true,
-                "default_value": [
-
+                "name": "renderer",
+                "default_available": false,
+                "default_value": null,
+                "instance_of": "CommonApi\\Render\\RenderInterface",
+                "is_instantiable": false,
+                "implemented_by": [
+                    "Molajito\\Molajito",
+                    "Molajito\\PageViewRenderer",
+                    "Molajito\\Render",
+                    "Molajito\\TemplateViewRenderer",
+                    "Molajito\\ThemeRenderer",
+                    "Molajito\\WrapViewRenderer",
+                    "Molajo\\Render\\Handler\\AbstractHandler",
+                    "Molajo\\Render\\Handler\\Molajito"
                 ],
-                "instance_of": null,
-                "is_instantiable": false
+                "concrete": false
             }
         ],
-        "constructor_docComment": "\/**\n     * Constructor\n     *\n     * @param   array  $options\n     *\n     * @since  1.0\n     *\/",
+        "constructor_docComment": "\/**\n     * Constructor\n     *\n     * @param  $renderer  RenderInterface\n     *\n     * @since  1.0\n     *\/",
         "implemented_by": [
 
         ],
@@ -6320,103 +6050,6 @@
 
         ]
     },
-    "Molajo\\Render\\Pagination": {
-        "name": "Pagination",
-        "namespace": "Molajo\\Render",
-        "fqns": "Molajo\\Render\\Pagination",
-        "file_name": "\/Users\/amystephen\/Sites\/Molajo\/Molajo\/vendor\/molajo\/Render\/Source\/Pagination.php",
-        "path": "vendor\/molajo\/Render\/Source\/Pagination.php",
-        "parent": false,
-        "implemented_interfaces": [
-            "CommonApi\\Render\\PaginationInterface",
-            "IteratorAggregate",
-            "Traversable",
-            "ArrayAccess",
-            "Countable"
-        ],
-        "constructor_parameters": [
-            {
-                "name": "data",
-                "default_available": true,
-                "default_value": [
-
-                ],
-                "instance_of": null,
-                "is_instantiable": false
-            },
-            {
-                "name": "page_url",
-                "default_available": false,
-                "default_value": null,
-                "instance_of": null,
-                "is_instantiable": false
-            },
-            {
-                "name": "query_parameters",
-                "default_available": true,
-                "default_value": [
-
-                ],
-                "instance_of": null,
-                "is_instantiable": false
-            },
-            {
-                "name": "total_items",
-                "default_available": false,
-                "default_value": null,
-                "instance_of": null,
-                "is_instantiable": false
-            },
-            {
-                "name": "per_page",
-                "default_available": false,
-                "default_value": null,
-                "instance_of": null,
-                "is_instantiable": false
-            },
-            {
-                "name": "display_links",
-                "default_available": false,
-                "default_value": null,
-                "instance_of": null,
-                "is_instantiable": false
-            },
-            {
-                "name": "page",
-                "default_available": false,
-                "default_value": null,
-                "instance_of": null,
-                "is_instantiable": false
-            }
-        ],
-        "constructor_docComment": "\/**\n     * Construct\n     *\n     * @param  array                 $data             Data to be displayed (not full results)\n     * @param  string                $page_url         URL for page on which paginated appears\n     * @param  array                 $query_parameters URL Query Parameters (other than page)\n     * @param  int                   $total_items      Total items in full resultset for data\n     * @param  int                   $per_page         Number of items per page\n     * @param  int                   $display_links    Number of page number \"buttons\" to show\n     * @param  int                   $page             Current page\n     *\n     * @since  1.0\n     *\/",
-        "implemented_by": [
-
-        ],
-        "dependency_for": [
-
-        ],
-        "method": [
-            "__construct",
-            "getFirstPage",
-            "getPrevPage",
-            "getStartDisplayPage",
-            "getCurrentPage",
-            "getStopDisplayPage",
-            "getNextPage",
-            "getLastPage",
-            "getData",
-            "getTotalItems",
-            "getPageUrl",
-            "getIterator",
-            "offsetSet",
-            "offsetExists",
-            "offsetGet",
-            "offsetUnset",
-            "isEmpty",
-            "count"
-        ]
-    },
     "Molajo\\Service\\Authorisation\\AuthorisationServiceProvider": {
         "name": "AuthorisationServiceProvider",
         "namespace": "Molajo\\Service\\Authorisation",
@@ -6450,14 +6083,14 @@
             "setDependencies",
             "onBeforeInstantiation",
             "instantiateService",
+            "setServices",
             "getServiceNamespace",
             "getServiceOptions",
             "getStoreInstanceIndicator",
             "instantiateStatic",
             "onAfterInstantiation",
             "getServiceInstance",
-            "setService",
-            "removeService",
+            "removeServices",
             "scheduleServices"
         ]
     },
@@ -6722,8 +6355,8 @@
             "instantiateStatic",
             "onAfterInstantiation",
             "getServiceInstance",
-            "setService",
-            "removeService",
+            "removeServices",
+            "setServices",
             "scheduleServices"
         ]
     },
@@ -6766,8 +6399,8 @@
             "instantiateStatic",
             "onAfterInstantiation",
             "getServiceInstance",
-            "setService",
-            "removeService",
+            "removeServices",
+            "setServices",
             "scheduleServices"
         ]
     },
@@ -6810,8 +6443,8 @@
             "instantiateStatic",
             "onAfterInstantiation",
             "getServiceInstance",
-            "setService",
-            "removeService",
+            "removeServices",
+            "setServices",
             "scheduleServices"
         ]
     },
@@ -6854,8 +6487,8 @@
             "instantiateStatic",
             "onAfterInstantiation",
             "getServiceInstance",
-            "setService",
-            "removeService",
+            "removeServices",
+            "setServices",
             "scheduleServices"
         ]
     },
@@ -6898,8 +6531,8 @@
             "instantiateStatic",
             "onAfterInstantiation",
             "getServiceInstance",
-            "setService",
-            "removeService",
+            "removeServices",
+            "setServices",
             "scheduleServices"
         ]
     },
@@ -7409,8 +7042,8 @@
             "instantiateStatic",
             "onAfterInstantiation",
             "getServiceInstance",
-            "setService",
-            "removeService",
+            "removeServices",
+            "setServices",
             "scheduleServices"
         ]
     },
@@ -7601,8 +7234,8 @@
             "instantiateStatic",
             "onAfterInstantiation",
             "getServiceInstance",
-            "setService",
-            "removeService",
+            "removeServices",
+            "setServices",
             "scheduleServices"
         ]
     },
@@ -8186,8 +7819,8 @@
             "instantiateStatic",
             "onAfterInstantiation",
             "getServiceInstance",
-            "setService",
-            "removeService",
+            "removeServices",
+            "setServices",
             "scheduleServices"
         ]
     },
@@ -8230,8 +7863,8 @@
             "instantiateStatic",
             "onAfterInstantiation",
             "getServiceInstance",
-            "setService",
-            "removeService",
+            "removeServices",
+            "setServices",
             "scheduleServices"
         ]
     },
@@ -8406,7 +8039,8 @@
             "setFormSections",
             "setFormSectionFieldsets",
             "setFormFieldsetFields",
-            "getFieldsetFields"
+            "getFieldsetFields",
+            "getAllFields"
         ]
     },
     "Molajo\\Plugin\\AuthenticateEventPlugin": {
@@ -8466,67 +8100,8 @@
             "setFormSections",
             "setFormSectionFieldsets",
             "setFormFieldsetFields",
-            "getFieldsetFields"
-        ]
-    },
-    "Molajo\\Plugin\\AuthoriseEventPlugin": {
-        "name": "AuthoriseEventPlugin",
-        "namespace": "Molajo\\Plugin",
-        "fqns": "Molajo\\Plugin\\AuthoriseEventPlugin",
-        "file_name": "\/Users\/amystephen\/Sites\/Molajo\/Molajo\/vendor\/molajo\/event\/Source\/Plugin\/AuthoriseEventPlugin.php",
-        "path": "vendor\/molajo\/event\/Source\/Plugin\/AuthoriseEventPlugin.php",
-        "parent": "Molajo\\Plugin\\AbstractPlugin",
-        "implemented_interfaces": [
-            "CommonApi\\Event\\AuthoriseInterface"
-        ],
-        "constructor_parameters": [
-            {
-                "name": "plugin_name",
-                "default_available": true,
-                "default_value": "",
-                "instance_of": null,
-                "is_instantiable": false
-            },
-            {
-                "name": "event_name",
-                "default_available": true,
-                "default_value": "",
-                "instance_of": null,
-                "is_instantiable": false
-            },
-            {
-                "name": "data",
-                "default_available": true,
-                "default_value": [
-
-                ],
-                "instance_of": null,
-                "is_instantiable": false
-            }
-        ],
-        "constructor_docComment": "\/**\n     * Constructor\n     *\n     * @param   string $plugin_name\n     * @param   string $event_name\n     * @param   array  $data\n     *\n     * @since  1.0\n     *\/",
-        "implemented_by": [
-
-        ],
-        "dependency_for": [
-
-        ],
-        "method": [
-            "onBeforeAuthorise",
-            "onAfterAuthorise",
-            "__construct",
-            "get",
-            "getField",
-            "getFieldsByType",
-            "getFieldValue",
-            "setField",
-            "saveForeignKeyValue",
-            "setFormSections",
-            "setFormSectionFieldsets",
-            "setFormFieldsetFields",
             "getFieldsetFields",
-            "onBeforeLogout",
-            "onAfterLogout"
+            "getAllFields"
         ]
     },
     "Molajo\\Plugin\\CreateEventPlugin": {
@@ -8587,7 +8162,8 @@
             "setFormSections",
             "setFormSectionFieldsets",
             "setFormFieldsetFields",
-            "getFieldsetFields"
+            "getFieldsetFields",
+            "getAllFields"
         ]
     },
     "Molajo\\Plugin\\DisplayEventPlugin": {
@@ -8652,7 +8228,8 @@
             "setFormSections",
             "setFormSectionFieldsets",
             "setFormFieldsetFields",
-            "getFieldsetFields"
+            "getFieldsetFields",
+            "getAllFields"
         ]
     },
     "Molajo\\Plugin\\ReadEventPlugin": {
@@ -8711,7 +8288,8 @@
             "setFormSections",
             "setFormSectionFieldsets",
             "setFormFieldsetFields",
-            "getFieldsetFields"
+            "getFieldsetFields",
+            "getAllFields"
         ]
     },
     "Molajo\\Plugin\\SystemEventPlugin": {
@@ -8777,7 +8355,8 @@
             "setFormSections",
             "setFormSectionFieldsets",
             "setFormFieldsetFields",
-            "getFieldsetFields"
+            "getFieldsetFields",
+            "getAllFields"
         ]
     },
     "Molajo\\Plugin\\UpdateEventPlugin": {
@@ -8835,7 +8414,8 @@
             "setFormSections",
             "setFormSectionFieldsets",
             "setFormFieldsetFields",
-            "getFieldsetFields"
+            "getFieldsetFields",
+            "getAllFields"
         ]
     },
     "Molajo\\Service\\Fieldhandler\\FieldhandlerServiceProvider": {
@@ -8877,8 +8457,8 @@
             "instantiateStatic",
             "onAfterInstantiation",
             "getServiceInstance",
-            "setService",
-            "removeService",
+            "removeServices",
+            "setServices",
             "scheduleServices"
         ]
     },
@@ -10515,82 +10095,6 @@
             "getTestValue"
         ]
     },
-    "Molajo\\Fieldhandler\\Handler\\Html5": {
-        "name": "Html5",
-        "namespace": "Molajo\\Fieldhandler\\Handler",
-        "fqns": "Molajo\\Fieldhandler\\Handler\\Html5",
-        "file_name": "\/Users\/amystephen\/Sites\/Molajo\/Molajo\/vendor\/molajo\/fieldhandler\/Source\/Handler\/Html5.php",
-        "path": "vendor\/molajo\/fieldhandler\/Source\/Handler\/Html5.php",
-        "parent": "Molajo\\Fieldhandler\\Handler\\AbstractFieldhandler",
-        "implemented_interfaces": [
-
-        ],
-        "constructor_parameters": [
-            {
-                "name": "method",
-                "default_available": false,
-                "default_value": null,
-                "instance_of": null,
-                "is_instantiable": false
-            },
-            {
-                "name": "field_name",
-                "default_available": false,
-                "default_value": null,
-                "instance_of": null,
-                "is_instantiable": false
-            },
-            {
-                "name": "field_value",
-                "default_available": false,
-                "default_value": null,
-                "instance_of": null,
-                "is_instantiable": false
-            },
-            {
-                "name": "fieldhandler_type_chain",
-                "default_available": false,
-                "default_value": null,
-                "instance_of": null,
-                "is_instantiable": false
-            },
-            {
-                "name": "options",
-                "default_available": true,
-                "default_value": [
-
-                ],
-                "instance_of": null,
-                "is_instantiable": false
-            }
-        ],
-        "constructor_docComment": "\/**\n     * Constructor\n     *\n     * @param   string $method\n     * @param   string $field_name\n     * @param   mixed  $field_value\n     * @param   array  $fieldhandler_type_chain\n     * @param   array  $options\n     *\n     * @since   1.0\n     *\/",
-        "implemented_by": [
-
-        ],
-        "dependency_for": [
-
-        ],
-        "method": [
-            "__construct",
-            "validate",
-            "filter",
-            "escape",
-            "setFieldValue",
-            "getFieldValue",
-            "setOptions",
-            "getOptions",
-            "setDatabase",
-            "getDatabase",
-            "setTable",
-            "getTable",
-            "setKey",
-            "getKey",
-            "filterByCharacter",
-            "getTrueArray",
-            "getTestValue"
-        ]
-    },
     "Molajo\\Fieldhandler\\Handler\\Int": {
         "name": "Int",
         "namespace": "Molajo\\Fieldhandler\\Handler",
@@ -12087,8 +11591,8 @@
             "instantiateStatic",
             "onAfterInstantiation",
             "getServiceInstance",
-            "setService",
-            "removeService",
+            "removeServices",
+            "setServices",
             "scheduleServices"
         ]
     },
@@ -12369,7 +11873,8 @@
             "setFormSections",
             "setFormSectionFieldsets",
             "setFormFieldsetFields",
-            "getFieldsetFields"
+            "getFieldsetFields",
+            "getAllFields"
         ]
     },
     "Molajo\\Service\\Application\\ApplicationServiceProvider": {
@@ -12404,15 +11909,15 @@
             "__construct",
             "setDependencies",
             "onBeforeInstantiation",
+            "onAfterInstantiation",
+            "setServices",
             "getServiceNamespace",
             "getServiceOptions",
             "getStoreInstanceIndicator",
             "instantiateService",
             "instantiateStatic",
-            "onAfterInstantiation",
             "getServiceInstance",
-            "setService",
-            "removeService",
+            "removeServices",
             "scheduleServices"
         ]
     },
@@ -12455,8 +11960,8 @@
             "instantiateStatic",
             "onAfterInstantiation",
             "getServiceInstance",
-            "setService",
-            "removeService",
+            "removeServices",
+            "setServices",
             "scheduleServices"
         ]
     },
@@ -12499,8 +12004,8 @@
             "instantiateStatic",
             "onAfterInstantiation",
             "getServiceInstance",
-            "setService",
-            "removeService",
+            "removeServices",
+            "setServices",
             "scheduleServices"
         ]
     },
@@ -12543,8 +12048,8 @@
             "instantiateStatic",
             "onAfterInstantiation",
             "getServiceInstance",
-            "setService",
-            "removeService",
+            "removeServices",
+            "setServices",
             "scheduleServices"
         ]
     },
@@ -12587,8 +12092,8 @@
             "instantiateStatic",
             "onAfterInstantiation",
             "getServiceInstance",
-            "setService",
-            "removeService",
+            "removeServices",
+            "setServices",
             "scheduleServices"
         ]
     },
@@ -12631,8 +12136,52 @@
             "instantiateStatic",
             "onAfterInstantiation",
             "getServiceInstance",
-            "setService",
-            "removeService",
+            "removeServices",
+            "setServices",
+            "scheduleServices"
+        ]
+    },
+    "Molajo\\Service\\Plugindata\\PlugindataServiceProvider": {
+        "name": "PlugindataServiceProvider",
+        "namespace": "Molajo\\Service\\Plugindata",
+        "fqns": "Molajo\\Service\\Plugindata\\PlugindataServiceProvider",
+        "file_name": "\/Users\/amystephen\/Sites\/Molajo\/Molajo\/vendor\/molajo\/framework\/Service\/Plugindata\/PlugindataServiceProvider.php",
+        "path": "vendor\/molajo\/framework\/Service\/Plugindata\/PlugindataServiceProvider.php",
+        "parent": "Molajo\\IoC\\AbstractServiceProvider",
+        "implemented_interfaces": [
+            "CommonApi\\IoC\\ServiceProviderInterface"
+        ],
+        "constructor_parameters": [
+            {
+                "name": "options",
+                "default_available": true,
+                "default_value": [
+
+                ],
+                "instance_of": null,
+                "is_instantiable": false
+            }
+        ],
+        "constructor_docComment": "\/**\n     * Constructor\n     *\n     * @param  array $options\n     *\n     * @since  1.0\n     *\/",
+        "implemented_by": [
+
+        ],
+        "dependency_for": [
+
+        ],
+        "method": [
+            "__construct",
+            "instantiateService",
+            "getServiceNamespace",
+            "getServiceOptions",
+            "getStoreInstanceIndicator",
+            "setDependencies",
+            "onBeforeInstantiation",
+            "instantiateStatic",
+            "onAfterInstantiation",
+            "getServiceInstance",
+            "removeServices",
+            "setServices",
             "scheduleServices"
         ]
     },
@@ -12675,8 +12224,96 @@
             "instantiateService",
             "instantiateStatic",
             "getServiceInstance",
-            "setService",
-            "removeService",
+            "removeServices",
+            "setServices",
+            "scheduleServices"
+        ]
+    },
+    "Molajo\\Service\\Resourcerendering\\ResourcerenderingServiceProvider": {
+        "name": "ResourcerenderingServiceProvider",
+        "namespace": "Molajo\\Service\\Resourcerendering",
+        "fqns": "Molajo\\Service\\Resourcerendering\\ResourcerenderingServiceProvider",
+        "file_name": "\/Users\/amystephen\/Sites\/Molajo\/Molajo\/vendor\/molajo\/framework\/Service\/Resourcerendering\/ResourcerenderingServiceProvider.php",
+        "path": "vendor\/molajo\/framework\/Service\/Resourcerendering\/ResourcerenderingServiceProvider.php",
+        "parent": "Molajo\\IoC\\AbstractServiceProvider",
+        "implemented_interfaces": [
+            "CommonApi\\IoC\\ServiceProviderInterface"
+        ],
+        "constructor_parameters": [
+            {
+                "name": "options",
+                "default_available": true,
+                "default_value": [
+
+                ],
+                "instance_of": null,
+                "is_instantiable": false
+            }
+        ],
+        "constructor_docComment": "\/**\n     * Constructor\n     *\n     * @param  array $options\n     *\n     * @since  1.0\n     *\/",
+        "implemented_by": [
+
+        ],
+        "dependency_for": [
+
+        ],
+        "method": [
+            "__construct",
+            "setDependencies",
+            "onBeforeInstantiation",
+            "getServiceNamespace",
+            "getServiceOptions",
+            "getStoreInstanceIndicator",
+            "instantiateService",
+            "instantiateStatic",
+            "onAfterInstantiation",
+            "getServiceInstance",
+            "removeServices",
+            "setServices",
+            "scheduleServices"
+        ]
+    },
+    "Molajo\\Service\\Runtimedata\\RuntimedataServiceProvider": {
+        "name": "RuntimedataServiceProvider",
+        "namespace": "Molajo\\Service\\Runtimedata",
+        "fqns": "Molajo\\Service\\Runtimedata\\RuntimedataServiceProvider",
+        "file_name": "\/Users\/amystephen\/Sites\/Molajo\/Molajo\/vendor\/molajo\/framework\/Service\/Runtimedata\/RuntimedataServiceProvider.php",
+        "path": "vendor\/molajo\/framework\/Service\/Runtimedata\/RuntimedataServiceProvider.php",
+        "parent": "Molajo\\IoC\\AbstractServiceProvider",
+        "implemented_interfaces": [
+            "CommonApi\\IoC\\ServiceProviderInterface"
+        ],
+        "constructor_parameters": [
+            {
+                "name": "options",
+                "default_available": true,
+                "default_value": [
+
+                ],
+                "instance_of": null,
+                "is_instantiable": false
+            }
+        ],
+        "constructor_docComment": "\/**\n     * Constructor\n     *\n     * @param  array $options\n     *\n     * @since  1.0\n     *\/",
+        "implemented_by": [
+
+        ],
+        "dependency_for": [
+
+        ],
+        "method": [
+            "__construct",
+            "instantiateService",
+            "setServices",
+            "getServiceNamespace",
+            "getServiceOptions",
+            "getStoreInstanceIndicator",
+            "setDependencies",
+            "onBeforeInstantiation",
+            "instantiateStatic",
+            "onAfterInstantiation",
+            "getServiceInstance",
+            "removeServices",
             "scheduleServices"
         ]
     },
@@ -12712,16 +12349,16 @@
             "__construct",
             "setDependencies",
             "instantiateService",
+            "onAfterInstantiation",
+            "setServices",
             "sites",
             "getServiceNamespace",
             "getServiceOptions",
             "getStoreInstanceIndicator",
             "onBeforeInstantiation",
             "instantiateStatic",
-            "onAfterInstantiation",
             "getServiceInstance",
-            "setService",
-            "removeService",
+            "removeServices",
             "scheduleServices"
         ]
     },
@@ -12765,8 +12402,8 @@
             "instantiateStatic",
             "onAfterInstantiation",
             "getServiceInstance",
-            "setService",
-            "removeService",
+            "removeServices",
+            "setServices",
             "scheduleServices"
         ]
     },
@@ -12809,8 +12446,8 @@
             "instantiateStatic",
             "onAfterInstantiation",
             "getServiceInstance",
-            "setService",
-            "removeService",
+            "removeServices",
+            "setServices",
             "scheduleServices"
         ]
     },
@@ -12879,7 +12516,7 @@
                 "is_instantiable": false
             }
         ],
-        "constructor_docComment": "\/**\n     * Constructor\n     *\n     * @param object                 $applications\n     * @param object                 $model_registry\n     * @param DatabaseInterface      $database\n     * @param FieldhandlerInterface  $fieldhandler\n     * @param string                 $request_path\n     * @param string                 $request_base_url\n     *\n     * @since  1.0\n     *\/",
+        "constructor_docComment": "\/**\n     * Constructor\n     *\n     * @param object                $applications\n     * @param object                $model_registry\n     * @param DatabaseInterface     $database\n     * @param FieldhandlerInterface $fieldhandler\n     * @param string                $request_path\n     * @param string                $request_base_url\n     *\n     * @since  1.0\n     *\/",
         "implemented_by": [
 
         ],
@@ -12927,6 +12564,13 @@
                 "is_instantiable": false
             },
             {
+                "name": "plugin_data",
+                "default_available": false,
+                "default_value": null,
+                "instance_of": null,
+                "is_instantiable": false
+            },
+            {
                 "name": "schedule_event",
                 "default_available": false,
                 "default_value": null,
@@ -12941,7 +12585,7 @@
                 "is_instantiable": false
             }
         ],
-        "constructor_docComment": "\/**\n     * Class Constructor\n     *\n     * @param ModelInterface $model\n     * @param object         $runtime_data\n     * @param callable       $schedule_event\n     * @param string         $sql\n     *\n     * @since   1.0\n     *\/",
+        "constructor_docComment": "\/**\n     * Class Constructor\n     *\n     * @param ModelInterface $model\n     * @param object         $runtime_data\n     * @param object         $plugin_data\n     * @param callable       $schedule_event\n     * @param string         $sql\n     *\n     * @since   1.0\n     *\/",
         "implemented_by": [
 
         ],
@@ -13252,14 +12896,14 @@
                 "concrete": false
             },
             {
-                "name": "base_folder",
+                "name": "services",
                 "default_available": false,
                 "default_value": null,
                 "instance_of": null,
                 "is_instantiable": false
             }
         ],
-        "constructor_docComment": "\/**\n     * Constructor\n     *\n     * @param  ContainerInterface $iocc\n     * @param  string             $base_folder\n     *\n     * @since  1.0\n     *\/",
+        "constructor_docComment": "\/**\n     * Constructor\n     *\n     * @param  ContainerInterface $iocc\n     * @param  array              $services\n     *\n     * @since  1.0\n     *\/",
         "implemented_by": [
 
         ],
@@ -13268,16 +12912,10 @@
         ],
         "method": [
             "__construct",
-            "driver",
-            "processStep",
-            "processStepMethod",
+            "process",
             "scheduleEvent",
-            "scheduleServices",
             "scheduleService",
-            "getContainerEntry",
             "setContainerEntry",
-            "removeContainerEntry",
-            "cloneContainerInstance",
             "handleErrors",
             "shutdown"
         ]
@@ -13416,6 +13054,13 @@
                 "is_instantiable": false
             },
             {
+                "name": "plugin_data",
+                "default_available": false,
+                "default_value": null,
+                "instance_of": null,
+                "is_instantiable": false
+            },
+            {
                 "name": "schedule_event",
                 "default_available": false,
                 "default_value": null,
@@ -13430,7 +13075,7 @@
                 "is_instantiable": false
             }
         ],
-        "constructor_docComment": "\/**\n     * Class Constructor\n     *\n     * @param ModelInterface $model\n     * @param object         $runtime_data\n     * @param callable       $schedule_event\n     * @param string         $sql\n     *\n     * @since   1.0\n     *\/",
+        "constructor_docComment": "\/**\n     * Class Constructor\n     *\n     * @param ModelInterface $model\n     * @param object         $runtime_data\n     * @param object         $plugin_data\n     * @param callable       $schedule_event\n     * @param string         $sql\n     *\n     * @since   1.0\n     *\/",
         "implemented_by": [
 
         ],
@@ -13810,7 +13455,7 @@
                 "is_instantiable": false
             }
         ],
-        "constructor_docComment": "\/**\n     * Constructor\n     *\n     * @param  string                  $model_registry\n     * @param  DatabaseInterface       $database\n     * @param  object                  $query\n     * @param  string                  $null_date\n     * @param  string                  $current_date\n     * @param  FieldhandlerInterface   $fieldhandler\n     * @param  AuthorisationInterface  $authorisation\n     * @param  CacheInterface          $cache\n     * @param  null|int                $site_id\n     * @param  null|int                $application_id\n     *\n     * @since  1.0\n     *\/",
+        "constructor_docComment": "\/**\n     * Constructor\n     *\n     * @param  string                 $model_registry\n     * @param  DatabaseInterface      $database\n     * @param  object                 $query\n     * @param  string                 $null_date\n     * @param  string                 $current_date\n     * @param  FieldhandlerInterface  $fieldhandler\n     * @param  AuthorisationInterface $authorisation\n     * @param  CacheInterface         $cache\n     * @param  null|int               $site_id\n     * @param  null|int               $application_id\n     *\n     * @since  1.0\n     *\/",
         "implemented_by": [
 
         ],
@@ -13941,7 +13586,7 @@
                 "is_instantiable": false
             }
         ],
-        "constructor_docComment": "\/**\n     * Constructor\n     *\n     * @param  string                  $model_registry\n     * @param  DatabaseInterface       $database\n     * @param  object                  $query\n     * @param  string                  $null_date\n     * @param  string                  $current_date\n     * @param  FieldhandlerInterface   $fieldhandler\n     * @param  AuthorisationInterface  $authorisation\n     * @param  CacheInterface          $cache\n     * @param  null|int                $site_id\n     * @param  null|int                $application_id\n     *\n     * @since  1.0\n     *\/",
+        "constructor_docComment": "\/**\n     * Constructor\n     *\n     * @param  string                 $model_registry\n     * @param  DatabaseInterface      $database\n     * @param  object                 $query\n     * @param  string                 $null_date\n     * @param  string                 $current_date\n     * @param  FieldhandlerInterface  $fieldhandler\n     * @param  AuthorisationInterface $authorisation\n     * @param  CacheInterface         $cache\n     * @param  null|int               $site_id\n     * @param  null|int               $application_id\n     *\n     * @since  1.0\n     *\/",
         "implemented_by": [
 
         ],
@@ -14071,7 +13716,7 @@
                 "is_instantiable": false
             }
         ],
-        "constructor_docComment": "\/**\n     * Constructor\n     *\n     * @param  string                  $model_registry\n     * @param  DatabaseInterface       $database\n     * @param  object                  $query\n     * @param  string                  $null_date\n     * @param  string                  $current_date\n     * @param  FieldhandlerInterface   $fieldhandler\n     * @param  AuthorisationInterface  $authorisation\n     * @param  CacheInterface          $cache\n     * @param  null|int                $site_id\n     * @param  null|int                $application_id\n     *\n     * @since  1.0\n     *\/",
+        "constructor_docComment": "\/**\n     * Constructor\n     *\n     * @param  string                 $model_registry\n     * @param  DatabaseInterface      $database\n     * @param  object                 $query\n     * @param  string                 $null_date\n     * @param  string                 $current_date\n     * @param  FieldhandlerInterface  $fieldhandler\n     * @param  AuthorisationInterface $authorisation\n     * @param  CacheInterface         $cache\n     * @param  null|int               $site_id\n     * @param  null|int               $application_id\n     *\n     * @since  1.0\n     *\/",
         "implemented_by": [
 
         ],
@@ -14201,7 +13846,7 @@
                 "is_instantiable": false
             }
         ],
-        "constructor_docComment": "\/**\n     * Constructor\n     *\n     * @param  string                  $model_registry\n     * @param  DatabaseInterface       $database\n     * @param  object                  $query\n     * @param  string                  $null_date\n     * @param  string                  $current_date\n     * @param  FieldhandlerInterface   $fieldhandler\n     * @param  AuthorisationInterface  $authorisation\n     * @param  CacheInterface          $cache\n     * @param  null|int                $site_id\n     * @param  null|int                $application_id\n     *\n     * @since  1.0\n     *\/",
+        "constructor_docComment": "\/**\n     * Constructor\n     *\n     * @param  string                 $model_registry\n     * @param  DatabaseInterface      $database\n     * @param  object                 $query\n     * @param  string                 $null_date\n     * @param  string                 $current_date\n     * @param  FieldhandlerInterface  $fieldhandler\n     * @param  AuthorisationInterface $authorisation\n     * @param  CacheInterface         $cache\n     * @param  null|int               $site_id\n     * @param  null|int               $application_id\n     *\n     * @since  1.0\n     *\/",
         "implemented_by": [
 
         ],
@@ -14333,7 +13978,7 @@
                 "is_instantiable": false
             }
         ],
-        "constructor_docComment": "\/**\n     * Constructor\n     *\n     * @param  string                  $model_registry\n     * @param  DatabaseInterface       $database\n     * @param  object                  $query\n     * @param  string                  $null_date\n     * @param  string                  $current_date\n     * @param  FieldhandlerInterface   $fieldhandler\n     * @param  AuthorisationInterface  $authorisation\n     * @param  CacheInterface          $cache\n     * @param  null|int                $site_id\n     * @param  null|int                $application_id\n     *\n     * @since  1.0\n     *\/",
+        "constructor_docComment": "\/**\n     * Constructor\n     *\n     * @param  string                 $model_registry\n     * @param  DatabaseInterface      $database\n     * @param  object                 $query\n     * @param  string                 $null_date\n     * @param  string                 $current_date\n     * @param  FieldhandlerInterface  $fieldhandler\n     * @param  AuthorisationInterface $authorisation\n     * @param  CacheInterface         $cache\n     * @param  null|int               $site_id\n     * @param  null|int               $application_id\n     *\n     * @since  1.0\n     *\/",
         "implemented_by": [
 
         ],
@@ -14767,6 +14412,13 @@
                 "is_instantiable": false
             },
             {
+                "name": "plugin_data",
+                "default_available": false,
+                "default_value": null,
+                "instance_of": null,
+                "is_instantiable": false
+            },
+            {
                 "name": "schedule_event",
                 "default_available": false,
                 "default_value": null,
@@ -14781,7 +14433,7 @@
                 "is_instantiable": false
             }
         ],
-        "constructor_docComment": "\/**\n     * Constructor\n     *\n     * @param  ReadInterface $model\n     * @param  object        $runtime_data\n     * @param  callback      $schedule_event\n     * @param  string        $sql\n     *\n     * @since  1.0\n     *\/",
+        "constructor_docComment": "\/**\n     * Constructor\n     *\n     * @param  ReadInterface $model\n     * @param  object        $runtime_data\n     * @param  object        $plugin_data\n     * @param  callback      $schedule_event\n     * @param  string        $sql\n     *\n     * @since  1.0\n     *\/",
         "implemented_by": [
 
         ],
@@ -15523,6 +15175,270 @@
             "getCollection"
         ]
     },
+    "Molajo\\Service\\Client\\ClientServiceProvider": {
+        "name": "ClientServiceProvider",
+        "namespace": "Molajo\\Service\\Client",
+        "fqns": "Molajo\\Service\\Client\\ClientServiceProvider",
+        "file_name": "\/Users\/amystephen\/Sites\/Molajo\/Molajo\/vendor\/molajo\/http\/Service\/Client\/ClientServiceProvider.php",
+        "path": "vendor\/molajo\/http\/Service\/Client\/ClientServiceProvider.php",
+        "parent": "Molajo\\IoC\\AbstractServiceProvider",
+        "implemented_interfaces": [
+            "CommonApi\\IoC\\ServiceProviderInterface"
+        ],
+        "constructor_parameters": [
+            {
+                "name": "options",
+                "default_available": true,
+                "default_value": [
+
+                ],
+                "instance_of": null,
+                "is_instantiable": false
+            }
+        ],
+        "constructor_docComment": "\/**\n     * Constructor\n     *\n     * @param  $options\n     *\n     * @since  1.0\n     *\/",
+        "implemented_by": [
+
+        ],
+        "dependency_for": [
+
+        ],
+        "method": [
+            "__construct",
+            "setDependencies",
+            "instantiateService",
+            "onAfterInstantiation",
+            "setServices",
+            "getServiceNamespace",
+            "getServiceOptions",
+            "getStoreInstanceIndicator",
+            "onBeforeInstantiation",
+            "instantiateStatic",
+            "getServiceInstance",
+            "removeServices",
+            "scheduleServices"
+        ]
+    },
+    "Molajo\\Service\\Redirect\\RedirectServiceProvider": {
+        "name": "RedirectServiceProvider",
+        "namespace": "Molajo\\Service\\Redirect",
+        "fqns": "Molajo\\Service\\Redirect\\RedirectServiceProvider",
+        "file_name": "\/Users\/amystephen\/Sites\/Molajo\/Molajo\/vendor\/molajo\/http\/Service\/Redirect\/RedirectServiceProvider.php",
+        "path": "vendor\/molajo\/http\/Service\/Redirect\/RedirectServiceProvider.php",
+        "parent": "Molajo\\IoC\\AbstractServiceProvider",
+        "implemented_interfaces": [
+            "CommonApi\\IoC\\ServiceProviderInterface"
+        ],
+        "constructor_parameters": [
+            {
+                "name": "options",
+                "default_available": true,
+                "default_value": [
+
+                ],
+                "instance_of": null,
+                "is_instantiable": false
+            }
+        ],
+        "constructor_docComment": "\/**\n     * Constructor\n     *\n     * @param  $options\n     *\n     * @since  1.0\n     *\/",
+        "implemented_by": [
+
+        ],
+        "dependency_for": [
+
+        ],
+        "method": [
+            "__construct",
+            "setDependencies",
+            "instantiateService",
+            "getServiceNamespace",
+            "getServiceOptions",
+            "getStoreInstanceIndicator",
+            "onBeforeInstantiation",
+            "instantiateStatic",
+            "onAfterInstantiation",
+            "getServiceInstance",
+            "removeServices",
+            "setServices",
+            "scheduleServices"
+        ]
+    },
+    "Molajo\\Service\\Request\\RequestServiceProvider": {
+        "name": "RequestServiceProvider",
+        "namespace": "Molajo\\Service\\Request",
+        "fqns": "Molajo\\Service\\Request\\RequestServiceProvider",
+        "file_name": "\/Users\/amystephen\/Sites\/Molajo\/Molajo\/vendor\/molajo\/http\/Service\/Request\/RequestServiceProvider.php",
+        "path": "vendor\/molajo\/http\/Service\/Request\/RequestServiceProvider.php",
+        "parent": "Molajo\\IoC\\AbstractServiceProvider",
+        "implemented_interfaces": [
+            "CommonApi\\IoC\\ServiceProviderInterface"
+        ],
+        "constructor_parameters": [
+            {
+                "name": "options",
+                "default_available": true,
+                "default_value": [
+
+                ],
+                "instance_of": null,
+                "is_instantiable": false
+            }
+        ],
+        "constructor_docComment": "\/**\n     * Constructor\n     *\n     * @param  $options\n     *\n     * @since  1.0\n     *\/",
+        "implemented_by": [
+
+        ],
+        "dependency_for": [
+
+        ],
+        "method": [
+            "__construct",
+            "setDependencies",
+            "instantiateService",
+            "onAfterInstantiation",
+            "setServices",
+            "getServiceNamespace",
+            "getServiceOptions",
+            "getStoreInstanceIndicator",
+            "onBeforeInstantiation",
+            "instantiateStatic",
+            "getServiceInstance",
+            "removeServices",
+            "scheduleServices"
+        ]
+    },
+    "Molajo\\Service\\Response\\ResponseServiceProvider": {
+        "name": "ResponseServiceProvider",
+        "namespace": "Molajo\\Service\\Response",
+        "fqns": "Molajo\\Service\\Response\\ResponseServiceProvider",
+        "file_name": "\/Users\/amystephen\/Sites\/Molajo\/Molajo\/vendor\/molajo\/http\/Service\/Response\/ResponseServiceProvider.php",
+        "path": "vendor\/molajo\/http\/Service\/Response\/ResponseServiceProvider.php",
+        "parent": "Molajo\\IoC\\AbstractServiceProvider",
+        "implemented_interfaces": [
+            "CommonApi\\IoC\\ServiceProviderInterface"
+        ],
+        "constructor_parameters": [
+            {
+                "name": "options",
+                "default_available": true,
+                "default_value": [
+
+                ],
+                "instance_of": null,
+                "is_instantiable": false
+            }
+        ],
+        "constructor_docComment": "\/**\n     * Constructor\n     *\n     * @param  array $option\n     *\n     * @since  1.0\n     *\/",
+        "implemented_by": [
+
+        ],
+        "dependency_for": [
+
+        ],
+        "method": [
+            "__construct",
+            "setDependencies",
+            "instantiateService",
+            "getServiceNamespace",
+            "getServiceOptions",
+            "getStoreInstanceIndicator",
+            "onBeforeInstantiation",
+            "instantiateStatic",
+            "onAfterInstantiation",
+            "getServiceInstance",
+            "removeServices",
+            "setServices",
+            "scheduleServices"
+        ]
+    },
+    "Molajo\\Service\\Server\\ServerServiceProvider": {
+        "name": "ServerServiceProvider",
+        "namespace": "Molajo\\Service\\Server",
+        "fqns": "Molajo\\Service\\Server\\ServerServiceProvider",
+        "file_name": "\/Users\/amystephen\/Sites\/Molajo\/Molajo\/vendor\/molajo\/http\/Service\/Server\/ServerServiceProvider.php",
+        "path": "vendor\/molajo\/http\/Service\/Server\/ServerServiceProvider.php",
+        "parent": "Molajo\\IoC\\AbstractServiceProvider",
+        "implemented_interfaces": [
+            "CommonApi\\IoC\\ServiceProviderInterface"
+        ],
+        "constructor_parameters": [
+            {
+                "name": "options",
+                "default_available": true,
+                "default_value": [
+
+                ],
+                "instance_of": null,
+                "is_instantiable": false
+            }
+        ],
+        "constructor_docComment": "\/**\n     * Constructor\n     *\n     * @param  $options\n     *\n     * @since  1.0\n     *\/",
+        "implemented_by": [
+
+        ],
+        "dependency_for": [
+
+        ],
+        "method": [
+            "__construct",
+            "setDependencies",
+            "instantiateService",
+            "onAfterInstantiation",
+            "setServices",
+            "getServiceNamespace",
+            "getServiceOptions",
+            "getStoreInstanceIndicator",
+            "onBeforeInstantiation",
+            "instantiateStatic",
+            "getServiceInstance",
+            "removeServices",
+            "scheduleServices"
+        ]
+    },
+    "Molajo\\Service\\Upload\\UploadServiceProvider": {
+        "name": "UploadServiceProvider",
+        "namespace": "Molajo\\Service\\Upload",
+        "fqns": "Molajo\\Service\\Upload\\UploadServiceProvider",
+        "file_name": "\/Users\/amystephen\/Sites\/Molajo\/Molajo\/vendor\/molajo\/http\/Service\/Upload\/UploadServiceProvider.php",
+        "path": "vendor\/molajo\/http\/Service\/Upload\/UploadServiceProvider.php",
+        "parent": "Molajo\\IoC\\AbstractServiceProvider",
+        "implemented_interfaces": [
+            "CommonApi\\IoC\\ServiceProviderInterface"
+        ],
+        "constructor_parameters": [
+            {
+                "name": "options",
+                "default_available": true,
+                "default_value": [
+
+                ],
+                "instance_of": null,
+                "is_instantiable": false
+            }
+        ],
+        "constructor_docComment": "\/**\n     * Constructor\n     *\n     * @param  $options\n     *\n     * @since  1.0\n     *\/",
+        "implemented_by": [
+
+        ],
+        "dependency_for": [
+
+        ],
+        "method": [
+            "__construct",
+            "setDependencies",
+            "instantiateService",
+            "getServiceNamespace",
+            "getServiceOptions",
+            "getStoreInstanceIndicator",
+            "onBeforeInstantiation",
+            "instantiateStatic",
+            "onAfterInstantiation",
+            "getServiceInstance",
+            "removeServices",
+            "setServices",
+            "scheduleServices"
+        ]
+    },
     "Molajo\\IoC\\AbstractServiceProvider": {
         "name": "AbstractServiceProvider",
         "namespace": "Molajo\\IoC",
@@ -15562,8 +15478,8 @@
             "instantiateStatic",
             "onAfterInstantiation",
             "getServiceInstance",
-            "setService",
-            "removeService",
+            "removeServices",
+            "setServices",
             "scheduleServices"
         ]
     },
@@ -15611,7 +15527,6 @@
         ],
         "method": [
             "__construct",
-            "scheduleServices",
             "scheduleService",
             "has",
             "get",
@@ -15715,6 +15630,8 @@
                     "Molajo\\Service\\Language\\LanguageServiceProvider",
                     "Molajo\\Service\\Mailer\\MailerServiceProvider",
                     "Molajo\\Service\\Messages\\MessagesServiceProvider",
+                    "Molajo\\Service\\Molajito\\MolajitoServiceProvider",
+                    "Molajo\\Service\\Plugindata\\PlugindataServiceProvider",
                     "Molajo\\Service\\Redirect\\RedirectServiceProvider",
                     "Molajo\\Service\\Registration\\RegistrationServiceProvider",
                     "Molajo\\Service\\Render\\RenderServiceProvider",
@@ -15729,6 +15646,7 @@
                     "Molajo\\Service\\Resourcerendering\\ResourcerenderingServiceProvider",
                     "Molajo\\Service\\Response\\ResponseServiceProvider",
                     "Molajo\\Service\\Route\\RouteServiceProvider",
+                    "Molajo\\Service\\Runtimedata\\RuntimedataServiceProvider",
                     "Molajo\\Service\\Server\\ServerServiceProvider",
                     "Molajo\\Service\\Session\\SessionServiceProvider",
                     "Molajo\\Service\\Site\\SiteServiceProvider",
@@ -15762,8 +15680,8 @@
             "instantiateService",
             "onAfterInstantiation",
             "getServiceInstance",
-            "setService",
-            "removeService",
+            "removeServices",
+            "setServices",
             "scheduleServices"
         ]
     },
@@ -15806,17 +15724,17 @@
             "instantiateStatic",
             "onAfterInstantiation",
             "getServiceInstance",
-            "setService",
-            "removeService",
+            "removeServices",
+            "setServices",
             "scheduleServices"
         ]
     },
-    "Molajo\\Service\\Render\\RenderServiceProvider": {
-        "name": "RenderServiceProvider",
-        "namespace": "Molajo\\Service\\Render",
-        "fqns": "Molajo\\Service\\Render\\RenderServiceProvider",
-        "file_name": "\/Users\/amystephen\/Sites\/Molajo\/Molajo\/vendor\/molajo\/render\/Service\/Render\/PaginationServiceProvider.php",
-        "path": "vendor\/molajo\/render\/Service\/Render\/PaginationServiceProvider.php",
+    "Molajo\\Service\\Language\\LanguageServiceProvider": {
+        "name": "LanguageServiceProvider",
+        "namespace": "Molajo\\Service\\Language",
+        "fqns": "Molajo\\Service\\Language\\LanguageServiceProvider",
+        "file_name": "\/Users\/amystephen\/Sites\/Molajo\/Molajo\/vendor\/molajo\/language\/Service\/Language\/LanguageServiceProvider.php",
+        "path": "vendor\/molajo\/language\/Service\/Language\/LanguageServiceProvider.php",
         "parent": "Molajo\\IoC\\AbstractServiceProvider",
         "implemented_interfaces": [
             "CommonApi\\IoC\\ServiceProviderInterface"
@@ -15842,25 +15760,26 @@
         "method": [
             "__construct",
             "setDependencies",
-            "onBeforeInstantiation",
             "instantiateService",
+            "instantiateDatabaseHandler",
             "getServiceNamespace",
             "getServiceOptions",
             "getStoreInstanceIndicator",
+            "onBeforeInstantiation",
             "instantiateStatic",
             "onAfterInstantiation",
             "getServiceInstance",
-            "setService",
-            "removeService",
+            "removeServices",
+            "setServices",
             "scheduleServices"
         ]
     },
-    "Molajo\\Service\\Resourcerendering\\ResourcerenderingServiceProvider": {
-        "name": "ResourcerenderingServiceProvider",
-        "namespace": "Molajo\\Service\\Resourcerendering",
-        "fqns": "Molajo\\Service\\Resourcerendering\\ResourcerenderingServiceProvider",
-        "file_name": "\/Users\/amystephen\/Sites\/Molajo\/Molajo\/vendor\/molajo\/render\/Service\/Resourcerendering\/ResourcerenderingServiceProvider.php",
-        "path": "vendor\/molajo\/render\/Service\/Resourcerendering\/ResourcerenderingServiceProvider.php",
+    "Molajo\\Service\\Molajito\\MolajitoServiceProvider": {
+        "name": "MolajitoServiceProvider",
+        "namespace": "Molajo\\Service\\Molajito",
+        "fqns": "Molajo\\Service\\Molajito\\MolajitoServiceProvider",
+        "file_name": "\/Users\/amystephen\/Sites\/Molajo\/Molajo\/vendor\/molajo\/molajito\/Service\/Molajito\/MolajitoServiceProvider.php",
+        "path": "vendor\/molajo\/molajito\/Service\/Molajito\/MolajitoServiceProvider.php",
         "parent": "Molajo\\IoC\\AbstractServiceProvider",
         "implemented_interfaces": [
             "CommonApi\\IoC\\ServiceProviderInterface"
@@ -15876,7 +15795,7 @@
                 "is_instantiable": false
             }
         ],
-        "constructor_docComment": "\/**\n     * Constructor\n     *\n     * @param  array $options\n     *\n     * @since  1.0\n     *\/",
+        "constructor_docComment": "\/**\n     * Constructor\n     *\n     * @param  $options\n     *\n     * @since  1.0\n     *\/",
         "implemented_by": [
 
         ],
@@ -15886,16 +15805,674 @@
         "method": [
             "__construct",
             "setDependencies",
-            "onBeforeInstantiation",
+            "instantiateService",
             "getServiceNamespace",
             "getServiceOptions",
             "getStoreInstanceIndicator",
-            "instantiateService",
+            "onBeforeInstantiation",
             "instantiateStatic",
             "onAfterInstantiation",
             "getServiceInstance",
-            "setService",
-            "removeService",
+            "removeServices",
+            "setServices",
+            "scheduleServices"
+        ]
+    },
+    "Molajito\\DataResource": {
+        "name": "DataResource",
+        "namespace": "Molajito",
+        "fqns": "Molajito\\DataResource",
+        "file_name": "\/Users\/amystephen\/Sites\/Molajo\/Molajo\/vendor\/molajo\/molajito\/Source\/DataResource.php",
+        "path": "vendor\/molajo\/molajito\/Source\/DataResource.php",
+        "parent": false,
+        "implemented_interfaces": [
+            "CommonApi\\Render\\DataResourceInterface"
+        ],
+        "constructor_parameters": [
+            {
+                "name": "runtime_data",
+                "default_available": false,
+                "default_value": null,
+                "instance_of": null,
+                "is_instantiable": false
+            },
+            {
+                "name": "plugin_data",
+                "default_available": false,
+                "default_value": null,
+                "instance_of": null,
+                "is_instantiable": false
+            },
+            {
+                "name": "token",
+                "default_available": false,
+                "default_value": null,
+                "instance_of": null,
+                "is_instantiable": false
+            }
+        ],
+        "constructor_docComment": "\/**\n     * Constructor\n     *\n     * @param  object $resource\n     * @param  object $runtime_data\n     * @param  object $plugin_data\n     * @param  string $token\n     *\n     * @since  1.0\n     *\/",
+        "implemented_by": [
+
+        ],
+        "dependency_for": [
+
+        ],
+        "method": [
+            "__construct",
+            "getData"
+        ]
+    },
+    "Molajito\\EventHandler": {
+        "name": "EventHandler",
+        "namespace": "Molajito",
+        "fqns": "Molajito\\EventHandler",
+        "file_name": "\/Users\/amystephen\/Sites\/Molajo\/Molajo\/vendor\/molajo\/molajito\/Source\/EventHandler.php",
+        "path": "vendor\/molajo\/molajito\/Source\/EventHandler.php",
+        "parent": false,
+        "implemented_interfaces": [
+            "CommonApi\\Render\\EventHandlerInterface"
+        ],
+        "constructor_parameters": [
+            {
+                "name": "event_callback",
+                "default_available": true,
+                "default_value": null,
+                "instance_of": null,
+                "is_instantiable": false
+            },
+            {
+                "name": "event_option_keys",
+                "default_available": true,
+                "default_value": [
+
+                ],
+                "instance_of": null,
+                "is_instantiable": false
+            }
+        ],
+        "constructor_docComment": "\/**\n     * Constructor\n     *\n     * @param  callable $event_callback\n     * @param  array    $event_option_keys\n     *\n     * @since  1.0\n     *\/",
+        "implemented_by": [
+
+        ],
+        "dependency_for": [
+
+        ],
+        "method": [
+            "__construct",
+            "initializeEventOptions",
+            "scheduleEvent"
+        ]
+    },
+    "Molajito\\ExtensionResource": {
+        "name": "ExtensionResource",
+        "namespace": "Molajito",
+        "fqns": "Molajito\\ExtensionResource",
+        "file_name": "\/Users\/amystephen\/Sites\/Molajo\/Molajo\/vendor\/molajo\/molajito\/Source\/ExtensionResource.php",
+        "path": "vendor\/molajo\/molajito\/Source\/ExtensionResource.php",
+        "parent": false,
+        "implemented_interfaces": [
+            "CommonApi\\Render\\ExtensionResourceInterface"
+        ],
+        "constructor_parameters": [
+            {
+                "name": "resource",
+                "default_available": false,
+                "default_value": null,
+                "instance_of": null,
+                "is_instantiable": false
+            },
+            {
+                "name": "theme",
+                "default_available": false,
+                "default_value": null,
+                "instance_of": null,
+                "is_instantiable": false
+            },
+            {
+                "name": "page_view",
+                "default_available": false,
+                "default_value": null,
+                "instance_of": null,
+                "is_instantiable": false
+            },
+            {
+                "name": "template_view",
+                "default_available": false,
+                "default_value": null,
+                "instance_of": null,
+                "is_instantiable": false
+            },
+            {
+                "name": "wrap_view",
+                "default_available": false,
+                "default_value": null,
+                "instance_of": null,
+                "is_instantiable": false
+            }
+        ],
+        "constructor_docComment": "\/**\n     * Constructor\n     *\n     * @param  object $resource\n     * @param  string $theme\n     * @param  string $page_view\n     * @param  string $template_view\n     * @param  string $wrap_view\n     *\n     * @since  1.0\n     *\/",
+        "implemented_by": [
+
+        ],
+        "dependency_for": [
+
+        ],
+        "method": [
+            "__construct",
+            "getResourceExtension",
+            "getExtension"
+        ]
+    },
+    "Molajito\\Molajito": {
+        "name": "Molajito",
+        "namespace": "Molajito",
+        "fqns": "Molajito\\Molajito",
+        "file_name": "\/Users\/amystephen\/Sites\/Molajo\/Molajo\/vendor\/molajo\/molajito\/Source\/Molajito.php",
+        "path": "vendor\/molajo\/molajito\/Source\/Molajito.php",
+        "parent": false,
+        "implemented_interfaces": [
+            "CommonApi\\Render\\RenderInterface"
+        ],
+        "constructor_parameters": [
+            {
+                "name": "exclude_tokens",
+                "default_available": true,
+                "default_value": [
+
+                ],
+                "instance_of": null,
+                "is_instantiable": false
+            },
+            {
+                "name": "event_handler",
+                "default_available": false,
+                "default_value": null,
+                "instance_of": "CommonApi\\Render\\EventHandlerInterface",
+                "is_instantiable": false,
+                "implemented_by": [
+                    "Molajito\\EventHandler"
+                ],
+                "concrete": false
+            },
+            {
+                "name": "event_option_keys",
+                "default_available": true,
+                "default_value": [
+
+                ],
+                "instance_of": null,
+                "is_instantiable": false
+            },
+            {
+                "name": "extension_resource",
+                "default_available": false,
+                "default_value": null,
+                "instance_of": "CommonApi\\Render\\ExtensionResourceInterface",
+                "is_instantiable": false,
+                "implemented_by": [
+                    "Molajito\\ExtensionResource"
+                ],
+                "concrete": false
+            },
+            {
+                "name": "stop_loop_count",
+                "default_available": true,
+                "default_value": 100,
+                "instance_of": null,
+                "is_instantiable": false
+            },
+            {
+                "name": "theme_path",
+                "default_available": false,
+                "default_value": null,
+                "instance_of": null,
+                "is_instantiable": false
+            },
+            {
+                "name": "page_name",
+                "default_available": false,
+                "default_value": null,
+                "instance_of": null,
+                "is_instantiable": false
+            },
+            {
+                "name": "runtime_data",
+                "default_available": false,
+                "default_value": null,
+                "instance_of": null,
+                "is_instantiable": false
+            },
+            {
+                "name": "plugin_data",
+                "default_available": false,
+                "default_value": null,
+                "instance_of": null,
+                "is_instantiable": false
+            },
+            {
+                "name": "rendering_properties",
+                "default_available": true,
+                "default_value": [
+
+                ],
+                "instance_of": null,
+                "is_instantiable": false
+            }
+        ],
+        "constructor_docComment": "\/**\n     * Constructor\n     *\n     * @param  array                      $exclude_tokens\n     * @param  EventHandlerInterface      $event_handler\n     * @param  array                      $event_option_keys\n     * @param  ExtensionResourceInterface $extension_resource\n     * @param  int                        $stop_loop_count\n     * @param  string                     $theme_path\n     * @param  string                     $page_name\n     * @param  object                     $runtime_data\n     * @param  object                     $plugin_data\n     * @param  array                      $rendering_properties\n     *\n     * @since  1.0\n     *\/",
+        "implemented_by": [
+
+        ],
+        "dependency_for": [
+
+        ],
+        "method": [
+            "__construct",
+            "render",
+            "renderTheme"
+        ]
+    },
+    "Molajito\\PageViewRenderer": {
+        "name": "PageViewRenderer",
+        "namespace": "Molajito",
+        "fqns": "Molajito\\PageViewRenderer",
+        "file_name": "\/Users\/amystephen\/Sites\/Molajo\/Molajo\/vendor\/molajo\/molajito\/Source\/PageViewRenderer.php",
+        "path": "vendor\/molajo\/molajito\/Source\/PageViewRenderer.php",
+        "parent": false,
+        "implemented_interfaces": [
+            "CommonApi\\Render\\RenderInterface"
+        ],
+        "constructor_parameters": [
+            {
+                "name": "include_path",
+                "default_available": false,
+                "default_value": null,
+                "instance_of": null,
+                "is_instantiable": false
+            },
+            {
+                "name": "rendering_properties",
+                "default_available": true,
+                "default_value": [
+
+                ],
+                "instance_of": null,
+                "is_instantiable": false
+            }
+        ],
+        "constructor_docComment": "\/**\n     * Constructor\n     *\n     * @param  string $include_path\n     * @param  array  $rendering_properties\n     *\n     * @since  1.0\n     *\/",
+        "implemented_by": [
+
+        ],
+        "dependency_for": [
+
+        ],
+        "method": [
+            "__construct",
+            "render"
+        ]
+    },
+    "Molajito\\Parse": {
+        "name": "Parse",
+        "namespace": "Molajito",
+        "fqns": "Molajito\\Parse",
+        "file_name": "\/Users\/amystephen\/Sites\/Molajo\/Molajo\/vendor\/molajo\/molajito\/Source\/Parse.php",
+        "path": "vendor\/molajo\/molajito\/Source\/Parse.php",
+        "parent": false,
+        "implemented_interfaces": [
+            "CommonApi\\Render\\ParseInterface"
+        ],
+        "constructor_parameters": [
+            {
+                "name": "rendered_page",
+                "default_available": false,
+                "default_value": null,
+                "instance_of": null,
+                "is_instantiable": false
+            },
+            {
+                "name": "exclude_tokens",
+                "default_available": true,
+                "default_value": [
+
+                ],
+                "instance_of": null,
+                "is_instantiable": false
+            },
+            {
+                "name": "parse_mask",
+                "default_available": true,
+                "default_value": "#<include(.*)\\\/>#iU",
+                "instance_of": null,
+                "is_instantiable": false
+            }
+        ],
+        "constructor_docComment": "\/**\n     * Constructor\n     *\n     * @param   string $rendered_page\n     * @param   array  $exclude_tokens\n     * @param   string $parse_mask\n     *\n     * @since   1.0\n     *\/",
+        "implemented_by": [
+
+        ],
+        "dependency_for": [
+
+        ],
+        "method": [
+            "__construct",
+            "parse"
+        ]
+    },
+    "Molajito\\Render": {
+        "name": "Render",
+        "namespace": "Molajito",
+        "fqns": "Molajito\\Render",
+        "file_name": "\/Users\/amystephen\/Sites\/Molajo\/Molajo\/vendor\/molajo\/molajito\/Source\/Render.php",
+        "path": "vendor\/molajo\/molajito\/Source\/Render.php",
+        "parent": false,
+        "implemented_interfaces": [
+            "CommonApi\\Render\\RenderInterface"
+        ],
+        "constructor_parameters": [
+            {
+                "name": "options",
+                "default_available": true,
+                "default_value": [
+
+                ],
+                "instance_of": null,
+                "is_instantiable": false
+            }
+        ],
+        "constructor_docComment": "\/**\n     * Constructor\n     *\n     * @param   array $options\n     *\n     * @since  1.0\n     *\/",
+        "implemented_by": [
+
+        ],
+        "dependency_for": [
+
+        ],
+        "method": [
+            "__construct",
+            "render"
+        ]
+    },
+    "Molajito\\TemplateViewRenderer": {
+        "name": "TemplateViewRenderer",
+        "namespace": "Molajito",
+        "fqns": "Molajito\\TemplateViewRenderer",
+        "file_name": "\/Users\/amystephen\/Sites\/Molajo\/Molajo\/vendor\/molajo\/molajito\/Source\/TemplateViewRenderer.php",
+        "path": "vendor\/molajo\/molajito\/Source\/TemplateViewRenderer.php",
+        "parent": false,
+        "implemented_interfaces": [
+            "CommonApi\\Render\\RenderInterface"
+        ],
+        "constructor_parameters": [
+            {
+                "name": "include_path",
+                "default_available": false,
+                "default_value": null,
+                "instance_of": null,
+                "is_instantiable": false
+            },
+            {
+                "name": "event_handler",
+                "default_available": false,
+                "default_value": null,
+                "instance_of": "CommonApi\\Render\\EventHandlerInterface",
+                "is_instantiable": false,
+                "implemented_by": [
+                    "Molajito\\EventHandler"
+                ],
+                "concrete": false
+            },
+            {
+                "name": "event_option_keys",
+                "default_available": true,
+                "default_value": [
+
+                ],
+                "instance_of": null,
+                "is_instantiable": false
+            },
+            {
+                "name": "rendering_properties",
+                "default_available": true,
+                "default_value": [
+
+                ],
+                "instance_of": null,
+                "is_instantiable": false
+            }
+        ],
+        "constructor_docComment": "\/**\n     * Constructor\n     *\n     * @param  string                $include_path\n     * @param  EventHandlerInterface $event_handler\n     * @param  array                 $event_option_keys\n     * @param  array                 $rendering_properties\n     *\n     * @since  1.0\n     *\/",
+        "implemented_by": [
+
+        ],
+        "dependency_for": [
+
+        ],
+        "method": [
+            "__construct",
+            "render",
+            "renderLoop"
+        ]
+    },
+    "Molajito\\ThemeRenderer": {
+        "name": "ThemeRenderer",
+        "namespace": "Molajito",
+        "fqns": "Molajito\\ThemeRenderer",
+        "file_name": "\/Users\/amystephen\/Sites\/Molajo\/Molajo\/vendor\/molajo\/molajito\/Source\/ThemeRenderer.php",
+        "path": "vendor\/molajo\/molajito\/Source\/ThemeRenderer.php",
+        "parent": false,
+        "implemented_interfaces": [
+            "CommonApi\\Render\\RenderInterface"
+        ],
+        "constructor_parameters": [
+            {
+                "name": "include_path",
+                "default_available": false,
+                "default_value": null,
+                "instance_of": null,
+                "is_instantiable": false
+            },
+            {
+                "name": "rendering_properties",
+                "default_available": true,
+                "default_value": [
+
+                ],
+                "instance_of": null,
+                "is_instantiable": false
+            }
+        ],
+        "constructor_docComment": "\/**\n     * Constructor\n     *\n     * @param  string $include_path\n     * @param  array  $rendering_properties\n     *\n     * @since  1.0\n     *\/",
+        "implemented_by": [
+
+        ],
+        "dependency_for": [
+
+        ],
+        "method": [
+            "__construct",
+            "render"
+        ]
+    },
+    "Molajito\\WrapViewRenderer": {
+        "name": "WrapViewRenderer",
+        "namespace": "Molajito",
+        "fqns": "Molajito\\WrapViewRenderer",
+        "file_name": "\/Users\/amystephen\/Sites\/Molajo\/Molajo\/vendor\/molajo\/molajito\/Source\/WrapViewRenderer.php",
+        "path": "vendor\/molajo\/molajito\/Source\/WrapViewRenderer.php",
+        "parent": false,
+        "implemented_interfaces": [
+            "CommonApi\\Render\\RenderInterface"
+        ],
+        "constructor_parameters": [
+            {
+                "name": "include_path",
+                "default_available": false,
+                "default_value": null,
+                "instance_of": null,
+                "is_instantiable": false
+            },
+            {
+                "name": "rendering_properties",
+                "default_available": true,
+                "default_value": [
+
+                ],
+                "instance_of": null,
+                "is_instantiable": false
+            }
+        ],
+        "constructor_docComment": "\/**\n     * Constructor\n     *\n     * @param  string $include_path\n     * @param  array  $rendering_properties\n     *\n     * @since  1.0\n     *\/",
+        "implemented_by": [
+
+        ],
+        "dependency_for": [
+
+        ],
+        "method": [
+            "__construct",
+            "render"
+        ]
+    },
+    "Molajo\\Pagination\\Pagination": {
+        "name": "Pagination",
+        "namespace": "Molajo\\Pagination",
+        "fqns": "Molajo\\Pagination\\Pagination",
+        "file_name": "\/Users\/amystephen\/Sites\/Molajo\/Molajo\/vendor\/molajo\/pagination\/Source\/Pagination.php",
+        "path": "vendor\/molajo\/pagination\/Source\/Pagination.php",
+        "parent": false,
+        "implemented_interfaces": [
+            "CommonApi\\Render\\PaginationInterface",
+            "IteratorAggregate",
+            "Traversable",
+            "ArrayAccess",
+            "Countable"
+        ],
+        "constructor_parameters": [
+            {
+                "name": "data",
+                "default_available": true,
+                "default_value": [
+
+                ],
+                "instance_of": null,
+                "is_instantiable": false
+            },
+            {
+                "name": "page_url",
+                "default_available": false,
+                "default_value": null,
+                "instance_of": null,
+                "is_instantiable": false
+            },
+            {
+                "name": "query_parameters",
+                "default_available": true,
+                "default_value": [
+
+                ],
+                "instance_of": null,
+                "is_instantiable": false
+            },
+            {
+                "name": "total_items",
+                "default_available": false,
+                "default_value": null,
+                "instance_of": null,
+                "is_instantiable": false
+            },
+            {
+                "name": "per_page",
+                "default_available": false,
+                "default_value": null,
+                "instance_of": null,
+                "is_instantiable": false
+            },
+            {
+                "name": "display_links",
+                "default_available": false,
+                "default_value": null,
+                "instance_of": null,
+                "is_instantiable": false
+            },
+            {
+                "name": "page",
+                "default_available": false,
+                "default_value": null,
+                "instance_of": null,
+                "is_instantiable": false
+            }
+        ],
+        "constructor_docComment": "\/**\n     * Construct\n     *\n     * @param  array  $data             Data to be displayed (not full results)\n     * @param  string $page_url         URL for page on which paginated appears\n     * @param  array  $query_parameters URL Query Parameters (other than page)\n     * @param  int    $total_items      Total items in full resultset for data\n     * @param  int    $per_page         Number of items per page\n     * @param  int    $display_links    Number of page number \"buttons\" to show\n     * @param  int    $page             Current page\n     *\n     * @since  1.0\n     *\/",
+        "implemented_by": [
+
+        ],
+        "dependency_for": [
+
+        ],
+        "method": [
+            "__construct",
+            "getFirstPage",
+            "getPrevPage",
+            "getStartDisplayPage",
+            "getCurrentPage",
+            "getStopDisplayPage",
+            "getNextPage",
+            "getLastPage",
+            "getData",
+            "getTotalItems",
+            "getPageUrl",
+            "getIterator",
+            "offsetSet",
+            "offsetExists",
+            "offsetGet",
+            "offsetUnset",
+            "isEmpty",
+            "count"
+        ]
+    },
+    "Molajo\\Service\\Render\\RenderServiceProvider": {
+        "name": "RenderServiceProvider",
+        "namespace": "Molajo\\Service\\Render",
+        "fqns": "Molajo\\Service\\Render\\RenderServiceProvider",
+        "file_name": "\/Users\/amystephen\/Sites\/Molajo\/Molajo\/vendor\/molajo\/render\/Service\/Render\/RenderServiceProvider.php",
+        "path": "vendor\/molajo\/render\/Service\/Render\/RenderServiceProvider.php",
+        "parent": "Molajo\\IoC\\AbstractServiceProvider",
+        "implemented_interfaces": [
+            "CommonApi\\IoC\\ServiceProviderInterface"
+        ],
+        "constructor_parameters": [
+            {
+                "name": "options",
+                "default_available": true,
+                "default_value": [
+
+                ],
+                "instance_of": null,
+                "is_instantiable": false
+            }
+        ],
+        "constructor_docComment": "\/**\n     * Constructor\n     *\n     * @param  $options\n     *\n     * @since  1.0\n     *\/",
+        "implemented_by": [
+
+        ],
+        "dependency_for": [
+
+        ],
+        "method": [
+            "__construct",
+            "setDependencies",
+            "instantiateService",
+            "getMolajitoHandler",
+            "getServiceNamespace",
+            "getServiceOptions",
+            "getStoreInstanceIndicator",
+            "onBeforeInstantiation",
+            "instantiateStatic",
+            "onAfterInstantiation",
+            "getServiceInstance",
+            "removeServices",
+            "setServices",
             "scheduleServices"
         ]
     },
@@ -15939,8 +16516,8 @@
             "getStoreInstanceIndicator",
             "instantiateStatic",
             "getServiceInstance",
-            "setService",
-            "removeService"
+            "removeServices",
+            "setServices"
         ]
     },
     "Molajo\\Service\\Resourcecss\\ResourcecssServiceProvider": {
@@ -15982,8 +16559,8 @@
             "instantiateService",
             "instantiateStatic",
             "getServiceInstance",
-            "setService",
-            "removeService",
+            "removeServices",
+            "setServices",
             "scheduleServices"
         ]
     },
@@ -16026,8 +16603,8 @@
             "instantiateService",
             "instantiateStatic",
             "getServiceInstance",
-            "setService",
-            "removeService",
+            "removeServices",
+            "setServices",
             "scheduleServices"
         ]
     },
@@ -16064,7 +16641,7 @@
             "setDependencies",
             "instantiateService",
             "onAfterInstantiation",
-            "setService",
+            "setServices",
             "createXmlHandler",
             "getServiceNamespace",
             "getServiceOptions",
@@ -16072,7 +16649,7 @@
             "onBeforeInstantiation",
             "instantiateStatic",
             "getServiceInstance",
-            "removeService",
+            "removeServices",
             "scheduleServices"
         ]
     },
@@ -16115,8 +16692,8 @@
             "instantiateService",
             "instantiateStatic",
             "getServiceInstance",
-            "setService",
-            "removeService",
+            "removeServices",
+            "setServices",
             "scheduleServices"
         ]
     },
@@ -16159,8 +16736,8 @@
             "instantiateService",
             "instantiateStatic",
             "getServiceInstance",
-            "setService",
-            "removeService",
+            "removeServices",
+            "setServices",
             "scheduleServices"
         ]
     },
@@ -17071,15 +17648,15 @@
             "setDependencies",
             "onBeforeInstantiation",
             "instantiateService",
+            "onAfterInstantiation",
+            "setServices",
             "getApplicationFilters",
             "getServiceNamespace",
             "getServiceOptions",
             "getStoreInstanceIndicator",
             "instantiateStatic",
-            "onAfterInstantiation",
             "getServiceInstance",
-            "setService",
-            "removeService",
+            "removeServices",
             "scheduleServices"
         ]
     },
@@ -17347,8 +17924,8 @@
             "instantiateStatic",
             "onAfterInstantiation",
             "getServiceInstance",
-            "setService",
-            "removeService",
+            "removeServices",
+            "setServices",
             "scheduleServices"
         ]
     },
@@ -17394,8 +17971,8 @@
             "instantiateService",
             "instantiateStatic",
             "getServiceInstance",
-            "setService",
-            "removeService"
+            "removeServices",
+            "setServices"
         ]
     },
     "Molajo\\Service\\Cookie\\CookieServiceProvider": {
@@ -17437,8 +18014,8 @@
             "instantiateStatic",
             "onAfterInstantiation",
             "getServiceInstance",
-            "setService",
-            "removeService",
+            "removeServices",
+            "setServices",
             "scheduleServices"
         ]
     },
@@ -17481,8 +18058,8 @@
             "instantiateStatic",
             "onAfterInstantiation",
             "getServiceInstance",
-            "setService",
-            "removeService",
+            "removeServices",
+            "setServices",
             "scheduleServices"
         ]
     },
@@ -17525,8 +18102,8 @@
             "instantiateStatic",
             "onAfterInstantiation",
             "getServiceInstance",
-            "setService",
-            "removeService",
+            "removeServices",
+            "setServices",
             "scheduleServices"
         ]
     },
@@ -17561,17 +18138,17 @@
         "method": [
             "__construct",
             "setDependencies",
-            "instantiateService",
-            "setService",
-            "scheduleServices",
+            "setServices",
             "getServiceNamespace",
             "getServiceOptions",
             "getStoreInstanceIndicator",
             "onBeforeInstantiation",
+            "instantiateService",
             "instantiateStatic",
             "onAfterInstantiation",
             "getServiceInstance",
-            "removeService"
+            "removeServices",
+            "scheduleServices"
         ]
     },
     "Molajo\\Service\\Mailer\\MailerServiceProvider": {
@@ -17613,8 +18190,8 @@
             "instantiateStatic",
             "onAfterInstantiation",
             "getServiceInstance",
-            "setService",
-            "removeService",
+            "removeServices",
+            "setServices",
             "scheduleServices"
         ]
     },
@@ -17657,8 +18234,8 @@
             "instantiateStatic",
             "onAfterInstantiation",
             "getServiceInstance",
-            "setService",
-            "removeService",
+            "removeServices",
+            "setServices",
             "scheduleServices"
         ]
     },
@@ -17701,8 +18278,8 @@
             "instantiateStatic",
             "onAfterInstantiation",
             "getServiceInstance",
-            "setService",
-            "removeService",
+            "removeServices",
+            "setServices",
             "scheduleServices"
         ]
     },
@@ -17745,8 +18322,8 @@
             "instantiateStatic",
             "onAfterInstantiation",
             "getServiceInstance",
-            "setService",
-            "removeService",
+            "removeServices",
+            "setServices",
             "scheduleServices"
         ]
     },
@@ -17790,8 +18367,8 @@
             "instantiateStatic",
             "onAfterInstantiation",
             "getServiceInstance",
-            "setService",
-            "removeService",
+            "removeServices",
+            "setServices",
             "scheduleServices"
         ]
     },
@@ -17842,8 +18419,8 @@
             "instantiateStatic",
             "onAfterInstantiation",
             "getServiceInstance",
-            "setService",
-            "removeService"
+            "removeServices",
+            "setServices"
         ]
     },
     "Molajo\\Service\\Userdata\\UserdataServiceProvider": {
@@ -17886,8 +18463,8 @@
             "instantiateStatic",
             "onAfterInstantiation",
             "getServiceInstance",
-            "setService",
-            "removeService"
+            "removeServices",
+            "setServices"
         ]
     },
     "Molajo\\User\\Activity": {

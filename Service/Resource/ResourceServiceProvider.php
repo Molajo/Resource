@@ -185,18 +185,18 @@ class ResourceServiceProvider extends AbstractServiceProvider implements Service
         $options                                = array();
         $options['store_instance_indicator']    = true;
         $options['service_name']                = 'Fieldhandler';
-        $this->schedule_service['Fieldhandler'] = $options;
+        $this->schedule_services['Fieldhandler'] = $options;
 
         $options                                = array();
         $options['Resource']                    = $this->service_instance;
-        $this->schedule_service['Resourcedata'] = $options;
+        $this->schedule_services['Resourcedata'] = $options;
 
         $options                                     = array();
         $options['store_instance_indicator']         = true;
         $options['service_name']                     = 'Exceptionhandling';
-        $this->schedule_service['Exceptionhandling'] = $options;
+        $this->schedule_services['Exceptionhandling'] = $options;
 
-        return $this->schedule_service;
+        return $this->schedule_services;
     }
 
     /**

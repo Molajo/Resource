@@ -8,6 +8,7 @@
  */
 namespace Molajo\Service\Resourcecssdeclarations;
 
+use Exception;
 use Molajo\IoC\AbstractServiceProvider;
 use CommonApi\IoC\ServiceProviderInterface;
 use CommonApi\Exception\RuntimeException;
@@ -50,8 +51,9 @@ class ResourcecssdeclarationsServiceProvider extends AbstractServiceProvider imp
     {
         parent::setDependencies($reflection);
 
-        $options                        = array();
-        $this->dependencies['Resource'] = $options;
+        $options                           = array();
+        $this->dependencies['Resource']    = $options;
+        $this->dependencies['Runtimedata'] = $options;
 
         return $this->dependencies;
     }
@@ -75,6 +77,13 @@ class ResourcecssdeclarationsServiceProvider extends AbstractServiceProvider imp
         $this->dependencies['namespace_prefixes']    = array();
         $scheme                                      = $this->options['Scheme']->getScheme('cssd');
         $this->dependencies['valid_file_extensions'] = $scheme->include_file_extensions;
+
+        $this->dependencies['language_direction']
+            = $this->dependencies['Runtimedata']->application->parameters->language_direction;
+        $this->dependencies['html5']
+            = $this->dependencies['Runtimedata']->application->parameters->application_html5;
+        $this->dependencies['line_end']
+            = $this->dependencies['Runtimedata']->application->parameters->application_line_end;
 
         return $this->dependencies;
     }
@@ -113,36 +122,5 @@ class ResourcecssdeclarationsServiceProvider extends AbstractServiceProvider imp
         }
 
         return $scheme;
-    }
-
-    /**
-     * Read File
-     *
-     * @param  string $file_name
-     *
-     * @return array
-     * @since  1.0
-     */
-    protected function readFile($file_name)
-    {
-        $temp_array = array();
-
-        if (file_exists($file_name)) {
-        } else {
-            return array();
-        }
-
-        $input = file_get_contents($file_name);
-
-        $temp = json_decode($input);
-
-        if (count($temp) > 0) {
-            $temp_array = array();
-            foreach ($temp as $key => $value) {
-                $temp_array[$key] = $value;
-            }
-        }
-
-        return $temp_array;
     }
 }
