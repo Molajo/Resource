@@ -6,7 +6,7 @@
  * @license    http://www.opensource.org/licenses/mit-license.html MIT License
  * @copyright  2014 Amy Stephen. All rights reserved.
  */
-namespace Molajo\Service\Resourcedata;
+namespace Molajo\Services\Resourcedata;
 
 use Exception;
 use Molajo\IoC\AbstractServiceProvider;
@@ -179,7 +179,7 @@ class ResourcedataServiceProvider extends AbstractServiceProvider implements Ser
 
         $options = array();
 
-        $fields = $this->options['Resource']->get('xml:///Molajo//Application//Fields.xml');
+        $fields = $this->options['Resource']->get('xml:///Molajo//Model//Application//Fields.xml');
 
         /** Data Objects */
         $this->loadFieldProperties(
@@ -233,7 +233,7 @@ class ResourcedataServiceProvider extends AbstractServiceProvider implements Ser
         $datalistsArray = array();
         $datalistsArray = $this->loadDatalists(
             $datalistsArray,
-            BASE_FOLDER . '/vendor/molajo/framework/Source/Model/Datalist'
+            $this->options['base_path'] . '/vendor/molajo/application/Source/Model/Datalist'
         );
         $datalistsArray = array_unique($datalistsArray);
 
@@ -474,13 +474,14 @@ class ResourcedataServiceProvider extends AbstractServiceProvider implements Ser
     {
         $scheme = $this->createScheme();
 
-        $resource_map = $this->readFile(BASE_FOLDER . '/vendor/molajo/resource/Source/Files/Output/ResourceMap.json');
+        $resource_map = $this->readFile($this->options['base_path']
+            . '/vendor/molajo/resource/Source/Files/Output/ResourceMap.json');
 
         $class = 'Molajo\\Resource\\Handler\\XmlHandler';
 
         try {
             $xmlHandler = new $class (
-                BASE_FOLDER,
+                $this->options['base_path'],
                 $resource_map,
                 array(),
                 $scheme->getScheme('Xml')->include_file_extensions,
@@ -506,7 +507,7 @@ class ResourcedataServiceProvider extends AbstractServiceProvider implements Ser
     {
         $class = 'Molajo\\Resource\\Scheme';
 
-        $input = BASE_FOLDER . '/vendor/molajo/resource/Source/Files/Input/SchemeArray.json';
+        $input = $this->options['base_path'] . '/vendor/molajo/resource/Source/Files/Input/SchemeArray.json';
 
         try {
             $scheme = new $class ($input);

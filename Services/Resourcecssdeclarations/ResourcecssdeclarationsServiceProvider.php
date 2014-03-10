@@ -6,7 +6,7 @@
  * @license    http://www.opensource.org/licenses/mit-license.html MIT License
  * @copyright  2014 Amy Stephen. All rights reserved.
  */
-namespace Molajo\Service\Resourcecssdeclarations;
+namespace Molajo\Services\Resourcecssdeclarations;
 
 use Exception;
 use Molajo\IoC\AbstractServiceProvider;
@@ -69,9 +69,9 @@ class ResourcecssdeclarationsServiceProvider extends AbstractServiceProvider imp
     {
         parent::onBeforeInstantiation($dependency_values);
 
-        $this->dependencies['base_path']             = BASE_FOLDER;
+        $this->dependencies['base_path']             = $this->options['base_path'];
         $this->dependencies['resource_map']          = $this->readFile(
-            BASE_FOLDER . '/vendor/molajo/resource/Source/Files/Output/ResourceMap.json'
+            $this->options['base_path'] . '/vendor/molajo/resource/Source/Files/Output/ResourceMap.json'
         );
         $this->options['Scheme']                     = $this->createScheme();
         $this->dependencies['namespace_prefixes']    = array();
@@ -112,7 +112,7 @@ class ResourcecssdeclarationsServiceProvider extends AbstractServiceProvider imp
     {
         $class = 'Molajo\\Resource\\Scheme';
 
-        $input = BASE_FOLDER . '/vendor/molajo/resource/Source/Files/Input/SchemeArray.json';
+        $input = $this->options['base_path'] . '/vendor/molajo/resource/Source/Files/Input/SchemeArray.json';
 
         try {
             $scheme = new $class ($input);

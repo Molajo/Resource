@@ -6,11 +6,11 @@
  * @license    http:/www.opensource.org/licenses/mit-license.html MIT License
  * @copyright  2014 Amy Stephen. All rights reserved.
  */
-namespace Molajo\Service\Resource;
+namespace Molajo\Services\Resource;
 
 use Exception;
-use CommonApi\Exception\RuntimeException;
 use Molajo\IoC\AbstractServiceProvider;
+use CommonApi\Exception\RuntimeException;
 use CommonApi\IoC\ServiceProviderInterface;
 
 /**
@@ -60,7 +60,9 @@ class ResourceServiceProvider extends AbstractServiceProvider implements Service
 
         $handler_instance = array();
 
-        $resource_map = $this->readFile(BASE_FOLDER . '/vendor/molajo/resource/Source/Files/Output/ResourceMap.json');
+        $resource_map = $this->readFile(
+            $this->options['base_path'] . '/vendor/molajo/resource/Source/Files/Output/ResourceMap.json'
+        );
 
         /**
          * NOTE:
@@ -70,7 +72,7 @@ class ResourceServiceProvider extends AbstractServiceProvider implements Service
         $handler_instance['AssetHandler']
             = $this->createHandler(
             'AssetHandler',
-            BASE_FOLDER,
+            $this->options['base_path'],
             $resource_map,
             array(),
             $this->options['Scheme']->getScheme('Asset')->include_file_extensions
@@ -78,7 +80,7 @@ class ResourceServiceProvider extends AbstractServiceProvider implements Service
         $handler_instance['ClassHandler']
             = $this->createHandler(
             'ClassHandler',
-            BASE_FOLDER,
+            $this->options['base_path'],
             $resource_map,
             array(),
             $this->options['Scheme']->getScheme('Class')->include_file_extensions
@@ -86,7 +88,7 @@ class ResourceServiceProvider extends AbstractServiceProvider implements Service
         $handler_instance['FileHandler']
             = $this->createHandler(
             'FileHandler',
-            BASE_FOLDER,
+            $this->options['base_path'],
             $resource_map,
             array(),
             $this->options['Scheme']->getScheme('File')->include_file_extensions
@@ -94,7 +96,7 @@ class ResourceServiceProvider extends AbstractServiceProvider implements Service
         $handler_instance['FolderHandler']
             = $this->createHandler(
             'FolderHandler',
-            BASE_FOLDER,
+            $this->options['base_path'],
             $resource_map,
             array(),
             $this->options['Scheme']->getScheme('Folder')->include_file_extensions
@@ -102,7 +104,7 @@ class ResourceServiceProvider extends AbstractServiceProvider implements Service
         $handler_instance['HeadHandler']
             = $this->createHandler(
             'HeadHandler',
-            BASE_FOLDER,
+            $this->options['base_path'],
             $resource_map,
             array(),
             $this->options['Scheme']->getScheme('Head')->include_file_extensions
@@ -110,7 +112,7 @@ class ResourceServiceProvider extends AbstractServiceProvider implements Service
         $handler_instance['XmlHandler']
             = $this->createHandler(
             'XmlHandler',
-            BASE_FOLDER,
+            $this->options['base_path'],
             $resource_map,
             array(),
             $this->options['Scheme']->getScheme('Xml')->include_file_extensions
@@ -168,7 +170,7 @@ class ResourceServiceProvider extends AbstractServiceProvider implements Service
     {
         $this->service_instance->setNamespace(
             'PasswordLib\\PasswordLib',
-            BASE_FOLDER . '/Vendor' . '/Molajo' . '/User/Encrypt/PasswordLib.phar'
+            $this->options['base_path'] . '/Vendor' . '/Molajo' . '/User/Encrypt/PasswordLib.phar'
         );
 
         return $this;
@@ -182,18 +184,21 @@ class ResourceServiceProvider extends AbstractServiceProvider implements Service
      */
     public function scheduleServices()
     {
-        $options                                = array();
-        $options['store_instance_indicator']    = true;
-        $options['service_name']                = 'Fieldhandler';
+        $options                                 = array();
+        $options['store_instance_indicator']     = true;
+        $options['service_name']                 = 'Fieldhandler';
+        $options['base_path']                  = $this->options['base_path'];
         $this->schedule_services['Fieldhandler'] = $options;
 
-        $options                                = array();
-        $options['Resource']                    = $this->service_instance;
+        $options                                 = array();
+        $options['Resource']                     = $this->service_instance;
+        $options['base_path']                  = $this->options['base_path'];
         $this->schedule_services['Resourcedata'] = $options;
 
-        $options                                     = array();
-        $options['store_instance_indicator']         = true;
-        $options['service_name']                     = 'Exceptionhandling';
+        $options                                      = array();
+        $options['store_instance_indicator']          = true;
+        $options['service_name']                      = 'Exceptionhandling';
+        $options['base_path']                       = $this->options['base_path'];
         $this->schedule_services['Exceptionhandling'] = $options;
 
         return $this->schedule_services;
@@ -210,7 +215,7 @@ class ResourceServiceProvider extends AbstractServiceProvider implements Service
     {
         $class = 'Molajo\\Resource\\Scheme';
 
-        $input = BASE_FOLDER . '/vendor/molajo/resource/Source/Files/Input/SchemeArray.json';
+        $input = $this->options['base_path'] . '/vendor/molajo/resource/Source/Files/Input/SchemeArray.json';
 
         try {
             $scheme = new $class ($input);
@@ -245,6 +250,7 @@ class ResourceServiceProvider extends AbstractServiceProvider implements Service
                 $resource_map,
                 $namespace_prefixes,
                 $valid_file_extensions);
+
         } catch (Exception $e) {
             throw new RuntimeException ('Resource Handler ' . $handler
             . ' Exception during Instantiation: ' . $e->getMessage());

@@ -157,11 +157,11 @@ and for [mapping concretes to interfaces](https://github.com/Molajo/Resource/blo
 
 Following are examples of how Molajo instantiates the *Resource* class and handlers:
 
-* At start-up, the [Resource Service Provider](https://github.com/Molajo/Standard/blob/master/Application/Service/Resource/ResourceInjector.php)
+* At start-up, the [Resource Service Provider](https://github.com/Molajo/Standard/blob/master/Application/Services/Resource/ResourceInjector.php)
  instantiates the base handlers, and then injects those instances into constructed adapter.
 * In some cases, a URI handler cannot be constructed until it's dependencies are available. As an example,
 after the database is connected, the Query Handler can constructed and injected into the Resource Handler.
-The [Resource Query DI Injector](https://github.com/Molajo/Standard/blob/master/Application/Service/Resourcequery/ResourcequeryInjector.php)
+The [Resource Query DI Injector](https://github.com/Molajo/Standard/blob/master/Application/Services/Resourcequery/ResourcequeryInjector.php)
 does just that once the database connection is available.
 
 ## This is just a general description of the *Resource* package, feedback is welcome. Remember

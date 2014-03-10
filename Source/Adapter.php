@@ -9,10 +9,10 @@
 namespace Molajo\Resource;
 
 use Exception;
-use CommonApi\Resource\AdapterInterface;
-use CommonApi\Resource\SchemeInterface;
-use CommonApi\Resource\HandlerInterface;
 use CommonApi\Exception\RuntimeException;
+use CommonApi\Resource\AdapterInterface;
+use CommonApi\Resource\HandlerInterface;
+use CommonApi\Resource\SchemeInterface;
 
 /**
  * Resource Adapter
@@ -273,15 +273,11 @@ class Adapter implements AdapterInterface
     public function exists($uri_namespace)
     {
         try {
-
             $this->parseUri($uri_namespace);
-
             $this->scheme_value = 'file';
-
             $this->getScheme($this->scheme_value);
 
             $located_path = $this->handler_instance_array[$this->handler_value]->get($uri_namespace);
-
             if ($located_path === false) {
                 return false;
             }

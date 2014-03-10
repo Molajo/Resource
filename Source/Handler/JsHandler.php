@@ -86,30 +86,6 @@ class JsHandler extends AbstractHandler implements HandlerInterface
     protected $js_declarations_defer_priorities = array();
 
     /**
-     * Constructor
-     *
-     * @param  string $base_path
-     * @param  array  $resource_map
-     * @param  array  $namespace_prefixes
-     * @param  array  $valid_file_extensions
-     *
-     * @since  1.0
-     */
-    public function __construct(
-        $base_path = null,
-        array $resource_map = array(),
-        array $namespace_prefixes = array(),
-        array $valid_file_extensions = array()
-    ) {
-        parent::__construct(
-            $base_path,
-            $resource_map,
-            $namespace_prefixes,
-            $valid_file_extensions
-        );
-    }
-
-    /**
      * Set a namespace prefix by mapping to the filesystem path
      *
      * @param   string  $namespace_prefix

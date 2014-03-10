@@ -8,10 +8,10 @@
  */
 namespace Molajo\Resource;
 
-use stdClass;
+use CommonApi\Resource\MapInterface;
 use RecursiveIteratorIterator;
 use RecursiveDirectoryIterator;
-use CommonApi\Resource\MapInterface;
+use stdClass;
 
 /**
  * Resource Map
@@ -114,6 +114,10 @@ class ResourceMap implements MapInterface
      */
     public function setNamespace($namespace_prefix, $namespace_base_directory, $prepend = false)
     {
+        if (substr($namespace_prefix, -1) == '\\') {
+            $namespace_prefix = substr($namespace_prefix, 0, strlen($namespace_prefix) - 1);
+        }
+
         if (isset($this->namespace_prefixes[$namespace_prefix])) {
 
             $hold = $this->namespace_prefixes[$namespace_prefix];

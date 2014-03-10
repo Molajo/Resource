@@ -1,27 +1,27 @@
 <?php
 /**
- * Resourcejs Service Provider
+ * Resourcejsdeclarations Service Provider
  *
  * @package    Molajo
  * @license    http://www.opensource.org/licenses/mit-license.html MIT License
  * @copyright  2014 Amy Stephen. All rights reserved.
  */
-namespace Molajo\Service\Resourcejs;
+namespace Molajo\Services\Resourcejsdeclarations;
 
-use Exception;
 use CommonApi\IoC\ServiceProviderInterface;
 use CommonApi\Exception\RuntimeException;
+use Exception;
 use Molajo\IoC\AbstractServiceProvider;
 
 /**
- * Resourcejs Service Provider
+ * Resourcejsdeclarations Service Provider
  *
  * @author     Amy Stephen
  * @license    http://www.opensource.org/licenses/mit-license.html MIT License
  * @copyright  2014 Amy Stephen. All rights reserved.
  * @since      1.0
  */
-class ResourcejsServiceProvider extends AbstractServiceProvider implements ServiceProviderInterface
+class ResourcejsdeclarationsServiceProvider extends AbstractServiceProvider implements ServiceProviderInterface
 {
     /**
      * Constructor
@@ -34,7 +34,7 @@ class ResourcejsServiceProvider extends AbstractServiceProvider implements Servi
     {
         $options['service_name']             = basename(__DIR__);
         $options['store_instance_indicator'] = true;
-        $options['service_namespace']        = 'Molajo\\Resource\\Handler\\JsHandler';
+        $options['service_namespace']        = 'Molajo\\Resource\\Handler\\JsdeclarationsHandler';
 
         parent::__construct($options);
     }
@@ -68,14 +68,15 @@ class ResourcejsServiceProvider extends AbstractServiceProvider implements Servi
     {
         parent::onBeforeInstantiation($dependency_values);
 
-        $this->dependencies['base_path']             = BASE_FOLDER;
+        $this->dependencies['base_path']             = $this->options['base_path'];
         $this->dependencies['resource_map']          = $this->readFile(
-            BASE_FOLDER . '/vendor/molajo/resource/Source/Files/Output/ResourceMap.json'
+            $this->options['base_path'] . '/vendor/molajo/resource/Source/Files/Output/ResourceMap.json'
         );
         $this->options['Scheme']                     = $this->createScheme();
         $this->dependencies['namespace_prefixes']    = array();
-        $scheme                                      = $this->options['Scheme']->getScheme('js');
+        $scheme                                      = $this->options['Scheme']->getScheme('jsd');
         $this->dependencies['valid_file_extensions'] = $scheme->include_file_extensions;
+
         return $this->dependencies;
     }
 
@@ -87,7 +88,7 @@ class ResourcejsServiceProvider extends AbstractServiceProvider implements Servi
      */
     public function onAfterInstantiation()
     {
-        $this->dependencies['Resource']->setHandlerInstance('JsHandler', $this->service_instance);
+        $this->dependencies['Resource']->setHandlerInstance('JsdeclarationsHandler', $this->service_instance);
 
         return $this;
     }
@@ -103,7 +104,7 @@ class ResourcejsServiceProvider extends AbstractServiceProvider implements Servi
     {
         $class = 'Molajo\\Resource\\Scheme';
 
-        $input = BASE_FOLDER . '/vendor/molajo/resource/Source/Files/Input/SchemeArray.json';
+        $input = $this->options['base_path'] . '/vendor/molajo/resource/Source/Files/Input/SchemeArray.json';
 
         try {
             $scheme = new $class ($input);
