@@ -1,27 +1,28 @@
 <?php
 /**
- * Resourcecss Service Provider
+ * Resourcecssdeclarations Factory Method
  *
  * @package    Molajo
  * @license    http://www.opensource.org/licenses/mit-license.html MIT License
  * @copyright  2014 Amy Stephen. All rights reserved.
  */
-namespace Molajo\Services\Resourcecss;
+namespace Molajo\Factories\Resourcecssdeclarations;
 
 use Exception;
 use CommonApi\Exception\RuntimeException;
-use CommonApi\IoC\ServiceProviderInterface;
-use Molajo\IoC\AbstractServiceProvider;
+use CommonApi\IoC\FactoryMethodInterface;
+use CommonApi\IoC\FactoryMethodBatchSchedulingInterface;
+use Molajo\IoC\FactoryBase;
 
 /**
- * Resourcecss Service Provider
+ * Resourcejsdeclarations Factory Method
  *
  * @author     Amy Stephen
  * @license    http://www.opensource.org/licenses/mit-license.html MIT License
  * @copyright  2014 Amy Stephen. All rights reserved.
  * @since      1.0
  */
-class ResourcecssServiceProvider extends AbstractServiceProvider implements ServiceProviderInterface
+class ResourcecssdeclarationsFactoryMethod extends FactoryBase implements FactoryMethodInterface, FactoryMethodBatchSchedulingInterface
 {
     /**
      * Constructor
@@ -32,15 +33,15 @@ class ResourcecssServiceProvider extends AbstractServiceProvider implements Serv
      */
     public function __construct(array $options = array())
     {
-        $options['service_name']             = basename(__DIR__);
+        $options['product_name']             = basename(__DIR__);
         $options['store_instance_indicator'] = true;
-        $options['service_namespace']        = 'Molajo\\Resource\\Handler\\CssHandler';
+        $options['product_namespace']        = 'Molajo\\Resource\\Handler\\CssdeclarationsHandler';
 
         parent::__construct($options);
     }
 
     /**
-     * Instantiate a new handler and inject it into the Adapter for the ServiceProviderInterface
+     * Instantiate a new handler and inject it into the Adapter for the FactoryMethodInterface
      * Retrieve a list of Interface dependencies and return the data ot the controller.
      *
      * @return  array
@@ -71,11 +72,11 @@ class ResourcecssServiceProvider extends AbstractServiceProvider implements Serv
 
         $this->dependencies['base_path']             = $this->options['base_path'];
         $this->dependencies['resource_map']          = $this->readFile(
-            $this->options['base_path'] . '/vendor/molajo/resource/Source/Files/Output/ResourceMap.json'
+            $this->options['base_path'] . '/Bootstrap/Files/Output/ResourceMap.json'
         );
         $this->options['Scheme']                     = $this->createScheme();
         $this->dependencies['namespace_prefixes']    = array();
-        $scheme                                      = $this->options['Scheme']->getScheme('Css');
+        $scheme                                      = $this->options['Scheme']->getScheme('cssd');
         $this->dependencies['valid_file_extensions'] = $scheme->include_file_extensions;
 
         $this->dependencies['language_direction']
@@ -84,20 +85,19 @@ class ResourcecssServiceProvider extends AbstractServiceProvider implements Serv
             = $this->dependencies['Runtimedata']->application->parameters->application_html5;
         $this->dependencies['line_end']
             = $this->dependencies['Runtimedata']->application->parameters->application_line_end;
-        //todo: mime type
 
         return $this->dependencies;
     }
 
     /**
-     * Follows the completion of the instantiate service method
+     * Follows the completion of the instantiate method
      *
      * @return  $this
      * @since   1.0
      */
     public function onAfterInstantiation()
     {
-        $this->dependencies['Resource']->setHandlerInstance('CssHandler', $this->service_instance);
+        $this->dependencies['Resource']->setHandlerInstance('CssdeclarationsHandler', $this->product_result);
 
         return $this;
     }
@@ -113,7 +113,7 @@ class ResourcecssServiceProvider extends AbstractServiceProvider implements Serv
     {
         $class = 'Molajo\\Resource\\Scheme';
 
-        $input = $this->options['base_path'] . '/vendor/molajo/resource/Source/Files/Input/SchemeArray.json';
+        $input = $this->options['base_path'] . '/Bootstrap/Files/Input/SchemeArray.json';
 
         try {
             $scheme = new $class ($input);

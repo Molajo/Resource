@@ -1,27 +1,28 @@
 <?php
 /**
- * Resource Data Service Provider
+ * Resource Data Factory Method
  *
  * @package    Molajo
  * @license    http://www.opensource.org/licenses/mit-license.html MIT License
  * @copyright  2014 Amy Stephen. All rights reserved.
  */
-namespace Molajo\Services\Resourcedata;
+namespace Molajo\Factories\Resourcedata;
 
 use Exception;
-use Molajo\IoC\AbstractServiceProvider;
-use CommonApi\IoC\ServiceProviderInterface;
 use CommonApi\Exception\RuntimeException;
+use CommonApi\IoC\FactoryMethodInterface;
+use CommonApi\IoC\FactoryMethodBatchSchedulingInterface;
+use Molajo\IoC\FactoryBase;
 
 /**
- * Resource Data Service Provider
+ * Resource Data Factory Method
  *
  * @author     Amy Stephen
  * @license    http://www.opensource.org/licenses/mit-license.html MIT License
  * @copyright  2014 Amy Stephen. All rights reserved.
  * @since      1.0
  */
-class ResourcedataServiceProvider extends AbstractServiceProvider implements ServiceProviderInterface
+class ResourcedataFactoryMethod extends FactoryBase implements FactoryMethodInterface, FactoryMethodBatchSchedulingInterface
 {
     /**
      * Valid Data Object Types
@@ -152,9 +153,9 @@ class ResourcedataServiceProvider extends AbstractServiceProvider implements Ser
      */
     public function __construct(array $options = array())
     {
-        $options['service_namespace']        = 'Molajo\\Resource\\Configuration\\Data';
+        $options['product_namespace']        = 'Molajo\\Resource\\Configuration\\Data';
         $options['store_instance_indicator'] = true;
-        $options['service_name']             = basename(__DIR__);
+        $options['product_name']             = basename(__DIR__);
 
         parent::__construct($options);
 
@@ -173,7 +174,7 @@ class ResourcedataServiceProvider extends AbstractServiceProvider implements Ser
         parent::setDependencies($reflection);
 
         $options                             = array();
-        $options['service_namespace']        = 'Molajo\\Resource\\Configuration\\Registry';
+        $options['product_namespace']        = 'Molajo\\Resource\\Configuration\\Registry';
         $options['store_instance_indicator'] = true;
         $this->dependencies['Registry']      = $options;
 
@@ -249,12 +250,12 @@ class ResourcedataServiceProvider extends AbstractServiceProvider implements Ser
      * @since   1.0
      * @throws  \CommonApi\Exception\RuntimeException;
      */
-    public function instantiateService()
+    public function instantiateClass()
     {
         try {
-            $class = $this->service_namespace;
+            $class = $this->product_namespace;
 
-            $this->service_instance = new $class(
+            $this->product_result = new $class(
                 $this->valid_dataobject_types,
                 $this->valid_dataobject_attributes,
                 $this->valid_model_types,
@@ -274,7 +275,7 @@ class ResourcedataServiceProvider extends AbstractServiceProvider implements Ser
         } catch (Exception $e) {
 
             throw new RuntimeException
-            ('IoC Service Provider Instance Failed for ' . $this->service_namespace
+            ('IoC Factory Method Adapter Instance Failed for ' . $this->product_namespace
             . ' failed.' . $e->getMessage());
         }
 
@@ -282,7 +283,7 @@ class ResourcedataServiceProvider extends AbstractServiceProvider implements Ser
     }
 
     /**
-     * Follows the completion of the instantiate service method
+     * Follows the completion of the instantiate method
      *
      * @return  object
      * @since   1.0
@@ -299,16 +300,16 @@ class ResourcedataServiceProvider extends AbstractServiceProvider implements Ser
     }
 
     /**
-     * Service Provider Controller requests any Services (other than the current service) to be saved
+     * Factory Method Controller requests any Products (other than the current product) to be saved
      *
      * @return  array
      * @since   1.0
      */
-    public function setServices()
+    public function setContainerEntries()
     {
-        $this->set_services['Resource'] = $this->options['Resource'];
+        $this->set_container_entries['Resource'] = $this->options['Resource'];
 
-        return $this->set_services;
+        return $this->set_container_entries;
     }
 
     /**
@@ -403,7 +404,7 @@ class ResourcedataServiceProvider extends AbstractServiceProvider implements Ser
             $dirRead->close();
         } catch (RuntimeException $e) {
             throw new RuntimeException
-            ('IoC Service Provider Configuration: loadDatalists cannot find Datalists file for folder: ' . $folder);
+            ('IoC Factory Method Configuration: loadDatalists cannot find Datalists file for folder: ' . $folder);
         }
 
         return $datalistsArray;
@@ -422,12 +423,12 @@ class ResourcedataServiceProvider extends AbstractServiceProvider implements Ser
 
         try {
             $handler = new $class (
-                $this->service_instance,
+                $this->product_result,
                 $this->dependencies['Registry'],
                 $this->options['Resource']
             );
         } catch (Exception $e) {
-            throw new RuntimeException ('Resource Data Service Provider createDataobjectHandler failed: '
+            throw new RuntimeException ('Resource Data Factory Method createDataobjectHandler failed: '
             . $e->getMessage());
         }
 
@@ -447,13 +448,13 @@ class ResourcedataServiceProvider extends AbstractServiceProvider implements Ser
 
         try {
             $handler = new $class (
-                $this->service_instance,
+                $this->product_result,
                 $this->dependencies['Registry'],
                 $this->options['Resource']
             );
 
         } catch (Exception $e) {
-            throw new RuntimeException ('Resource Data Service Provider createModelHandler failed: '
+            throw new RuntimeException ('Resource Data Factory Method createModelHandler failed: '
             . $e->getMessage());
         }
 
@@ -474,8 +475,10 @@ class ResourcedataServiceProvider extends AbstractServiceProvider implements Ser
     {
         $scheme = $this->createScheme();
 
-        $resource_map = $this->readFile($this->options['base_path']
-            . '/vendor/molajo/resource/Source/Files/Output/ResourceMap.json');
+        $resource_map = $this->readFile(
+            $this->options['base_path']
+            . '/Bootstrap/Files/Output/ResourceMap.json'
+        );
 
         $class = 'Molajo\\Resource\\Handler\\XmlHandler';
 
@@ -489,7 +492,7 @@ class ResourcedataServiceProvider extends AbstractServiceProvider implements Ser
                 $dataobject_handler
             );
         } catch (Exception $e) {
-            throw new RuntimeException ('Resource Data Service Provider createXmlHandler failed: '
+            throw new RuntimeException ('Resource Data Factory Method createXmlHandler failed: '
             . $e->getMessage());
         }
 
@@ -507,7 +510,7 @@ class ResourcedataServiceProvider extends AbstractServiceProvider implements Ser
     {
         $class = 'Molajo\\Resource\\Scheme';
 
-        $input = $this->options['base_path'] . '/vendor/molajo/resource/Source/Files/Input/SchemeArray.json';
+        $input = $this->options['base_path'] . '/Bootstrap/Files/Input/SchemeArray.json';
 
         try {
             $scheme = new $class ($input);

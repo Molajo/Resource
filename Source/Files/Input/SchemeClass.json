@@ -1,7 +1,0 @@
-{
-    "class": {
-        "Name": "class",
-        "RequireFileExtensions": ".php",
-        "Handler": "Class"
-    }
-}

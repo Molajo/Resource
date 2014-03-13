@@ -114,7 +114,7 @@ class ResourceMap implements MapInterface
      */
     public function setNamespace($namespace_prefix, $namespace_base_directory, $prepend = false)
     {
-        if (substr($namespace_prefix, -1) == '\\') {
+        if (substr($namespace_prefix, - 1) == '\\') {
             $namespace_prefix = substr($namespace_prefix, 0, strlen($namespace_prefix) - 1);
         }
 

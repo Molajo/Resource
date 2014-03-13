@@ -1,27 +1,28 @@
 <?php
 /**
- * Resource Service Provider
+ * Resource Factory Method
  *
  * @package    Molajo
  * @license    http:/www.opensource.org/licenses/mit-license.html MIT License
  * @copyright  2014 Amy Stephen. All rights reserved.
  */
-namespace Molajo\Services\Resource;
+namespace Molajo\Factories\Resource;
 
 use Exception;
-use Molajo\IoC\AbstractServiceProvider;
 use CommonApi\Exception\RuntimeException;
-use CommonApi\IoC\ServiceProviderInterface;
+use CommonApi\IoC\FactoryMethodInterface;
+use CommonApi\IoC\FactoryMethodBatchSchedulingInterface;
+use Molajo\IoC\FactoryBase;
 
 /**
- * Resource Service Provider
+ * Resource Factory Method
  *
  * @author     Amy Stephen
  * @license    http:/www.opensource.org/licenses/mit-license.html MIT License
  * @copyright  2014 Amy Stephen. All rights reserved.
  * @since      1.0
  */
-class ResourceServiceProvider extends AbstractServiceProvider implements ServiceProviderInterface
+class ResourceFactoryMethod extends FactoryBase implements FactoryMethodInterface, FactoryMethodBatchSchedulingInterface
 {
     /**
      * Constructor
@@ -32,9 +33,9 @@ class ResourceServiceProvider extends AbstractServiceProvider implements Service
      */
     public function __construct(array $options = array())
     {
-        $options['service_namespace']        = 'Molajo\\Resource\\Adapter';
+        $options['product_namespace']        = 'Molajo\\Resource\\Adapter';
         $options['store_instance_indicator'] = true;
-        $options['service_name']             = basename(__DIR__);
+        $options['product_name']             = basename(__DIR__);
 
         parent::__construct($options);
     }
@@ -61,13 +62,13 @@ class ResourceServiceProvider extends AbstractServiceProvider implements Service
         $handler_instance = array();
 
         $resource_map = $this->readFile(
-            $this->options['base_path'] . '/vendor/molajo/resource/Source/Files/Output/ResourceMap.json'
+            $this->options['base_path'] . '/Bootstrap/Files/Output/ResourceMap.json'
         );
 
         /**
          * NOTE:
-         *  Css, Cssdeclarations, Jsdeclarations, and JsHandler loaded in Application Service Provider
-         *  QueryHandler loaded following Database Service Provider
+         *  Css, Cssdeclarations, Jsdeclarations, and JsHandler loaded in Application Factory Method
+         *  QueryHandler loaded following Database Factory Method
          */
         $handler_instance['AssetHandler']
             = $this->createHandler(
@@ -142,17 +143,17 @@ class ResourceServiceProvider extends AbstractServiceProvider implements Service
     }
 
     /**
-     * Service Provider Controller triggers the Service Provider to create the Class for the Service
+     * Factory Method Controller triggers the Factory Method to create the Class for the Service
      *
      * @return  $this
      * @since   1.0
      * @throws  \CommonApi\Exception\RuntimeException;
      */
-    public function instantiateService()
+    public function instantiateClass()
     {
         $class = 'Molajo\\Resource\\Adapter';
 
-        $this->service_instance = new $class(
+        $this->product_result = new $class(
             $this->dependencies['Scheme'],
             $this->dependencies['handler_instance_array']
         );
@@ -161,14 +162,14 @@ class ResourceServiceProvider extends AbstractServiceProvider implements Service
     }
 
     /**
-     * Follows the completion of the instantiate service method
+     * Follows the completion of the instantiate method
      *
      * @return  object
      * @since   1.0
      */
     public function onAfterInstantiation()
     {
-        $this->service_instance->setNamespace(
+        $this->product_result->setNamespace(
             'PasswordLib\\PasswordLib',
             $this->options['base_path'] . '/Vendor' . '/Molajo' . '/User/Encrypt/PasswordLib.phar'
         );
@@ -177,31 +178,31 @@ class ResourceServiceProvider extends AbstractServiceProvider implements Service
     }
 
     /**
-     * Schedule the Next Service
+     * Request for array of Factory Methods to be Scheduled
      *
      * @return  object
      * @since   1.0
      */
-    public function scheduleServices()
+    public function scheduleFactories()
     {
         $options                                 = array();
         $options['store_instance_indicator']     = true;
-        $options['service_name']                 = 'Fieldhandler';
-        $options['base_path']                  = $this->options['base_path'];
-        $this->schedule_services['Fieldhandler'] = $options;
+        $options['product_name']                 = 'Fieldhandler';
+        $options['base_path']                    = $this->options['base_path'];
+        $this->schedule_factory_methods['Fieldhandler'] = $options;
 
         $options                                 = array();
-        $options['Resource']                     = $this->service_instance;
-        $options['base_path']                  = $this->options['base_path'];
-        $this->schedule_services['Resourcedata'] = $options;
+        $options['Resource']                     = $this->product_result;
+        $options['base_path']                    = $this->options['base_path'];
+        $this->schedule_factory_methods['Resourcedata'] = $options;
 
         $options                                      = array();
         $options['store_instance_indicator']          = true;
-        $options['service_name']                      = 'Exceptionhandling';
-        $options['base_path']                       = $this->options['base_path'];
-        $this->schedule_services['Exceptionhandling'] = $options;
+        $options['product_name']                      = 'Exceptionhandling';
+        $options['base_path']                         = $this->options['base_path'];
+        $this->schedule_factory_methods['Exceptionhandling'] = $options;
 
-        return $this->schedule_services;
+        return $this->schedule_factory_methods;
     }
 
     /**
@@ -215,7 +216,7 @@ class ResourceServiceProvider extends AbstractServiceProvider implements Service
     {
         $class = 'Molajo\\Resource\\Scheme';
 
-        $input = $this->options['base_path'] . '/vendor/molajo/resource/Source/Files/Input/SchemeArray.json';
+        $input = $this->options['base_path'] . '/Bootstrap/Files/Input/SchemeArray.json';
 
         try {
             $scheme = new $class ($input);
