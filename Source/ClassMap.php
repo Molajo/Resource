@@ -12,7 +12,7 @@ use stdClass;
 use Exception;
 use ReflectionClass;
 use ReflectionParameter;
-use CommonApi\Resource\ClassMapInterface;
+use CommonApi\Resource\MapInterface;
 
 /**
  * Class Map
@@ -22,7 +22,7 @@ use CommonApi\Resource\ClassMapInterface;
  * @license    http://www.opensource.org/licenses/mit-license.html MIT License
  * @since      1.0
  */
-class ClassMap implements ClassMapInterface
+class ClassMap implements MapInterface
 {
     /**
      * Interface Map Filename

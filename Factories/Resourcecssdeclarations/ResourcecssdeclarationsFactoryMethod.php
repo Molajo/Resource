@@ -10,9 +10,9 @@ namespace Molajo\Factories\Resourcecssdeclarations;
 
 use Exception;
 use CommonApi\Exception\RuntimeException;
-use CommonApi\IoC\FactoryMethodInterface;
-use CommonApi\IoC\FactoryMethodBatchSchedulingInterface;
-use Molajo\IoC\FactoryBase;
+use CommonApi\IoC\FactoryInterface;
+use CommonApi\IoC\FactoryBatchInterface;
+use Molajo\IoC\FactoryMethodBase;
 
 /**
  * Resourcejsdeclarations Factory Method
@@ -22,7 +22,7 @@ use Molajo\IoC\FactoryBase;
  * @copyright  2014 Amy Stephen. All rights reserved.
  * @since      1.0
  */
-class ResourcecssdeclarationsFactoryMethod extends FactoryBase implements FactoryMethodInterface, FactoryMethodBatchSchedulingInterface
+class ResourcecssdeclarationsFactoryMethod extends FactoryMethodBase implements FactoryInterface, FactoryBatchInterface
 {
     /**
      * Constructor
@@ -35,13 +35,12 @@ class ResourcecssdeclarationsFactoryMethod extends FactoryBase implements Factor
     {
         $options['product_name']             = basename(__DIR__);
         $options['store_instance_indicator'] = true;
-        $options['product_namespace']        = 'Molajo\\Resource\\Handler\\CssdeclarationsHandler';
+        $options['product_namespace']        = 'Molajo\\Resource\\Adapter\\CssDeclarations';
 
         parent::__construct($options);
     }
 
     /**
-     * Instantiate a new handler and inject it into the Adapter for the FactoryMethodInterface
      * Retrieve a list of Interface dependencies and return the data ot the controller.
      *
      * @return  array
@@ -97,7 +96,7 @@ class ResourcecssdeclarationsFactoryMethod extends FactoryBase implements Factor
      */
     public function onAfterInstantiation()
     {
-        $this->dependencies['Resource']->setHandlerInstance('CssdeclarationsHandler', $this->product_result);
+        $this->dependencies['Resource']->setAdapterInstance('CssDeclarations', $this->product_result);
 
         return $this;
     }

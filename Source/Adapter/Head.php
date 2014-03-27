@@ -1,27 +1,27 @@
 <?php
 /**
- * File Resource Handler
+ * Head Resource Adapter
  *
  * @package    Molajo
  * @copyright  2014 Amy Stephen. All rights reserved.
  * @license    http://www.opensource.org/licenses/mit-license.html MIT License
  */
-namespace Molajo\Resource\Handler;
+namespace Molajo\Resource\Adapter;
 
-use CommonApi\Resource\HandlerInterface;
+use CommonApi\Resource\AdapterInterface;
 
 /**
- * File Resource Handler
+ * Head Resource Adapter
  *
  * @package    Molajo
  * @copyright  2014 Amy Stephen. All rights reserved.
  * @license    http://www.opensource.org/licenses/mit-license.html MIT License
  * @since      1.0
  */
-class FileHandler extends AbstractHandler implements HandlerInterface
+class Head extends AbstractAdapter implements AdapterInterface
 {
     /**
-     * Handle located folder/file associated with URI Namespace for Resource
+     * Handle requires located file
      *
      * @param   string $scheme
      * @param   string $located_path
@@ -32,10 +32,12 @@ class FileHandler extends AbstractHandler implements HandlerInterface
      */
     public function handlePath($scheme, $located_path, array $options = array())
     {
-        if (file_exists($located_path)) {
-            return $located_path;
+        if (is_file($located_path)
+            && file_exists($located_path)
+        ) {
+            require_once $located_path;
         }
 
-        return false;
+        return;
     }
 }

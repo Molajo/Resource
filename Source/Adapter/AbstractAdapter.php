@@ -1,27 +1,129 @@
 <?php
 /**
- * Folder Resource
+ * Abstract Resource Adapter
  *
  * @package    Molajo
  * @copyright  2014 Amy Stephen. All rights reserved.
  * @license    http://www.opensource.org/licenses/mit-license.html MIT License
  */
-namespace Molajo\Resource\Handler;
+namespace Molajo\Resource\Adapter;
 
-use CommonApi\Resource\HandlerInterface;
-
-//todo: add scoping overrides, etc. and multiple folders returned when needed
+use CommonApi\Resource\AdapterInterface;
 
 /**
- * Folder Resource
+ * Abstract Resource Adapter
  *
  * @package    Molajo
  * @copyright  2014 Amy Stephen. All rights reserved.
  * @license    http://www.opensource.org/licenses/mit-license.html MIT License
  * @since      1.0
  */
-class FolderHandler extends AbstractHandler implements HandlerInterface
+class AbstractAdapter implements AdapterInterface
 {
+    /**
+     * Resource Namespace
+     *
+     * @var    string
+     * @since  1.0
+     */
+    protected $resource_namespace = null;
+
+    /**
+     * Base Path - root of the website from which paths are defined
+     *
+     * @var    string
+     * @since  1.0
+     */
+    protected $base_path = null;
+
+    /**
+     * Resource Map
+     *
+     * @var    array
+     * @since  1.0
+     */
+    protected $resource_map = array();
+
+    /**
+     * Namespace Prefixes + Path
+     *
+     * @var    array
+     * @since  1.0
+     */
+    protected $namespace_prefixes = array();
+
+    /**
+     * Namespace Prefixes + Path
+     *
+     * @var    array
+     * @since  1.0
+     */
+    protected $valid_file_extensions = array();
+
+    /**
+     * Located for Multiple = true
+     *
+     * @var    array
+     * @since  1.0
+     */
+    protected $located_multiple = array();
+
+    /**
+     * Constructor
+     *
+     * @param  string $base_path
+     * @param  array  $resource_map
+     * @param  array  $namespace_prefixes
+     * @param  array  $valid_file_extensions
+     *
+     * @since  1.0
+     */
+    public function __construct(
+        $base_path = null,
+        array $resource_map = array(),
+        array $namespace_prefixes = array(),
+        array $valid_file_extensions = array()
+    ) {
+        $this->base_path             = $base_path . '/';
+        $this->resource_map          = $resource_map;
+        $this->namespace_prefixes    = $namespace_prefixes;
+        $this->valid_file_extensions = $valid_file_extensions;
+    }
+
+    /**
+     * Set a namespace prefix by mapping to the filesystem path
+     *
+     * @param   string  $namespace_prefix
+     * @param   string  $namespace_base_directory
+     * @param   boolean $prepend
+     *
+     * @return  $this
+     * @since   1.0
+     */
+    public function setNamespace($namespace_prefix, $namespace_base_directory, $prepend = true)
+    {
+        if (isset($this->namespace_prefixes[$namespace_prefix])) {
+
+            $hold = $this->namespace_prefixes[$namespace_prefix];
+
+            if ($prepend === false) {
+                $hold[]                                      = $namespace_base_directory;
+                $this->namespace_prefixes[$namespace_prefix] = $hold;
+            } else {
+                $new   = array();
+                $new[] = $namespace_base_directory;
+                foreach ($hold as $h) {
+                    $new[] = $h;
+                }
+                $this->namespace_prefixes[$namespace_prefix] = $new;
+            }
+        } else {
+            $this->namespace_prefixes[$namespace_prefix] = array($namespace_base_directory);
+        }
+
+        return $this;
+    }
+
     /**
      * Locates folder/file associated with Namespace for Resource
      *
@@ -117,8 +219,19 @@ class FolderHandler extends AbstractHandler implements HandlerInterface
             // Part 3: Assemble include path for filename, returning matches
             $file_name = $this->base_path . $base . str_replace('\\', '/', $namespace_path);
 
-            if (is_dir($file_name)) {
+            if (file_exists($file_name) && count($this->valid_file_extensions) == 0) {
                 return $file_name;
+            }
+
+            // Part 4: Process each Extension valid for this Resource
+            foreach ($this->valid_file_extensions as $valid_extension) {
+
+                // Part 5: If exists, match found and return filename
+                if (file_exists($file_name . $valid_extension)) {
+                    return $file_name . $valid_extension;
+
+                    break;
+                }
             }
         }
 
@@ -150,7 +263,22 @@ class FolderHandler extends AbstractHandler implements HandlerInterface
 
         foreach ($paths as $path) {
 
-            if (is_dir($path)) {
+            if (count($this->valid_file_extensions) > 0) {
+
+                $file_extension = '.' . pathinfo($path, PATHINFO_EXTENSION);
+
+                foreach ($this->valid_file_extensions as $rule_extension) {
+                    if ($file_extension == $rule_extension) {
+                        if ($multiple === false) {
+                            return $path;
+                        } else {
+                            $this->located_multiple[] = $path;
+                        }
+                    }
+                }
+
+            } else {
+
                 if ($multiple === false) {
                     return $path;
                 } else {
@@ -163,17 +291,31 @@ class FolderHandler extends AbstractHandler implements HandlerInterface
     }
 
     /**
-     * Handle located folder/file associated with URI Namespace for Resource
+     * Handle requires located file
      *
-     * @param   string       $scheme
-     * @param   string|array $located_path
-     * @param   array        $options
+     * @param   string $scheme
+     * @param   string $located_path
+     * @param   array  $options
      *
      * @return  void|mixed
      * @since   1.0
      */
     public function handlePath($scheme, $located_path, array $options = array())
     {
-        return $located_path;
+        return;
+    }
+
+    /**
+     * Retrieve a collection of a specific handler
+     *
+     * @param   string $scheme
+     * @param   array  $options
+     *
+     * @return  mixed
+     * @since   1.0
+     */
+    public function getCollection($scheme, array $options = array())
+    {
+        return null;
     }
 }

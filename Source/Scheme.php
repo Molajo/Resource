@@ -26,7 +26,7 @@ class Scheme implements SchemeInterface
      * Scheme array =>
      *    Scheme Name =>
      *      Extensions list
-     *      Handler
+     *      Adapter
      *
      * @var    array
      * @since  1.0
@@ -93,7 +93,7 @@ class Scheme implements SchemeInterface
         foreach ($schemes as $values) {
 
             $scheme_name = '';
-            $handler     = '';
+            $adapter     = '';
             $extensions  = array();
 
             foreach ($values as $key => $value) {
@@ -101,8 +101,8 @@ class Scheme implements SchemeInterface
                 if ($key == 'Name') {
                     $scheme_name = $value;
 
-                } elseif ($key == 'Handler') {
-                    $handler = $value;
+                } elseif ($key == 'Adapter') {
+                    $adapter = $value;
 
                 } elseif ($key == 'RequireFileExtensions') {
                     $extensions = $value;
@@ -116,8 +116,8 @@ class Scheme implements SchemeInterface
                 throw new RuntimeException ('Resource File ' . $filename . ' must provide Name for each Scheme.');
             }
 
-            if ($handler == '') {
-                $handler = $scheme_name;
+            if ($adapter == '') {
+                $adapter = $scheme_name;
             }
 
             if (is_array($extensions)) {
@@ -129,17 +129,17 @@ class Scheme implements SchemeInterface
                 $extensions[] = $temp;
             }
 
-            $this->setScheme($scheme_name, $handler, $extensions, false);
+            $this->setScheme($scheme_name, $adapter, $extensions, false);
         }
 
         return;
     }
 
     /**
-     * Define Scheme, associated Handler and allowable file extensions (empty array means any extension allowed)
+     * Define Scheme, associated Adapter and allowable file extensions (empty array means any extension allowed)
      *
      * @param   string $scheme_name
-     * @param   string $handler
+     * @param   string $adapter
      * @param   array  $extensions
      * @param   bool   $replace
      *
@@ -147,7 +147,7 @@ class Scheme implements SchemeInterface
      * @since   1.0
      * @throws  \CommonApi\Exception\RuntimeException
      */
-    public function setScheme($scheme_name, $handler = 'File', array $extensions = array(), $replace = false)
+    public function setScheme($scheme_name, $adapter = 'File', array $extensions = array(), $replace = false)
     {
         $scheme = new stdClass();
 
@@ -156,13 +156,13 @@ class Scheme implements SchemeInterface
             throw new RuntimeException ('Resource File ' . $scheme_name . ' must provide Name for each Scheme.');
         }
 
-        $scheme->handler = ucfirst(strtolower(trim($handler))) . 'Handler';
+        $scheme->adapter = trim($adapter);
 
-        $scheme->handler_class = 'Molajo\\Resource\\Handler\\' . $scheme->handler;
+        $scheme->adapter_class = 'Molajo\\Resource\\Adapter\\' . $scheme->adapter;
 
-        if (class_exists($scheme->handler_class)) {
+        if (class_exists($scheme->adapter_class)) {
         } else {
-            throw new RuntimeException ('Resource Scheme Handler Class: ' . $scheme->handler_class);
+            throw new RuntimeException ('Resource Scheme Adapter Class: ' . $scheme->adapter_class);
         }
 
         $scheme->include_file_extensions = $extensions;

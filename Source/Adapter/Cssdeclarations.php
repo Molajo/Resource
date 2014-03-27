@@ -1,25 +1,25 @@
 <?php
 /**
- * Css Declarations Resource
+ * Css Declarations Resource Adapter
  *
  * @package    Molajo
  * @copyright  2014 Amy Stephen. All rights reserved.
  * @license    http://www.opensource.org/licenses/mit-license.html MIT License
  */
-namespace Molajo\Resource\Handler;
+namespace Molajo\Resource\Adapter;
 
 use stdClass;
-use CommonApi\Resource\HandlerInterface;
+use CommonApi\Resource\AdapterInterface;
 
 /**
- * Css Declarations Resource
+ * Css Declarations Resource Adapter
  *
  * @package    Molajo
  * @copyright  2014 Amy Stephen. All rights reserved.
  * @license    http://www.opensource.org/licenses/mit-license.html MIT License
  * @since      1.0
  */
-class CssdeclarationsHandler extends AbstractHandler implements HandlerInterface
+class CssDeclarations extends AbstractAdapter implements AdapterInterface
 {
     /**
      * Css Declarations

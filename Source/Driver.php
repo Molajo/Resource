@@ -1,6 +1,6 @@
 <?php
 /**
- * Resource Adapter
+ * Resource Driver
  *
  * @package    Molajo
  * @copyright  2014 Amy Stephen. All rights reserved.
@@ -11,18 +11,18 @@ namespace Molajo\Resource;
 use Exception;
 use CommonApi\Exception\RuntimeException;
 use CommonApi\Resource\AdapterInterface;
-use CommonApi\Resource\HandlerInterface;
+use CommonApi\Resource\ResourceInterface;
 use CommonApi\Resource\SchemeInterface;
 
 /**
- * Resource Adapter
+ * Resource Driver
  *
  * @package    Molajo
  * @copyright  2014 Amy Stephen. All rights reserved.
  * @license    http://www.opensource.org/licenses/mit-license.html MIT License
  * @since      1.0
  */
-class Adapter implements AdapterInterface
+class Driver implements ResourceInterface
 {
     /**
      * Scheme Instance
@@ -33,12 +33,12 @@ class Adapter implements AdapterInterface
     protected $scheme;
 
     /**
-     * Handler Instances
+     * Adapter Instances
      *
-     * @var    object  CommonApi\Resource\HandlerInterface
+     * @var    array  Contains set of CommonApi\Resource\AdapterInterface instances
      * @since  1.0
      */
-    protected $handler_instance_array = array();
+    protected $adapter_instance_array = array();
 
     /**
      * Scheme from Request
@@ -105,30 +105,30 @@ class Adapter implements AdapterInterface
     protected $scheme_properties;
 
     /**
-     * Handler Value
+     * Adapter Value
      *
      * @var    string
      * @since  1.0
      */
-    protected $handler_value;
+    protected $adapter_value;
 
     /**
      * Constructor
      *
      * @param  SchemeInterface $scheme
-     * @param  array           $handler_instance_array
+     * @param  array           $adapter_instance_array
      *
      * @since  1.0
      */
     public function __construct(
         SchemeInterface $scheme,
-        array $handler_instance_array = array()
+        array $adapter_instance_array = array()
     ) {
         $this->scheme                 = $scheme;
-        $this->handler_instance_array = array();
+        $this->adapter_instance_array = array();
 
-        foreach ($handler_instance_array as $key => $value) {
-            $this->setHandlerInstance($key, $value);
+        foreach ($adapter_instance_array as $key => $value) {
+            $this->setAdapterInstance($key, $value);
         }
 
         $this->register();
@@ -146,8 +146,8 @@ class Adapter implements AdapterInterface
      */
     public function setNamespace($namespace_prefix, $base_directory, $prepend = true)
     {
-        foreach ($this->handler_instance_array as $key => $value) {
-            $this->handler_instance_array[$key]->setNamespace(
+        foreach ($this->adapter_instance_array as $key => $value) {
+            $this->adapter_instance_array[$key]->setNamespace(
                 $namespace_prefix,
                 $base_directory,
                 $prepend
@@ -158,19 +158,19 @@ class Adapter implements AdapterInterface
     }
 
     /**
-     * Pass in the Handler Instance for a Scheme Handler
-     * => For class construction or adding a new scheme/handler after instantiation
+     * Pass in the Adapter Instance for a Scheme Adapter
+     * => For class construction or adding a new scheme/adapter after instantiation
      *
-     * @param   string $handler
-     * @param   object $handler_instance
+     * @param   string $adapter
+     * @param   object $adapter_instance
      *
      * @return  $this
      * @since   1.0
      */
-    public function setHandlerInstance($handler = 'File', $handler_instance)
+    public function setAdapterInstance($adapter = 'File', $adapter_instance)
     {
-        if ($handler_instance instanceof HandlerInterface) {
-            $this->handler_instance_array[$handler] = $handler_instance;
+        if ($adapter_instance instanceof AdapterInterface) {
+            $this->adapter_instance_array[$adapter] = $adapter_instance;
         }
 
         return $this;
@@ -219,6 +219,8 @@ class Adapter implements AdapterInterface
             return $this->scheme->getScheme();
         }
 
+        $scheme = ucfirst(strtolower($scheme));
+
         $this->scheme_value = $scheme;
 
         $this->scheme_properties = $this->scheme->getScheme($this->scheme_value);
@@ -227,37 +229,38 @@ class Adapter implements AdapterInterface
             throw new RuntimeException ('Resource getScheme Scheme not found: ' . $this->scheme_value);
         }
 
-        $this->handler_value = $this->scheme_properties->handler;
+        $this->adapter_value = $this->scheme_properties->adapter;
 
-        if (isset($this->handler_instance_array[$this->handler_value])) {
+        if (isset($this->adapter_instance_array[$this->adapter_value])) {
         } else {
-            echo 'in Resource Adapter ' . $this->handler_value . ' <br />';
+            echo 'in Resource Adapter ' . $this->adapter_value . ' <br />';
             echo '<pre>';
-            foreach ($this->handler_instance_array as $key => $value) {
+            foreach ($this->adapter_instance_array as $key => $value) {
                 echo $key . '<br />';
             }
-            var_dump($this->handler_instance_array);
+            die;
+            var_dump($this->adapter_instance_array);
             echo '</pre>';
-            throw new RuntimeException ('Resource getScheme Handler not found: ' . $this->handler_value);
+            throw new RuntimeException ('Resource getScheme Adapter not found: ' . $this->adapter_value);
         }
 
         return $this->scheme_properties;
     }
 
     /**
-     * Define Scheme, associated Handler and allowable file extensions (empty array means any extension allowed)
+     * Define Scheme, associated Adapter and allowable file extensions (empty array means any extension allowed)
      *
      * @param   string $scheme_name
-     * @param   string $handler
+     * @param   string $adapter
      * @param   array  $extensions
      * @param   bool   $replace
      *
      * @return  $this
      * @since   1.0
      */
-    public function setScheme($scheme_name, $handler = 'File', array $extensions = array(), $replace = false)
+    public function setScheme($scheme_name, $adapter = 'File', array $extensions = array(), $replace = false)
     {
-        $this->scheme->setScheme($scheme_name, $handler, $extensions, $replace);
+        $this->scheme->setScheme($scheme_name, $adapter, $extensions, $replace);
 
         return $this;
     }
@@ -277,7 +280,7 @@ class Adapter implements AdapterInterface
             $this->scheme_value = 'file';
             $this->getScheme($this->scheme_value);
 
-            $located_path = $this->handler_instance_array[$this->handler_value]->get($uri_namespace);
+            $located_path = $this->adapter_instance_array[$this->adapter_value]->get($uri_namespace);
             if ($located_path === false) {
                 return false;
             }
@@ -315,22 +318,24 @@ class Adapter implements AdapterInterface
      * @return  void|mixed
      * @since   1.0
      */
-    public function locateNamespace($namespace, $scheme = 'Class', array $options = array())
+    public function locateNamespace($namespace, $scheme = 'ClassLoader', array $options = array())
     {
         $this->getScheme($scheme);
 
         $multiple = false;
+
         if (isset($options['multiple']) && $options['multiple'] === true) {
             $multiple = true;
         }
 
-        $located_path = $this->handler_instance_array[$this->handler_value]->get($namespace, $multiple);
+        $located_path = $this->adapter_instance_array[$this->adapter_value]->get($namespace, $multiple);
 
         if (strtolower($scheme) == 'head') {
-            echo $this->handler_value;
+            echo $this->adapter_value;
             echo 'Path' . $located_path;
             die;
         }
+
         $options['namespace'] = $namespace;
 
         return $this->handlePath($this->scheme_value, $located_path, $options);
@@ -350,22 +355,22 @@ class Adapter implements AdapterInterface
     {
         $this->getScheme($scheme_value);
 
-        if ($scheme_value == 'query') {
-
-            $options['xml'] = $this->handler_instance_array['XmlHandler']->handlePath(
+        if (strtolower($scheme_value) == 'query') {
+            $xml = $this->adapter_instance_array['Xml']->handlePath(
                 $scheme_value,
                 $located_path,
                 $options
-            );
+            );;
+            $options['xml'] = $xml;
 
-            $this->handler_value = 'QueryHandler';
+            $this->adapter_value = 'Query';
         }
 
-        return $this->handler_instance_array[$this->handler_value]->handlePath($scheme_value, $located_path, $options);
+        return $this->adapter_instance_array[$this->adapter_value]->handlePath($scheme_value, $located_path, $options);
     }
 
     /**
-     * Retrieve a collection of a specific handler
+     * Retrieve a collection of a specific adapter
      *
      * @param   string $scheme_value
      * @param   array  $options
@@ -377,7 +382,7 @@ class Adapter implements AdapterInterface
     {
         $this->getScheme($scheme_value);
 
-        return $this->handler_instance_array[$this->handler_value]->getCollection($scheme_value, $options);
+        return $this->adapter_instance_array[$this->adapter_value]->getCollection($scheme_value, $options);
     }
 
     /**

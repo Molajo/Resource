@@ -1,25 +1,25 @@
 <?php
 /**
- * Css Resource Handler
+ * Css Resource Adapter
  *
  * @package    Molajo
  * @copyright  2014 Amy Stephen. All rights reserved.
  * @license    http://www.opensource.org/licenses/mit-license.html MIT License
  */
-namespace Molajo\Resource\Handler;
+namespace Molajo\Resource\Adapter;
 
 use stdClass;
-use CommonApi\Resource\HandlerInterface;
+use CommonApi\Resource\AdapterInterface;
 
 /**
- * Css Resource Handler
+ * Css Resource Adapter
  *
  * @package    Molajo
  * @copyright  2014 Amy Stephen. All rights reserved.
  * @license    http://www.opensource.org/licenses/mit-license.html MIT License
  * @since      1.0
  */
-class CssHandler extends AbstractHandler implements HandlerInterface
+class Css extends AbstractAdapter implements AdapterInterface
 {
     /**
      * Collect list of CSS Files
