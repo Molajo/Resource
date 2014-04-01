@@ -46,7 +46,7 @@ echo $field;
 
 Results:
 ```html
-<field name="author" type="char" null="0" default=" "/>
+<field name="author" type="string" null="0" default=" "/>
 ```
 
 ### Query Handler
