@@ -45,7 +45,7 @@ class ResourcejsFactoryMethod extends FactoryMethodBase implements FactoryInterf
      *
      * @return  array
      * @since   1.0
-     * @throws  \CommonApi\Exception\RuntimeException;
+     * @throws  \CommonApi\Exception\RuntimeException
      */
     public function setDependencies(array $reflection = null)
     {
@@ -62,7 +62,7 @@ class ResourcejsFactoryMethod extends FactoryMethodBase implements FactoryInterf
      *
      * @return  array
      * @since   1.0
-     * @throws  \CommonApi\Exception\RuntimeException;
+     * @throws  \CommonApi\Exception\RuntimeException
      */
     public function onBeforeInstantiation(array $dependency_values = null)
     {
@@ -97,7 +97,7 @@ class ResourcejsFactoryMethod extends FactoryMethodBase implements FactoryInterf
      *
      * @return  object
      * @since   1.0
-     * @throws  \CommonApi\Exception\RuntimeException;
+     * @throws  \CommonApi\Exception\RuntimeException
      */
     protected function createScheme()
     {

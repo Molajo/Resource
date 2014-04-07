@@ -45,7 +45,7 @@ class ResourcecssdeclarationsFactoryMethod extends FactoryMethodBase implements 
      *
      * @return  array
      * @since   1.0
-     * @throws  \CommonApi\Exception\RuntimeException;
+     * @throws  \CommonApi\Exception\RuntimeException
      */
     public function setDependencies(array $reflection = null)
     {
@@ -63,7 +63,7 @@ class ResourcecssdeclarationsFactoryMethod extends FactoryMethodBase implements 
      *
      * @return  array
      * @since   1.0
-     * @throws  \CommonApi\Exception\RuntimeException;
+     * @throws  \CommonApi\Exception\RuntimeException
      */
     public function onBeforeInstantiation(array $dependency_values = null)
     {
@@ -106,7 +106,7 @@ class ResourcecssdeclarationsFactoryMethod extends FactoryMethodBase implements 
      *
      * @return  object
      * @since   1.0
-     * @throws  \CommonApi\Exception\RuntimeException;
+     * @throws  \CommonApi\Exception\RuntimeException
      */
     protected function createScheme()
     {

@@ -47,7 +47,7 @@ class ResourceFactoryMethod extends FactoryMethodBase implements FactoryInterfac
      *
      * @return  array|bool
      * @since   1.0
-     * @throws  \CommonApi\Exception\RuntimeException;
+     * @throws  \CommonApi\Exception\RuntimeException
      */
     public function setDependencies(array $reflection = null)
     {
@@ -147,7 +147,7 @@ class ResourceFactoryMethod extends FactoryMethodBase implements FactoryInterfac
      *
      * @return  $this
      * @since   1.0
-     * @throws  \CommonApi\Exception\RuntimeException;
+     * @throws  \CommonApi\Exception\RuntimeException
      */
     public function instantiateClass()
     {
@@ -197,7 +197,7 @@ class ResourceFactoryMethod extends FactoryMethodBase implements FactoryInterfac
      *
      * @return  object
      * @since   1.0
-     * @throws  \CommonApi\Exception\RuntimeException;
+     * @throws  \CommonApi\Exception\RuntimeException
      */
     protected function createScheme()
     {
@@ -226,7 +226,7 @@ class ResourceFactoryMethod extends FactoryMethodBase implements FactoryInterfac
      *
      * @return  mixed
      * @since   1.0
-     * @throws  \CommonApi\Exception\RuntimeException;
+     * @throws  \CommonApi\Exception\RuntimeException
      */
     protected function createAdapter($adapter, $base_path, $resource_map, $namespace_prefixes, $valid_file_extensions)
     {
