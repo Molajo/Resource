@@ -172,6 +172,7 @@ class ClassMap implements MapInterface
     {
         try {
             $reflection = new ReflectionClass($fqns);
+
         } catch (Exception $e) {
             return false;
         }
