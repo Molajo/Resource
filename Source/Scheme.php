@@ -79,7 +79,7 @@ class Scheme implements SchemeInterface
 
         if (file_exists($filename)) {
         } else {
-            throw new RuntimeException ('Scheme Class: filename not found - ' . $filename);
+            throw new RuntimeException('Scheme Class: filename not found - ' . $filename);
         }
 
         $input = file_get_contents($filename);
@@ -108,12 +108,12 @@ class Scheme implements SchemeInterface
                     $extensions = $value;
 
                 } else {
-                    throw new RuntimeException ('Resource File ' . $filename . ' unknown key: ' . $key);
+                    throw new RuntimeException('Resource File ' . $filename . ' unknown key: ' . $key);
                 }
             }
 
             if ($scheme_name == '') {
-                throw new RuntimeException ('Resource File ' . $filename . ' must provide Name for each Scheme.');
+                throw new RuntimeException('Resource File ' . $filename . ' must provide Name for each Scheme.');
             }
 
             if ($adapter == '') {
@@ -153,7 +153,7 @@ class Scheme implements SchemeInterface
 
         $scheme->name = strtolower(trim($scheme_name));
         if ($scheme->name == '') {
-            throw new RuntimeException ('Resource File ' . $scheme_name . ' must provide Name for each Scheme.');
+            throw new RuntimeException('Resource File ' . $scheme_name . ' must provide Name for each Scheme.');
         }
 
         $scheme->adapter = trim($adapter);
@@ -162,7 +162,7 @@ class Scheme implements SchemeInterface
 
         if (class_exists($scheme->adapter_class)) {
         } else {
-            throw new RuntimeException ('Resource Scheme Adapter Class: ' . $scheme->adapter_class);
+            throw new RuntimeException('Resource Scheme Adapter Class: ' . $scheme->adapter_class);
         }
 
         $scheme->include_file_extensions = $extensions;

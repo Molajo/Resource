@@ -12,7 +12,7 @@ use Exception;
 use CommonApi\Exception\RuntimeException;
 use CommonApi\IoC\FactoryInterface;
 use CommonApi\IoC\FactoryBatchInterface;
-use Molajo\IoC\FactoryMethodBase;
+use Molajo\IoC\FactoryMethod\Base as FactoryMethodBase;
 
 /**
  * Resourcejsdeclarations Factory Method
@@ -47,7 +47,7 @@ class ResourcecssdeclarationsFactoryMethod extends FactoryMethodBase implements 
      * @since   1.0
      * @throws  \CommonApi\Exception\RuntimeException
      */
-    public function setDependencies(array $reflection = null)
+    public function setDependencies(array $reflection = array())
     {
         parent::setDependencies($reflection);
 
@@ -117,7 +117,7 @@ class ResourcecssdeclarationsFactoryMethod extends FactoryMethodBase implements 
         try {
             $scheme = new $class ($input);
         } catch (Exception $e) {
-            throw new RuntimeException ('Resource Scheme ' . $class
+            throw new RuntimeException('Resource Scheme ' . $class
             . ' Exception during Instantiation: ' . $e->getMessage());
         }
 

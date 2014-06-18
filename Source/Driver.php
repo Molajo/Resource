@@ -226,7 +226,7 @@ class Driver implements ResourceInterface
         $this->scheme_properties = $this->scheme->getScheme($this->scheme_value);
 
         if ($this->scheme_properties === false) {
-            throw new RuntimeException ('Resource getScheme Scheme not found: ' . $this->scheme_value);
+            throw new RuntimeException('Resource getScheme Scheme not found: ' . $this->scheme_value);
         }
 
         $this->adapter_value = $this->scheme_properties->adapter;
@@ -241,7 +241,7 @@ class Driver implements ResourceInterface
             die;
             var_dump($this->adapter_instance_array);
             echo '</pre>';
-            throw new RuntimeException ('Resource getScheme Adapter not found: ' . $this->adapter_value);
+            throw new RuntimeException('Resource getScheme Adapter not found: ' . $this->adapter_value);
         }
 
         return $this->scheme_properties;
