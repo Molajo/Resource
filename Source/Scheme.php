@@ -100,13 +100,10 @@ class Scheme implements SchemeInterface
 
                 if ($key == 'Name') {
                     $scheme_name = $value;
-
                 } elseif ($key == 'Adapter') {
                     $adapter = $value;
-
                 } elseif ($key == 'RequireFileExtensions') {
                     $extensions = $value;
-
                 } else {
                     throw new RuntimeException('Resource File ' . $filename . ' unknown key: ' . $key);
                 }

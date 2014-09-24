@@ -62,7 +62,7 @@ class ResourceFactoryMethod extends FactoryMethodBase implements FactoryInterfac
         $adapter_instance = array();
 
         $resource_map = $this->readFile(
-            $this->options['base_path'] . '/Bootstrap/Files/Output/ResourceMap.json'
+            $this->base_path . '/Bootstrap/Files/Output/ResourceMap.json'
         );
 
         /**
@@ -73,7 +73,7 @@ class ResourceFactoryMethod extends FactoryMethodBase implements FactoryInterfac
         $adapter_instance['Asset']
             = $this->createAdapter(
             'Asset',
-            $this->options['base_path'],
+            $this->base_path,
             $resource_map,
             array(),
             $this->options['Scheme']->getScheme('Asset')->include_file_extensions
@@ -81,7 +81,7 @@ class ResourceFactoryMethod extends FactoryMethodBase implements FactoryInterfac
         $adapter_instance['ClassLoader']
             = $this->createAdapter(
             'ClassLoader',
-            $this->options['base_path'],
+            $this->base_path,
             $resource_map,
             array(),
             $this->options['Scheme']->getScheme('ClassLoader')->include_file_extensions
@@ -89,7 +89,7 @@ class ResourceFactoryMethod extends FactoryMethodBase implements FactoryInterfac
         $adapter_instance['File']
             = $this->createAdapter(
             'File',
-            $this->options['base_path'],
+            $this->base_path,
             $resource_map,
             array(),
             $this->options['Scheme']->getScheme('File')->include_file_extensions
@@ -97,7 +97,7 @@ class ResourceFactoryMethod extends FactoryMethodBase implements FactoryInterfac
         $adapter_instance['Folder']
             = $this->createAdapter(
             'Folder',
-            $this->options['base_path'],
+            $this->base_path,
             $resource_map,
             array(),
             $this->options['Scheme']->getScheme('Folder')->include_file_extensions
@@ -105,7 +105,7 @@ class ResourceFactoryMethod extends FactoryMethodBase implements FactoryInterfac
         $adapter_instance['Head']
             = $this->createAdapter(
             'Head',
-            $this->options['base_path'],
+            $this->base_path,
             $resource_map,
             array(),
             $this->options['Scheme']->getScheme('Head')->include_file_extensions
@@ -113,7 +113,7 @@ class ResourceFactoryMethod extends FactoryMethodBase implements FactoryInterfac
         $adapter_instance['Xml']
             = $this->createAdapter(
             'Xml',
-            $this->options['base_path'],
+            $this->base_path,
             $resource_map,
             array(),
             $this->options['Scheme']->getScheme('Xml')->include_file_extensions
@@ -172,20 +172,20 @@ class ResourceFactoryMethod extends FactoryMethodBase implements FactoryInterfac
         $options                             = array();
         $options['store_instance_indicator'] = true;
         $options['product_name']             = 'Fieldhandler';
-        $options['base_path']                = $this->options['base_path'];
+        $options['base_path']                = $this->base_path;
 
         $this->schedule_factory_methods['Fieldhandler'] = $options;
 
         $options              = array();
         $options['Resource']  = $this->product_result;
-        $options['base_path'] = $this->options['base_path'];
+        $options['base_path'] = $this->base_path;
 
         $this->schedule_factory_methods['Resourcedata'] = $options;
 
         $options                             = array();
         $options['store_instance_indicator'] = true;
         $options['product_name']             = 'Exceptionhandling';
-        $options['base_path']                = $this->options['base_path'];
+        $options['base_path']                = $this->base_path;
 
         $this->schedule_factory_methods['Exceptionhandling'] = $options;
 
@@ -203,13 +203,15 @@ class ResourceFactoryMethod extends FactoryMethodBase implements FactoryInterfac
     {
         $class = 'Molajo\\Resource\\Scheme';
 
-        $input = $this->options['base_path'] . '/Bootstrap/Files/Input/SchemeArray.json';
+        $input = $this->base_path . '/Bootstrap/Files/Input/SchemeArray.json';
 
         try {
             $scheme = new $class ($input);
         } catch (Exception $e) {
-            throw new RuntimeException('Resource Scheme ' . $class
-            . ' Exception during Instantiation: ' . $e->getMessage());
+            throw new RuntimeException(
+                'Resource Scheme ' . $class
+                . ' Exception during Instantiation: ' . $e->getMessage()
+            );
         }
 
         return $scheme;
@@ -237,11 +239,13 @@ class ResourceFactoryMethod extends FactoryMethodBase implements FactoryInterfac
                 $base_path,
                 $resource_map,
                 $namespace_prefixes,
-                $valid_file_extensions);
-
+                $valid_file_extensions
+            );
         } catch (Exception $e) {
-            throw new RuntimeException('Resource Adapter ' . $adapter
-            . ' Exception during Instantiation: ' . $e->getMessage());
+            throw new RuntimeException(
+                'Resource Adapter ' . $adapter
+                . ' Exception during Instantiation: ' . $e->getMessage()
+            );
         }
 
         return $adapter_instance;

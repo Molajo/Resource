@@ -286,7 +286,6 @@ class Driver implements ResourceInterface
             }
 
             return true;
-
         } catch (Exception $e) {
             return false;
         }
@@ -330,12 +329,6 @@ class Driver implements ResourceInterface
 
         $located_path = $this->adapter_instance_array[$this->adapter_value]->get($namespace, $multiple);
 
-        if (strtolower($scheme) == 'head') {
-            echo $this->adapter_value;
-            echo 'Path' . $located_path;
-            die;
-        }
-
         $options['namespace'] = $namespace;
 
         return $this->handlePath($this->scheme_value, $located_path, $options);
@@ -360,7 +353,7 @@ class Driver implements ResourceInterface
                 $scheme_value,
                 $located_path,
                 $options
-            );;
+            );
             $options['xml'] = $xml;
 
             $this->adapter_value = 'Query';

@@ -68,9 +68,9 @@ class ResourcejsdeclarationsFactoryMethod extends FactoryMethodBase implements F
     {
         parent::onBeforeInstantiation($dependency_values);
 
-        $this->dependencies['base_path']             = $this->options['base_path'];
+        $this->dependencies['base_path']             = $this->base_path;
         $this->dependencies['resource_map']          = $this->readFile(
-            $this->options['base_path'] . '/Bootstrap/Files/Output/ResourceMap.json'
+            $this->base_path . '/Bootstrap/Files/Output/ResourceMap.json'
         );
         $this->options['Scheme']                     = $this->createScheme();
         $this->dependencies['namespace_prefixes']    = array();
@@ -104,13 +104,15 @@ class ResourcejsdeclarationsFactoryMethod extends FactoryMethodBase implements F
     {
         $class = 'Molajo\\Resource\\Scheme';
 
-        $input = $this->options['base_path'] . '/Bootstrap/Files/Input/SchemeArray.json';
+        $input = $this->base_path . '/Bootstrap/Files/Input/SchemeArray.json';
 
         try {
             $scheme = new $class ($input);
         } catch (Exception $e) {
-            throw new RuntimeException('Resource Scheme ' . $class
-            . ' Exception during Instantiation: ' . $e->getMessage());
+            throw new RuntimeException(
+                'Resource Scheme ' . $class
+                . ' Exception during Instantiation: ' . $e->getMessage()
+            );
         }
 
         return $scheme;

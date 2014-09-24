@@ -172,7 +172,7 @@ class AbstractAdapter implements AdapterInterface
         }
 
         if ($located_path === false || $multiple === true) {
-            $located_path = $this->searchResourceMap($resource_namespace, $multiple);
+            $located_path = $this->searchResourceMap(strtolower($resource_namespace), $multiple);
             if ($multiple === true) {
                 if (is_array($located_path) && count($located_path) > 0) {
                     foreach ($located_path as $item) {
@@ -276,7 +276,6 @@ class AbstractAdapter implements AdapterInterface
                         }
                     }
                 }
-
             } else {
 
                 if ($multiple === false) {
