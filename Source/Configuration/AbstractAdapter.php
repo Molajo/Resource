@@ -4,7 +4,7 @@
  *
  * @package    Molajo
  * @license    http://www.opensource.org/licenses/mit-license.html MIT License
- * @copyright  2014 Amy Stephen. All rights reserved.
+ * @copyright  2014-2015 Amy Stephen. All rights reserved.
  */
 namespace Molajo\Resource\Configuration;
 
@@ -20,7 +20,7 @@ use stdClass;
  *
  * @author     Amy Stephen
  * @license    http://www.opensource.org/licenses/mit-license.html MIT License
- * @copyright  2014 Amy Stephen. All rights reserved.
+ * @copyright  2014-2015 Amy Stephen. All rights reserved.
  * @since      1.0.0
  */
 abstract class AbstractAdapter implements ConfigurationInterface
@@ -564,7 +564,7 @@ abstract class AbstractAdapter implements ConfigurationInterface
             if ($extends_model_type === 'Datasource') {
                 $this->resource->get('xml:///Molajo//Model//Datasource//' . $extends_model_name . '.xml');
             } else {
-                $this->resource->get('xml:///Molajo//' . $extends_model_name . '//Configuration.xml');
+                $this->resource->get('xml:///Molajo//' . $extends_model_name . '//Content.xml');
             }
         }
 

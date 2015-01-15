@@ -3,7 +3,7 @@
  * Extension Map
  *
  * @package    Molajo
- * @copyright  2014 Amy Stephen. All rights reserved.
+ * @copyright  2014-2015 Amy Stephen. All rights reserved.
  * @license    http://www.opensource.org/licenses/mit-license.html MIT License
  */
 namespace Molajo\Resource;
@@ -17,7 +17,7 @@ use stdClass;
  * Extension Map
  *
  * @package    Molajo
- * @copyright  2014 Amy Stephen. All rights reserved.
+ * @copyright  2014-2015 Amy Stephen. All rights reserved.
  * @license    http://www.opensource.org/licenses/mit-license.html MIT License
  * @since      1.0.0
  */
@@ -48,6 +48,46 @@ class ExtensionMap implements ExtensionsInterface
     protected $extensions_filename;
 
     /**
+     * Extensions Filename
+     *
+     * @var    array
+     * @since  1.0
+     */
+    protected $temp_ids = array();
+
+    /**
+     * Extensions Filename
+     *
+     * @var    array
+     * @since  1.0
+     */
+    protected $temp_names = array();
+
+    /**
+     * Extensions Filename
+     *
+     * @var    array
+     * @since  1.0
+     */
+    protected $temp_extensions = array();
+
+    /**
+     * Extensions Filename
+     *
+     * @var    array
+     * @since  1.0
+     */
+    protected $temp_menus = array();
+
+    /**
+     * Extensions Filename
+     *
+     * @var    array
+     * @since  1.0
+     */
+    protected $temp_page_types = array();
+
+    /**
      * Constructor
      *
      * @param  object $resource
@@ -70,7 +110,7 @@ class ExtensionMap implements ExtensionsInterface
      * Catalog Types
      *
      * @return  stdClass
-     * @since   1.0
+     * @since   1.0.0
      * @throws  \CommonApi\Exception\RuntimeException
      */
     public function createMap()
@@ -92,72 +132,39 @@ class ExtensionMap implements ExtensionsInterface
      * Get Catalog Types
      *
      * @return  stdClass
-     * @since   1.0
-     * @throws  \CommonApi\Exception\RuntimeException
+     * @since   1.0.0.0
      */
     public function getCatalogTypes()
     {
-        $catalog_types = $this->resource->get(
-            'query:///Molajo//Model//Datasource//CatalogTypes.xml',
-            array('Parameters' => $this->runtime_data)
-        );
+        $controller = $this->setCatalogTypesQuery();
+        $results    = $this->runQuery($controller);
 
-        $catalog_types->setModelRegistry('check_view_level_access', 0);
-        $catalog_types->setModelRegistry('process_events', 0);
-        $catalog_types->setModelRegistry('query_object', 'list');
-        $catalog_types->setModelRegistry('use_pagination', 0);
-        $catalog_types->setModelRegistry('process_events', 0);
+        return $this->processCatalogTypes($results);
+    }
 
-        $prefix = $catalog_types->getModelRegistry('prefix', 'a');
-
-        try {
-            $catalog_types->select('*');
-            $catalog_types->from('#__catalog_types', 'a');
-            $catalog_types->where(
-                'column',
-                $prefix . '.id',
-                'IN',
-                'integer',
-                (int)$this->runtime_data->reference_data->catalog_type_plugin_id . ', '
-                . (int)$this->runtime_data->reference_data->catalog_type_theme_id . ', '
-                . (int)$this->runtime_data->reference_data->catalog_type_page_view_id . ', '
-                . (int)$this->runtime_data->reference_data->catalog_type_template_view_id . ', '
-                . (int)$this->runtime_data->reference_data->catalog_type_wrap_view_id . ', '
-                . (int)$this->runtime_data->reference_data->catalog_type_menuitem_id . ', '
-                . (int)$this->runtime_data->reference_data->catalog_type_resource_id,
-                'OR'
-            );
-            $catalog_types->where(
-                'column',
-                $prefix . '.model_type',
-                '=',
-                'string',
-                'Resource',
-                'OR'
-            );
-
-            $results = $catalog_types->getData();
-        } catch (Exception $e) {
-            throw new RuntimeException(
-                'ExtensionMap:getCatalogTypes Query Failed' . $e->getMessage()
-            );
-        }
-
+    /**
+     * Process Catalog Types
+     *
+     * @param   $catalog_types  array
+     *
+     * @return  stdClass
+     * @since   1.0.0
+     */
+    protected function processCatalogTypes(array $catalog_types)
+    {
         $names       = array();
         $ids         = array();
         $model_names = array();
         $extensions  = array();
 
-        foreach ($results as $catalog_item) {
+        foreach ($catalog_types as $type) {
 
-            $ids[$catalog_item->id]         = $catalog_item->title;
-            $names[$catalog_item->title]    = $catalog_item->id;
-            $model_names[$catalog_item->id] = $catalog_item->model_name;
+            $ids[$type->id]         = $type->title;
+            $names[$type->title]    = $type->id;
+            $model_names[$type->id] = $type->model_name;
+            $id                     = $type->id;
 
-            $id    = $catalog_item->id;
-            $model = $model_names[$id];
-
-            $extensions[$id] = $this->getCatalogExtensions($id, $model, $catalog_item->model_type);
+            $extensions[$id] = $this->getExtensions($id, $model_names[$id]);
         }
 
         unset($catalog_types);
@@ -175,53 +182,151 @@ class ExtensionMap implements ExtensionsInterface
      *
      * @param   int    $catalog_type_id
      * @param   string $catalog_type_model_name
-     * @param   string $model_type
      *
      * @return  array|stdClass
-     * @since   1.0
+     * @since   1.0.0
      * @throws  \CommonApi\Exception\RuntimeException
      */
-    protected function getCatalogExtensions($catalog_type_id, $catalog_type_model_name, $model_type)
+    protected function getExtensions($catalog_type_id, $catalog_type_model_name)
     {
-        $items = $this->getCatalogSystemExtensions($catalog_type_id);
+        $controller = $this->setExtensionsQuery($catalog_type_id);
+        $items      = $this->runQuery($controller);
 
         if (is_array($items) && count($items) > 0) {
         } else {
             return array();
         }
 
-        $ids        = array();
-        $names      = array();
-        $extensions = array();
-        $menus      = array();
-        $pagetypes  = array();
+        return $this->processExtensions($items, $catalog_type_id, $catalog_type_model_name);
+    }
+
+    /**
+     * Process Extensions
+     *
+     * @param   array   $items
+     * @param   integer $catalog_type_id
+     * @param   string  $catalog_type_model_name
+     *
+     * @return  array|stdClass
+     * @since   1.0.0
+     */
+    protected function processExtensions($items, $catalog_type_id, $catalog_type_model_name)
+    {
+        $this->initialiseExtensions($items, $catalog_type_id);
+
+        $catalog_type_model_name = $this->setCatalogTypeModelName($catalog_type_model_name);
+
+        foreach ($this->temp_ids as $id => $alias) {
+
+            $resource_indicator = false;
+            $alias              = ucfirst(strtolower($alias));
+
+            if (in_array($catalog_type_model_name, array('Resources', 'System'))) {
+                $resource_indicator = true;
+                $model_name         = $this->setExtensionModelNameResource($alias, $this->temp_extensions, $id);
+
+            } elseif ($catalog_type_id == $this->runtime_data->reference_data->catalog_type_menuitem_id) {
+                $model_name = $this->setExtensionModelNameMenuitem($this->temp_page_types, $id);
+            } else {
+                $model_name = $this->setExtensionModelNameDefault($catalog_type_model_name, $alias);
+            }
+
+            if ($alias === 'Groups') {
+                $this->temp_extensions[$id] = array();
+            } else {
+                $this->temp_extensions[$id] = $this->getExtension($id, $model_name, $resource_indicator);
+            }
+        }
+
+        return $this->setExtensions();
+    }
+
+    /**
+     * Set Extensions Results
+     *
+     * @return  stdClass
+     * @since   1.0.0
+     */
+    protected function setExtensions()
+    {
+        $temp             = new stdClass();
+        $temp->ids        = $this->temp_ids;
+        $temp->names      = $this->temp_names;
+        $temp->extensions = $this->temp_extensions;
+        $temp->menus      = $this->temp_menus;
+
+        return $temp;
+    }
+
+    /**
+     * Initialise Extensions
+     *
+     * @param   array   $items
+     * @param   integer $catalog_type_id
+     *
+     * @return  $this
+     * @since   1.0.0
+     */
+    protected function initialiseExtensions($items, $catalog_type_id)
+    {
+        $this->temp_ids        = array();
+        $this->temp_names      = array();
+        $this->temp_extensions = array();
+        $this->temp_menus      = array();
+        $this->temp_page_types = array();
 
         foreach ($items as $item) {
 
             if ($catalog_type_id == $this->runtime_data->reference_data->catalog_type_menuitem_id) {
-
-                $menus[] = $item->menu;
-
-                if ($item->path === '') {
-                    $name = $item->alias;
-                } else {
-                    $name = $item->path . '/' . $item->alias;
-                }
-
-                $pagetypes[$item->id] = $item->page_type;
+                $name = $this->initialiseExtensionsMenuItem($item);
             } else {
                 $name = $item->alias;
             }
 
-            $ids[$item->id] = $name;
-
-            $names[$name] = $item->id;
+            $this->temp_ids[$item->id] = $name;
+            $this->temp_names[$name]   = $item->id;
         }
 
-        $x     = array_unique($menus);
-        $menus = $x;
-        ksort($ids);
+        $x                = array_unique($this->temp_menus);
+        $this->temp_menus = $x;
+        ksort($this->temp_ids);
 
+        return $this;
+    }
+
+    /**
+     * Initialize Extension Name for Menu Item
+     *
+     * @param   object $item
+     *
+     * @return  string
+     * @since   1.0.0
+     */
+    protected function initialiseExtensionsMenuItem($item)
+    {
+        $this->temp_menus[] = $item->menu;
+
+        if ($item->path === '') {
+            $name = $item->alias;
+        } else {
+            $name = $item->path . '/' . $item->alias;
+        }
+
+        $this->temp_page_types[$item->id] = $item->page_type;
+
+        return $name;
+    }
+
+    /**
+     * Retrieve specific Extension Information
+     *
+     * @param   string $catalog_type_model_name
+     *
+     * @return  string
+     * @since   1.0.0
+     */
+    protected function setCatalogTypeModelName($catalog_type_model_name)
+    {
         $catalog_type_model_name = ucfirst(strtolower($catalog_type_model_name));
 
         if ($catalog_type_model_name === 'Views//pages') {
@@ -232,201 +337,53 @@ class ExtensionMap implements ExtensionsInterface
             $catalog_type_model_name = 'Views//Wraps';
         }
 
-        foreach ($ids as $id => $alias) {
-            $alias = ucfirst(strtolower($alias));
-
-            if ($catalog_type_model_name === 'Resources' || $catalog_type_model_name === 'System') {
-
-                $model_name         = 'Molajo//' . $alias . '//Extension.xml';
-                $resource_indicator = true;
-
-                if ($alias === 'Groups') {
-                    $extensions[$id] = array();
-                } else {
-                    $extensions[$id] = $this->getExtension($id, $model_name, $resource_indicator);
-                }
-            } else {
-
-                if ($catalog_type_id == $this->runtime_data->reference_data->catalog_type_menuitem_id) {
-                    $pagetype   = $pagetypes[$id];
-                    $pagetype   = ucfirst(strtolower($pagetype));
-                    $model_name = 'Molajo//Model//Menuitem//' . $pagetype . '//Configuration.xml';
-                } else {
-                    $model_name = 'Molajo//' . $catalog_type_model_name . '//' . $alias . '//Configuration.xml';
-                }
-
-                $resource_indicator = false;
-
-                $extensions[$id] = $this->getExtension($id, $model_name, $resource_indicator);
-            }
-        }
-
-        $temp             = new stdClass();
-        $temp->ids        = $ids;
-        $temp->names      = $names;
-        $temp->extensions = $extensions;
-        $temp->menus      = $menus;
-
-        return $temp;
+        return $catalog_type_model_name;
     }
 
     /**
-     * Retrieve Resource Extensions for a specific Catalog Type
+     * Set Extension Model Name for Menu Item
      *
-     * @param   int $catalog_type_id
+     * @param   string  $alias
+     * @param   array   $extensions
+     * @param   integer $id
      *
-     * @return  array|stdClass
-     * @since   1.0
-     * @throws  \CommonApi\Exception\RuntimeException
+     * @return  array
+     * @since   1.0.0
      */
-    protected function getCatalogResourceExtensions($catalog_type_id)
+    protected function setExtensionModelNameResource($alias, $extensions, $id)
     {
-        $extensions_controller
-            = $this->resource->get(
-            'query:///Molajo//Model//Datasource//ExtensionInstances.xml',
-            array('Runtimedata' => $this->runtime_data)
-        );
-
-        $extensions_controller->setModelRegistry('check_view_level_access', 0);
-        $extensions_controller->setModelRegistry('process_events', 0);
-        $extensions_controller->setModelRegistry('get_customfields', 0);
-        $extensions_controller->setModelRegistry('use_special_joins', 0);
-        $extensions_controller->setModelRegistry('query_object', 'list');
-        $extensions_controller->setModelRegistry('use_pagination', 0);
-
-        $extensions_controller->select(
-            $extensions_controller->getModelRegistry('primary_prefix', 'a')
-            . '.'
-            . 'id'
-        );
-
-        $extensions_controller->select(
-            $extensions_controller->getModelRegistry('primary_prefix', 'a')
-            . '.'
-            . 'alias'
-        );
-
-        $extensions_controller->where(
-            'column',
-            $extensions_controller->getModelRegistry('primary_prefix', 'a') . '.' . 'id',
-            ' = ',
-            'integer',
-            (int)$catalog_type_id
-        );
-
-        $extensions_controller->where(
-            $extensions_controller->getModelRegistry('primary_prefix', 'a') . '.' . 'status',
-            ' > ',
-            'integer',
-            ' 0 '
-        );
-
-        $extensions_controller->order(
-            $extensions_controller->getModelRegistry('primary_prefix', 'a') . '.' . 'alias',
-            'ASC'
-        );
-
-        try {
-            return $extensions_controller->getData();
-        } catch (Exception $e) {
-            throw new RuntimeException($e->getMessage());
-        }
+        return 'Molajo//' . $alias . '//Extension.xml';
     }
 
     /**
-     * Retrieve System Extensions for a specific Catalog Type
+     * Set Extension Model Name for Menu Item
      *
-     * @param   int $catalog_type_id
+     * @param   array   $page_types
+     * @param   integer $id
      *
-     * @return  array|stdClass
-     * @since   1.0
-     * @throws  \CommonApi\Exception\RuntimeException
+     * @return  string
+     * @since   1.0.0
      */
-    protected function getCatalogSystemExtensions($catalog_type_id)
+    protected function setExtensionModelNameMenuitem($page_types, $id)
     {
-        $extensions_controller
-            = $this->resource->get(
-            'query:///Molajo//Model//Datasource//ExtensionInstances.xml',
-            array('Runtimedata' => $this->runtime_data)
-        );
+        $pagetype = $page_types[$id];
+        $pagetype = ucfirst(strtolower($pagetype));
 
-        $application_id = $this->runtime_data->application->id;
-        $extensions_controller->setModelRegistry('application_id', $application_id);
-        $site_id = $this->runtime_data->site->id;
-        $extensions_controller->setModelRegistry('site_id', $site_id);
+        return 'Molajo//Model//Menuitem//' . $pagetype . '//Configuration.xml';
+    }
 
-        $extensions_controller->setModelRegistry('check_view_level_access', 0);
-        $extensions_controller->setModelRegistry('process_events', 0);
-        $extensions_controller->setModelRegistry('get_customfields', 0);
-        $extensions_controller->setModelRegistry('use_special_joins', 1);
-        $extensions_controller->setModelRegistry('query_object', 'list');
-        $extensions_controller->setModelRegistry('use_pagination', 0);
-
-        $extensions_controller->select(
-            $extensions_controller->getModelRegistry('primary_prefix', 'a')
-            . '.'
-            . 'id'
-        );
-
-        $extensions_controller->select(
-            $extensions_controller->getModelRegistry('primary_prefix', 'a')
-            . '.'
-            . 'alias'
-        );
-
-        $extensions_controller->select(
-            $extensions_controller->getModelRegistry('primary_prefix', 'a')
-            . '.'
-            . 'menu'
-        );
-
-        $extensions_controller->select(
-            $extensions_controller->getModelRegistry('primary_prefix', 'a')
-            . '.'
-            . 'path'
-        );
-
-        $extensions_controller->select(
-            $extensions_controller->getModelRegistry('primary_prefix', 'a')
-            . '.'
-            . 'page_type'
-        );
-
-        $extensions_controller->where(
-            'column',
-            $extensions_controller->getModelRegistry('primary_prefix', 'a') . '.' . 'catalog_type_id',
-            '=',
-            'integer',
-            (int)$catalog_type_id
-        );
-
-        $extensions_controller->where(
-            'column',
-            $extensions_controller->getModelRegistry('primary_prefix', 'a') . '.' . 'id',
-            '<>',
-            'column',
-            $extensions_controller->getModelRegistry('primary_prefix', 'a') . '.' . 'catalog_type_id'
-        );
-
-        $extensions_controller->where(
-            'column',
-            $extensions_controller->getModelRegistry('primary_prefix', 'a') . '.' . 'status',
-            '>',
-            'integer',
-            ' 0 '
-        );
-
-        $extensions_controller->orderBy(
-            $extensions_controller->getModelRegistry('primary_prefix', 'a')
-            . '.'
-            . 'alias'
-        );
-
-        try {
-            return $extensions_controller->getData();
-        } catch (Exception $e) {
-            throw new RuntimeException($e->getMessage());
-        }
+    /**
+     * Set Extension Model Name (Not Resource or Menuitem)
+     *
+     * @param   string $catalog_type_model_name
+     * @param   string $alias
+     *
+     * @return  string
+     * @since   1.0.0
+     */
+    protected function setExtensionModelNameDefault($catalog_type_model_name, $alias)
+    {
+        return 'Molajo//' . $catalog_type_model_name . '//' . $alias . '//Configuration.xml';
     }
 
     /**
@@ -434,46 +391,30 @@ class ExtensionMap implements ExtensionsInterface
      *
      * @param   int    $id
      * @param   string $model_name
-     * @param   bool   $resource_indicator
      *
      * @return  object
-     * @since   1.0
-     * @throws  \CommonApi\Exception\RuntimeException
+     * @since   1.0.0
      */
-    protected function getExtension($id, $model_name, $resource_indicator = false)
+    protected function getExtension($id, $model_name)
     {
-        $item_resource = $this->resource->get(
-            'query:///' . $model_name,
-            array('Runtimedata' => $this->runtime_data)
-        );
+        $controller     = $this->setExtensionQuery($id, $model_name);
+        $data           = $this->runQuery($controller);
+        $model_registry = $controller->getModelRegistry('*');
 
-        $item_resource->setModelRegistry('check_view_level_access', 0);
-        $item_resource->setModelRegistry('process_events', 0);
-        $item_resource->setModelRegistry('get_customfields', 1);
-        $item_resource->setModelRegistry('primary_key_value', $id);
-        $item_resource->setModelRegistry('query_object', 'item');
+        return $this->processExtension($data, $model_registry);
+    }
 
-        $application_id = $this->runtime_data->application->id;
-        $item_resource->setModelRegistry('application_id', $application_id);
-        $site_id = $this->runtime_data->site->id;
-        $item_resource->setModelRegistry('site_id', $site_id);
-
-        $item_resource->where(
-            'column',
-            $item_resource->getModelRegistry('primary_prefix', 'a') . '.' . 'id',
-            '=',
-            'integer',
-            (int)$id
-        );
-
-        try {
-            $data = $item_resource->getData();
-        } catch (Exception $e) {
-            throw new RuntimeException($e->getMessage());
-        }
-
-        $model_registry = $item_resource->getModelRegistry('*');
-
+    /**
+     * Retrieve specific Extension Information
+     *
+     * @param   object $data
+     * @param   array  $model_registry
+     *
+     * @return  object
+     * @since   1.0.0
+     */
+    protected function processExtension($data, array $model_registry)
+    {
         $custom_field_types = $model_registry['customfieldgroups'];
 
         if (is_array($custom_field_types)) {
@@ -500,56 +441,231 @@ class ExtensionMap implements ExtensionsInterface
      * @param   object $model_registry
      *
      * @return  stdClass
-     * @since   1.0
+     * @since   1.0.0
      */
     protected function processCustomfieldGroup($group, $data, $model_registry)
     {
-        if (isset($data->$group)) {
-            $group_data = json_decode($data->$group);
-        } else {
-            $group_data = new stdClass();
+        $fields = $this->getCustomfields($group, $data, $model_registry);
+
+        $group_fields = new stdClass();
+
+        foreach ($fields as $key => $value) {
+            $group_fields->$key = $value;
         }
 
-        if (isset($this->runtime_data->application->id)) {
-            $application_id = $this->runtime_data->application->id;
-            if (isset($group_data->$application_id)) {
-                $group_data = $group_data->$application_id;
-            }
-        }
+        return $group_fields;
+    }
 
-        $temp = array();
+    /**
+     * Get Custom Group Data
+     *
+     * @param   string $group
+     * @param   object $data
+     * @param   object $model_registry
+     *
+     * @return  stdClass
+     * @since   1.0.0
+     */
+    protected function getCustomfields($group, $data, $model_registry)
+    {
+        $group_data = $this->getCustomfieldGroupData($group, $data);
+
+        $fields = array();
 
         foreach ($model_registry[$group] as $customfields) {
+            $key          = $customfields['name'];
+            $fields[$key] = $this->setCustomfieldValue($key, $group_data, $customfields);
+        }
+        ksort($fields);
 
-            $key = $customfields['name'];
+        return $fields;
+    }
 
-            $value = null;
-
-            if (isset($group_data->$key)) {
-                $value = $group_data->$key;
-            }
-
-            if ($value === null || $value === '' || $value === ' ') {
-
-                if (isset($customfields['default'])) {
-                    $default = $customfields['default'];
-                } else {
-                    $default = false;
-                }
-
-                $value = $default;
-            }
-
-            $temp[$key] = $value;
+    /**
+     * Get Custom Group Data
+     *
+     * @param   string $group
+     * @param   object $data
+     *
+     * @return  stdClass
+     * @since   1.0.0
+     */
+    protected function getCustomfieldGroupData($group, $data)
+    {
+        if (isset($data->$group)) {
+        } else {
+            $group_data = new stdClass();
+            return $group_data;
         }
 
-        ksort($temp);
+        $group_data = json_decode($data->$group);
 
-        $group_name = new stdClass();
-        foreach ($temp as $key => $value) {
-            $group_name->$key = $value;
+        $application_id = $this->runtime_data->application->id;
+
+        if (isset($group_data->$application_id)) {
+            $group_data = $group_data->$application_id;
         }
 
-        return $group_name;
+        return $group_data;
+    }
+
+    /**
+     * Set Custom Field Value
+     *
+     * @param   string $key
+     * @param   object $group_data
+     * @param   array  $customfields
+     *
+     * @return  null|mixed
+     * @since   1.0.0
+     */
+    protected function setCustomfieldValue($key, $group_data, $customfields)
+    {
+        if (isset($group_data->$key)) {
+            return $group_data->$key;
+        }
+
+        if (isset($customfields['default'])) {
+            return $customfields['default'];
+        }
+
+        return null;
+    }
+
+    /**
+     * Set Catalog Types Query
+     *
+     * @return  object
+     * @since   1.0.0
+     */
+    public function setCatalogTypesQuery()
+    {
+        $controller = $this->resource->get(
+            'query:///Molajo//Model//Datasource//CatalogTypes.xml',
+            array('Runtime_data' => $this->runtime_data)
+        );
+
+        $controller->setModelRegistry('check_view_level_access', 0);
+        $controller->setModelRegistry('process_events', 0);
+        $controller->setModelRegistry('query_object', 'list');
+        $controller->setModelRegistry('use_pagination', 0);
+        $controller->setModelRegistry('process_events', 0);
+
+        $prefix = $controller->getModelRegistry('prefix', 'a');
+
+        $catalog_id_list = (int)$this->runtime_data->reference_data->catalog_type_plugin_id . ', '
+            . (int)$this->runtime_data->reference_data->catalog_type_theme_id . ', '
+            . (int)$this->runtime_data->reference_data->catalog_type_page_view_id . ', '
+            . (int)$this->runtime_data->reference_data->catalog_type_template_view_id . ', '
+            . (int)$this->runtime_data->reference_data->catalog_type_wrap_view_id . ', '
+            . (int)$this->runtime_data->reference_data->catalog_type_menuitem_id . ', '
+            . (int)$this->runtime_data->reference_data->catalog_type_resource_id;
+
+        $controller->select('*');
+        $controller->from('#__catalog_types', 'a');
+        $controller->where('column', $prefix . '.id', 'IN', 'integer', $catalog_id_list, 'OR');
+        $controller->where('column', $prefix . '.model_type', '=', 'string', 'Resource', 'OR');
+
+        return $controller;
+    }
+
+    /**
+     * Retrieve System Extensions for a specific Catalog Type
+     *
+     * @param   int $catalog_type_id
+     *
+     * @return  array|stdClass
+     * @since   1.0.0
+     */
+    protected function setExtensionsQuery($catalog_type_id)
+    {
+        $controller
+            = $this->resource->get(
+            'query:///Molajo//Model//Datasource//ExtensionInstances.xml',
+            array('Runtimedata' => $this->runtime_data)
+        );
+
+        $application_id = $this->runtime_data->application->id;
+        $site_id        = $this->runtime_data->site->id;
+
+        $controller->setModelRegistry('application_id', $application_id);
+        $controller->setModelRegistry('site_id', $site_id);
+        $controller->setModelRegistry('check_view_level_access', 0);
+        $controller->setModelRegistry('process_events', 0);
+        $controller->setModelRegistry('get_customfields', 0);
+        $controller->setModelRegistry('use_special_joins', 1);
+        $controller->setModelRegistry('query_object', 'list');
+        $controller->setModelRegistry('use_pagination', 0);
+
+        $prefix = $controller->getModelRegistry('primary_prefix', 'a');
+        $cat_id = $prefix . '.' . 'catalog_type_id';
+
+        $controller->select($prefix . '.' . 'id');
+        $controller->select($prefix . '.' . 'alias');
+        $controller->select($prefix . '.' . 'menu');
+        $controller->select($prefix . '.' . 'path');
+        $controller->select($prefix . '.' . 'page_type');
+
+        $controller->where('column', $cat_id, '=', 'integer', $catalog_type_id);
+        $controller->where('column', $prefix . '.' . 'id', '<>', 'column', $cat_id);
+        $controller->where('column', $prefix . '.' . 'status', '>', 'integer', ' 0 ');
+
+        $controller->orderBy($prefix . '.' . 'alias');
+
+        return $controller;
+    }
+
+    /**
+     * Set Extension Query
+     *
+     * @param   int    $id
+     * @param   string $model_name
+     *
+     * @return  object
+     * @since   1.0.0
+     */
+    protected function setExtensionQuery($id, $model_name)
+    {
+        $controller = $this->resource->get(
+            'query:///' . $model_name,
+            array('Runtimedata' => $this->runtime_data)
+        );
+
+        $controller->setModelRegistry('check_view_level_access', 0);
+        $controller->setModelRegistry('process_events', 0);
+        $controller->setModelRegistry('get_customfields', 1);
+        $controller->setModelRegistry('primary_key_value', $id);
+        $controller->setModelRegistry('query_object', 'item');
+
+        $application_id = $this->runtime_data->application->id;
+        $site_id        = $this->runtime_data->site->id;
+
+        $controller->setModelRegistry('application_id', $application_id);
+        $controller->setModelRegistry('site_id', $site_id);
+        $prefix = $controller->getModelRegistry('primary_prefix', 'a');
+
+        $controller->where('column', $prefix . '.' . 'id', '=', 'integer', (int)$id);
+
+        return $controller;
+    }
+
+    /**
+     * Run Query
+     *
+     * @param   object $controller
+     *
+     * @return  mixed
+     * @since   1.0.0
+     * @throws  \CommonApi\Exception\RuntimeException
+     *
+     */
+    protected function runQuery($controller)
+    {
+        try {
+            return $controller->getData();
+
+        } catch (Exception $e) {
+            throw new RuntimeException($e->getMessage());
+        }
     }
 }

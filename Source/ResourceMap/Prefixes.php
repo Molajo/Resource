@@ -3,7 +3,7 @@
  * Namespace Prefixes for Resource Map
  *
  * @package    Molajo
- * @copyright  2014 Amy Stephen. All rights reserved.
+ * @copyright  2014-2015 Amy Stephen. All rights reserved.
  * @license    http://www.opensource.org/licenses/mit-license.html MIT License
  */
 namespace Molajo\Resource\ResourceMap;
@@ -16,7 +16,7 @@ use stdClass;
  * Namespace Prefixes for Resource Map
  *
  * @package    Molajo
- * @copyright  2014 Amy Stephen. All rights reserved.
+ * @copyright  2014-2015 Amy Stephen. All rights reserved.
  * @license    http://www.opensource.org/licenses/mit-license.html MIT License
  * @since      1.0
  */
@@ -173,7 +173,7 @@ abstract class Prefixes extends Folders
 
         $path                 = $this->setPath($is_directory, $file_path, $file_name);
         $class_namespace_path = substr($path, strlen($base_directory), 9999);
-        $qns                 = $this->setQNS($class_namespace_path, $namespace_prefix);
+        $qns                  = $this->setQNS($class_namespace_path, $namespace_prefix);
         $nspath               = $path;
 
         if ($is_directory === true) {
@@ -408,8 +408,8 @@ abstract class Prefixes extends Folders
      */
     protected function setClassfileArrayEntry($file_name, $file_extension, $qns, $nspath)
     {
-        $qns   = $this->addSlash($qns);
-        $qns   = $qns . $this->base_name;
+        $qns    = $this->addSlash($qns);
+        $qns    = $qns . $this->base_name;
         $nspath = $nspath . '/' . $file_name;
 
         if ($file_extension === 'php') {
@@ -435,7 +435,7 @@ abstract class Prefixes extends Folders
         $temp->file_name = $file_name;
         $temp->base_name = $this->base_name;
         $temp->path      = $nspath;
-        $temp->qns      = $qns;
+        $temp->qns       = $qns;
 
         return $temp;
     }
