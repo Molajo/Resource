@@ -28,11 +28,10 @@ class ResourceTest extends \PHPUnit_Framework_TestCase
      * Test Resource Renderer
      *
      * @return  $this
-     * @since   1.0
+     * @since   1.0.0
      */
     public function testResource()
     {
-
         $instance = new Driver(new Resource(new MockRender));
 
         $file  = __DIR__ . '/RenderTest.php';
@@ -47,7 +46,7 @@ class ResourceTest extends \PHPUnit_Framework_TestCase
      * Test Mustache Renderer
      *
      * @return  $this
-     * @since   1.0
+     * @since   1.0.0
      */
     public function testMustache()
     {
@@ -65,7 +64,7 @@ class ResourceTest extends \PHPUnit_Framework_TestCase
      * Test Twig Renderer
      *
      * @return  $this
-     * @since   1.0
+     * @since   1.0.0
      */
     public function testTwig()
     {
@@ -89,7 +88,7 @@ class MockRender implements RenderInterface
      * @param   array  $data
      *
      * @return  string
-     * @since   1.0
+     * @since   1.0.0
      */
     public function render($include_file, array $data = array())
     {

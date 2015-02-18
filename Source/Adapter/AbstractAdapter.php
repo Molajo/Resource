@@ -9,6 +9,8 @@
 namespace Molajo\Resource\Adapter;
 
 use CommonApi\Resource\AdapterInterface;
+use CommonApi\Exception\RuntimeException;
+use Exception;
 
 /**
  * Abstract Resource Adapter
@@ -24,7 +26,7 @@ class AbstractAdapter implements AdapterInterface
      * Resource Namespace
      *
      * @var    string
-     * @since  1.0
+     * @since  1.0.0
      */
     protected $resource_namespace = null;
 
@@ -32,7 +34,7 @@ class AbstractAdapter implements AdapterInterface
      * Base Path - root of the website from which paths are defined
      *
      * @var    string
-     * @since  1.0
+     * @since  1.0.0
      */
     protected $base_path = null;
 
@@ -40,7 +42,7 @@ class AbstractAdapter implements AdapterInterface
      * Resource Map
      *
      * @var    array
-     * @since  1.0
+     * @since  1.0.0
      */
     protected $resource_map = array();
 
@@ -48,7 +50,7 @@ class AbstractAdapter implements AdapterInterface
      * Namespace Prefixes + Path
      *
      * @var    array
-     * @since  1.0
+     * @since  1.0.0
      */
     protected $namespace_prefixes = array();
 
@@ -56,7 +58,7 @@ class AbstractAdapter implements AdapterInterface
      * Namespace Prefixes + Path
      *
      * @var    array
-     * @since  1.0
+     * @since  1.0.0
      */
     protected $valid_file_extensions = array();
 
@@ -64,7 +66,7 @@ class AbstractAdapter implements AdapterInterface
      * Located for Multiple = true
      *
      * @var    array
-     * @since  1.0
+     * @since  1.0.0
      */
     protected $located_multiple = array();
 
@@ -76,7 +78,7 @@ class AbstractAdapter implements AdapterInterface
      * @param  array  $namespace_prefixes
      * @param  array  $valid_file_extensions
      *
-     * @since  1.0
+     * @since  1.0.0
      */
     public function __construct(
         $base_path = null,
@@ -98,28 +100,79 @@ class AbstractAdapter implements AdapterInterface
      * @param   boolean $prepend
      *
      * @return  $this
-     * @since   1.0
+     * @since   1.0.0
      */
     public function setNamespace($namespace_prefix, $namespace_base_directory, $prepend = true)
     {
         if (isset($this->namespace_prefixes[$namespace_prefix])) {
-
-            $hold = $this->namespace_prefixes[$namespace_prefix];
-
-            if ($prepend === false) {
-                $hold[]                                      = $namespace_base_directory;
-                $this->namespace_prefixes[$namespace_prefix] = $hold;
-            } else {
-                $new   = array();
-                $new[] = $namespace_base_directory;
-                foreach ($hold as $h) {
-                    $new[] = $h;
-                }
-                $this->namespace_prefixes[$namespace_prefix] = $new;
-            }
+            $this->setNamespaceExists($namespace_prefix, $namespace_base_directory, $prepend);
         } else {
             $this->namespace_prefixes[$namespace_prefix] = array($namespace_base_directory);
         }
+
+        return $this;
+    }
+
+    /**
+     * Set Namespace for secondary location
+     *
+     * @param   string  $namespace_prefix
+     * @param   string  $namespace_base_directory
+     * @param   boolean $prepend
+     *
+     * @return  $this
+     * @since   1.0.0
+     */
+    protected function setNamespaceExists($namespace_prefix, $namespace_base_directory, $prepend)
+    {
+        if ($prepend === false) {
+            return $this->appendNamespace($namespace_prefix, $namespace_base_directory);
+        }
+
+        return $this->prependNamespace($namespace_prefix, $namespace_base_directory);
+    }
+
+    /**
+     * Append Namespace for secondary location
+     *
+     * @param   string  $namespace_prefix
+     * @param   string  $namespace_base_directory
+     * @param   boolean $prepend
+     *
+     * @return  $this
+     * @since   1.0.0
+     */
+    protected function appendNamespace($namespace_prefix, $namespace_base_directory)
+    {
+        $hold = $this->namespace_prefixes[$namespace_prefix];
+
+        $hold[]                                      = $namespace_base_directory;
+        $this->namespace_prefixes[$namespace_prefix] = $hold;
+
+        return $this;
+    }
+
+    /**
+     * Append Namespace for secondary location
+     *
+     * @param   string  $namespace_prefix
+     * @param   string  $namespace_base_directory
+     * @param   boolean $prepend
+     *
+     * @return  $this
+     * @since   1.0.0
+     */
+    protected function prependNamespace($namespace_prefix, $namespace_base_directory)
+    {
+        $hold = $this->namespace_prefixes[$namespace_prefix];
+
+        $new   = array();
+        $new[] = $namespace_base_directory;
+        foreach ($hold as $h) {
+            $new[] = $h;
+        }
+
+        $this->namespace_prefixes[$namespace_prefix] = $new;
 
         return $this;
     }
@@ -131,7 +184,7 @@ class AbstractAdapter implements AdapterInterface
      * @param   bool   $multiple
      *
      * @return  void|mixed|string|array
-     * @since   1.0
+     * @since   1.0.0
      */
     public function get($resource_namespace, $multiple = false)
     {
@@ -145,30 +198,7 @@ class AbstractAdapter implements AdapterInterface
         $this->resource_namespace = $resource_namespace;
 
         if (count($this->namespace_prefixes) > 0) {
-
-            foreach ($this->namespace_prefixes as $namespace_prefix => $base_directories) {
-
-                $namespace_prefix = htmlspecialchars(strtolower($namespace_prefix));
-
-                if (stripos(strtolower($resource_namespace), $namespace_prefix) === false) {
-                } else {
-
-                    $located_path = $this->searchNamespacePrefix(
-                        $resource_namespace,
-                        $namespace_prefix,
-                        $base_directories
-                    );
-
-                    if ($located_path === false) {
-                    } else {
-                        if ($multiple === false) {
-                            break;
-                        } else {
-                            $this->located_multiple[] = $located_path;
-                        }
-                    }
-                }
-            }
+            $located_path = $this->searchNamespacePrefixes($resource_namespace, $multiple);
         }
 
         if ($located_path === false || $multiple === true) {
@@ -190,6 +220,43 @@ class AbstractAdapter implements AdapterInterface
     }
 
     /**
+     * @param $resource_namespace
+     * @param $multiple
+     *
+     * @return AbstractAdapter
+     */
+    protected function searchNamespacePrefixes($resource_namespace, $multiple)
+    {
+        $located_path           = false;
+
+        foreach ($this->namespace_prefixes as $namespace_prefix => $base_directories) {
+
+            $namespace_prefix = htmlspecialchars(strtolower($namespace_prefix));
+
+            if (stripos(strtolower($resource_namespace), $namespace_prefix) === false) {
+            } else {
+
+                $located_path = $this->searchNamespacePrefix(
+                    $resource_namespace,
+                    $namespace_prefix,
+                    $base_directories
+                );
+
+                if ($located_path === false) {
+                } else {
+                    if ($multiple === false) {
+                        break;
+                    } else {
+                        $this->located_multiple[] = $located_path;
+                    }
+                }
+            }
+        }
+
+        return $located_path;
+    }
+
+    /**
      * Set a namespace prefix by mapping to the filesystem path
      *
      * @param   string $resource_namespace
@@ -197,7 +264,7 @@ class AbstractAdapter implements AdapterInterface
      * @param   array  $base_directories
      *
      * @return  $this
-     * @since   1.0
+     * @since   1.0.0
      */
     protected function searchNamespacePrefix(
         $resource_namespace,
@@ -245,7 +312,7 @@ class AbstractAdapter implements AdapterInterface
      * @param   bool   $multiple
      *
      * @return  mixed|bool|string
-     * @since   1.0
+     * @since   1.0.0
      */
     protected function searchResourceMap($resource_namespace, $multiple = false)
     {
@@ -297,7 +364,7 @@ class AbstractAdapter implements AdapterInterface
      * @param   array  $options
      *
      * @return  void|mixed
-     * @since   1.0
+     * @since   1.0.0
      */
     public function handlePath($scheme, $located_path, array $options = array())
     {
@@ -311,10 +378,48 @@ class AbstractAdapter implements AdapterInterface
      * @param   array  $options
      *
      * @return  mixed
-     * @since   1.0
+     * @since   1.0.0
      */
     public function getCollection($scheme, array $options = array())
     {
         return null;
+    }
+
+    /**
+     * Verify Options Entry
+     *
+     * @param   array $options
+     *
+     * @return  $this
+     * @since   1.0.0
+     * @throws  RuntimeException
+     */
+    protected function verifyNamespace(array $options = array())
+    {
+        if (isset($options['namespace'])) {
+        } else {
+            throw new RuntimeException('Resource handlePath options array must have namespace entry.');
+        }
+
+        return $this;
+    }
+
+    /**
+     * Verify File Exists
+     *
+     * @param   string $located_path
+     *
+     * @return  $this
+     * @since   1.0.0
+     * @throws  RuntimeException
+     */
+    protected function verifyFileExists($located_path)
+    {
+        if (file_exists($located_path)) {
+        } else {
+            throw new RuntimeException('Resource located_path not found: ' . $this->resource_namespace);
+        }
+
+        return $this;
     }
 }

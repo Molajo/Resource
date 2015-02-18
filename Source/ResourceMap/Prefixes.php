@@ -26,7 +26,7 @@ abstract class Prefixes extends Folders
      * Folders
      *
      * @var    array
-     * @since  1.0
+     * @since  1.0.0
      */
     protected $folders = array();
 
@@ -34,7 +34,7 @@ abstract class Prefixes extends Folders
      * Files
      *
      * @var    array
-     * @since  1.0
+     * @since  1.0.0
      */
     protected $files = array();
 
@@ -42,7 +42,7 @@ abstract class Prefixes extends Folders
      * Process Array of Namespaces/Folder Mapping Pairs
      *
      * @return  $this
-     * @since   1.0
+     * @since   1.0.0
      */
     protected function processNamespacePrefixes()
     {
@@ -60,7 +60,7 @@ abstract class Prefixes extends Folders
      * @param   string $namespace_prefix
      *
      * @return  $this
-     * @since   1.0
+     * @since   1.0.0
      */
     protected function processNamespaceFolders($namespace_base_folders, $namespace_prefix)
     {
@@ -86,7 +86,7 @@ abstract class Prefixes extends Folders
      * @param   string $namespace_prefix
      *
      * @return  object
-     * @since   1.0
+     * @since   1.0.0
      */
     protected function processNamespaceFolder($namespace_base_folder, $namespace_prefix)
     {
@@ -113,7 +113,7 @@ abstract class Prefixes extends Folders
      * @param   string $namespace_base_folder
      *
      * @return  object
-     * @since   1.0
+     * @since   1.0.0
      */
     protected function processFilePathObjects($objects, $namespace_prefix, $namespace_base_folder)
     {
@@ -147,7 +147,7 @@ abstract class Prefixes extends Folders
      * @param   string $file_extension
      *
      * @return  int|object
-     * @since   1.0
+     * @since   1.0.0
      */
     protected function testFileForNamespaceRules(
         $namespace_prefix,
@@ -198,7 +198,7 @@ abstract class Prefixes extends Folders
      * @param   string $file_extension
      *
      * @return  $this
-     * @since   1.0
+     * @since   1.0.0
      */
     protected function setBase($is_directory, $file_path, $file_name, $file_extension)
     {
@@ -223,7 +223,7 @@ abstract class Prefixes extends Folders
      * @param   string $file_extension
      *
      * @return  boolean
-     * @since   1.0
+     * @since   1.0.0
      */
     protected function setFileInclusion($is_directory, $file_name, $file_extension)
     {
@@ -249,7 +249,7 @@ abstract class Prefixes extends Folders
      * @param   string $file_name
      *
      * @return  $this
-     * @since   1.0
+     * @since   1.0.0
      */
     protected function testPHPClassExceptions($file_name)
     {
@@ -270,7 +270,7 @@ abstract class Prefixes extends Folders
      * @param   int    $skip
      *
      * @return  int
-     * @since   1.0
+     * @since   1.0.0
      */
     protected function testExcludeFolders($file_path, $skip = 1)
     {
@@ -311,7 +311,7 @@ abstract class Prefixes extends Folders
      * @param   string $file_name
      *
      * @return  string
-     * @since   1.0
+     * @since   1.0.0
      */
     protected function setPath($is_directory, $file_path, $file_name)
     {
@@ -329,7 +329,7 @@ abstract class Prefixes extends Folders
      * @param   string $namespace_prefix
      *
      * @return  string
-     * @since   1.0
+     * @since   1.0.0
      */
     protected function setQNS($class_namespace_path, $namespace_prefix)
     {
@@ -349,7 +349,7 @@ abstract class Prefixes extends Folders
      * @param   string $qns
      *
      * @return  $this
-     * @since   1.0
+     * @since   1.0.0
      */
     protected function mergeFQNSPaths($nspath, $qns)
     {
@@ -379,7 +379,7 @@ abstract class Prefixes extends Folders
      * @param   string $qns
      *
      * @return  array
-     * @since   1.0
+     * @since   1.0.0
      */
     protected function mergeExistingFQNSPath($qns)
     {
@@ -404,7 +404,7 @@ abstract class Prefixes extends Folders
      * @param   string $nspath
      *
      * @return  array
-     * @since   1.0
+     * @since   1.0.0
      */
     protected function setClassfileArrayEntry($file_name, $file_extension, $qns, $nspath)
     {
@@ -427,7 +427,7 @@ abstract class Prefixes extends Folders
      * @param   string $qns
      *
      * @return  object
-     * @since   1.0
+     * @since   1.0.0
      */
     protected function setNamespaceObject($file_name, $nspath, $qns)
     {

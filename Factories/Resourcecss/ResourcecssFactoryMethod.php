@@ -29,7 +29,7 @@ class ResourcecssFactoryMethod extends FactoryMethodBase implements FactoryInter
      *
      * @param  array $options
      *
-     * @since  1.0
+     * @since  1.0.0
      */
     public function __construct(array $options = array())
     {
@@ -44,7 +44,7 @@ class ResourcecssFactoryMethod extends FactoryMethodBase implements FactoryInter
      * Retrieve a list of Interface dependencies and return the data ot the controller.
      *
      * @return  array
-     * @since   1.0
+     * @since   1.0.0
      * @throws  \CommonApi\Exception\RuntimeException
      */
     public function setDependencies(array $reflection = array())
@@ -62,7 +62,7 @@ class ResourcecssFactoryMethod extends FactoryMethodBase implements FactoryInter
      * Set Dependencies for Instantiation
      *
      * @return  array
-     * @since   1.0
+     * @since   1.0.0
      * @throws  \CommonApi\Exception\RuntimeException
      */
     public function onBeforeInstantiation(array $dependency_values = null)
@@ -93,7 +93,7 @@ class ResourcecssFactoryMethod extends FactoryMethodBase implements FactoryInter
      * Follows the completion of the instantiate method
      *
      * @return  $this
-     * @since   1.0
+     * @since   1.0.0
      */
     public function onAfterInstantiation()
     {
@@ -106,7 +106,7 @@ class ResourcecssFactoryMethod extends FactoryMethodBase implements FactoryInter
      * Create Scheme Instance
      *
      * @return  object
-     * @since   1.0
+     * @since   1.0.0
      * @throws  \CommonApi\Exception\RuntimeException
      */
     protected function createScheme()

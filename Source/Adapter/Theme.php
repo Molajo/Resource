@@ -32,7 +32,7 @@ class Theme extends Extension implements AdapterInterface
      * @param  object $extensions
      * @param  object $resource
      *
-     * @since  1.0
+     * @since  1.0.0
      */
     public function __construct(
         $base_path = null,
@@ -62,7 +62,7 @@ class Theme extends Extension implements AdapterInterface
      * @param   bool   $multiple
      *
      * @return  string|false
-     * @since   1.0
+     * @since   1.0.0
      */
     protected function searchResourceMap($resource_namespace, $multiple = false)
     {
@@ -95,7 +95,7 @@ class Theme extends Extension implements AdapterInterface
      * @param   array  $options
      *
      * @return  Theme
-     * @since   1.0
+     * @since   1.0.0
      * @throws  \CommonApi\Exception\RuntimeException
      */
     public function getCollection($scheme, array $options = array())

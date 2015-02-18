@@ -28,7 +28,7 @@ class Driver implements ResourceInterface
      * Scheme Instance
      *
      * @var    object  CommonApi\Resource\SchemeInterface
-     * @since  1.0
+     * @since  1.0.0
      */
     protected $scheme;
 
@@ -36,7 +36,7 @@ class Driver implements ResourceInterface
      * Adapter Instances
      *
      * @var    array  Contains set of CommonApi\Resource\AdapterInterface instances
-     * @since  1.0
+     * @since  1.0.0
      */
     protected $adapter_instance_array = array();
 
@@ -44,7 +44,7 @@ class Driver implements ResourceInterface
      * Scheme from Request
      *
      * @var    string
-     * @since  1.0
+     * @since  1.0.0
      */
     protected $scheme_value;
 
@@ -52,7 +52,7 @@ class Driver implements ResourceInterface
      * Host
      *
      * @var    string
-     * @since  1.0
+     * @since  1.0.0
      */
     protected $host;
 
@@ -60,7 +60,7 @@ class Driver implements ResourceInterface
      * User
      *
      * @var    string
-     * @since  1.0
+     * @since  1.0.0
      */
     protected $user;
 
@@ -68,7 +68,7 @@ class Driver implements ResourceInterface
      * Password
      *
      * @var    string
-     * @since  1.0
+     * @since  1.0.0
      */
     protected $password;
 
@@ -76,7 +76,7 @@ class Driver implements ResourceInterface
      * Path
      *
      * @var    string
-     * @since  1.0
+     * @since  1.0.0
      */
     protected $path;
 
@@ -84,7 +84,7 @@ class Driver implements ResourceInterface
      * Query
      *
      * @var    string
-     * @since  1.0
+     * @since  1.0.0
      */
     protected $query;
 
@@ -92,7 +92,7 @@ class Driver implements ResourceInterface
      * Fragment
      *
      * @var    string
-     * @since  1.0
+     * @since  1.0.0
      */
     protected $fragment;
 
@@ -100,7 +100,7 @@ class Driver implements ResourceInterface
      * Scheme Properties
      *
      * @var    object
-     * @since  1.0
+     * @since  1.0.0
      */
     protected $scheme_properties;
 
@@ -108,7 +108,7 @@ class Driver implements ResourceInterface
      * Adapter Value
      *
      * @var    string
-     * @since  1.0
+     * @since  1.0.0
      */
     protected $adapter_value;
 
@@ -118,7 +118,7 @@ class Driver implements ResourceInterface
      * @param  SchemeInterface $scheme
      * @param  array           $adapter_instance_array
      *
-     * @since  1.0
+     * @since  1.0.0
      */
     public function __construct(
         SchemeInterface $scheme,
@@ -142,7 +142,7 @@ class Driver implements ResourceInterface
      * @param   boolean $prepend
      *
      * @return  $this
-     * @since   1.0
+     * @since   1.0.0
      */
     public function setNamespace($namespace_prefix, $base_directory, $prepend = true)
     {
@@ -165,7 +165,7 @@ class Driver implements ResourceInterface
      * @param   object $adapter_instance
      *
      * @return  $this
-     * @since   1.0
+     * @since   1.0.0
      */
     public function setAdapterInstance($adapter = 'File', $adapter_instance)
     {
@@ -182,7 +182,7 @@ class Driver implements ResourceInterface
      * @param   boolean $prepend
      *
      * @return  $this
-     * @since   1.0
+     * @since   1.0.0
      */
     public function register($prepend = true)
     {
@@ -195,7 +195,7 @@ class Driver implements ResourceInterface
      * Unregister Class Autoloader
      *
      * @return  $this
-     * @since   1.0
+     * @since   1.0.0
      */
     public function unregister()
     {
@@ -210,7 +210,7 @@ class Driver implements ResourceInterface
      * @param   string $scheme
      *
      * @return  object|array
-     * @since   1.0
+     * @since   1.0.0
      * @throws  \CommonApi\Exception\RuntimeException
      */
     public function getScheme($scheme = '')
@@ -256,7 +256,7 @@ class Driver implements ResourceInterface
      * @param   bool   $replace
      *
      * @return  $this
-     * @since   1.0
+     * @since   1.0.0
      */
     public function setScheme($scheme_name, $adapter = 'File', array $extensions = array(), $replace = false)
     {
@@ -271,7 +271,7 @@ class Driver implements ResourceInterface
      * @param   string $uri_namespace
      *
      * @return  boolean
-     * @since   1.0
+     * @since   1.0.0
      */
     public function exists($uri_namespace)
     {
@@ -286,6 +286,7 @@ class Driver implements ResourceInterface
             }
 
             return true;
+
         } catch (Exception $e) {
             return false;
         }
@@ -298,11 +299,15 @@ class Driver implements ResourceInterface
      * @param   array  $options
      *
      * @return  void|mixed
-     * @since   1.0
+     * @since   1.0.0
      */
     public function get($uri_namespace, array $options = array())
     {
         $this->parseUri($uri_namespace);
+
+        if ($this->scheme_value === 'Field') {
+            return $this->adapter_instance_array[$this->adapter_value]->get(substr($uri_namespace, 9, 999));
+        }
 
         return $this->locateNamespace(str_replace('\\', '/', $this->path), $this->scheme_value, $options);
     }
@@ -315,7 +320,7 @@ class Driver implements ResourceInterface
      * @param   array  $options
      *
      * @return  void|mixed
-     * @since   1.0
+     * @since   1.0.0
      */
     public function locateNamespace($namespace, $scheme = 'ClassLoader', array $options = array())
     {
@@ -342,14 +347,14 @@ class Driver implements ResourceInterface
      * @param   array  $options
      *
      * @return  void|mixed
-     * @since   1.0
+     * @since   1.0.0
      */
     public function handlePath($scheme_value, $located_path, array $options = array())
     {
         $this->getScheme($scheme_value);
 
         if (strtolower($scheme_value) == 'query') {
-            $xml = $this->adapter_instance_array['Xml']->handlePath(
+            $xml            = $this->adapter_instance_array['Xml']->handlePath(
                 $scheme_value,
                 $located_path,
                 $options
@@ -369,7 +374,7 @@ class Driver implements ResourceInterface
      * @param   array  $options
      *
      * @return  mixed
-     * @since   1.0
+     * @since   1.0.0
      */
     public function getCollection($scheme_value, array $options = array())
     {
@@ -384,7 +389,7 @@ class Driver implements ResourceInterface
      * @param   string $uri
      *
      * @return  $this
-     * @since   1.0
+     * @since   1.0.0
      */
     protected function parseUri($uri)
     {

@@ -25,7 +25,7 @@ class Items extends Aggregate
      * Loop through Class Map files and process as Interfaces or Concretes
      *
      * @return  $this
-     * @since   1.0
+     * @since   1.0.0
      */
     protected function processItems()
     {
@@ -56,7 +56,7 @@ class Items extends Aggregate
      * @param   object $reflection
      *
      * @return  $class_object
-     * @since   1.0
+     * @since   1.0.0
      */
     protected function initialiseObject($path, $reflection)
     {
@@ -86,7 +86,7 @@ class Items extends Aggregate
      * @param   object $class_object
      *
      * @return  $this
-     * @since   1.0
+     * @since   1.0.0
      */
     protected function setInterfaceClass($qns, $class_object)
     {
@@ -103,7 +103,7 @@ class Items extends Aggregate
      * @param   object $class_object
      *
      * @return  $this
-     * @since   1.0
+     * @since   1.0.0
      */
     protected function setConcreteClass($qns, $reflection, $class_object)
     {
@@ -124,7 +124,7 @@ class Items extends Aggregate
      * @param   string $qns
      *
      * @return  $this;
-     * @since   1.0
+     * @since   1.0.0
      */
     protected function setConcreteInterfaces($reflection, $class_object, $qns)
     {
@@ -147,7 +147,7 @@ class Items extends Aggregate
      * @param   string $qns
      *
      * @return  $this
-     * @since   1.0
+     * @since   1.0.0
      */
     protected function setConcreteConstructorParameters($reflection, $class_object, $qns)
     {
@@ -187,7 +187,7 @@ class Items extends Aggregate
      * @param   object $parameter
      *
      * @return  $this
-     * @since   1.0
+     * @since   1.0.0
      */
     protected function processDependencies($class_method_array, $parameter)
     {
@@ -224,7 +224,7 @@ class Items extends Aggregate
      * @param   array  $concretes
      *
      * @return  $this
-     * @since   1.0
+     * @since   1.0.0
      */
     protected function setConcreteDependencyInterfaces($qns, array $dependencies)
     {
@@ -248,7 +248,7 @@ class Items extends Aggregate
      * @param   integer $type
      *
      * @return  $this
-     * @since   1.0
+     * @since   1.0.0
      */
     protected function setConcreteInterfaceRelationship($interface, $type = 0, $qns = '')
     {

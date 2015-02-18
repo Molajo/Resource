@@ -1,6 +1,6 @@
 <?php
 /**
- * Configuration: Xml: Model Handler
+ * Model Configuration
  *
  * @package    Molajo
  * @license    http://www.opensource.org/licenses/mit-license.html MIT License
@@ -9,36 +9,54 @@
 namespace Molajo\Resource\Configuration;
 
 use CommonApi\Exception\RuntimeException;
+use CommonApi\Resource\ConfigurationInterface;
+use CommonApi\Resource\DataInterface;
+use CommonApi\Resource\RegistryInterface;
 use CommonApi\Resource\ResourceInterface;
-use Molajo\Resource\Api\ConfigurationDataInterface;
-use Molajo\Resource\Api\ConfigurationInterface;
-use Molajo\Resource\Api\RegistryInterface;
 
 /**
- * Configuration: Xml: Model Handler
+ * Model Configuration
  *
  * @author     Amy Stephen
  * @license    http://www.opensource.org/licenses/mit-license.html MIT License
  * @copyright  2014-2015 Amy Stephen. All rights reserved.
  * @since      1.0.0
  */
-class Model extends AbstractAdapter implements ConfigurationInterface
+class Model extends Includes implements ConfigurationInterface
 {
+    /**
+     * Set Registry Methods
+     *
+     * @var    array
+     * @since  1.0.0
+     */
+    protected $set_registry_methods
+        = array(
+            'setFieldsRegistry',
+            'setCustomfieldsRegistry',
+            'setJoinsRegistry',
+            'setCriteriaRegistry',
+            'setValuesRegistry',
+            'setForeignkeysRegistry',
+            'setChildrenRegistry',
+            'setPluginsRegistry'
+        );
+
     /**
      * Constructor
      *
-     * @param ConfigurationDataInterface $dataobject
-     * @param RegistryInterface          $registry
-     * @param ResourceInterface          $resource
+     * @param DataInterface     $data_object
+     * @param RegistryInterface $registry
+     * @param ResourceInterface $resource
      *
-     * @since  1.0
+     * @since  1.0.0
      */
     public function __construct(
-        ConfigurationDataInterface $dataobject,
+        DataInterface $data_object,
         RegistryInterface $registry,
         ResourceInterface $resource
     ) {
-        parent::__construct($dataobject, $registry, $resource);
+        parent::__construct($data_object, $registry, $resource);
     }
 
     /**
@@ -48,153 +66,139 @@ class Model extends AbstractAdapter implements ConfigurationInterface
      * @param   string $model_name
      * @param   object $xml
      *
-     * @return  string  Name of registry model
-     * @since   1.0
-     * @throws  \CommonApi\Exception\RuntimeException
+     * @return  string
+     * @since   1.0.0
      */
     public function getConfiguration($model_type, $model_name, $xml)
     {
-        $model_registry = ucfirst(strtolower($model_name)) . ucfirst(strtolower($model_type));
+        /** Initialise and create model registry */
+        $this->custom_field_groups = array();
+        $this->setModelNames($model_type, $model_name);
+        $this->setXml($xml);
+        $this->createRegistry();
+        $this->getIncludeCode();
+        $this->setModelRegistry();
 
-        $xml = $this->getIncludeCode($xml);
-        if ($xml === false) {
-            throw new RuntimeException(
-                'Configuration: getDataobject cannot process XML file for Model Type: '
-                . $model_type . ' Model Name: ' . $model_name
-            );
+        /** Expand, given inheritance and set data object */
+        $this->inheritDefinition();
+        $this->setDataObject();
+
+        /** Define Elements */
+        foreach ($this->set_registry_methods as $method) {
+            $this->$method();
         }
 
-        if (isset($xml->model)) {
-            $xml = $xml->model;
-        }
+        /** Finalize */
+        $this->setCustomfieldsElement();
 
-        $this->registry->createRegistry($model_registry);
+        /** Sort and Return */
+        $this->registry->sort($this->model_registry);
+        $registry = $this->registry->get($this->model_registry);
 
-        $this->inheritDefinition($model_registry, $xml);
-
-        $this->setModelRegistry($model_registry, $xml);
-
-        $this->registry->set($model_registry, 'model_name', $model_name);
-        $this->registry->set($model_registry, 'model_type', $model_type);
-        $this->registry->set($model_registry, 'model_registry_name', $model_registry);
-
-        $data_object = $this->registry->get($model_registry, 'data_object', '');
-
-        if ($data_object === '') {
-            $data_object = 'Database';
-            $this->registry->set($model_registry, 'data_object', $data_object);
-        }
-
-        $dataObjectRegistry = ucfirst(strtolower($data_object)) . 'Dataobject';
-
-        if ($this->registry->exists($dataObjectRegistry)) {
-        } else {
-            $this->resource->get('xml:///Molajo//Model//Dataobject//' . ucfirst(strtolower($data_object)) . '.xml');
-        }
-
-        foreach ($this->registry->get($dataObjectRegistry) as $key => $value) {
-            $this->registry->set($model_registry, 'data_object_' . $key, (string)$value);
-        }
-
-        $this->setElementsRegistry(
-            $model_registry,
-            $xml,
-            'fields',
-            'field',
-            $this->dataobject->get('valid_field_attributes')
-        );
-
-        $this->setElementsRegistry(
-            $model_registry,
-            $xml,
-            'joins',
-            'join',
-            $this->dataobject->get('valid_join_attributes')
-        );
-
-        $this->setElementsRegistry(
-            $model_registry,
-            $xml,
-            'foreignkeys',
-            'foreignkey',
-            $this->dataobject->get('valid_foreignkey_attributes')
-        );
-
-        $this->setElementsRegistry(
-            $model_registry,
-            $xml,
-            'criteria',
-            'where',
-            $this->dataobject->get('valid_criteria_attributes')
-        );
-
-        $this->setElementsRegistry(
-            $model_registry,
-            $xml,
-            'children',
-            'child',
-            $this->dataobject->get('valid_children_attributes')
-        );
-
-        $this->setElementsRegistry(
-            $model_registry,
-            $xml,
-            'plugins',
-            'plugin',
-            $this->dataobject->get('valid_plugin_attributes')
-        );
-
-        $this->setElementsRegistry(
-            $model_registry,
-            $xml,
-            'values',
-            'value',
-            $this->dataobject->get('valid_value_attributes')
-        );
-
-        $this->getCustomFields($model_registry, $xml);
-
-        return $this->registry->getArray($model_registry);
+        return $this->unsetFields($registry);
     }
 
     /**
      * Store Configuration Data in Registry
      *
-     * @param   string $model_registry
-     * @param   object $xml
-     *
-     * @return  null|Model
-     * @since   1.0
-     * @throws  \CommonApi\Exception\RuntimeException
+     * @return  array
+     * @since   1.0.0
      */
-    public function setModelRegistry($model_registry, $xml)
+    protected function setModelRegistry()
     {
-        $modelArray = $this->dataobject->get('valid_model_attributes');
+        $model_array = $this->data_object->get('valid_model_attributes');
 
-        foreach ($xml->attributes() as $key => $value) {
+        foreach ($this->xml->attributes() as $key => $value) {
 
-            if (in_array($key, $modelArray)) {
-                $this->registry->set($model_registry, $key, (string)$value);
+            if (in_array($key, $model_array)) {
+                $this->registry->set($this->model_registry, $key, (string)$value);
             } else {
-                echo '<pre>';
-                var_dump($key);
-
-                echo '<pre>';
-                var_dump($xml);
-
-                echo 'Going to throw Exception in ModelHandler setModelRegistry';
-                die;
                 throw new RuntimeException(
                     'Configuration: setModelRegistry encountered Invalid Model Attribute ' . $key
                 );
             }
         }
 
-        $this->registry->set(
-            $model_registry,
-            'model_name',
-            $this->registry->get($model_registry, 'name')
-        );
+        $name = $this->registry->get($this->model_registry, 'name');
+
+        $this->registry->set($this->model_registry, 'model_name', $name);
+
+        return $this;
+    }
+
+    /**
+     * Set Data Object
+     *
+     * @return  $this
+     * @since   1.0.0
+     */
+    protected function setDataObject()
+    {
+        $data_object = $this->registry->get($this->model_registry, 'data_object', '');
+
+        if ($data_object === '') {
+            return $this;
+        }
+
+        $data_object_registry = ucfirst(strtolower($data_object)) . 'Dataobject';
+
+        if ($this->registry->exists($data_object_registry)) {
+            $results = $this->registry->get($data_object_registry);
+        } else {
+            $results = $this->resource->get('xml:///Molajo//Model//Dataobject//'
+                . ucfirst(strtolower($data_object)) . '.xml');
+        }
+
+        foreach ($results as $key => $value) {
+            $this->registry->set($this->model_registry, 'data_object_' . $key, $value);
+        }
+
+        return $this;
+    }
+
+    /**
+     * Set Data Object
+     *
+     * @return  string
+     * @since   1.0.0
+     */
+    protected function setDefaultDataobject()
+    {
+        $data_object = 'Database';
+
+        $this->registry->set($this->model_registry, 'data_object', $data_object);
+
+        return $data_object;
+    }
+
+    /**
+     * Set Data Object
+     *
+     * @param   array $registry
+     *
+     * @return  string
+     * @since   1.0.0
+     */
+    protected function unsetFields($registry)
+    {
+        if (isset($registry['extends'])) {
+            unset($registry['extends']);
+        }
+
+        return $registry;
+    }
+
+    /**
+     * Set Custom Fields Element
+     *
+     * @return  $this
+     * @since   1.0.0
+     */
+    protected function setCustomfieldsElement()
+    {
+        $groups = array_unique($this->custom_field_groups);
+        sort($groups);
+        $this->setModelRegistryElement('customfieldgroups', $groups);
 
         return $this;
     }

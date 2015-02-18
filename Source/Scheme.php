@@ -29,7 +29,7 @@ class Scheme implements SchemeInterface
      *      Adapter
      *
      * @var    array
-     * @since  1.0
+     * @since  1.0.0
      */
     protected $scheme_array = array();
 
@@ -38,7 +38,7 @@ class Scheme implements SchemeInterface
      *
      * @param  string $scheme_filename
      *
-     * @since  1.0
+     * @since  1.0.0
      */
     public function __construct($scheme_filename)
     {
@@ -51,7 +51,7 @@ class Scheme implements SchemeInterface
      * @param   string $scheme
      *
      * @return  object|array
-     * @since   1.0
+     * @since   1.0.0
      */
     public function getScheme($scheme = '')
     {
@@ -70,7 +70,7 @@ class Scheme implements SchemeInterface
      * @param  string $filename
      *
      * @return  void
-     * @since   1.0
+     * @since   1.0.0
      * @throws  \CommonApi\Exception\RuntimeException
      */
     protected function readSchemes($filename)
@@ -141,7 +141,7 @@ class Scheme implements SchemeInterface
      * @param   bool   $replace
      *
      * @return  $this
-     * @since   1.0
+     * @since   1.0.0
      * @throws  \CommonApi\Exception\RuntimeException
      */
     public function setScheme($scheme_name, $adapter = 'File', array $extensions = array(), $replace = false)

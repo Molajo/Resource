@@ -24,7 +24,7 @@ class JsDeclarations extends AbstractAdapter implements AdapterInterface
      * JS Declarations
      *
      * @var    array
-     * @since  1.0
+     * @since  1.0.0
      */
     protected $js = array();
 
@@ -32,7 +32,7 @@ class JsDeclarations extends AbstractAdapter implements AdapterInterface
      * JS Declarations Priorities
      *
      * @var    array
-     * @since  1.0
+     * @since  1.0.0
      */
     protected $js_priorities = array();
 
@@ -40,7 +40,7 @@ class JsDeclarations extends AbstractAdapter implements AdapterInterface
      * JS Declarations Defer
      *
      * @var    array
-     * @since  1.0
+     * @since  1.0.0
      */
     protected $js_defer = array();
 
@@ -48,7 +48,7 @@ class JsDeclarations extends AbstractAdapter implements AdapterInterface
      * JS Declarations Defer Priorities
      *
      * @var    array
-     * @since  1.0
+     * @since  1.0.0
      */
     protected $js_defer_priorities = array();
 
@@ -60,7 +60,7 @@ class JsDeclarations extends AbstractAdapter implements AdapterInterface
      * @param   array  $options
      *
      * @return  void|mixed
-     * @since   1.0
+     * @since   1.0.0
      */
     public function handlePath($scheme, $located_path, array $options = array())
     {
@@ -83,7 +83,7 @@ class JsDeclarations extends AbstractAdapter implements AdapterInterface
      * @param string $mimetype
      *
      * @return  object Asset
-     * @since   1.0
+     * @since   1.0.0
      */
     public function addJSDeclarations($content, $priority = 500, $defer = 0, $mimetype = 'text/javascript')
     {

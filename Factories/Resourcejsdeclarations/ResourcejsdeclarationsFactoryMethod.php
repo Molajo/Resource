@@ -29,7 +29,7 @@ class ResourcejsdeclarationsFactoryMethod extends FactoryMethodBase implements F
      *
      * @param  array $options
      *
-     * @since  1.0
+     * @since  1.0.0
      */
     public function __construct(array $options = array())
     {
@@ -44,7 +44,7 @@ class ResourcejsdeclarationsFactoryMethod extends FactoryMethodBase implements F
      * Retrieve a list of Interface dependencies and return the data ot the controller.
      *
      * @return  array
-     * @since   1.0
+     * @since   1.0.0
      * @throws  \CommonApi\Exception\RuntimeException
      */
     public function setDependencies(array $reflection = array())
@@ -61,7 +61,7 @@ class ResourcejsdeclarationsFactoryMethod extends FactoryMethodBase implements F
      * Set Dependencies for Instantiation
      *
      * @return  array
-     * @since   1.0
+     * @since   1.0.0
      * @throws  \CommonApi\Exception\RuntimeException
      */
     public function onBeforeInstantiation(array $dependency_values = null)
@@ -84,7 +84,7 @@ class ResourcejsdeclarationsFactoryMethod extends FactoryMethodBase implements F
      * Follows the completion of the instantiate method
      *
      * @return  $this
-     * @since   1.0
+     * @since   1.0.0
      */
     public function onAfterInstantiation()
     {
@@ -97,7 +97,7 @@ class ResourcejsdeclarationsFactoryMethod extends FactoryMethodBase implements F
      * Create Scheme Instance
      *
      * @return  object
-     * @since   1.0
+     * @since   1.0.0
      * @throws  \CommonApi\Exception\RuntimeException
      */
     protected function createScheme()

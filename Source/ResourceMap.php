@@ -29,7 +29,7 @@ class ResourceMap extends Prefixes implements MapInterface
      * @param   boolean $prepend
      *
      * @return  $this
-     * @since   1.0
+     * @since   1.0.0
      */
     public function setNamespace($namespace_prefix, $namespace_base_directory, $prepend = false)
     {
@@ -48,7 +48,7 @@ class ResourceMap extends Prefixes implements MapInterface
      * Create resource map of folder/file locations and Qualified Namespaces
      *
      * @return  object
-     * @since   1.0
+     * @since   1.0.0
      */
     public function createMap()
     {
@@ -65,7 +65,7 @@ class ResourceMap extends Prefixes implements MapInterface
      * Save output to json file
      *
      * @return  $this
-     * @since   1.0
+     * @since   1.0.0
      */
     protected function saveOutput()
     {
@@ -89,7 +89,7 @@ class ResourceMap extends Prefixes implements MapInterface
      * Return Resource Map Data
      *
      * @return  object
-     * @since   1.0
+     * @since   1.0.0
      */
     public function getResourceMap()
     {

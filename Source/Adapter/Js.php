@@ -25,7 +25,7 @@ class Js extends AbstractAdapter implements AdapterInterface
      * Js
      *
      * @var    array
-     * @since  1.0
+     * @since  1.0.0
      */
     protected $js = array();
 
@@ -33,7 +33,7 @@ class Js extends AbstractAdapter implements AdapterInterface
      * Js Priorities
      *
      * @var    array
-     * @since  1.0
+     * @since  1.0.0
      */
     protected $js_priorities = array();
 
@@ -41,7 +41,7 @@ class Js extends AbstractAdapter implements AdapterInterface
      * Js Defer
      *
      * @var    array
-     * @since  1.0
+     * @since  1.0.0
      */
     protected $js_defer = array();
 
@@ -49,7 +49,7 @@ class Js extends AbstractAdapter implements AdapterInterface
      * Js Defer Priorities
      *
      * @var    array
-     * @since  1.0
+     * @since  1.0.0
      */
     protected $js_defer_priorities = array();
 
@@ -57,7 +57,7 @@ class Js extends AbstractAdapter implements AdapterInterface
      * JS Declarations
      *
      * @var    array
-     * @since  1.0
+     * @since  1.0.0
      */
     protected $js_declarations = array();
 
@@ -65,7 +65,7 @@ class Js extends AbstractAdapter implements AdapterInterface
      * JS Declarations Priorities
      *
      * @var    array
-     * @since  1.0
+     * @since  1.0.0
      */
     protected $js_declarations_priorities = array();
 
@@ -73,7 +73,7 @@ class Js extends AbstractAdapter implements AdapterInterface
      * JS Declarations Defer
      *
      * @var    array
-     * @since  1.0
+     * @since  1.0.0
      */
     protected $js_declarations_defer = array();
 
@@ -81,7 +81,7 @@ class Js extends AbstractAdapter implements AdapterInterface
      * JS Declarations Defer Priorities
      *
      * @var    array
-     * @since  1.0
+     * @since  1.0.0
      */
     protected $js_declarations_defer_priorities = array();
 
@@ -93,7 +93,7 @@ class Js extends AbstractAdapter implements AdapterInterface
      * @param   boolean $prepend
      *
      * @return  $this
-     * @since   1.0
+     * @since   1.0.0
      */
     public function setNamespace($namespace_prefix, $namespace_base_directory, $prepend = false)
     {
@@ -106,7 +106,7 @@ class Js extends AbstractAdapter implements AdapterInterface
      * @param   string $resource_namespace
      *
      * @return  void|mixed
-     * @since   1.0
+     * @since   1.0.0
      */
     public function get($resource_namespace, $multiple = false)
     {
@@ -121,7 +121,7 @@ class Js extends AbstractAdapter implements AdapterInterface
      * @param   array  $options
      *
      * @return  mixed
-     * @since   1.0
+     * @since   1.0.0
      */
     public function handlePath($scheme, $located_path, array $options = array())
     {
@@ -190,7 +190,7 @@ class Js extends AbstractAdapter implements AdapterInterface
      * @param   bool    $defer
      *
      * @return  $this
-     * @since   1.0
+     * @since   1.0.0
      */
     protected function addJsFolder($file_path, $priority = 500, $defer)
     {

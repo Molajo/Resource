@@ -29,7 +29,7 @@ class ResourcecssdeclarationsFactoryMethod extends FactoryMethodBase implements 
      *
      * @param  array $options
      *
-     * @since  1.0
+     * @since  1.0.0
      */
     public function __construct(array $options = array())
     {
@@ -44,7 +44,7 @@ class ResourcecssdeclarationsFactoryMethod extends FactoryMethodBase implements 
      * Retrieve a list of Interface dependencies and return the data ot the controller.
      *
      * @return  array
-     * @since   1.0
+     * @since   1.0.0
      * @throws  \CommonApi\Exception\RuntimeException
      */
     public function setDependencies(array $reflection = array())
@@ -62,7 +62,7 @@ class ResourcecssdeclarationsFactoryMethod extends FactoryMethodBase implements 
      * Set Dependencies for Instantiation
      *
      * @return  array
-     * @since   1.0
+     * @since   1.0.0
      * @throws  \CommonApi\Exception\RuntimeException
      */
     public function onBeforeInstantiation(array $dependency_values = null)
@@ -92,7 +92,7 @@ class ResourcecssdeclarationsFactoryMethod extends FactoryMethodBase implements 
      * Follows the completion of the instantiate method
      *
      * @return  $this
-     * @since   1.0
+     * @since   1.0.0
      */
     public function onAfterInstantiation()
     {
@@ -105,7 +105,7 @@ class ResourcecssdeclarationsFactoryMethod extends FactoryMethodBase implements 
      * Create Scheme Instance
      *
      * @return  object
-     * @since   1.0
+     * @since   1.0.0
      * @throws  \CommonApi\Exception\RuntimeException
      */
     protected function createScheme()

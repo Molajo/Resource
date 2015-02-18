@@ -25,7 +25,7 @@ abstract class Base
      * Resource Map Filename
      *
      * @var    string
-     * @since  1.0
+     * @since  1.0.0
      */
     protected $resource_map_filename;
 
@@ -33,7 +33,7 @@ abstract class Base
      * Interface Map Filename
      *
      * @var    string
-     * @since  1.0
+     * @since  1.0.0
      */
     protected $classmap_filename;
 
@@ -41,7 +41,7 @@ abstract class Base
      * Base Path - root of the website from which paths are defined
      *
      * @var    string
-     * @since  1.0
+     * @since  1.0.0
      */
     protected $base_path;
 
@@ -49,7 +49,7 @@ abstract class Base
      * Namespace Prefixes + Path
      *
      * @var    array
-     * @since  1.0
+     * @since  1.0.0
      */
     protected $namespace_prefixes = array();
 
@@ -57,19 +57,19 @@ abstract class Base
      * List of folders to exclude from resource mapping
      *
      * @var    array
-     * @since  1.0
+     * @since  1.0.0
      */
     protected $exclude_folders = array();
 
     /**
      * Constructor
      *
-     * @param  string  $base_path
-     * @param  array   $exclude_folders
-     * @param  string  $classmap_filename
-     * @param  string  $resource_map_filename
+     * @param  string $base_path
+     * @param  array  $exclude_folders
+     * @param  string $classmap_filename
+     * @param  string $resource_map_filename
      *
-     * @since  1.0
+     * @since  1.0.0
      */
     public function __construct(
         $base_path,
@@ -92,12 +92,13 @@ abstract class Base
             $this->resource_map_filename = $resource_map_filename;
         }
     }
+
     /**
      * Get Reflection Object from PHP
      *
      * @param  string $qns
      *
-     * @since  1.0
+     * @since  1.0.0
      * @return object
      */
     protected function getReflectionObject($qns)
@@ -112,14 +113,14 @@ abstract class Base
     /**
      * Set a namespace prefix by mapping to the filesystem path
      *
-     * @param   string  $namespace
+     * @param   string $namespace
      *
      * @return  string
-     * @since   1.0
+     * @since   1.0.0
      */
     protected function addSlash($namespace)
     {
-        if (substr($namespace, - 1) === '\\') {
+        if (substr($namespace, -1) === '\\') {
         } else {
             $namespace = $namespace . '\\';
         }

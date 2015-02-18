@@ -1,6 +1,6 @@
 <?php
 /**
- * Configuration: Xml: Dataobject Handler
+ * Data Object Configuration
  *
  * @package    Molajo
  * @license    http://www.opensource.org/licenses/mit-license.html MIT License
@@ -9,36 +9,36 @@
 namespace Molajo\Resource\Configuration;
 
 use CommonApi\Exception\RuntimeException;
+use CommonApi\Resource\ConfigurationInterface;
+use CommonApi\Resource\DataInterface;
+use CommonApi\Resource\RegistryInterface;
 use CommonApi\Resource\ResourceInterface;
-use Molajo\Resource\Api\ConfigurationDataInterface;
-use Molajo\Resource\Api\ConfigurationInterface;
-use Molajo\Resource\Api\RegistryInterface;
 
 /**
- * Configuration: Xml: Dataobject Handler
+ * Data Object Configuration
  *
  * @author     Amy Stephen
  * @license    http://www.opensource.org/licenses/mit-license.html MIT License
  * @copyright  2014-2015 Amy Stephen. All rights reserved.
  * @since      1.0.0
  */
-class Dataobject extends AbstractAdapter implements ConfigurationInterface
+class Dataobject extends Includes implements ConfigurationInterface
 {
     /**
      * Constructor
      *
-     * @param ConfigurationDataInterface $dataobject
-     * @param RegistryInterface          $registry
-     * @param ResourceInterface          $resource
+     * @param DataInterface     $data_object
+     * @param RegistryInterface $registry
+     * @param ResourceInterface $resource
      *
-     * @since  1.0
+     * @since  1.0.0
      */
     public function __construct(
-        ConfigurationDataInterface $dataobject,
+        DataInterface $data_object,
         RegistryInterface $registry,
         ResourceInterface $resource
     ) {
-        parent::__construct($dataobject, $registry, $resource);
+        parent::__construct($data_object, $registry, $resource);
     }
 
     /**
@@ -48,66 +48,60 @@ class Dataobject extends AbstractAdapter implements ConfigurationInterface
      * @param   string $model_name
      * @param   object $xml
      *
-     * @return  string  Name of registry model
-     * @since   1.0
-     * @throws  \CommonApi\Exception\RuntimeException
+     * @return  array
+     * @since   1.0.0
      */
     public function getConfiguration($model_type, $model_name, $xml)
     {
-        $model_registry = ucfirst(strtolower($model_name)) . ucfirst(strtolower($model_type));
+        $this->setModelNames($model_type, $model_name);
+        $this->setXml($xml);
+        $this->getIncludeCode();
+        $this->createRegistry();
+        $this->setModelRegistry();
+        $this->registry->sort($this->model_registry);
 
-        $xml = $this->getIncludeCode($xml);
-        if ($xml === false) {
-            throw new RuntimeException(
-                'Configuration: getDataobject cannot process XML file for Model Type: '
-                . $model_type . ' Model Name: ' . $model_name
-            );
-        }
-
-        if (isset($xml->model)) {
-            $xml = $xml->model;
-        }
-
-        $this->registry->createRegistry($model_registry);
-
-        $this->setModelRegistry($model_registry, $xml);
-
-        $this->registry->sort($model_registry);
-
-        return $this->registry->getArray($model_registry);
+        return $this->registry->get($this->model_registry);
     }
 
     /**
      * Store Configuration Data in Registry
      *
-     * @param   string $model_registry
-     * @param   object $xml
+     * @return  $this
+     * @since   1.0.0
+     */
+    protected function setModelRegistry()
+    {
+        $this->setModelRegistryKeys($this->data_object->get('valid_data_object_attributes'));
+
+        $this->registry->set($this->model_registry, 'data_object', 'data_object');
+        $this->registry->set($this->model_registry, 'model_type', 'data_object');
+        $this->registry->set($this->model_registry, 'model_name', $this->registry->get($this->model_registry, 'name'));
+
+        return $this;
+    }
+
+    /**
+     * Set Model Registry Keys
+     *
+     * @param   array $valid_array
      *
      * @return  $this
-     * @since   1.0
+     * @since   1.0.0
      * @throws  \CommonApi\Exception\RuntimeException
      */
-    public function setModelRegistry($model_registry, $xml)
+    protected function setModelRegistryKeys(array $valid_array = array())
     {
-        $doArray = $this->dataobject->get('valid_dataobject_attributes');
+        foreach ($this->xml->attributes() as $key => $value) {
 
-        foreach ($xml->attributes() as $key => $value) {
-            if (in_array((string)$key, $doArray)) {
-                $this->registry->set($model_registry, $key, (string)$value);
+            if (in_array((string)$key, $valid_array)) {
+                $this->registry->set($this->model_registry, $key, (string)$value);
+
             } else {
                 throw new RuntimeException(
-                    'Configuration: setDataobjectRegistry encountered Invalid Dataobject Attributes ' . $key
+                    'Configuration: setDataObjectRegistry encountered Invalid data_object Attributes ' . $key
                 );
             }
         }
-
-        $this->registry->set($model_registry, 'data_object', 'Dataobject');
-        $this->registry->set($model_registry, 'model_type', 'Dataobject');
-        $this->registry->set(
-            $model_registry,
-            'model_name',
-            $this->registry->get($model_registry, 'name')
-        );
 
         return $this;
     }

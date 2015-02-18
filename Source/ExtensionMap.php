@@ -27,7 +27,7 @@ class ExtensionMap implements ExtensionsInterface
      * Stores an array of key/value runtime_data settings
      *
      * @var    object
-     * @since  1.0
+     * @since  1.0.0
      */
     protected $runtime_data = null;
 
@@ -35,7 +35,7 @@ class ExtensionMap implements ExtensionsInterface
      * Resource Instance
      *
      * @var    object
-     * @since  1.0
+     * @since  1.0.0
      */
     protected $resource;
 
@@ -43,7 +43,7 @@ class ExtensionMap implements ExtensionsInterface
      * Extensions Filename
      *
      * @var    string
-     * @since  1.0
+     * @since  1.0.0
      */
     protected $extensions_filename;
 
@@ -51,7 +51,7 @@ class ExtensionMap implements ExtensionsInterface
      * Extensions Filename
      *
      * @var    array
-     * @since  1.0
+     * @since  1.0.0
      */
     protected $temp_ids = array();
 
@@ -59,7 +59,7 @@ class ExtensionMap implements ExtensionsInterface
      * Extensions Filename
      *
      * @var    array
-     * @since  1.0
+     * @since  1.0.0
      */
     protected $temp_names = array();
 
@@ -67,7 +67,7 @@ class ExtensionMap implements ExtensionsInterface
      * Extensions Filename
      *
      * @var    array
-     * @since  1.0
+     * @since  1.0.0
      */
     protected $temp_extensions = array();
 
@@ -75,7 +75,7 @@ class ExtensionMap implements ExtensionsInterface
      * Extensions Filename
      *
      * @var    array
-     * @since  1.0
+     * @since  1.0.0
      */
     protected $temp_menus = array();
 
@@ -83,7 +83,7 @@ class ExtensionMap implements ExtensionsInterface
      * Extensions Filename
      *
      * @var    array
-     * @since  1.0
+     * @since  1.0.0
      */
     protected $temp_page_types = array();
 
@@ -94,7 +94,7 @@ class ExtensionMap implements ExtensionsInterface
      * @param  object $runtime_data
      * @param  string $extensions_filename
      *
-     * @since  1.0
+     * @since  1.0.0
      */
     public function __construct(
         $resource,
@@ -132,7 +132,7 @@ class ExtensionMap implements ExtensionsInterface
      * Get Catalog Types
      *
      * @return  stdClass
-     * @since   1.0.0.0
+     * @since   1.0.0
      */
     public function getCatalogTypes()
     {
@@ -227,15 +227,12 @@ class ExtensionMap implements ExtensionsInterface
 
             } elseif ($catalog_type_id == $this->runtime_data->reference_data->catalog_type_menuitem_id) {
                 $model_name = $this->setExtensionModelNameMenuitem($this->temp_page_types, $id);
+
             } else {
                 $model_name = $this->setExtensionModelNameDefault($catalog_type_model_name, $alias);
             }
 
-            if ($alias === 'Groups') {
-                $this->temp_extensions[$id] = array();
-            } else {
-                $this->temp_extensions[$id] = $this->getExtension($id, $model_name, $resource_indicator);
-            }
+            $this->temp_extensions[$id] = $this->getExtension($id, $model_name, $resource_indicator);
         }
 
         return $this->setExtensions();
@@ -397,8 +394,11 @@ class ExtensionMap implements ExtensionsInterface
      */
     protected function getExtension($id, $model_name)
     {
-        $controller     = $this->setExtensionQuery($id, $model_name);
-        $data           = $this->runQuery($controller);
+        $controller = $this->setExtensionQuery($id, $model_name);
+        $data       = $this->runQuery($controller);
+        if ($data === null) {
+            return new stdClass();
+        }
         $model_registry = $controller->getModelRegistry('*');
 
         return $this->processExtension($data, $model_registry);
@@ -542,7 +542,7 @@ class ExtensionMap implements ExtensionsInterface
     {
         $controller = $this->resource->get(
             'query:///Molajo//Model//Datasource//CatalogTypes.xml',
-            array('Runtime_data' => $this->runtime_data)
+            array('Runtimedata' => $this->runtime_data)
         );
 
         $controller->setModelRegistry('check_view_level_access', 0);
@@ -657,10 +657,11 @@ class ExtensionMap implements ExtensionsInterface
      * @return  mixed
      * @since   1.0.0
      * @throws  \CommonApi\Exception\RuntimeException
-     *
      */
     protected function runQuery($controller)
     {
+        $controller->setSql();
+
         try {
             return $controller->getData();
 

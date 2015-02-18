@@ -25,7 +25,7 @@ class ClassMap extends Items implements MapInterface
      * Create interface to concrete references
      *
      * @return  $this
-     * @since   1.0
+     * @since   1.0.0
      */
     public function createMap()
     {
@@ -46,7 +46,7 @@ class ClassMap extends Items implements MapInterface
      * Save results of processing to files
      *
      * @return  $this
-     * @since   1.0
+     * @since   1.0.0
      */
     protected function saveOutput()
     {

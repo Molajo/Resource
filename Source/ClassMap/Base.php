@@ -25,7 +25,7 @@ abstract class Base
      * Class Map Array
      *
      * @var    array
-     * @since  1.0
+     * @since  1.0.0
      */
     protected $classmap_files = array();
 
@@ -33,7 +33,7 @@ abstract class Base
      * Interfaces Filename
      *
      * @var    string
-     * @since  1.0
+     * @since  1.0.0
      */
     protected $interface_classes_filename;
 
@@ -41,7 +41,7 @@ abstract class Base
      * Class Dependencies
      *
      * @var    string
-     * @since  1.0
+     * @since  1.0.0
      */
     protected $concrete_classes_filename;
 
@@ -49,7 +49,7 @@ abstract class Base
      * Events
      *
      * @var    string
-     * @since  1.0
+     * @since  1.0.0
      */
     protected $events_filename;
 
@@ -57,7 +57,7 @@ abstract class Base
      * Interfaces
      *
      * @var    array
-     * @since  1.0
+     * @since  1.0.0
      */
     protected $interfaces = array();
 
@@ -65,7 +65,7 @@ abstract class Base
      * Interface Usage
      *
      * @var    array
-     * @since  1.0
+     * @since  1.0.0
      */
     protected $interface_usage = array();
 
@@ -73,7 +73,7 @@ abstract class Base
      * Concretes
      *
      * @var    array
-     * @since  1.0
+     * @since  1.0.0
      */
     protected $concretes = array();
 
@@ -81,7 +81,7 @@ abstract class Base
      * Events
      *
      * @var    array
-     * @since  1.0
+     * @since  1.0.0
      */
     protected $events = array();
 
@@ -89,19 +89,19 @@ abstract class Base
      * Base Path - root of the website from which paths are defined
      *
      * @var    string
-     * @since  1.0
+     * @since  1.0.0
      */
     protected $base_path;
 
     /**
      * Constructor
      *
-     * @param  array   $class_maps
-     * @param  string  $interface_classes_filename
-     * @param  string  $concrete_classes_filename
-     * @param  string  $events_filename
+     * @param  array  $class_maps
+     * @param  string $interface_classes_filename
+     * @param  string $concrete_classes_filename
+     * @param  string $events_filename
      *
-     * @since  1.0
+     * @since  1.0.0
      */
     public function __construct(
         array $classmap_files = array(),
@@ -122,7 +122,7 @@ abstract class Base
      *
      * @param  string $qns
      *
-     * @since  1.0
+     * @since  1.0.0
      * @return object
      */
     protected function getReflectionObject($qns)

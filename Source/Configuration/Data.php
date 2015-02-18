@@ -9,7 +9,7 @@
 namespace Molajo\Resource\Configuration;
 
 use CommonApi\Exception\RuntimeException;
-use Molajo\Resource\Api\ConfigurationDataInterface;
+use CommonApi\Resource\DataInterface;
 
 /**
  * Configuration Data
@@ -19,29 +19,29 @@ use Molajo\Resource\Api\ConfigurationDataInterface;
  * @copyright  2014-2015 Amy Stephen. All rights reserved.
  * @since      1.0.0
  */
-class Data implements ConfigurationDataInterface
+class Data implements DataInterface
 {
     /**
      * Valid Data Object Types
      *
      * @var    array
-     * @since  1.0
+     * @since  1.0.0
      */
-    protected $valid_dataobject_types;
+    protected $valid_data_object_types;
 
     /**
      * Valid Data Object Attributes
      *
      * @var    array
-     * @since  1.0
+     * @since  1.0.0
      */
-    protected $valid_dataobject_attributes;
+    protected $valid_data_object_attributes;
 
     /**
      * Valid Model Types
      *
      * @var    array
-     * @since  1.0
+     * @since  1.0.0
      */
     protected $valid_model_types;
 
@@ -49,7 +49,7 @@ class Data implements ConfigurationDataInterface
      * Valid Model Attributes
      *
      * @var    array
-     * @since  1.0
+     * @since  1.0.0
      */
     protected $valid_model_attributes;
 
@@ -57,7 +57,7 @@ class Data implements ConfigurationDataInterface
      * Valid Data Types
      *
      * @var    array
-     * @since  1.0
+     * @since  1.0.0
      */
     protected $valid_data_types;
 
@@ -65,7 +65,7 @@ class Data implements ConfigurationDataInterface
      * Valid Query Attributes
      *
      * @var    array
-     * @since  1.0
+     * @since  1.0.0
      */
     protected $valid_queryelements_attributes;
 
@@ -73,7 +73,7 @@ class Data implements ConfigurationDataInterface
      * Valid Field Attributes
      *
      * @var    array
-     * @since  1.0
+     * @since  1.0.0
      */
     protected $valid_field_attributes;
 
@@ -81,7 +81,7 @@ class Data implements ConfigurationDataInterface
      * Valid Join Attributes
      *
      * @var    array
-     * @since  1.0
+     * @since  1.0.0
      */
     protected $valid_join_attributes;
 
@@ -89,7 +89,7 @@ class Data implements ConfigurationDataInterface
      * Valid Foreignkey Attributes
      *
      * @var    array
-     * @since  1.0
+     * @since  1.0.0
      */
     protected $valid_foreignkey_attributes;
 
@@ -97,7 +97,7 @@ class Data implements ConfigurationDataInterface
      * Valid Criteria Attributes
      *
      * @var    array
-     * @since  1.0
+     * @since  1.0.0
      */
     protected $valid_criteria_attributes;
 
@@ -105,7 +105,7 @@ class Data implements ConfigurationDataInterface
      * Valid Children Attributes
      *
      * @var    array
-     * @since  1.0
+     * @since  1.0.0
      */
     protected $valid_children_attributes;
 
@@ -113,7 +113,7 @@ class Data implements ConfigurationDataInterface
      * Valid Plugin Attributes
      *
      * @var    array
-     * @since  1.0
+     * @since  1.0.0
      */
     protected $valid_plugin_attributes;
 
@@ -121,7 +121,7 @@ class Data implements ConfigurationDataInterface
      * Valid Value Attributes
      *
      * @var    array
-     * @since  1.0
+     * @since  1.0.0
      */
     protected $valid_value_attributes;
 
@@ -129,7 +129,7 @@ class Data implements ConfigurationDataInterface
      * Datalists
      *
      * @var    array
-     * @since  1.0
+     * @since  1.0.0
      */
     protected $valid_datalists;
 
@@ -137,12 +137,12 @@ class Data implements ConfigurationDataInterface
      * List of Properties
      *
      * @var    array
-     * @since  1.0
+     * @since  1.0.0
      */
     protected $property_array
         = array(
-            'valid_dataobject_types',
-            'valid_dataobject_attributes',
+            'valid_data_object_types',
+            'valid_data_object_attributes',
             'valid_model_types',
             'valid_model_attributes',
             'valid_data_types',
@@ -161,59 +161,36 @@ class Data implements ConfigurationDataInterface
     /**
      * Constructor
      *
-     * @param   string $valid_dataobject_types
-     * @param   string $valid_dataobject_types
-     * @param   string $valid_dataobject_attributes
-     * @param   string $valid_model_types
-     * @param   string $valid_model_attributes
-     * @param   string $valid_data_types
-     * @param   string $valid_queryelements_attributes
-     * @param   string $valid_field_attributes
-     * @param   string $valid_join_attributes
-     * @param   string $valid_foreignkey_attributes
-     * @param   string $valid_criteria_attributes
-     * @param   string $valid_children_attributes
-     * @param   string $valid_plugin_attributes
-     * @param   string $valid_value_attributes
-     * @param   string $valid_field_attributes_default
-     * @param   string $valid_datalists
+     * @param   array $valid_array
      *
-     *
-     * @since   1.0
+     * @since   1.0.0
      */
     public function __construct(
-        $valid_dataobject_types,
-        $valid_dataobject_attributes,
-        $valid_model_types,
-        $valid_model_attributes,
-        $valid_data_types,
-        $valid_queryelements_attributes,
-        $valid_field_attributes,
-        $valid_join_attributes,
-        $valid_foreignkey_attributes,
-        $valid_criteria_attributes,
-        $valid_children_attributes,
-        $valid_plugin_attributes,
-        $valid_value_attributes,
-        $valid_field_attributes_default,
-        $valid_datalists
+        array $valid_array = array()
     ) {
+        $this->setClassProperties($valid_array);
+    }
 
-        $this->valid_dataobject_types         = $valid_dataobject_types;
-        $this->valid_dataobject_attributes    = $valid_dataobject_attributes;
-        $this->valid_model_types              = $valid_model_types;
-        $this->valid_model_attributes         = $valid_model_attributes;
-        $this->valid_data_types               = $valid_data_types;
-        $this->valid_queryelements_attributes = $valid_queryelements_attributes;
-        $this->valid_field_attributes         = $valid_field_attributes;
-        $this->valid_join_attributes          = $valid_join_attributes;
-        $this->valid_foreignkey_attributes    = $valid_foreignkey_attributes;
-        $this->valid_criteria_attributes      = $valid_criteria_attributes;
-        $this->valid_children_attributes      = $valid_children_attributes;
-        $this->valid_plugin_attributes        = $valid_plugin_attributes;
-        $this->valid_value_attributes         = $valid_value_attributes;
-        $this->valid_field_attributes_default = $valid_field_attributes_default;
-        $this->valid_datalists                = $valid_datalists;
+    /**
+     * Set Class Properties
+     *
+     * @param   array $valid_array
+     *
+     * @return  mixed
+     * @since   1.0.0
+     */
+    protected function setClassProperties(array $valid_array = array())
+    {
+        foreach ($this->property_array as $key) {
+
+            if (isset($valid_array[$key]) && is_array($valid_array[$key])) {
+                $this->$key = $valid_array[$key];
+            } else {
+                $this->$key = array();
+            }
+        }
+
+        return $this;
     }
 
     /**
@@ -223,7 +200,7 @@ class Data implements ConfigurationDataInterface
      * @param   mixed  $value
      *
      * @return  mixed
-     * @since   1.0
+     * @since   1.0.0
      * @throws  \CommonApi\Exception\RuntimeException
      */
     public function set($key, $value = null)
@@ -247,7 +224,7 @@ class Data implements ConfigurationDataInterface
      * @param   mixed  $default
      *
      * @return  mixed
-     * @since   1.0
+     * @since   1.0.0
      * @throws  \CommonApi\Exception\RuntimeException
      */
     public function get($key, $default = null)

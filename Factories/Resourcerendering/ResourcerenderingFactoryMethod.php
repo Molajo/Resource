@@ -29,7 +29,7 @@ class ResourcerenderingFactoryMethod extends FactoryMethodBase implements Factor
      *
      * @param  array $options
      *
-     * @since  1.0
+     * @since  1.0.0
      */
     public function __construct(array $options = array())
     {
@@ -42,7 +42,7 @@ class ResourcerenderingFactoryMethod extends FactoryMethodBase implements Factor
      * Retrieve a list of Interface dependencies and return the data ot the controller.
      *
      * @return  array
-     * @since   1.0
+     * @since   1.0.0
      * @throws  \CommonApi\Exception\RuntimeException
      */
     public function setDependencies(array $reflection = array())
@@ -60,7 +60,7 @@ class ResourcerenderingFactoryMethod extends FactoryMethodBase implements Factor
      * Set Dependencies for Instantiation
      *
      * @return  array
-     * @since   1.0
+     * @since   1.0.0
      * @throws  \CommonApi\Exception\RuntimeException
      */
     public function onBeforeInstantiation(array $dependency_values = null)
@@ -126,7 +126,7 @@ class ResourcerenderingFactoryMethod extends FactoryMethodBase implements Factor
      * @param   bool   $extensions
      *
      * @return  mixed
-     * @since   1.0
+     * @since   1.0.0
      * @throws  \CommonApi\Exception\RuntimeException
      */
     protected function createHandler(
@@ -163,7 +163,7 @@ class ResourcerenderingFactoryMethod extends FactoryMethodBase implements Factor
      * Create Scheme Instance
      *
      * @return  object
-     * @since   1.0
+     * @since   1.0.0
      * @throws  \CommonApi\Exception\RuntimeException
      */
     protected function createScheme()
@@ -188,13 +188,11 @@ class ResourcerenderingFactoryMethod extends FactoryMethodBase implements Factor
      * Request for array of Factory Methods to be Scheduled
      *
      * @return  $this
-     * @since   1.0
+     * @since   1.0.0
      */
     public function scheduleFactories()
     {
-        $options              = array();
-        $options['base_path'] = $this->base_path;
-
+        $options                                                   = array();
         $this->schedule_factory_methods['Resourcecss']             = $options;
         $this->schedule_factory_methods['Resourcecssdeclarations'] = $options;
         $this->schedule_factory_methods['Resourcejs']              = $options;

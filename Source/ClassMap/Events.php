@@ -24,7 +24,7 @@ class Events extends Base
      * Events
      *
      * @var    array
-     * @since  1.0
+     * @since  1.0.0
      */
     protected $events = array();
 
@@ -32,7 +32,7 @@ class Events extends Base
      * For each Interface, determine Concrete Classes which Implement the Interface and
      *  Requirements for a Concrete Class expressed by the Interface as a Type Hint in the Method Parameters
      *
-     * @since   1.0
+     * @since   1.0.0
      * @return  $this
      */
     protected function setEvents()
@@ -41,30 +41,30 @@ class Events extends Base
 
         foreach ($this->concretes as $concrete) {
 
-                if (count($concrete->method) > 0) {
+            if (count($concrete->method) > 0) {
 
-                    foreach ($concrete->method as $method) {
+                foreach ($concrete->method as $method) {
 
-                        if ($this->testMethodForPlugin($concrete, $method) === true) {
+                    if ($this->testMethodForPlugin($concrete, $method) === true) {
 
-                            $class_instance = new \ReflectionClass($concrete->qns);
-                            $abstract       = $class_instance->isAbstract();
+                        $class_instance = new \ReflectionClass($concrete->qns);
+                        $abstract       = $class_instance->isAbstract();
 
-                            $reflectionMethod = new \ReflectionMethod(new $concrete->qns, $method);
-                            $results          = $reflectionMethod->getDeclaringClass();
+                        $reflectionMethod = new \ReflectionMethod(new $concrete->qns, $method);
+                        $results          = $reflectionMethod->getDeclaringClass();
 
-                            if ($results->name === $concrete->qns) {
-                                if (isset($this->events[$method])) {
-                                    $classes = $this->events[$method];
-                                } else {
-                                    $classes = array();
-                                }
-                                $classes[]             = $concrete->qns;
-                                $this->events[$method] = array_unique($classes);
+                        if ($results->name === $concrete->qns) {
+                            if (isset($this->events[$method])) {
+                                $classes = $this->events[$method];
+                            } else {
+                                $classes = array();
                             }
+                            $classes[]             = $concrete->qns;
+                            $this->events[$method] = array_unique($classes);
                         }
                     }
                 }
+            }
 
         }
 
@@ -78,7 +78,7 @@ class Events extends Base
      * @param   string $method
      *
      * @return  boolean
-     * @since   1.0
+     * @since   1.0.0
      */
     protected function testMethodForPlugin($concrete, $method)
     {

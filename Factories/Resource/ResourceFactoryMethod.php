@@ -29,7 +29,7 @@ class ResourceFactoryMethod extends FactoryMethodBase implements FactoryInterfac
      *
      * @param  $options
      *
-     * @since  1.0
+     * @since  1.0.0
      */
     public function __construct(array $options = array())
     {
@@ -46,7 +46,7 @@ class ResourceFactoryMethod extends FactoryMethodBase implements FactoryInterfac
      * @param   array $reflection
      *
      * @return  array|bool
-     * @since   1.0
+     * @since   1.0.0
      * @throws  \CommonApi\Exception\RuntimeException
      */
     public function setDependencies(array $reflection = array())
@@ -63,6 +63,10 @@ class ResourceFactoryMethod extends FactoryMethodBase implements FactoryInterfac
 
         $resource_map = $this->readFile(
             $this->base_path . '/Bootstrap/Files/Output/ResourceMap.json'
+        );
+
+        $fields = $this->readFile(
+            $this->base_path . '/Bootstrap/Files/Model/Fields.json'
         );
 
         /**
@@ -86,13 +90,23 @@ class ResourceFactoryMethod extends FactoryMethodBase implements FactoryInterfac
             array(),
             $this->options['Scheme']->getScheme('ClassLoader')->include_file_extensions
         );
+        $adapter_instance['Field']
+            = $this->createAdapterField(
+            'Field',
+            $this->base_path,
+            $resource_map,
+            array(),
+            $this->options['Scheme']->getScheme('Field')->include_file_extensions,
+            $fields
+        );
         $adapter_instance['File']
             = $this->createAdapter(
             'File',
             $this->base_path,
             $resource_map,
             array(),
-            $this->options['Scheme']->getScheme('File')->include_file_extensions
+            $this->options['Scheme']->getScheme('File')->include_file_extensions,
+            $this->base_path . ''
         );
         $adapter_instance['Folder']
             = $this->createAdapter(
@@ -132,7 +146,7 @@ class ResourceFactoryMethod extends FactoryMethodBase implements FactoryInterfac
      * @param   array $dependency_values (ignored in Service Item Adapter, based in from handler)
      *
      * @return  $this
-     * @since   1.0
+     * @since   1.0.0
      */
     public function onBeforeInstantiation(array $dependency_values = null)
     {
@@ -146,7 +160,7 @@ class ResourceFactoryMethod extends FactoryMethodBase implements FactoryInterfac
      * Factory Method Controller triggers the Factory Method to create the Class for the Service
      *
      * @return  $this
-     * @since   1.0
+     * @since   1.0.0
      * @throws  \CommonApi\Exception\RuntimeException
      */
     public function instantiateClass()
@@ -165,28 +179,22 @@ class ResourceFactoryMethod extends FactoryMethodBase implements FactoryInterfac
      * Request for array of Factory Methods to be Scheduled
      *
      * @return  object
-     * @since   1.0
+     * @since   1.0.0
      */
     public function scheduleFactories()
     {
-        $options                             = array();
-        $options['store_instance_indicator'] = true;
-        $options['product_name']             = 'Fieldhandler';
-        $options['base_path']                = $this->base_path;
-
+        $options                                        = array();
+        $options['store_instance_indicator']            = true;
+        $options['product_name']                        = 'Fieldhandler';
         $this->schedule_factory_methods['Fieldhandler'] = $options;
 
-        $options              = array();
-        $options['Resource']  = $this->product_result;
-        $options['base_path'] = $this->base_path;
-
+        $options                                        = array();
+        $options['Resource']                            = $this->product_result;
         $this->schedule_factory_methods['Resourcedata'] = $options;
 
-        $options                             = array();
-        $options['store_instance_indicator'] = true;
-        $options['product_name']             = 'Exceptionhandling';
-        $options['base_path']                = $this->base_path;
-
+        $options                                             = array();
+        $options['store_instance_indicator']                 = true;
+        $options['product_name']                             = 'Exceptionhandling';
         $this->schedule_factory_methods['Exceptionhandling'] = $options;
 
         return $this->schedule_factory_methods;
@@ -196,7 +204,7 @@ class ResourceFactoryMethod extends FactoryMethodBase implements FactoryInterfac
      * Create Scheme Instance
      *
      * @return  object
-     * @since   1.0
+     * @since   1.0.0
      * @throws  \CommonApi\Exception\RuntimeException
      */
     protected function createScheme()
@@ -227,11 +235,16 @@ class ResourceFactoryMethod extends FactoryMethodBase implements FactoryInterfac
      * @param   array  $valid_file_extensions
      *
      * @return  mixed
-     * @since   1.0
+     * @since   1.0.0
      * @throws  \CommonApi\Exception\RuntimeException
      */
-    protected function createAdapter($adapter, $base_path, $resource_map, $namespace_prefixes, $valid_file_extensions)
-    {
+    protected function createAdapter(
+        $adapter,
+        $base_path,
+        $resource_map,
+        $namespace_prefixes,
+        $valid_file_extensions
+    ) {
         $class = 'Molajo\\Resource\\Adapter\\' . $adapter;
 
         try {
@@ -240,6 +253,48 @@ class ResourceFactoryMethod extends FactoryMethodBase implements FactoryInterfac
                 $resource_map,
                 $namespace_prefixes,
                 $valid_file_extensions
+            );
+        } catch (Exception $e) {
+            throw new RuntimeException(
+                'Resource Adapter ' . $adapter
+                . ' Exception during Instantiation: ' . $e->getMessage()
+            );
+        }
+
+        return $adapter_instance;
+    }
+
+    /**
+     * Create Handler Instance
+     *
+     * @param   string $adapter
+     * @param   string $base_path
+     * @param   array  $resource_map
+     * @param   array  $namespace_prefixes
+     * @param   array  $valid_file_extensions
+     * @param   array  $fields
+     *
+     * @return  mixed
+     * @since   1.0.0
+     * @throws  \CommonApi\Exception\RuntimeException
+     */
+    protected function createAdapterField(
+        $adapter,
+        $base_path,
+        $resource_map,
+        $namespace_prefixes,
+        $valid_file_extensions,
+        $fields = array()
+    ) {
+        $class = 'Molajo\\Resource\\Adapter\\' . $adapter;
+
+        try {
+            $adapter_instance = new $class (
+                $base_path,
+                $resource_map,
+                $namespace_prefixes,
+                $valid_file_extensions,
+                $fields
             );
         } catch (Exception $e) {
             throw new RuntimeException(

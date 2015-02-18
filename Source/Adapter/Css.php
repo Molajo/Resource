@@ -25,7 +25,7 @@ class Css extends AbstractAdapter implements AdapterInterface
      * Collect list of CSS Files
      *
      * @var    array
-     * @since  1.0
+     * @since  1.0.0
      */
     protected $css_files = array();
 
@@ -33,7 +33,7 @@ class Css extends AbstractAdapter implements AdapterInterface
      * Css
      *
      * @var    array
-     * @since  1.0
+     * @since  1.0.0
      */
     protected $css = array();
 
@@ -41,7 +41,7 @@ class Css extends AbstractAdapter implements AdapterInterface
      * CSS Priorities
      *
      * @var    array
-     * @since  1.0
+     * @since  1.0.0
      */
     protected $css_priorities = array();
 
@@ -49,7 +49,7 @@ class Css extends AbstractAdapter implements AdapterInterface
      * Language Direction
      *
      * @var    string
-     * @since  1.0
+     * @since  1.0.0
      */
     protected $language_direction;
 
@@ -57,7 +57,7 @@ class Css extends AbstractAdapter implements AdapterInterface
      * HTML5
      *
      * @var    string
-     * @since  1.0
+     * @since  1.0.0
      */
     protected $html5;
 
@@ -65,7 +65,7 @@ class Css extends AbstractAdapter implements AdapterInterface
      * Line End
      *
      * @var    string
-     * @since  1.0
+     * @since  1.0.0
      */
     protected $line_end;
 
@@ -73,7 +73,7 @@ class Css extends AbstractAdapter implements AdapterInterface
      * Mimetype
      *
      * @var    string
-     * @since  1.0
+     * @since  1.0.0
      */
     protected $mimetype;
 
@@ -89,7 +89,7 @@ class Css extends AbstractAdapter implements AdapterInterface
      * @param  string $line_end
      * @param  string $mimetype
      *
-     * @since  1.0
+     * @since  1.0.0
      */
     public function __construct(
         $base_path = null,
@@ -122,7 +122,7 @@ class Css extends AbstractAdapter implements AdapterInterface
      * @param   array  $options
      *
      * @return  mixed
-     * @since   1.0
+     * @since   1.0.0
      */
     public function handlePath($scheme, $located_path, array $options = array())
     {
@@ -187,7 +187,7 @@ class Css extends AbstractAdapter implements AdapterInterface
      * @param   integer $priority
      *
      * @return  $this
-     * @since   1.0
+     * @since   1.0.0
      */
     public function addCssFolder($file_path, $priority = 500)
     {
@@ -250,7 +250,7 @@ class Css extends AbstractAdapter implements AdapterInterface
      * @param   array  $attributes
      *
      * @return  mixed
-     * @since   1.0
+     * @since   1.0.0
      */
     public function addCss(
         $file_path,
@@ -307,7 +307,7 @@ class Css extends AbstractAdapter implements AdapterInterface
      * @param   array  $options
      *
      * @return  mixed
-     * @since   1.0
+     * @since   1.0.0
      */
     public function getCollection($scheme, array $options = array())
     {

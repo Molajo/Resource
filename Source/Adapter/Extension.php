@@ -25,7 +25,7 @@ class Extension extends AbstractAdapter implements AdapterInterface
      * Rendering Extensions
      *
      * @var    object
-     * @since  1.0
+     * @since  1.0.0
      */
     protected $extensions = null;
 
@@ -33,7 +33,7 @@ class Extension extends AbstractAdapter implements AdapterInterface
      * Extension Object
      *
      * @var    object
-     * @since  1.0
+     * @since  1.0.0
      */
     protected $extension = null;
 
@@ -41,7 +41,7 @@ class Extension extends AbstractAdapter implements AdapterInterface
      * Extension Path
      *
      * @var    string
-     * @since  1.0
+     * @since  1.0.0
      */
     protected $extension_path = null;
 
@@ -49,7 +49,7 @@ class Extension extends AbstractAdapter implements AdapterInterface
      * Parameters
      *
      * @var    object
-     * @since  1.0
+     * @since  1.0.0
      */
     protected $parameters = null;
 
@@ -57,7 +57,7 @@ class Extension extends AbstractAdapter implements AdapterInterface
      * Catalog Type ID
      *
      * @var    int
-     * @since  1.0
+     * @since  1.0.0
      */
     protected $catalog_type_id;
 
@@ -65,7 +65,7 @@ class Extension extends AbstractAdapter implements AdapterInterface
      * Catalog Type Priority
      *
      * @var    int
-     * @since  1.0
+     * @since  1.0.0
      */
     protected $catalog_type_priority;
 
@@ -73,7 +73,7 @@ class Extension extends AbstractAdapter implements AdapterInterface
      * Resource Instance to retrieve CSS and JS files
      *
      * @var    object
-     * @since  1.0
+     * @since  1.0.0
      */
     protected $resource;
 
@@ -87,7 +87,7 @@ class Extension extends AbstractAdapter implements AdapterInterface
      * @param  object $extensions
      * @param  object $resource
      *
-     * @since  1.0
+     * @since  1.0.0
      */
     public function __construct(
         $base_path = null,
@@ -117,7 +117,7 @@ class Extension extends AbstractAdapter implements AdapterInterface
      * @param   boolean $prepend
      *
      * @return  $this
-     * @since   1.0
+     * @since   1.0.0
      */
     public function setNamespace($namespace_prefix, $namespace_base_directory, $prepend = false)
     {
@@ -131,7 +131,7 @@ class Extension extends AbstractAdapter implements AdapterInterface
      * @param   bool   $multiple
      *
      * @return  void|mixed
-     * @since   1.0
+     * @since   1.0.0
      * @throws  \CommonApi\Exception\RuntimeException
      */
     public function get($resource_namespace, $multiple = false)
@@ -170,7 +170,7 @@ class Extension extends AbstractAdapter implements AdapterInterface
      * @param   array  $options
      *
      * @return  mixed
-     * @since   1.0
+     * @since   1.0.0
      * @throws  \CommonApi\Exception\RuntimeException
      */
     public function handlePath($scheme, $located_path, array $options = array())
@@ -192,7 +192,7 @@ class Extension extends AbstractAdapter implements AdapterInterface
      * @param   array  $options
      *
      * @return  Extension
-     * @since   1.0
+     * @since   1.0.0
      * @throws  \CommonApi\Exception\RuntimeException
      */
     public function getCollection($scheme, array $options = array())

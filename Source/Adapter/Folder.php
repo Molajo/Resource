@@ -29,7 +29,7 @@ class Folder extends AbstractAdapter implements AdapterInterface
      * @param   bool   $multiple
      *
      * @return  void|mixed|string|array
-     * @since   1.0
+     * @since   1.0.0
      */
     public function get($resource_namespace, $multiple = false)
     {
@@ -95,7 +95,7 @@ class Folder extends AbstractAdapter implements AdapterInterface
      * @param   array  $base_directories
      *
      * @return  $this
-     * @since   1.0
+     * @since   1.0.0
      */
     protected function searchNamespacePrefix(
         $resource_namespace,
@@ -132,7 +132,7 @@ class Folder extends AbstractAdapter implements AdapterInterface
      * @param   bool   $multiple
      *
      * @return  mixed|bool|string
-     * @since   1.0
+     * @since   1.0.0
      */
     protected function searchResourceMap($resource_namespace, $multiple = false)
     {
@@ -170,7 +170,7 @@ class Folder extends AbstractAdapter implements AdapterInterface
      * @param   array        $options
      *
      * @return  void|mixed
-     * @since   1.0
+     * @since   1.0.0
      */
     public function handlePath($scheme, $located_path, array $options = array())
     {

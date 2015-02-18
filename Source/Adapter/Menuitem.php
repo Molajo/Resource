@@ -32,7 +32,7 @@ class Menuitem extends Extension implements AdapterInterface
      * @param  object $extensions
      * @param  object $resource
      *
-     * @since  1.0
+     * @since  1.0.0
      */
     public function __construct(
         $base_path = null,
@@ -61,7 +61,7 @@ class Menuitem extends Extension implements AdapterInterface
      * @param   string $resource_namespace
      *
      * @return  string|false
-     * @since   1.0
+     * @since   1.0.0
      */
     protected function searchResourceMap($resource_namespace, $multiple = false)
     {
@@ -101,7 +101,7 @@ class Menuitem extends Extension implements AdapterInterface
      * @param   array  $options
      *
      * @return  mixed
-     * @since   1.0
+     * @since   1.0.0
      * @throws  \CommonApi\Exception\RuntimeException
      */
     public function handlePath($scheme, $located_path, array $options = array())
@@ -145,7 +145,7 @@ class Menuitem extends Extension implements AdapterInterface
      * @param   array  $options
      *
      * @return  Menuitem
-     * @since   1.0
+     * @since   1.0.0
      * @throws  \CommonApi\Exception\RuntimeException
      */
     public function getCollection($scheme, array $options = array())
