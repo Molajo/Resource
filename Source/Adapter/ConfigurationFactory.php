@@ -52,7 +52,8 @@ class ConfigurationFactory extends AbstractAdapter
      * @param  array  $resource_map
      * @param  array  $namespace_prefixes
      * @param  array  $valid_file_extensions
-     * @param  array  $configuration_dependency_array
+     * @param  array  $cache_callbacks
+     * @param  array  $handler_options
      *
      * @since  1.0.0
      */
@@ -61,35 +62,37 @@ class ConfigurationFactory extends AbstractAdapter
         array $resource_map = array(),
         array $namespace_prefixes = array(),
         array $valid_file_extensions = array(),
-        array $configuration_dependency_array = array()
+        array $cache_callbacks = array(),
+        array $handler_options = array()
     ) {
         parent::__construct(
             $base_path,
             $resource_map,
             $namespace_prefixes,
-            $valid_file_extensions
+            $valid_file_extensions,
+            $cache_callbacks
         );
 
-        $this->saveConfigurationDependencies($configuration_dependency_array);
+        $this->saveConfigurationDependencies($handler_options);
     }
 
     /**
      * Save Configuration Dependencies
      *
-     * @param   array $configuration_dependency_array
+     * @param   array $handler_options
      *
      * @return  $this
      * @since   1.0.0
      */
-    protected function saveConfigurationDependencies(array $configuration_dependency_array = array())
+    protected function saveConfigurationDependencies(array $handler_options = array())
     {
-        if (count($configuration_dependency_array) === 0) {
+        if (count($handler_options) === 0) {
             return $this;
         }
 
-        $this->data     = $configuration_dependency_array['data'];
-        $this->resource = $configuration_dependency_array['resource'];
-        $this->registry = $configuration_dependency_array['registry'];
+        $this->data     = $handler_options['data'];
+        $this->resource = $handler_options['resource'];
+        $this->registry = $handler_options['registry'];
 
         return $this;
     }

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <extension type="Factory" version="1.0" extends="FactoriesSystem">
-    <name>Resourcequery</name>
+    <name>Registry</name>
     <author>Amy Stephen</author>
     <create_date>January 2015</create_date>
     <copyright>Copyright (C) 2014-2015 Amy Stephen. All rights reserved.</copyright>
@@ -8,6 +8,6 @@
     <author_email>hello@molajo.org</author_email>
     <author_url>http://molajo.org</author_url>
     <version>1.0</version>
-    <description>Resourcequery Factory</description>
-    <model name="Resourcequery"/>
+    <description>Registry Factory</description>
+    <model name="Registry"/>
 </extension>

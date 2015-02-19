@@ -49,9 +49,13 @@ class ResourcerenderingFactoryMethod extends FactoryMethodBase implements Factor
     {
         parent::setDependencies($reflection);
 
-        $options                           = array();
-        $this->dependencies['Resource']    = $options;
-        $this->dependencies['Runtimedata'] = $options;
+        $options                                   = array();
+        $this->dependencies['Resource']            = $options;
+        $this->dependencies['Runtimedata']         = $options;
+        $this->dependencies['Getcachecallback']    = array();
+        $this->dependencies['Setcachecallback']    = array();
+        $this->dependencies['Deletecachecallback'] = array();
+
 
         return $this->dependencies;
     }
@@ -71,13 +75,26 @@ class ResourcerenderingFactoryMethod extends FactoryMethodBase implements Factor
         $resource_map = $this->readFile($filename);
         $scheme       = $this->createScheme();
 
+        $cache_callbacks = array(
+            'get_cache_callback'    => $this->dependencies['Getcachecallback'],
+            'set_cache_callback'    => $this->dependencies['Setcachecallback'],
+            'delete_cache_callback' => $this->dependencies['Deletecachecallback']
+        );
+
+        $handler_options = array(
+            'extensions' => $this->dependencies['Runtimedata']->reference_data->extensions,
+            'resource'   => clone $this->dependencies['Resource']
+        );
+
         $adapter_instance['Theme']
             = $this->createHandler(
             'Theme',
             $this->base_path,
             $resource_map,
             array(),
-            $scheme->getScheme('Theme')->include_file_extensions
+            $scheme->getScheme('Theme')->include_file_extensions,
+            $cache_callbacks,
+            $handler_options
         );
         $adapter_instance['Page']
             = $this->createHandler(
@@ -85,7 +102,9 @@ class ResourcerenderingFactoryMethod extends FactoryMethodBase implements Factor
             $this->base_path,
             $resource_map,
             array(),
-            $scheme->getScheme('Page')->include_file_extensions
+            $scheme->getScheme('Page')->include_file_extensions,
+            $cache_callbacks,
+            $handler_options
         );
         $adapter_instance['Template']
             = $this->createHandler(
@@ -93,7 +112,9 @@ class ResourcerenderingFactoryMethod extends FactoryMethodBase implements Factor
             $this->base_path,
             $resource_map,
             array(),
-            $scheme->getScheme('Template')->include_file_extensions
+            $scheme->getScheme('Template')->include_file_extensions,
+            $cache_callbacks,
+            $handler_options
         );
         $adapter_instance['Wrap']
             = $this->createHandler(
@@ -101,7 +122,9 @@ class ResourcerenderingFactoryMethod extends FactoryMethodBase implements Factor
             $this->base_path,
             $resource_map,
             array(),
-            $scheme->getScheme('Wrap')->include_file_extensions
+            $scheme->getScheme('Wrap')->include_file_extensions,
+            $cache_callbacks,
+            $handler_options
         );
         $adapter_instance['Menuitem']
             = $this->createHandler(
@@ -109,7 +132,9 @@ class ResourcerenderingFactoryMethod extends FactoryMethodBase implements Factor
             $this->base_path,
             $resource_map,
             array(),
-            $scheme->getScheme('Menuitem')->include_file_extensions
+            $scheme->getScheme('Menuitem')->include_file_extensions,
+            $cache_callbacks,
+            $handler_options
         );
 
         return $this->dependencies;
@@ -122,8 +147,8 @@ class ResourcerenderingFactoryMethod extends FactoryMethodBase implements Factor
      * @param   string $base_path
      * @param   array  $resource_map
      * @param   array  $namespace_prefixes
-     * @param   array  $valid_file_extensions
-     * @param   bool   $extensions
+     * @param   array  $cache_callbacks
+     * @param   array  $handler_options
      *
      * @return  mixed
      * @since   1.0.0
@@ -134,7 +159,9 @@ class ResourcerenderingFactoryMethod extends FactoryMethodBase implements Factor
         $base_path,
         $resource_map,
         $namespace_prefixes,
-        $valid_file_extensions
+        $valid_file_extensions,
+        array $cache_callbacks = array(),
+        array $handler_options = array()
     ) {
         $class = 'Molajo\\Resource\\Adapter\\' . $adapter;
 
@@ -144,8 +171,8 @@ class ResourcerenderingFactoryMethod extends FactoryMethodBase implements Factor
                 $resource_map,
                 $namespace_prefixes,
                 $valid_file_extensions,
-                $this->dependencies['Runtimedata']->reference_data->extensions,
-                $this->dependencies['Resource']
+                $cache_callbacks,
+                $handler_options
             );
         } catch (Exception $e) {
             throw new RuntimeException(

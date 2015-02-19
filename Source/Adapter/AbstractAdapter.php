@@ -10,7 +10,6 @@ namespace Molajo\Resource\Adapter;
 
 use CommonApi\Resource\AdapterInterface;
 use CommonApi\Exception\RuntimeException;
-use Exception;
 
 /**
  * Abstract Resource Adapter
@@ -20,7 +19,7 @@ use Exception;
  * @license    http://www.opensource.org/licenses/mit-license.html MIT License
  * @since      1.0
  */
-class AbstractAdapter implements AdapterInterface
+class AbstractAdapter extends Cache implements AdapterInterface
 {
     /**
      * Resource Namespace
@@ -77,6 +76,7 @@ class AbstractAdapter implements AdapterInterface
      * @param  array  $resource_map
      * @param  array  $namespace_prefixes
      * @param  array  $valid_file_extensions
+     * @param  array  $cache_callbacks
      *
      * @since  1.0.0
      */
@@ -84,12 +84,48 @@ class AbstractAdapter implements AdapterInterface
         $base_path = null,
         array $resource_map = array(),
         array $namespace_prefixes = array(),
-        array $valid_file_extensions = array()
+        array $valid_file_extensions = array(),
+        array $cache_callbacks = array()
     ) {
         $this->base_path             = $base_path . '/';
         $this->resource_map          = $resource_map;
         $this->namespace_prefixes    = $namespace_prefixes;
         $this->valid_file_extensions = $valid_file_extensions;
+
+        $this->instantiateCache($cache_callbacks);
+    }
+
+    /**
+     * Instantiate Cache Class
+     *
+     * @param   array $cache_callbacks
+     *
+     * @return  $this
+     * @since   1.0.0
+     */
+    public function instantiateCache(array $cache_callbacks = array())
+    {
+        if (isset($cache_callbacks['get_cache_callback'])) {
+            $get_cache_callback = $cache_callbacks['get_cache_callback'];
+        } else {
+            $get_cache_callback = null;
+        }
+
+        if (isset($cache_callbacks['set_cache_callback'])) {
+            $set_cache_callback = $cache_callbacks['set_cache_callback'];
+        } else {
+            $set_cache_callback = null;
+        }
+
+        if (isset($cache_callbacks['delete_cache_callback'])) {
+            $delete_cache_callback = $cache_callbacks['delete_cache_callback'];
+        } else {
+            $delete_cache_callback = null;
+        }
+
+        parent::__construct($get_cache_callback, $set_cache_callback, $delete_cache_callback);
+
+        return $this;
     }
 
     /**
@@ -227,7 +263,7 @@ class AbstractAdapter implements AdapterInterface
      */
     protected function searchNamespacePrefixes($resource_namespace, $multiple)
     {
-        $located_path           = false;
+        $located_path = false;
 
         foreach ($this->namespace_prefixes as $namespace_prefix => $base_directories) {
 

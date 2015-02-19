@@ -51,9 +51,12 @@ class ResourcecssdeclarationsFactoryMethod extends FactoryMethodBase implements 
     {
         parent::setDependencies($reflection);
 
-        $options                           = array();
-        $this->dependencies['Resource']    = $options;
-        $this->dependencies['Runtimedata'] = $options;
+        $options                                   = array();
+        $this->dependencies['Resource']            = $options;
+        $this->dependencies['Runtimedata']         = $options;
+        $this->dependencies['Getcachecallback']    = array();
+        $this->dependencies['Setcachecallback']    = array();
+        $this->dependencies['Deletecachecallback'] = array();
 
         return $this->dependencies;
     }
@@ -78,12 +81,21 @@ class ResourcecssdeclarationsFactoryMethod extends FactoryMethodBase implements 
         $scheme                                      = $this->options['Scheme']->getScheme('cssd');
         $this->dependencies['valid_file_extensions'] = $scheme->include_file_extensions;
 
-        $this->dependencies['language_direction']
-            = $this->dependencies['Runtimedata']->application->parameters->language_direction;
-        $this->dependencies['html5']
-            = $this->dependencies['Runtimedata']->application->parameters->application_html5;
-        $this->dependencies['line_end']
-            = $this->dependencies['Runtimedata']->application->parameters->application_line_end;
+        $cache_callbacks                          = array();
+        $cache_callbacks['get_cache_callback']    = $this->dependencies['Getcachecallback'];
+        $cache_callbacks['set_cache_callback']    = $this->dependencies['Setcachecallback'];
+        $cache_callbacks['delete_cache_callback'] = $this->dependencies['Deletecachecallback'];
+        $this->dependencies['cache_callbacks']    = $cache_callbacks;
+
+        $handler_options = array();
+        $handler_options['language_direction']
+                         = $this->dependencies['Runtimedata']->application->parameters->language_direction;
+        $handler_options['html5']
+                         = $this->dependencies['Runtimedata']->application->parameters->application_html5;
+        $handler_options['line_end']
+                         = $this->dependencies['Runtimedata']->application->parameters->application_line_end;
+        $this->dependencies['handler_options']
+                         = $handler_options;
 
         return $this->dependencies;
     }

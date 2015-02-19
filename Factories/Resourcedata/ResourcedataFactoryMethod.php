@@ -211,6 +211,10 @@ class ResourcedataFactoryMethod extends FactoryMethodBase implements FactoryInte
 
         $this->setValidArray();
 
+        $this->dependencies['Getcachecallback']    = array();
+        $this->dependencies['Setcachecallback']    = array();
+        $this->dependencies['Deletecachecallback'] = array();
+
         return $this->dependencies;
     }
 
@@ -374,7 +378,7 @@ class ResourcedataFactoryMethod extends FactoryMethodBase implements FactoryInte
      * @since   1.0.0
      * @throws  \CommonApi\Exception\RuntimeException
      */
-    public function createXml()
+    protected function createXml()
     {
         $scheme = $this->createScheme();
 
@@ -391,6 +395,11 @@ class ResourcedataFactoryMethod extends FactoryMethodBase implements FactoryInte
                 $resource_map,
                 array(),
                 $scheme->getScheme('Xml')->include_file_extensions,
+                array(
+                    'get_cache_callback'    => $this->dependencies['Getcachecallback'],
+                    'set_cache_callback'    => $this->dependencies['Setcachecallback'],
+                    'delete_cache_callback' => $this->dependencies['Deletecachecallback']
+                ),
                 array(
                     'resource' => $this->options['Resource'],
                     'registry' => $this->dependencies['Registry'],

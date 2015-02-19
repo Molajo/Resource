@@ -36,7 +36,8 @@ class Field extends AbstractAdapter implements AdapterInterface
      * @param  array  $resource_map
      * @param  array  $namespace_prefixes
      * @param  array  $valid_file_extensions
-     * @param  array  $fields
+     * @param  array  $cache_callbacks
+     * @param  array  $handler_options
      *
      * @since  1.0.0
      */
@@ -45,16 +46,18 @@ class Field extends AbstractAdapter implements AdapterInterface
         array $resource_map = array(),
         array $namespace_prefixes = array(),
         array $valid_file_extensions = array(),
-        array $fields = array()
+        array $cache_callbacks = array(),
+        array $handler_options = array()
     ) {
         parent::__construct(
             $base_path,
             $resource_map,
             $namespace_prefixes,
-            $valid_file_extensions
+            $valid_file_extensions,
+            $cache_callbacks
         );
 
-        $this->fields = $fields;
+        $this->fields = $handler_options['fields'];
     }
 
     /**

@@ -52,7 +52,7 @@ class Xml extends ConfigurationFactory implements AdapterInterface
     }
 
     /**
-     * Xml file is located, read, loaded using Simplexml into a string and then sent back
+     * Xml file is located, read, loaded using simplexml into a string and then sent back
      *  or processed by the Configuration data_object or Model utility
      *
      * @param   string $scheme
@@ -61,23 +61,54 @@ class Xml extends ConfigurationFactory implements AdapterInterface
      *
      * @return  void|mixed
      * @since   1.0.0
-     * @throws  \CommonApi\Exception\RuntimeException
      */
     public function handlePath($scheme, $located_path, array $options = array())
     {
-        $this->verifyNamespace($options);
-
         $segments = $this->handlePathSegments($options);
 
         list($model_type, $model_name) = $this->setModelTypeName($segments);
 
+echo $model_type . ' ' . $model_name . ' ' . $scheme . ' ' . $located_path . '<br>';
+
+        if (in_array($model_type, array('Application', 'Dataobject', 'Include'))
+            || $model_name === 'Application') {
+        } else {
+            if ($this->getConfigurationCache($located_path) === true) {
+                return $this->cached_result;
+            }
+        }
+
         $this->verifyFileExists($located_path);
 
-        $contents   = file_get_contents($located_path);
+        $contents = file_get_contents($located_path);
+
         $scheme     = strtolower(trim($scheme));
         $model_type = ucfirst(strtolower(trim($model_type)));
 
-        return $this->handlePathResults($scheme, $model_type, $model_name, $located_path, $contents);
+        $results = $this->handlePathResults($scheme, $model_type, $model_name, $located_path, $contents);
+
+        if (in_array($model_type, array('Application', 'Dataobject', 'Include'))
+            || $model_name === 'Application') {
+        } else {
+            $this->setConfigurationCache($located_path, $results);
+        }
+
+        return $results;
+    }
+
+    /**
+     * Retrieve a collection of a specific handler
+     *
+     * @param   string $scheme
+     * @param   array  $options
+     *
+     * @return  mixed
+     * @since   1.0.0
+     * @throws  \CommonApi\Exception\RuntimeException
+     */
+    public function getCollection($scheme, array $options = array())
+    {
+        return null;
     }
 
     /**
@@ -89,8 +120,10 @@ class Xml extends ConfigurationFactory implements AdapterInterface
      * @since   1.0.0
      * @throws  \CommonApi\Exception\RuntimeException
      */
-    public function handlePathSegments(array $options = array())
+    protected function handlePathSegments(array $options = array())
     {
+        $this->verifyNamespace($options);
+
         $segments = explode('//', $options['namespace']);
 
         if (count($segments) > 2) {
@@ -114,7 +147,7 @@ class Xml extends ConfigurationFactory implements AdapterInterface
      * @return  array
      * @since   1.0.0
      */
-    public function setModelTypeName(array $segments = array())
+    protected function setModelTypeName(array $segments = array())
     {
         if (ucfirst(strtolower($segments[1])) === 'Resources') {
             $model_type = ucfirst(strtolower($segments[1]));
@@ -286,20 +319,5 @@ class Xml extends ConfigurationFactory implements AdapterInterface
         $xml = simplexml_load_string($contents);
 
         return $model_configuration->getConfiguration($model_type, $model_name, $xml);
-    }
-
-    /**
-     * Retrieve a collection of a specific handler
-     *
-     * @param   string $scheme
-     * @param   array  $options
-     *
-     * @return  mixed
-     * @since   1.0.0
-     * @throws  \CommonApi\Exception\RuntimeException
-     */
-    public function getCollection($scheme, array $options = array())
-    {
-        return null;
     }
 }

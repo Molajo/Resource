@@ -51,8 +51,11 @@ class ResourcejsdeclarationsFactoryMethod extends FactoryMethodBase implements F
     {
         parent::setDependencies($reflection);
 
-        $options                        = array();
-        $this->dependencies['Resource'] = $options;
+        $options                                   = array();
+        $this->dependencies['Resource']            = $options;
+        $this->dependencies['Getcachecallback']    = array();
+        $this->dependencies['Setcachecallback']    = array();
+        $this->dependencies['Deletecachecallback'] = array();
 
         return $this->dependencies;
     }
@@ -76,6 +79,15 @@ class ResourcejsdeclarationsFactoryMethod extends FactoryMethodBase implements F
         $this->dependencies['namespace_prefixes']    = array();
         $scheme                                      = $this->options['Scheme']->getScheme('jsd');
         $this->dependencies['valid_file_extensions'] = $scheme->include_file_extensions;
+
+        $cache_callbacks                          = array();
+        $cache_callbacks['get_cache_callback']    = $this->dependencies['Getcachecallback'];
+        $cache_callbacks['set_cache_callback']    = $this->dependencies['Setcachecallback'];
+        $cache_callbacks['delete_cache_callback'] = $this->dependencies['Deletecachecallback'];
+        $this->dependencies['cache_callbacks']    = $cache_callbacks;
+
+        $handler_options                       = array();
+        $this->dependencies['handler_options'] = $handler_options;
 
         return $this->dependencies;
     }

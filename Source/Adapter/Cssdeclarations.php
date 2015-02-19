@@ -76,10 +76,8 @@ class CssDeclarations extends AbstractAdapter implements AdapterInterface
      * @param  array  $resource_map
      * @param  array  $namespace_prefixes
      * @param  array  $valid_file_extensions
-     * @param  string $language_direction
-     * @param  string $html5
-     * @param  string $line_end
-     * @param  string $mimetype
+     * @param  array  $cache_callbacks
+     * @param  array  $handler_options
      *
      * @since  1.0.0
      */
@@ -88,10 +86,8 @@ class CssDeclarations extends AbstractAdapter implements AdapterInterface
         array $resource_map = array(),
         array $namespace_prefixes = array(),
         array $valid_file_extensions = array(),
-        $language_direction,
-        $html5,
-        $line_end,
-        $mimetype
+        array $cache_callbacks = array(),
+        array $handler_options = array()
     ) {
         parent::__construct(
             $base_path,
@@ -100,10 +96,9 @@ class CssDeclarations extends AbstractAdapter implements AdapterInterface
             $valid_file_extensions
         );
 
-        $this->language_direction = $language_direction;
-        $this->html5              = $html5;
-        $this->line_end           = $line_end;
-        $this->mimetype           = $mimetype;
+        $this->language_direction = $handler_options['language_direction'];
+        $this->html5              = $handler_options['html5'];
+        $this->line_end           = $handler_options['line_end'];
     }
 
     /**

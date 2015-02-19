@@ -29,8 +29,8 @@ class Wrap extends Extension implements AdapterInterface
      * @param  array  $resource_map
      * @param  array  $namespace_prefixes
      * @param  array  $valid_file_extensions
-     * @param  object $extensions
-     * @param  object $resource
+     * @param  array  $cache_callbacks
+     * @param  array  $handler_options
      *
      * @since  1.0.0
      */
@@ -39,16 +39,16 @@ class Wrap extends Extension implements AdapterInterface
         array $resource_map = array(),
         array $namespace_prefixes = array(),
         array $valid_file_extensions = array(),
-        $extensions,
-        $resource
+        array $cache_callbacks = array(),
+        array $handler_options = array()
     ) {
         parent::__construct(
             $base_path,
             $resource_map,
             $namespace_prefixes,
             $valid_file_extensions,
-            $extensions,
-            $resource
+            $cache_callbacks,
+            $handler_options
         );
 
         $this->catalog_type_id       = 10000;
@@ -74,6 +74,7 @@ class Wrap extends Extension implements AdapterInterface
 
             $include_path         = $path;
             $this->extension_path = $include_path;
+
             return $include_path;
         }
 
