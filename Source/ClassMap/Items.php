@@ -34,6 +34,7 @@ class Items extends Aggregate
             $reflection = $this->getReflectionObject($file->qns);
 
             if ($reflection === false) {
+
             } else {
 
                 $class_object = $this->initialiseObject($file->path, $reflection);
