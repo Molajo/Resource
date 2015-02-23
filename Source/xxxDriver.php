@@ -10,7 +10,7 @@ namespace Molajo\Resource;
 
 use Exception;
 use CommonApi\Exception\RuntimeException;
-use CommonApi\Resource\AdapterInterface;
+use CommonApi\Resource\ResourceInterface;
 use CommonApi\Resource\ResourceInterface;
 use CommonApi\Resource\SchemeInterface;
 

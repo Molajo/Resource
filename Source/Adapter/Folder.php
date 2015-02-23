@@ -8,7 +8,7 @@
  */
 namespace Molajo\Resource\Adapter;
 
-use CommonApi\Resource\AdapterInterface;
+use CommonApi\Resource\ResourceInterface;
 
 //todo: add scoping overrides, etc. and multiple folders returned when needed
 
@@ -20,7 +20,7 @@ use CommonApi\Resource\AdapterInterface;
  * @license    http://www.opensource.org/licenses/mit-license.html MIT License
  * @since      1.0
  */
-class Folder extends AbstractAdapter implements AdapterInterface
+class Folder extends AbstractAdapter implements ResourceInterface
 {
     /**
      * Locates folder/file associated with Namespace for Resource

@@ -8,7 +8,7 @@
  */
 namespace Molajo\Resource\Adapter;
 
-use CommonApi\Resource\AdapterInterface;
+use CommonApi\Resource\ResourceInterface;
 
 /**
  * File Resource Adapter
@@ -18,7 +18,7 @@ use CommonApi\Resource\AdapterInterface;
  * @license    http://www.opensource.org/licenses/mit-license.html MIT License
  * @since      1.0
  */
-class File extends AbstractAdapter implements AdapterInterface
+class File extends AbstractAdapter implements ResourceInterface
 {
     /**
      * Handle located folder/file associated with URI Namespace for Resource

@@ -16,7 +16,7 @@ include_once $base . '/vendor/autoload.php';
 $classmap                                  = array();
 $classmap['Molajo\\Resource\\ClassMap']    = $base . '/Source/ClassMap.php';
 $classmap['Molajo\\Resource\\ResourceMap'] = $base . '/Source/ResourceMap.php';
-$classmap['Molajo\\Resource\\Driver']      = $base . '/Source/Driver.php';
+$classmap['Molajo\\Resource\\Proxy']       = $base . '/Source/Proxy.php';
 $classmap['Molajo\\Resource\\Scheme']      = $base . '/Source/Scheme.php';
 $results                                   = createClassMap($base . '/Source/Adapter/', 'Molajo\\Render\\Adapter\\');
 $classmap                                  = array_merge($classmap, $results);

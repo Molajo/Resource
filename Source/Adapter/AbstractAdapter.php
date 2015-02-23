@@ -8,7 +8,7 @@
  */
 namespace Molajo\Resource\Adapter;
 
-use CommonApi\Resource\AdapterInterface;
+use CommonApi\Resource\ResourceInterface;
 use CommonApi\Exception\RuntimeException;
 
 /**
@@ -19,7 +19,7 @@ use CommonApi\Exception\RuntimeException;
  * @license    http://www.opensource.org/licenses/mit-license.html MIT License
  * @since      1.0
  */
-class AbstractAdapter extends Cache implements AdapterInterface
+class AbstractAdapter extends Cache implements ResourceInterface
 {
     /**
      * Resource Namespace
