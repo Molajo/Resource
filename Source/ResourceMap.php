@@ -72,15 +72,8 @@ class ResourceMap extends Prefixes implements MapInterface
         ksort($this->resource_map);
         ksort($this->class_files);
 
-        if (version_compare(PHP_VERSION, '5.4.0', '>=')) {
-            file_put_contents($this->resource_map_filename, json_encode($this->resource_map, JSON_PRETTY_PRINT));
-            file_put_contents($this->classmap_filename, json_encode($this->class_files, JSON_PRETTY_PRINT));
-
-            return $this;
-        }
-
-        file_put_contents($this->resource_map_filename, json_encode($this->resource_map));
-        file_put_contents($this->classmap_filename, json_encode($this->class_files));
+        file_put_contents($this->resource_map_filename, json_encode($this->resource_map, JSON_PRETTY_PRINT));
+        file_put_contents($this->classmap_filename, json_encode($this->class_files, JSON_PRETTY_PRINT));
 
         return $this;
     }

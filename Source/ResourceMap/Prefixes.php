@@ -170,20 +170,13 @@ abstract class Prefixes extends Folders
             return $this;
         }
 
-        $path                 = $this->setPath($is_directory, $file_path, $file_name);
-        $class_namespace_path = substr($path, strlen($base_directory), 9999);
-        $qns                  = $this->setQNS($class_namespace_path, $namespace_prefix);
-        $nspath               = $path;
-
-        if ($is_directory === true) {
-        } else {
-            list($qns, $nspath) = $this->setClassfileArrayEntry($file_name, $file_extension, $qns, $nspath);
-        }
-
-        if ($qns === false) {
-        } else {
-            $this->mergeFQNSPaths($nspath, $qns);
-        }
+        $this->useFilesWithNamespace(
+            $namespace_prefix,
+            $base_directory,
+            $is_directory,
+            $file_path,
+            $file_name,
+            $file_extension);
 
         return $this;
     }
@@ -342,6 +335,89 @@ abstract class Prefixes extends Folders
     }
 
     /**
+     * Set Namespace Object
+     *
+     * @param   string $file_name
+     * @param   string $nspath
+     * @param   string $qns
+     *
+     * @return  object
+     * @since   1.0.0
+     */
+    protected function setNamespaceObject($file_name, $nspath, $qns)
+    {
+        $temp            = new stdClass();
+        $temp->file_name = $file_name;
+        $temp->base_name = $this->base_name;
+        $temp->path      = $nspath;
+        $temp->qns       = $qns;
+
+        return $temp;
+    }
+
+    /**
+     * File qualifies for use with Namespace
+     *
+     * @param   string $namespace_prefix
+     * @param   string $base_directory
+     * @param   string $is_directory
+     * @param   string $file_path
+     * @param   string $file_name
+     * @param   string $file_extension
+     *
+     * @return  object
+     * @since   1.0.0
+     */
+    protected function useFilesWithNamespace(
+        $namespace_prefix,
+        $base_directory,
+        $is_directory,
+        $file_path,
+        $file_name,
+        $file_extension
+    ) {
+        $path                 = $this->setPath($is_directory, $file_path, $file_name);
+        $class_namespace_path = substr($path, strlen($base_directory), 9999);
+        $qns                  = $this->setQNS($class_namespace_path, $namespace_prefix);
+        $nspath               = $path;
+
+        if ($is_directory === true) {
+        } else {
+            list($qns, $nspath) = $this->setClassfileArrayEntry($file_name, $file_extension, $qns, $nspath);
+        }
+
+        if ($qns === false) {
+        } else {
+            $this->mergeFQNSPaths($nspath, $qns);
+        }
+
+        return $this;
+    }
+
+    /**
+     * Set Class File Array Entry
+     *
+     * @param   string $file_name
+     * @param   string $file_extension
+     * @param   string $nspath
+     *
+     * @return  array
+     * @since   1.0.0
+     */
+    protected function setClassfileArrayEntry($file_name, $file_extension, $qns, $nspath)
+    {
+        $qns    = $this->addSlash($qns);
+        $qns    = $qns . $this->base_name;
+        $nspath = $nspath . '/' . $file_name;
+
+        if ($file_extension === 'php') {
+            $this->class_files[$nspath] = $this->setNamespaceObject($file_name, $nspath, $qns);
+        }
+
+        return array($qns, $nspath);
+    }
+
+    /**
      * Get Resource Map Tags
      *
      * @param   string $nspath
@@ -389,53 +465,9 @@ abstract class Prefixes extends Folders
             $paths = $existing;
             if (count($paths) === 0) {
                 $paths = array();
-                return $paths;
             }
         }
+
         return $paths;
-    }
-
-    /**
-     * Set Class File Array Entry
-     *
-     * @param   string $file_name
-     * @param   string $file_extension
-     * @param   string $nspath
-     *
-     * @return  array
-     * @since   1.0.0
-     */
-    protected function setClassfileArrayEntry($file_name, $file_extension, $qns, $nspath)
-    {
-        $qns    = $this->addSlash($qns);
-        $qns    = $qns . $this->base_name;
-        $nspath = $nspath . '/' . $file_name;
-
-        if ($file_extension === 'php') {
-            $this->class_files[$nspath] = $this->setNamespaceObject($file_name, $nspath, $qns);
-        }
-
-        return array($qns, $nspath);
-    }
-
-    /**
-     * Set Namespace Object
-     *
-     * @param   string $file_name
-     * @param   string $nspath
-     * @param   string $qns
-     *
-     * @return  object
-     * @since   1.0.0
-     */
-    protected function setNamespaceObject($file_name, $nspath, $qns)
-    {
-        $temp            = new stdClass();
-        $temp->file_name = $file_name;
-        $temp->base_name = $this->base_name;
-        $temp->path      = $nspath;
-        $temp->qns       = $qns;
-
-        return $temp;
     }
 }

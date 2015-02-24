@@ -1,4 +1,5 @@
 <?php
+include_once __DIR__ . '/ReadJsonFile.php';
 /**
  * Bootstrap for Testing
  *
@@ -29,3 +30,4 @@ spl_autoload_register(
         }
     }
 );
+//include_once __DIR__ . '/Reflection.php';

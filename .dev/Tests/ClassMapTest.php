@@ -26,16 +26,7 @@ class ClassMapTest extends \PHPUnit_Framework_TestCase
      */
     protected function setUp()
     {
-        /**
-         *
-         * $instance = new Proxy(new Resource(new MockRender));
-         *
-         * $file  = __DIR__ . '/RenderTest.php';
-         * $data  = array();
-         * $stuff = $instance->render($file, $data);
-         * $this->assertEquals('stuff', $stuff);
 
-         */
 
         return $this;
     }
