@@ -176,7 +176,8 @@ abstract class Prefixes extends Folders
             $is_directory,
             $file_path,
             $file_name,
-            $file_extension);
+            $file_extension
+        );
 
         return $this;
     }

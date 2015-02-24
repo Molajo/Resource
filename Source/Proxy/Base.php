@@ -132,7 +132,7 @@ class Base
      * Set Adapter Instance
      *
      * @param   string $adapter_name
-     * @param          object /CommonApi/Resource/ResourceInterface
+     * @param   object ResourceInterface
      *
      * @return  $this
      * @since   1.0.0
