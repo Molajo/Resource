@@ -17,7 +17,7 @@ use ReflectionClass;
  * @package    Molajo
  * @copyright  2014-2015 Amy Stephen. All rights reserved.
  * @license    http://www.opensource.org/licenses/mit-license.html MIT License
- * @since      1.0
+ * @since      1.0.0
  */
 abstract class Base
 {
@@ -96,10 +96,11 @@ abstract class Base
     /**
      * Constructor
      *
-     * @param  array  $class_maps
+     * @param  array  $classmap_files
      * @param  string $interface_classes_filename
      * @param  string $concrete_classes_filename
      * @param  string $events_filename
+     * @param  string $base_path
      *
      * @since  1.0.0
      */

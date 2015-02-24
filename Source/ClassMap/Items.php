@@ -17,7 +17,7 @@ use stdClass;
  * @package    Molajo
  * @copyright  2014-2015 Amy Stephen. All rights reserved.
  * @license    http://www.opensource.org/licenses/mit-license.html MIT License
- * @since      1.0
+ * @since      1.0.0
  */
 class Items extends Aggregate
 {
@@ -56,7 +56,7 @@ class Items extends Aggregate
      * @param   string $path
      * @param   object $reflection
      *
-     * @return  $class_object
+     * @return  object
      * @since   1.0.0
      */
     protected function initialiseObject($path, $reflection)
@@ -124,7 +124,7 @@ class Items extends Aggregate
      * @param   object $class_object
      * @param   string $qns
      *
-     * @return  $this;
+     * @return  $this
      * @since   1.0.0
      */
     protected function setConcreteInterfaces($reflection, $class_object, $qns)
@@ -222,7 +222,7 @@ class Items extends Aggregate
      * Add to Dependency Interfaces List
      *
      * @param   string $qns
-     * @param   array  $concretes
+     * @param   array  $dependencies
      *
      * @return  $this
      * @since   1.0.0
