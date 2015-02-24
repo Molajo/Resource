@@ -20,20 +20,20 @@ class ClassMapTest extends \PHPUnit_Framework_TestCase
 {
     /**
      * Setup
-     * 
+     *
      * @return  $this
      * @since   1.0.0
      */
     protected function setUp()
     {
         /**
-
-        $instance = new Proxy(new Resource(new MockRender));
-
-        $file  = __DIR__ . '/RenderTest.php';
-        $data  = array();
-        $stuff = $instance->render($file, $data);
-        $this->assertEquals('stuff', $stuff);
+         *
+         * $instance = new Proxy(new Resource(new MockRender));
+         *
+         * $file  = __DIR__ . '/RenderTest.php';
+         * $data  = array();
+         * $stuff = $instance->render($file, $data);
+         * $this->assertEquals('stuff', $stuff);
 
          */
 

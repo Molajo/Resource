@@ -94,8 +94,7 @@ abstract class Prefixes extends Folders
         $paths[]                                           = $this->base_path . '/' . $namespace_base_folder;
         $this->resource_map[strtolower($namespace_prefix)] = array_unique($paths);
 
-        $objects = new RecursiveIteratorIterator
-        (
+        $objects = new RecursiveIteratorIterator(
             new RecursiveDirectoryIterator($this->base_path . '/' . $namespace_base_folder),
             RecursiveIteratorIterator::SELF_FIRST
         );

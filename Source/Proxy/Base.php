@@ -121,7 +121,7 @@ class Base
         array $adapter_instance_array = array()
 
     ) {
-        $this->scheme                 = $scheme;
+        $this->scheme = $scheme;
 
         foreach ($adapter_instance_array as $adapter => $adapter_instance) {
             $this->setAdapterInstance($adapter, $adapter_instance);
@@ -131,8 +131,8 @@ class Base
     /**
      * Set Adapter Instance
      *
-     * @param   string  $adapter_name
-     * @param   object  /CommonApi/Resource/ResourceInterface
+     * @param   string $adapter_name
+     * @param          object /CommonApi/Resource/ResourceInterface
      *
      * @return  $this
      * @since   1.0.0

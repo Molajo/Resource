@@ -105,10 +105,10 @@ abstract class Base
      * @since  1.0.0
      */
     public function __construct(
-        array $classmap_files = array(),
-        $interface_classes_filename = '',
-        $concrete_classes_filename = '',
-        $events_filename = '',
+        array $classmap_files,
+        $interface_classes_filename,
+        $concrete_classes_filename,
+        $events_filename,
         $base_path
     ) {
         $this->classmap_files             = $classmap_files;
