@@ -382,40 +382,9 @@ abstract class Prefixes extends Folders
         $qns                  = $this->setQNS($class_namespace_path, $namespace_prefix);
         $nspath               = $path;
 
-        if ($is_directory === true) {
-        } else {
-            list($qns, $nspath) = $this->setClassfileArrayEntry($file_name, $file_extension, $qns, $nspath);
-        }
-
-        if ($qns === false) {
-        } else {
-            $this->mergeFQNSPaths($nspath, $qns);
-        }
+        $this->SetFileDirectoryNamespace($is_directory, $file_name, $file_extension, $qns, $nspath);
 
         return $this;
-    }
-
-    /**
-     * Set Class File Array Entry
-     *
-     * @param   string $file_name
-     * @param   string $file_extension
-     * @param   string $nspath
-     *
-     * @return  array
-     * @since   1.0.0
-     */
-    protected function setClassfileArrayEntry($file_name, $file_extension, $qns, $nspath)
-    {
-        $qns    = $this->addSlash($qns);
-        $qns    = $qns . $this->base_name;
-        $nspath = $nspath . '/' . $file_name;
-
-        if ($file_extension === 'php') {
-            $this->class_files[$nspath] = $this->setNamespaceObject($file_name, $nspath, $qns);
-        }
-
-        return array($qns, $nspath);
     }
 
     /**
@@ -470,5 +439,55 @@ abstract class Prefixes extends Folders
         }
 
         return $paths;
+    }
+
+    /**
+     * Set File Directory Namespace
+     *
+     * @param   string $is_directory
+     * @param   string $file_name
+     * @param   string $file_extension
+     * @param   string $qns
+     * @param   string $nspath
+     *
+     * @return  $this
+     * @since   1.0.0
+     */
+    protected function SetFileDirectoryNamespace($is_directory, $file_name, $file_extension, $qns, $nspath)
+    {
+        if ($is_directory === true) {
+        } else {
+            list($qns, $nspath) = $this->setClassfileArrayEntry($file_name, $file_extension, $qns, $nspath);
+        }
+
+        if ($qns === false) {
+        } else {
+            $this->mergeFQNSPaths($nspath, $qns);
+        }
+
+        return $this;
+    }
+
+    /**
+     * Set Class File Array Entry
+     *
+     * @param   string $file_name
+     * @param   string $file_extension
+     * @param   string $nspath
+     *
+     * @return  array
+     * @since   1.0.0
+     */
+    protected function setClassfileArrayEntry($file_name, $file_extension, $qns, $nspath)
+    {
+        $qns    = $this->addSlash($qns);
+        $qns    = $qns . $this->base_name;
+        $nspath = $nspath . '/' . $file_name;
+
+        if ($file_extension === 'php') {
+            $this->class_files[$nspath] = $this->setNamespaceObject($file_name, $nspath, $qns);
+        }
+
+        return array($qns, $nspath);
     }
 }

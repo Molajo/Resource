@@ -51,6 +51,7 @@ class ResourceMapTest extends \PHPUnit_Framework_TestCase
      * @covers  Molajo\Resource\ResourceMap\Prefixes::setClassfileArrayEntry
      * @covers  Molajo\Resource\ResourceMap\Prefixes::mergeFQNSPaths
      * @covers  Molajo\Resource\ResourceMap\Prefixes::mergeExistingFQNSPath
+     * @covers  Molajo\Resource\ResourceMap\Prefixes::setClassfileArrayEntry
      * @covers  Molajo\Resource\ResourceMap\Folders::setMultipleNamespaceFolder
      * @covers  Molajo\Resource\ResourceMap\Folders::appendNamespaceFolder
      * @covers  Molajo\Resource\ResourceMap\Folders::prependNamespaceFolder
@@ -106,6 +107,7 @@ class ResourceMapTest extends \PHPUnit_Framework_TestCase
      * @covers  Molajo\Resource\ResourceMap\Prefixes::setClassfileArrayEntry
      * @covers  Molajo\Resource\ResourceMap\Prefixes::mergeFQNSPaths
      * @covers  Molajo\Resource\ResourceMap\Prefixes::mergeExistingFQNSPath
+     * @covers  Molajo\Resource\ResourceMap\Prefixes::setClassfileArrayEntry
      * @covers  Molajo\Resource\ResourceMap\Folders::setMultipleNamespaceFolder
      * @covers  Molajo\Resource\ResourceMap\Folders::appendNamespaceFolder
      * @covers  Molajo\Resource\ResourceMap\Folders::prependNamespaceFolder
@@ -148,6 +150,7 @@ class ResourceMapTest extends \PHPUnit_Framework_TestCase
      * @covers  Molajo\Resource\ResourceMap\Prefixes::setClassfileArrayEntry
      * @covers  Molajo\Resource\ResourceMap\Prefixes::mergeFQNSPaths
      * @covers  Molajo\Resource\ResourceMap\Prefixes::mergeExistingFQNSPath
+     * @covers  Molajo\Resource\ResourceMap\Prefixes::setClassfileArrayEntry
      * @covers  Molajo\Resource\ResourceMap\Folders::setMultipleNamespaceFolder
      * @covers  Molajo\Resource\ResourceMap\Folders::appendNamespaceFolder
      * @covers  Molajo\Resource\ResourceMap\Folders::prependNamespaceFolder
@@ -186,6 +189,7 @@ class ResourceMapTest extends \PHPUnit_Framework_TestCase
      * @covers  Molajo\Resource\ResourceMap\Prefixes::setClassfileArrayEntry
      * @covers  Molajo\Resource\ResourceMap\Prefixes::mergeFQNSPaths
      * @covers  Molajo\Resource\ResourceMap\Prefixes::mergeExistingFQNSPath
+     * @covers  Molajo\Resource\ResourceMap\Prefixes::setClassfileArrayEntry
      * @covers  Molajo\Resource\ResourceMap\Folders::setMultipleNamespaceFolder
      * @covers  Molajo\Resource\ResourceMap\Folders::appendNamespaceFolder
      * @covers  Molajo\Resource\ResourceMap\Folders::prependNamespaceFolder
@@ -233,6 +237,7 @@ class ResourceMapTest extends \PHPUnit_Framework_TestCase
      * @covers  Molajo\Resource\ResourceMap\Prefixes::setClassfileArrayEntry
      * @covers  Molajo\Resource\ResourceMap\Prefixes::mergeFQNSPaths
      * @covers  Molajo\Resource\ResourceMap\Prefixes::mergeExistingFQNSPath
+     * @covers  Molajo\Resource\ResourceMap\Prefixes::setClassfileArrayEntry
      * @covers  Molajo\Resource\ResourceMap\Folders::setMultipleNamespaceFolder
      * @covers  Molajo\Resource\ResourceMap\Folders::appendNamespaceFolder
      * @covers  Molajo\Resource\ResourceMap\Folders::prependNamespaceFolder
@@ -354,6 +359,7 @@ class ResourceMapTest extends \PHPUnit_Framework_TestCase
      * @covers  Molajo\Resource\ResourceMap\Prefixes::setClassfileArrayEntry
      * @covers  Molajo\Resource\ResourceMap\Prefixes::mergeFQNSPaths
      * @covers  Molajo\Resource\ResourceMap\Prefixes::mergeExistingFQNSPath
+     * @covers  Molajo\Resource\ResourceMap\Prefixes::setClassfileArrayEntry
      * @covers  Molajo\Resource\ResourceMap\Folders::setMultipleNamespaceFolder
      * @covers  Molajo\Resource\ResourceMap\Folders::appendNamespaceFolder
      * @covers  Molajo\Resource\ResourceMap\Folders::prependNamespaceFolder
