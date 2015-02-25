@@ -47,7 +47,7 @@ class ResourceMap extends Prefixes implements MapInterface
     /**
      * Create resource map of folder/file locations and Qualified Namespaces
      *
-     * @return  object
+     * @return  $this
      * @since   1.0.0
      */
     public function createMap()
@@ -58,7 +58,7 @@ class ResourceMap extends Prefixes implements MapInterface
         $this->processNamespacePrefixes();
         $this->saveOutput();
 
-        return $this->class_files;
+        return $this;
     }
 
     /**

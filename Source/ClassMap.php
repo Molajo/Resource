@@ -31,7 +31,7 @@ class ClassMap extends Items implements MapInterface
     {
         if (count($this->classmap_files) > 0) {
         } else {
-            return array();
+            return $this;
         }
 
         $this->processItems();
