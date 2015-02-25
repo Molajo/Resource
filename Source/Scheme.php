@@ -37,7 +37,7 @@ class Scheme implements SchemeInterface
     /**
      * Get Scheme
      *
-     * @param   string $scheme
+     * @param   string $scheme_name
      *
      * @return  object
      * @since   1.0.0
@@ -99,13 +99,13 @@ class Scheme implements SchemeInterface
     /**
      * Set Scheme Adapter
      *
-     * @param   object $scheme
-     * @param   string $adapter
+     * @param   object            $scheme
+     * @param   ResourceInterface $adapter
      *
      * @return  object
      * @since   1.0.0
      */
-    protected function setSchemeAdapter($scheme, $adapter)
+    protected function setSchemeAdapter($scheme, ResourceInterface $adapter)
     {
         $scheme->adapter = $adapter;
 

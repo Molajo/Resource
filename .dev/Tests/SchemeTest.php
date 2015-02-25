@@ -9,7 +9,6 @@
 namespace Molajo\Resource;
 
 use CommonApi\Resource\ResourceInterface;
-use stdClass;
 
 /**
  * Scheme Test
