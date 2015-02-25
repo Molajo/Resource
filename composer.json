@@ -26,6 +26,7 @@
     },
     "require": {
         "php": ">=5.4",
+        "commonapi/cache": "dev-master",
         "commonapi/resource": "dev-master"
     },
     "autoload": {
