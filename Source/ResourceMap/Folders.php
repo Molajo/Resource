@@ -27,14 +27,6 @@ abstract class Folders extends Base
     protected $base_name = '';
 
     /**
-     * PHP Class Indicator
-     *
-     * @var    boolean
-     * @since  1.0.0
-     */
-    protected $php_class = false;
-
-    /**
      * Temporary Work File to accumulate Resource Map
      *
      * @var    array

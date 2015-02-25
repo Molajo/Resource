@@ -66,8 +66,6 @@ abstract class Prefixes extends Folders
     {
         foreach ($namespace_base_folders as $namespace_base_folder) {
 
-            $this->php_class = 0;
-
             if (trim($namespace_base_folder) === '') {
 
             } elseif (is_dir($this->base_path . '/' . $namespace_base_folder)) {
@@ -165,7 +163,7 @@ abstract class Prefixes extends Folders
 
         $file_path = substr($file_path, strlen($this->base_path . '/'), 9999);
 
-        $skip = $this->testExcludeFolders($file_path, $this->base_name, $skip);
+        $skip = $this->testExcludeFolders($file_path, $skip);
         if ($skip === 1) {
             return $this;
         }
@@ -420,7 +418,6 @@ abstract class Prefixes extends Folders
     /**
      * Merge Existing FQNS Path
      *
-     * @param   string $nspath
      * @param   string $qns
      *
      * @return  array
