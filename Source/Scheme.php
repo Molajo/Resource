@@ -50,7 +50,7 @@ class Scheme implements SchemeInterface
      *
      * @param   string $scheme
      *
-     * @return  object|array
+     * @return  array
      * @since   1.0.0
      */
     public function getScheme($scheme = '')
@@ -67,16 +67,35 @@ class Scheme implements SchemeInterface
     /**
      * Read File and populate scheme array
      *
-     * @param  string $filename
+     * @param   string $filename
      *
-     * @return  void
+     * @return  $this
      * @since   1.0.0
-     * @throws  \CommonApi\Exception\RuntimeException
      */
     protected function readSchemes($filename)
     {
         $this->scheme_array = array();
 
+        $schemes = $this->getSchemeData($filename);
+
+        foreach ($schemes as $values) {
+            $this->processScheme($filename, $values);
+        }
+
+        return $this;
+    }
+
+    /**
+     * Get Scheme Data
+     *
+     * @param   string $filename
+     *
+     * @return  array
+     * @since   1.0.0
+     * @throws  \CommonApi\Exception\RuntimeException
+     */
+    protected function getSchemeData($filename)
+    {
         if (file_exists($filename)) {
         } else {
             throw new RuntimeException('Scheme Class: filename not found - ' . $filename);
@@ -84,52 +103,60 @@ class Scheme implements SchemeInterface
 
         $input = file_get_contents($filename);
 
-        $schemes = json_decode($input);
+        return json_decode($input);
+    }
 
-        if (count($schemes) == 0) {
-            return;
-        }
+    /**
+     * Process Scheme
+     *
+     * @param   string $filename
+     * @param   array  $values
+     *
+     * @return  $this
+     * @since   1.0.0
+     */
+    protected function processScheme($filename, $values)
+    {
+        list($scheme_name, $adapter, $extensions) = $this->processSchemeValues($filename, $values);
 
-        foreach ($schemes as $values) {
+        $this->setScheme($scheme_name, $adapter, $extensions, false);
 
-            $scheme_name = '';
-            $adapter     = '';
-            $extensions  = array();
+        return $this;
+    }
 
-            foreach ($values as $key => $value) {
+    /**
+     * Process Scheme Values
+     *
+     * @param   string $filename
+     * @param   array  $values
+     *
+     * @return  $this
+     * @since   1.0.0
+     * @throws  \CommonApi\Exception\RuntimeException
+     */
+    protected function processSchemeValues($filename, array $values = array())
+    {
+        $scheme_name = '';
+        $adapter     = '';
+        $extensions  = '';
 
-                if ($key == 'Name') {
-                    $scheme_name = $value;
-                } elseif ($key == 'Adapter') {
-                    $adapter = $value;
-                } elseif ($key == 'RequireFileExtensions') {
-                    $extensions = $value;
-                } else {
-                    throw new RuntimeException('Resource File ' . $filename . ' unknown key: ' . $key);
-                }
-            }
+        foreach ($values as $key => $value) {
 
-            if ($scheme_name == '') {
-                throw new RuntimeException('Resource File ' . $filename . ' must provide Name for each Scheme.');
-            }
+            if ($key === 'Name') {
+                $scheme_name = $value;
 
-            if ($adapter == '') {
-                $adapter = $scheme_name;
-            }
+            } elseif ($key === 'Adapter') {
+                $adapter = $value;
 
-            if (is_array($extensions)) {
-            } elseif (trim($extensions) == '') {
-                $extensions = array();
+            } elseif ($key === 'RequireFileExtensions') {
+                $extensions = $value;
+
             } else {
-                $temp         = $extensions;
-                $extensions   = array();
-                $extensions[] = $temp;
+                throw new RuntimeException('Resource File ' . $filename . ' unknown key: ' . $key);
             }
-
-            $this->setScheme($scheme_name, $adapter, $extensions, false);
         }
 
-        return;
+        return array($scheme_name, $adapter, $extensions);
     }
 
     /**
@@ -142,19 +169,84 @@ class Scheme implements SchemeInterface
      *
      * @return  $this
      * @since   1.0.0
-     * @throws  \CommonApi\Exception\RuntimeException
      */
     public function setScheme($scheme_name, $adapter = 'File', array $extensions = array(), $replace = false)
     {
         $scheme = new stdClass();
 
+        $this->setSchemeName($scheme, $scheme_name);
+        $this->setFileExtensions($scheme, $extensions);
+        $this->setSchemeAdapter($scheme, $adapter);
+
+        $this->scheme_array[$scheme->name] = $scheme;
+
+        return $this;
+    }
+
+    /**
+     * Set Scheme Name
+     *
+     * @param   object $scheme
+     * @param   string $scheme_name
+     *
+     * @return  object
+     * @since   1.0.0
+     */
+    protected function setSchemeName($scheme, $scheme_name)
+    {
         $scheme->name = strtolower(trim($scheme_name));
-        if ($scheme->name == '') {
+
+        if ($scheme_name === '') {
             throw new RuntimeException('Resource File ' . $scheme_name . ' must provide Name for each Scheme.');
         }
 
-        $scheme->adapter = trim($adapter);
+        return $scheme;
+    }
 
+    /**
+     * Set File Extensions
+     *
+     * @param   object $scheme
+     * @param   mixed  $extensions
+     *
+     * @return  object
+     * @since   1.0.0
+     */
+    protected function setFileExtensions($scheme, $extensions)
+    {
+        if (is_array($extensions)) {
+
+        } elseif (trim($extensions) === '') {
+            $extensions = array();
+
+        } else {
+            $temp         = $extensions;
+            $extensions   = array();
+            $extensions[] = $temp;
+        }
+
+        $scheme->include_file_extensions = $extensions;
+
+        return $scheme;
+    }
+
+
+    /**
+     * Set Scheme Adapter
+     *
+     * @param   object $scheme
+     * @param   string $adapter
+     *
+     * @return  object
+     * @since   1.0.0
+     */
+    protected function setSchemeAdapter($scheme, $adapter)
+    {
+        if ($adapter === '') {
+            $adapter = $scheme->name;
+        }
+
+        $scheme->adapter       = trim($adapter);
         $scheme->adapter_class = 'Molajo\\Resource\\Adapter\\' . $scheme->adapter;
 
         if (class_exists($scheme->adapter_class)) {
@@ -162,10 +254,6 @@ class Scheme implements SchemeInterface
             throw new RuntimeException('Resource Scheme Adapter Class: ' . $scheme->adapter_class);
         }
 
-        $scheme->include_file_extensions = $extensions;
-
-        $this->scheme_array[$scheme->name] = $scheme;
-
-        return $this;
+        return $scheme;
     }
 }
