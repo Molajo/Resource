@@ -1,64 +1,32 @@
 <?php
 /**
- * Test
+ * Dog Plugin
  *
  * @package    Molajo
  * @license    http://www.opensource.org/licenses/mit-license.html MIT License
  * @copyright  2014-2015 Amy Stephen. All rights reserved.
  */
-namespace Molajo\A;
+namespace Molajo\Plugins;
 
-use Molajo\A\CatInterface;
 use Molajo\A\DogInterface;
-use Molajo\A\MouseInterface;
-use Molajo\A\Z\ZebraInterface;
 
 /**
- * Test
+ * Dog Plugin
  *
  * @author     Amy Stephen
  * @license    http://www.opensource.org/licenses/mit-license.html MIT License
  * @copyright  2014-2015 Amy Stephen. All rights reserved.
  * @since      1.0.0
  */
-class Mouse implements CatInterface, DogInterface, MouseInterface
+class DogPlugin implements DogInterface
 {
-
     /**
-     * Class Constructor
-     *
-     * @param  object  CatInterface
-     * @param  object  DogInterface
-     * @param  object  ZebraInterface
-     *
-     * @since  1.0
-     */
-    public function __construct(
-        CatInterface $cat,
-        DogInterface $dog,
-        ZebraInterface $zebra
-    ) {
-
-    }
-
-    /**
-     * Furry
+     * Event
      *
      * @return  $this
      * @since   1.0.0
      */
-    public function furry()
-    {
-
-    }
-
-    /**
-     * Spotted
-     *
-     * @return  $this
-     * @since   1.0.0
-     */
-    public function squeak()
+    public function onBeforeWag()
     {
 
     }

@@ -5,11 +5,20 @@
     "molajo\\a\\cat": [
         "\/Users\/amystephen\/Sites\/git\/Molajo\/Resource\/.dev\/Tests\/Source\/A\/Cat.php"
     ],
+    "molajo\\a\\catinterface": [
+        "\/Users\/amystephen\/Sites\/git\/Molajo\/Resource\/.dev\/Tests\/Source\/A\/CatInterface.php"
+    ],
     "molajo\\a\\dog": [
         "\/Users\/amystephen\/Sites\/git\/Molajo\/Resource\/.dev\/Tests\/Source\/A\/Dog.php"
     ],
+    "molajo\\a\\doginterface": [
+        "\/Users\/amystephen\/Sites\/git\/Molajo\/Resource\/.dev\/Tests\/Source\/A\/DogInterface.php"
+    ],
     "molajo\\a\\mouse": [
         "\/Users\/amystephen\/Sites\/git\/Molajo\/Resource\/.dev\/Tests\/Source\/A\/Mouse.php"
+    ],
+    "molajo\\a\\mouseinterface": [
+        "\/Users\/amystephen\/Sites\/git\/Molajo\/Resource\/.dev\/Tests\/Source\/A\/MouseInterface.php"
     ],
     "molajo\\a\\z": [
         "\/Users\/amystephen\/Sites\/git\/Molajo\/Resource\/.dev\/Tests\/Source\/A\/Z"
@@ -19,6 +28,9 @@
     ],
     "molajo\\a\\z\\zebra": [
         "\/Users\/amystephen\/Sites\/git\/Molajo\/Resource\/.dev\/Tests\/Source\/A\/Z\/Zebra.php"
+    ],
+    "molajo\\a\\z\\zebrainterface": [
+        "\/Users\/amystephen\/Sites\/git\/Molajo\/Resource\/.dev\/Tests\/Source\/A\/Z\/ZebraInterface.php"
     ],
     "molajo\\b\\": [
         "\/Users\/amystephen\/Sites\/git\/Molajo\/Resource\/.dev\/Tests\/Source\/B\/"
@@ -55,5 +67,20 @@
     ],
     "molajo\\c\\js\\foundation.min.js": [
         "\/Users\/amystephen\/Sites\/git\/Molajo\/Resource\/.dev\/Tests\/Source\/C\/Js\/foundation.min.js"
+    ],
+    "molajo\\plugins\\": [
+        "\/Users\/amystephen\/Sites\/git\/Molajo\/Resource\/.dev\/Tests\/Source\/Plugins\/"
+    ],
+    "molajo\\plugins\\baseplugin": [
+        "\/Users\/amystephen\/Sites\/git\/Molajo\/Resource\/.dev\/Tests\/Source\/Plugins\/BasePlugin.php"
+    ],
+    "molajo\\plugins\\catplugin": [
+        "\/Users\/amystephen\/Sites\/git\/Molajo\/Resource\/.dev\/Tests\/Source\/Plugins\/CatPlugin.php"
+    ],
+    "molajo\\plugins\\dogplugin": [
+        "\/Users\/amystephen\/Sites\/git\/Molajo\/Resource\/.dev\/Tests\/Source\/Plugins\/DogPlugin.php"
+    ],
+    "molajo\\plugins\\mouseplugin": [
+        "\/Users\/amystephen\/Sites\/git\/Molajo\/Resource\/.dev\/Tests\/Source\/Plugins\/MousePlugin.php"
     ]
 }

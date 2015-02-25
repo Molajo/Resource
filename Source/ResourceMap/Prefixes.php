@@ -382,7 +382,7 @@ abstract class Prefixes extends Folders
         $qns                  = $this->setQNS($class_namespace_path, $namespace_prefix);
         $nspath               = $path;
 
-        $this->SetFileDirectoryNamespace($is_directory, $file_name, $file_extension, $qns, $nspath);
+        $this->setFileDirectoryNamespace($is_directory, $file_name, $file_extension, $qns, $nspath);
 
         return $this;
     }
@@ -453,7 +453,7 @@ abstract class Prefixes extends Folders
      * @return  $this
      * @since   1.0.0
      */
-    protected function SetFileDirectoryNamespace($is_directory, $file_name, $file_extension, $qns, $nspath)
+    protected function setFileDirectoryNamespace($is_directory, $file_name, $file_extension, $qns, $nspath)
     {
         if ($is_directory === true) {
         } else {

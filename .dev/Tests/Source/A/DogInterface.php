@@ -1,6 +1,6 @@
 <?php
 /**
- * Test
+ * Dog Interface
  *
  * @package    Molajo
  * @license    http://www.opensource.org/licenses/mit-license.html MIT License
@@ -9,25 +9,22 @@
 namespace Molajo\A;
 
 /**
- * Test
+ * Dog Interface
  *
  * @author     Amy Stephen
  * @license    http://www.opensource.org/licenses/mit-license.html MIT License
  * @copyright  2014-2015 Amy Stephen. All rights reserved.
  * @since      1.0.0
  */
-class Cat implements CatInterface
+interface DogInterface
 {
     /**
-     * Furry
+     * Spotted
      *
      * @return  $this
      * @since   1.0.0
      */
-    public function furry()
-    {
-
-    }
+    public function spotted();
 
     /**
      * Tail
@@ -35,8 +32,5 @@ class Cat implements CatInterface
      * @return  $this
      * @since   1.0.0
      */
-    public function tail()
-    {
-
-    }
+    public function tail();
 }

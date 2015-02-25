@@ -8,7 +8,7 @@
  */
 namespace Molajo\A\Z;
 
-use Molajo\B\Bat;
+use Molajo\A\Z\ZebraInterface;
 
 /**
  * Test
@@ -18,7 +18,27 @@ use Molajo\B\Bat;
  * @copyright  2014-2015 Amy Stephen. All rights reserved.
  * @since      1.0.0
  */
-class Zebra
+class Zebra implements ZebraInterface
 {
+    /**
+     * Stripe
+     *
+     * @return  $this
+     * @since   1.0.0
+     */
+    public function stripe()
+    {
 
+    }
+
+    /**
+     * Dots
+     *
+     * @return  $this
+     * @since   1.0.0
+     */
+    public function dots()
+    {
+
+    }
 }

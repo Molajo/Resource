@@ -16,7 +16,27 @@ namespace Molajo\A;
  * @copyright  2014-2015 Amy Stephen. All rights reserved.
  * @since      1.0.0
  */
-class Dog
+class Dog implements DogInterface
 {
+    /**
+     * Spotted
+     *
+     * @return  $this
+     * @since   1.0.0
+     */
+    public function spotted()
+    {
 
+    }
+
+    /**
+     * Tail
+     *
+     * @return  $this
+     * @since   1.0.0
+     */
+    public function tail()
+    {
+
+    }
 }

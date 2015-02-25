@@ -42,28 +42,7 @@ class Events extends Base
         foreach ($this->concretes as $concrete) {
 
             if (count($concrete->method) > 0) {
-
-                foreach ($concrete->method as $method) {
-
-                    if ($this->testMethodForPlugin($concrete, $method) === true) {
-
-                        $class_instance = new \ReflectionClass($concrete->qns);
-                        $abstract       = $class_instance->isAbstract();
-
-                        $reflectionMethod = new \ReflectionMethod(new $concrete->qns, $method);
-                        $results          = $reflectionMethod->getDeclaringClass();
-
-                        if ($results->name === $concrete->qns) {
-                            if (isset($this->events[$method])) {
-                                $classes = $this->events[$method];
-                            } else {
-                                $classes = array();
-                            }
-                            $classes[]             = $concrete->qns;
-                            $this->events[$method] = array_unique($classes);
-                        }
-                    }
-                }
+                $this->setEventsMethod($concrete);
             }
 
         }
@@ -99,5 +78,56 @@ class Events extends Base
         }
 
         return true;
+    }
+
+    /**
+     * Set Events Method
+     *
+     * @param   string $concrete
+     *
+     * @return  $this
+     * @since   1.0.0
+     */
+
+    protected function setEventsMethod($concrete)
+    {
+        foreach ($concrete->method as $method) {
+            if ($this->testMethodForPlugin($concrete, $method) === true) {
+                $this->setEventsMethodReflection($concrete, $method);
+            }
+        }
+
+        return $this;
+    }
+
+    /**
+     * Set Events Method Reflection
+     *
+     * @param   string $concrete
+     * @param   string $method
+     *
+     * @return  $this
+     * @since   1.0.0
+     */
+
+    protected function setEventsMethodReflection($concrete, $method)
+    {
+        $class_instance = new \ReflectionClass($concrete->qns);
+        $abstract       = $class_instance->isAbstract();
+
+        $reflectionMethod = new \ReflectionMethod(new $concrete->qns, $method);
+        $results          = $reflectionMethod->getDeclaringClass();
+
+        if ($results->name === $concrete->qns) {
+            if (isset($this->events[$method])) {
+                $classes = $this->events[$method];
+            } else {
+                $classes = array();
+            }
+            $classes[]             = $concrete->qns;
+            $this->events[$method] = array_unique($classes);
+        }
+
+        return $this;
     }
 }

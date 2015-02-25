@@ -6,7 +6,9 @@
  * @license    http://www.opensource.org/licenses/mit-license.html MIT License
  * @copyright  2014-2015 Amy Stephen. All rights reserved.
  */
-namespace Molajo\A;
+namespace Molajo\A\Z;
+
+use Molajo\B\Bat;
 
 /**
  * Test
@@ -16,27 +18,21 @@ namespace Molajo\A;
  * @copyright  2014-2015 Amy Stephen. All rights reserved.
  * @since      1.0.0
  */
-class Cat implements CatInterface
+interface ZebraInterface
 {
     /**
-     * Furry
+     * Stripe
      *
      * @return  $this
      * @since   1.0.0
      */
-    public function furry()
-    {
-
-    }
+    public function stripe();
 
     /**
-     * Tail
+     * Dots
      *
      * @return  $this
      * @since   1.0.0
      */
-    public function tail()
-    {
-
-    }
+    public function dots();
 }

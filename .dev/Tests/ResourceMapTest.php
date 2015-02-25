@@ -123,6 +123,7 @@ class ResourceMapTest extends \PHPUnit_Framework_TestCase
         $this->resource_adapter->setNamespace('Molajo\\A\\', 'Source/A/');
         $this->resource_adapter->setNamespace('Molajo\\B\\', 'Source/B/');
         $this->resource_adapter->setNamespace('Molajo\\C\\', 'Source/C/');
+        $this->resource_adapter->setNamespace('Molajo\\Plugins\\', 'Source/Plugins/');
 
         return $this;
     }
@@ -205,11 +206,13 @@ class ResourceMapTest extends \PHPUnit_Framework_TestCase
         $this->resource_adapter->setNamespace('Molajo\\A\\', 'Source/A/');
         $this->resource_adapter->setNamespace('Molajo\\B\\', 'Source/B/');
         $this->resource_adapter->setNamespace('Molajo\\C\\', 'Source/C/');
+        $this->resource_adapter->setNamespace('Molajo\\Plugins\\', 'Source/Plugins/');
 
         $expected = array();
         $expected['Molajo\\A\\'] = array('Source/A/');
         $expected['Molajo\\B\\'] = array('Source/B/');
         $expected['Molajo\\C\\'] = array('Source/C/');
+        $expected['Molajo\\Plugins\\'] = array('Source/Plugins/');
 
         $this->assertEquals($expected, $this->resource_adapter->get('namespace_prefixes'));
 
@@ -269,6 +272,17 @@ class ResourceMapTest extends \PHPUnit_Framework_TestCase
         /** Row 2 */
         $row = new stdClass();
 
+        $row->file_name = 'CatInterface.php';
+        $row->base_name = 'CatInterface';
+        $row->path      = 'Source/A/CatInterface.php';
+        $row->file_name = 'CatInterface.php';
+        $row->qns       = 'Molajo\\A\\CatInterface';
+
+        $class_files[$row->path] = $row;
+
+        /** Row 3 */
+        $row = new stdClass();
+
         $row->file_name = 'Dog.php';
         $row->base_name = 'Dog';
         $row->path      = 'Source/A/Dog.php';
@@ -277,7 +291,18 @@ class ResourceMapTest extends \PHPUnit_Framework_TestCase
 
         $class_files[$row->path] = $row;
 
-        /** Row 3 */
+        /** Row 4 */
+        $row = new stdClass();
+
+        $row->file_name = 'DogInterface.php';
+        $row->base_name = 'DogInterface';
+        $row->path      = 'Source/A/DogInterface.php';
+        $row->file_name = 'DogInterface.php';
+        $row->qns       = 'Molajo\\A\\DogInterface';
+
+        $class_files[$row->path] = $row;
+
+        /** Row 5 */
         $row = new stdClass();
 
         $row->file_name = 'Mouse.php';
@@ -288,7 +313,18 @@ class ResourceMapTest extends \PHPUnit_Framework_TestCase
 
         $class_files[$row->path] = $row;
 
-        /** Row 4 */
+        /** Row 6 */
+        $row = new stdClass();
+
+        $row->file_name = 'MouseInterface.php';
+        $row->base_name = 'MouseInterface';
+        $row->path      = 'Source/A/MouseInterface.php';
+        $row->file_name = 'MouseInterface.php';
+        $row->qns       = 'Molajo\\A\\MouseInterface';
+
+        $class_files[$row->path] = $row;
+
+        /** Row 7 */
         $row = new stdClass();
 
         $row->file_name = 'Zebra.php';
@@ -299,7 +335,18 @@ class ResourceMapTest extends \PHPUnit_Framework_TestCase
 
         $class_files[$row->path] = $row;
 
-        /** Row 5 */
+        /** Row 8 */
+        $row = new stdClass();
+
+        $row->file_name = 'ZebraInterface.php';
+        $row->base_name = 'ZebraInterface';
+        $row->path      = 'Source/A/Z/ZebraInterface.php';
+        $row->file_name = 'ZebraInterface.php';
+        $row->qns       = 'Molajo\\A\\Z\\ZebraInterface';
+
+        $class_files[$row->path] = $row;
+
+        /** Row 9 */
         $row = new stdClass();
 
         $row->file_name = 'Banana.php';
@@ -310,7 +357,7 @@ class ResourceMapTest extends \PHPUnit_Framework_TestCase
 
         $class_files[$row->path] = $row;
 
-        /** Row 6 */
+        /** Row 10 */
         $row = new stdClass();
 
         $row->file_name = 'Bat.php';
@@ -321,7 +368,7 @@ class ResourceMapTest extends \PHPUnit_Framework_TestCase
 
         $class_files[$row->path] = $row;
 
-        /** Row 7 */
+        /** Row 11 */
         $row = new stdClass();
 
         $row->file_name = 'Candy.php';
@@ -329,6 +376,50 @@ class ResourceMapTest extends \PHPUnit_Framework_TestCase
         $row->path      = 'Source/C/Candy.php';
         $row->file_name = 'Candy.php';
         $row->qns       = 'Molajo\\C\\Candy';
+
+        $class_files[$row->path] = $row;
+
+        /** Row 12 */
+        $row = new stdClass();
+
+        $row->file_name = 'BasePlugin.php';
+        $row->base_name = 'BasePlugin';
+        $row->path      = 'Source/Plugins/BasePlugin.php';
+        $row->file_name = 'BasePlugin.php';
+        $row->qns       = 'Molajo\\Plugins\\BasePlugin';
+
+        $class_files[$row->path] = $row;
+
+        /** Row 13 */
+        $row = new stdClass();
+
+        $row->file_name = 'CatPlugin.php';
+        $row->base_name = 'CatPlugin';
+        $row->path      = 'Source/Plugins/CatPlugin.php';
+        $row->file_name = 'CatPlugin.php';
+        $row->qns       = 'Molajo\\Plugins\\CatPlugin';
+
+        $class_files[$row->path] = $row;
+
+        /** Row 14 */
+        $row = new stdClass();
+
+        $row->file_name = 'DogPlugin.php';
+        $row->base_name = 'DogPlugin';
+        $row->path      = 'Source/Plugins/DogPlugin.php';
+        $row->file_name = 'DogPlugin.php';
+        $row->qns       = 'Molajo\\Plugins\\DogPlugin';
+
+        $class_files[$row->path] = $row;
+
+        /** Row 15 */
+        $row = new stdClass();
+
+        $row->file_name = 'MousePlugin.php';
+        $row->base_name = 'MousePlugin';
+        $row->path      = 'Source/Plugins/MousePlugin.php';
+        $row->file_name = 'MousePlugin.php';
+        $row->qns       = 'Molajo\\Plugins\\MousePlugin';
 
         $class_files[$row->path] = $row;
 
@@ -381,11 +472,15 @@ class ResourceMapTest extends \PHPUnit_Framework_TestCase
         $resource_files = array();
         $resource_files['molajo\\a\\'] = array($base . 'Source/A/');
         $resource_files['molajo\\a\\cat'] = array($base . 'Source/A/Cat.php');
+        $resource_files['molajo\\a\\catinterface'] = array($base . 'Source/A/CatInterface.php');
         $resource_files['molajo\\a\\dog'] = array($base . 'Source/A/Dog.php');
+        $resource_files['molajo\\a\\doginterface'] = array($base . 'Source/A/DogInterface.php');
         $resource_files['molajo\\a\\mouse'] = array($base . 'Source/A/Mouse.php');
+        $resource_files['molajo\\a\\mouseinterface'] = array($base . 'Source/A/MouseInterface.php');
         $resource_files['molajo\\a\\z'] = array($base . 'Source/A/Z');
         $resource_files['molajo\\a\\z\\stripes.txt'] = array($base . 'Source/A/Z/Stripes.txt');
         $resource_files['molajo\\a\\z\\zebra'] = array($base . 'Source/A/Z/Zebra.php');
+        $resource_files['molajo\\a\\z\\zebrainterface'] = array($base . 'Source/A/Z/ZebraInterface.php');
         $resource_files['molajo\\b\\'] = array($base . 'Source/B/');
         $resource_files['molajo\\b\\100x100.gif'] = array($base . 'Source/B/100x100.gif');
         $resource_files['molajo\\b\\150x150.gif'] = array($base . 'Source/B/150x150.gif');
@@ -398,6 +493,11 @@ class ResourceMapTest extends \PHPUnit_Framework_TestCase
         $resource_files['molajo\\c\\customize.css'] = array($base . 'Source/C/Customize.css');
         $resource_files['molajo\\c\\js'] = array($base . 'Source/C/Js');
         $resource_files['molajo\\c\\js\\foundation.min.js'] = array($base . 'Source/C/Js/foundation.min.js');
+        $resource_files['molajo\\plugins\\'] = array($base . 'Source/Plugins/');
+        $resource_files['molajo\\plugins\\baseplugin'] = array($base . 'Source/Plugins/BasePlugin.php');
+        $resource_files['molajo\\plugins\\catplugin'] = array($base . 'Source/Plugins/CatPlugin.php');
+        $resource_files['molajo\\plugins\\dogplugin'] = array($base . 'Source/Plugins/DogPlugin.php');
+        $resource_files['molajo\\plugins\\mouseplugin'] = array($base . 'Source/Plugins/MousePlugin.php');
 
         $resource_output = $this->resource_adapter->getResourceMap();
 
