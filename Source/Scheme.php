@@ -83,7 +83,7 @@ class Scheme implements SchemeInterface
     /**
      * Set Scheme Name
      *
-     * @param   object $scheme
+     * @param   stdClass $scheme
      * @param   string $scheme_name
      *
      * @return  object
@@ -103,7 +103,7 @@ class Scheme implements SchemeInterface
     /**
      * Set Scheme Adapter
      *
-     * @param   object            $scheme
+     * @param   stdClass            $scheme
      * @param   ResourceInterface $adapter
      *
      * @return  object
@@ -119,7 +119,7 @@ class Scheme implements SchemeInterface
     /**
      * Set File Extensions
      *
-     * @param   object $scheme
+     * @param   stdClass $scheme
      * @param   array  $extensions
      *
      * @return  object
