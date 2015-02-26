@@ -40,7 +40,7 @@ class SchemeTest extends \PHPUnit_Framework_TestCase
      */
     protected function setUp()
     {
-        $class                 = 'Molajo\\Resource\\MockScheme';
+        $class                 = 'Molajo\\Resource\\Scheme';
         $this->scheme_instance = new $class();
 
         return $this;
@@ -60,7 +60,7 @@ class SchemeTest extends \PHPUnit_Framework_TestCase
     {
         $adapter = new MockAdapter();
         $this->scheme_instance->setScheme('MockAdapter', $adapter, array());
-        $actual_results = $this->scheme_instance->get('scheme_array');
+        $actual_results = $this->scheme_instance->getScheme('all');
         $this->assertEquals('mockadapter', $actual_results['mockadapter']->name);
         $this->assertEquals(array(), $actual_results['mockadapter']->include_file_extensions);
 
@@ -86,14 +86,6 @@ class SchemeTest extends \PHPUnit_Framework_TestCase
         $this->assertEquals(array(), $actual_results->include_file_extensions);
 
         return $this;
-    }
-}
-
-class MockScheme extends Scheme
-{
-    public function get($key)
-    {
-        return $this->$key;
     }
 }
 

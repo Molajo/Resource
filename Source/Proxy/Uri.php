@@ -19,6 +19,54 @@ namespace Molajo\Resource\Proxy;
 class Uri extends Scheme
 {
     /**
+     * Host
+     *
+     * @var    string
+     * @since  1.0.0
+     */
+    protected $host;
+
+    /**
+     * User
+     *
+     * @var    string
+     * @since  1.0.0
+     */
+    protected $user;
+
+    /**
+     * Password
+     *
+     * @var    string
+     * @since  1.0.0
+     */
+    protected $password;
+
+    /**
+     * Path
+     *
+     * @var    string
+     * @since  1.0.0
+     */
+    protected $path;
+
+    /**
+     * Query
+     *
+     * @var    string
+     * @since  1.0.0
+     */
+    protected $query;
+
+    /**
+     * Fragment
+     *
+     * @var    string
+     * @since  1.0.0
+     */
+    protected $fragment;
+
+    /**
      * Get Resource for Uri
      *
      * @param   string $uri_namespace
@@ -31,11 +79,11 @@ class Uri extends Scheme
     {
         $located_path = $this->getUriPath($uri_namespace);
 
-        if ($this->scheme_value === 'Field') {
-            return $this->adapter_instance_array[$this->adapter_value]->get(substr($uri_namespace, 9, 999));
+        if ($this->requested_scheme === 'Field') {
+            return $this->adapter_instance_array[$this->requested_adapter]->get(substr($uri_namespace, 9, 999));
         }
 
-        return $this->locateNamespace(str_replace('\\', '/', $this->path), $this->scheme_value, $options);
+        return $this->locateNamespace(str_replace('\\', '/', $this->path), $this->requested_scheme, $options);
     }
 
     /**
@@ -50,11 +98,11 @@ class Uri extends Scheme
     {
         $this->parseUri($uri_namespace);
 
-        $this->scheme_value = 'file';
+        $this->requested_scheme = 'file';
 
-        $this->getScheme($this->scheme_value);
+        $this->getScheme($this->requested_scheme);
 
-        return $this->adapter_instance_array[$this->adapter_value]->get($uri_namespace);
+        return $this->adapter_instance_array[$this->requested_adapter]->get($uri_namespace);
     }
 
     /**
@@ -77,39 +125,39 @@ class Uri extends Scheme
             $multiple = true;
         }
 
-        $located_path = $this->adapter_instance_array[$this->adapter_value]->get($namespace, $multiple);
+        $located_path = $this->adapter_instance_array[$this->requested_adapter]->get($namespace, $multiple);
 
         $options['namespace'] = $namespace;
 
-        return $this->handlePath($this->scheme_value, $located_path, $options);
+        return $this->handlePath($this->requested_scheme, $located_path, $options);
     }
 
     /**
      * Handle located folder/file associated with URI Namespace for Resource
      *
-     * @param   string $scheme_value
+     * @param   string $requested_scheme
      * @param   string $located_path
      * @param   array  $options
      *
      * @return  void|mixed
      * @since   1.0.0
      */
-    protected function handlePath($scheme_value, $located_path, array $options = array())
+    protected function handlePath($requested_scheme, $located_path, array $options = array())
     {
-        $this->getScheme($scheme_value);
+        $this->getScheme($requested_scheme);
 
-        if (strtolower($scheme_value) == 'query') {
+        if (strtolower($requested_scheme) == 'query') {
             $xml            = $this->adapter_instance_array['Xml']->handlePath(
-                $scheme_value,
+                $requested_scheme,
                 $located_path,
                 $options
             );
             $options['xml'] = $xml;
 
-            $this->adapter_value = 'Query';
+            $this->requested_adapter = 'Query';
         }
 
-        return $this->adapter_instance_array[$this->adapter_value]->handlePath($scheme_value, $located_path, $options);
+        return $this->adapter_instance_array[$this->requested_adapter]->handlePath($requested_scheme, $located_path, $options);
     }
 
     /**

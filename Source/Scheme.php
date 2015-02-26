@@ -44,6 +44,10 @@ class Scheme implements SchemeInterface
      */
     public function getScheme($scheme_name)
     {
+        if ($scheme_name === 'all') {
+            return $this->scheme_array;
+        }
+
         $scheme_name = strtolower($scheme_name);
 
         if (isset($this->scheme_array[$scheme_name])) {

@@ -1,6 +1,6 @@
 <?php
 /**
- * Resource Class Loader
+ * Resource Class Loader Class
  *
  * @package    Molajo
  * @copyright  2014-2015 Amy Stephen. All rights reserved.
@@ -9,7 +9,6 @@
 namespace Molajo\Resource\Proxy;
 
 use CommonApi\Resource\ClassLoaderInterface;
-use CommonApi\Resource\SchemeInterface;
 
 /**
  * Resource Class Loader
@@ -19,26 +18,8 @@ use CommonApi\Resource\SchemeInterface;
  * @license    http://www.opensource.org/licenses/mit-license.html MIT License
  * @since      1.0.0
  */
-class ClassLoader extends Base implements ClassLoaderInterface
+class ClassLoader extends Uri implements ClassLoaderInterface
 {
-    /**
-     * Constructor
-     *
-     * @param  SchemeInterface $scheme
-     * @param  array           $adapter_instance_array
-     *
-     * @since  1.0.0
-     */
-    public function __construct(
-        SchemeInterface $scheme,
-        array $adapter_instance_array = array()
-
-    ) {
-        parent::__construct($scheme, $adapter_instance_array);
-
-        $this->register(true);
-    }
-
     /**
      * Registers Class Autoloader
      *
@@ -49,7 +30,7 @@ class ClassLoader extends Base implements ClassLoaderInterface
      */
     public function register($prepend = true)
     {
-        spl_autoload_register(array('Molajo\Resource\Proxy\Uri', 'locateNamespace'), true, $prepend);
+        spl_autoload_register(array($this, 'locateNamespace'), true, $prepend);
 
         return $this;
     }
@@ -62,7 +43,7 @@ class ClassLoader extends Base implements ClassLoaderInterface
      */
     public function unregister()
     {
-        spl_autoload_unregister(array('Molajo\Resource\Proxy\Uri', 'locateNamespace'));
+        spl_autoload_unregister(array($this, 'locateNamespace'));
 
         return $this;
     }

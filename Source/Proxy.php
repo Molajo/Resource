@@ -9,7 +9,7 @@
 namespace Molajo\Resource;
 
 use CommonApi\Resource\ResourceInterface;
-use Molajo\Resource\Proxy\Uri;
+use Molajo\Resource\Proxy\ClassLoader;
 
 /**
  * Resource Proxy
@@ -19,7 +19,7 @@ use Molajo\Resource\Proxy\Uri;
  * @license    http://www.opensource.org/licenses/mit-license.html MIT License
  * @since      1.0.0
  */
-class Proxy extends Uri implements ResourceInterface
+class Proxy extends ClassLoader implements ResourceInterface
 {
     /**
      * Map a namespace prefix to a filesystem path
@@ -33,13 +33,10 @@ class Proxy extends Uri implements ResourceInterface
      */
     public function setNamespace($namespace_prefix, $base_directory, $prepend = true)
     {
-        foreach ($this->adapter_instance_array as $key => $value) {
+        $adapters = $this->scheme->getScheme('all');
 
-            $this->adapter_instance_array[$key]->setNamespace(
-                $namespace_prefix,
-                $base_directory,
-                $prepend
-            );
+        foreach ($adapters as $scheme_name => $scheme_object) {
+            $scheme_object->adapter->setNamespace($namespace_prefix, $base_directory, $prepend);
         }
 
         return $this;
@@ -89,8 +86,8 @@ class Proxy extends Uri implements ResourceInterface
      */
     public function getCollection($scheme_value, array $options = array())
     {
-        $this->getScheme($scheme_value);
+        $scheme = $this->getScheme($scheme_value);
 
-        return $this->adapter_instance_array[$this->adapter_value]->getCollection($scheme_value, $options);
+        return $scheme->adapter->getCollection($scheme_value, $options);
     }
 }
