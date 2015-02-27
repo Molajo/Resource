@@ -9,7 +9,8 @@
 namespace Molajo\Resource;
 
 use CommonApi\Resource\ResourceInterface;
-use Molajo\Resource\Proxy\ClassLoader;
+use CommonApi\Resource\SchemeInterface;
+use Molajo\Resource\Proxy\Scheme;
 
 /**
  * for get
@@ -40,7 +41,7 @@ use Molajo\Resource\Proxy\ClassLoader;
  * @license    http://www.opensource.org/licenses/mit-license.html MIT License
  * @since      1.0.0
  */
-class Proxy extends ClassLoader implements ResourceInterface
+class Proxy extends Scheme implements ResourceInterface
 {
     /**
      * Map a namespace prefix to a filesystem path

@@ -9,6 +9,7 @@
 namespace Molajo\Resource\Proxy;
 
 use CommonApi\Exception\RuntimeException;
+use CommonApi\Resource\ClassLoaderInterface;
 use CommonApi\Resource\SchemeInterface;
 use CommonApi\Resource\ResourceInterface;
 use stdClass;
@@ -21,7 +22,7 @@ use stdClass;
  * @license    http://www.opensource.org/licenses/mit-license.html MIT License
  * @since      1.0.0
  */
-abstract class Scheme implements SchemeInterface
+abstract class Scheme implements ClassLoaderInterface, SchemeInterface
 {
     /**
      * Saved Namespace Array for yet to be defined Resource Adapters
@@ -85,6 +86,10 @@ abstract class Scheme implements SchemeInterface
         $this->getScheme($scheme_name);
 
         $this->setAdapterNamespaces();
+
+        if (strtolower($scheme_name) === 'classloader') {
+            $this->register(true);
+        }
 
         return $this;
     }
@@ -208,5 +213,33 @@ abstract class Scheme implements SchemeInterface
     protected function removeUriScheme($uri, $scheme)
     {
         return substr($uri, strpos($uri, $scheme) + strlen($scheme) + 3, 9999);
+    }
+
+    /**
+     * Registers Class Autoloader
+     *
+     * @param   boolean $prepend
+     *
+     * @return  $this
+     * @since   1.0.0
+     */
+    public function register($prepend = true)
+    {
+        spl_autoload_register(array($this, 'get'), true, $prepend);
+
+        return $this;
+    }
+
+    /**
+     * Unregister Class Autoloader
+     *
+     * @return  $this
+     * @since   1.0.0
+     */
+    public function unregister()
+    {
+        spl_autoload_unregister(array($this, 'get'));
+
+        return $this;
     }
 }

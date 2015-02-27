@@ -43,8 +43,6 @@ class NamespaceHandlerMapTest extends \PHPUnit_Framework_TestCase
      * @covers  Molajo\Resource\Proxy::exists
      * @covers  Molajo\Resource\Proxy::get
      * @covers  Molajo\Resource\Proxy::getCollection
-     * @covers  Molajo\Resource\Proxy\ClassLoader::register
-     * @covers  Molajo\Resource\Proxy\ClassLoader::unregister
      * @covers  Molajo\Resource\Proxy\Scheme::__construct
      * @covers  Molajo\Resource\Proxy\Scheme::setScheme
      * @covers  Molajo\Resource\Proxy\Scheme::getScheme
@@ -104,8 +102,6 @@ class NamespaceHandlerMapTest extends \PHPUnit_Framework_TestCase
      * @covers  Molajo\Resource\Proxy::exists
      * @covers  Molajo\Resource\Proxy::get
      * @covers  Molajo\Resource\Proxy::getCollection
-     * @covers  Molajo\Resource\Proxy\ClassLoader::register
-     * @covers  Molajo\Resource\Proxy\ClassLoader::unregister
      * @covers  Molajo\Resource\Proxy\Scheme::__construct
      * @covers  Molajo\Resource\Proxy\Scheme::setScheme
      * @covers  Molajo\Resource\Proxy\Scheme::getScheme
@@ -171,8 +167,6 @@ class NamespaceHandlerMapTest extends \PHPUnit_Framework_TestCase
      * @covers  Molajo\Resource\Proxy::exists
      * @covers  Molajo\Resource\Proxy::get
      * @covers  Molajo\Resource\Proxy::getCollection
-     * @covers  Molajo\Resource\Proxy\ClassLoader::register
-     * @covers  Molajo\Resource\Proxy\ClassLoader::unregister
      * @covers  Molajo\Resource\Proxy\Scheme::__construct
      * @covers  Molajo\Resource\Proxy\Scheme::setScheme
      * @covers  Molajo\Resource\Proxy\Scheme::getScheme
@@ -301,8 +295,6 @@ class NamespaceHandlerMapTest extends \PHPUnit_Framework_TestCase
      * @covers  Molajo\Resource\Proxy::exists
      * @covers  Molajo\Resource\Proxy::get
      * @covers  Molajo\Resource\Proxy::getCollection
-     * @covers  Molajo\Resource\Proxy\ClassLoader::register
-     * @covers  Molajo\Resource\Proxy\ClassLoader::unregister
      * @covers  Molajo\Resource\Proxy\Scheme::__construct
      * @covers  Molajo\Resource\Proxy\Scheme::setScheme
      * @covers  Molajo\Resource\Proxy\Scheme::getScheme
@@ -360,8 +352,6 @@ class NamespaceHandlerMapTest extends \PHPUnit_Framework_TestCase
      * @covers  Molajo\Resource\Proxy::exists
      * @covers  Molajo\Resource\Proxy::get
      * @covers  Molajo\Resource\Proxy::getCollection
-     * @covers  Molajo\Resource\Proxy\ClassLoader::register
-     * @covers  Molajo\Resource\Proxy\ClassLoader::unregister
      * @covers  Molajo\Resource\Proxy\Scheme::__construct
      * @covers  Molajo\Resource\Proxy\Scheme::setScheme
      * @covers  Molajo\Resource\Proxy\Scheme::getScheme
@@ -419,8 +409,6 @@ class NamespaceHandlerMapTest extends \PHPUnit_Framework_TestCase
      * @covers  Molajo\Resource\Proxy::exists
      * @covers  Molajo\Resource\Proxy::get
      * @covers  Molajo\Resource\Proxy::getCollection
-     * @covers  Molajo\Resource\Proxy\ClassLoader::register
-     * @covers  Molajo\Resource\Proxy\ClassLoader::unregister
      * @covers  Molajo\Resource\Proxy\Scheme::__construct
      * @covers  Molajo\Resource\Proxy\Scheme::setScheme
      * @covers  Molajo\Resource\Proxy\Scheme::getScheme
@@ -478,8 +466,6 @@ class NamespaceHandlerMapTest extends \PHPUnit_Framework_TestCase
      * @covers  Molajo\Resource\Proxy::exists
      * @covers  Molajo\Resource\Proxy::get
      * @covers  Molajo\Resource\Proxy::getCollection
-     * @covers  Molajo\Resource\Proxy\ClassLoader::register
-     * @covers  Molajo\Resource\Proxy\ClassLoader::unregister
      * @covers  Molajo\Resource\Proxy\Scheme::__construct
      * @covers  Molajo\Resource\Proxy\Scheme::setScheme
      * @covers  Molajo\Resource\Proxy\Scheme::getScheme
