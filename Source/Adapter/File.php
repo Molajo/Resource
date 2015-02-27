@@ -40,7 +40,7 @@ class File extends NamespaceHandler implements ResourceInterface
             return $this->returnFileContents($located_path);
         }
 
-        return $this->returnPath($located_path);
+        return $located_path;
     }
 
     /**
@@ -71,18 +71,5 @@ class File extends NamespaceHandler implements ResourceInterface
     protected function returnFileContents($located_path)
     {
         return file_get_contents($located_path);
-    }
-
-    /**
-     * Return file path
-     *
-     * @param   string $located_path
-     *
-     * @return  string
-     * @since   1.0.0
-     */
-    protected function returnPath($located_path)
-    {
-        return $located_path;
     }
 }

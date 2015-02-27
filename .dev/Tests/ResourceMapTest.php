@@ -208,10 +208,10 @@ class ResourceMapTest extends \PHPUnit_Framework_TestCase
         $this->resource_adapter->setNamespace('Molajo\\C\\', 'Source/C/');
         $this->resource_adapter->setNamespace('Molajo\\Plugins\\', 'Source/Plugins/');
 
-        $expected = array();
-        $expected['Molajo\\A\\'] = array('Source/A/');
-        $expected['Molajo\\B\\'] = array('Source/B/');
-        $expected['Molajo\\C\\'] = array('Source/C/');
+        $expected                      = array();
+        $expected['Molajo\\A\\']       = array('Source/A/');
+        $expected['Molajo\\B\\']       = array('Source/B/');
+        $expected['Molajo\\C\\']       = array('Source/C/');
         $expected['Molajo\\Plugins\\'] = array('Source/Plugins/');
 
         $this->assertEquals($expected, $this->resource_adapter->get('namespace_prefixes'));
@@ -469,35 +469,35 @@ class ResourceMapTest extends \PHPUnit_Framework_TestCase
 
         $this->resource_adapter->createMap();
 
-        $resource_files = array();
-        $resource_files['molajo\\a\\'] = array($base . 'Source/A/');
-        $resource_files['molajo\\a\\cat'] = array($base . 'Source/A/Cat.php');
-        $resource_files['molajo\\a\\catinterface'] = array($base . 'Source/A/CatInterface.php');
-        $resource_files['molajo\\a\\dog'] = array($base . 'Source/A/Dog.php');
-        $resource_files['molajo\\a\\doginterface'] = array($base . 'Source/A/DogInterface.php');
-        $resource_files['molajo\\a\\mouse'] = array($base . 'Source/A/Mouse.php');
-        $resource_files['molajo\\a\\mouseinterface'] = array($base . 'Source/A/MouseInterface.php');
-        $resource_files['molajo\\a\\z'] = array($base . 'Source/A/Z');
-        $resource_files['molajo\\a\\z\\stripes.txt'] = array($base . 'Source/A/Z/Stripes.txt');
-        $resource_files['molajo\\a\\z\\zebra'] = array($base . 'Source/A/Z/Zebra.php');
-        $resource_files['molajo\\a\\z\\zebrainterface'] = array($base . 'Source/A/Z/ZebraInterface.php');
-        $resource_files['molajo\\b\\'] = array($base . 'Source/B/');
-        $resource_files['molajo\\b\\100x100.gif'] = array($base . 'Source/B/100x100.gif');
-        $resource_files['molajo\\b\\150x150.gif'] = array($base . 'Source/B/150x150.gif');
-        $resource_files['molajo\\b\\50x50.gif'] = array($base . 'Source/B/50x50.gif');
-        $resource_files['molajo\\b\\banana'] = array($base . 'Source/B/Banana.php');
-        $resource_files['molajo\\b\\bat'] = array($base . 'Source/B/Bat.php');
-        $resource_files['molajo\\c\\'] = array($base . 'Source/C/');
-        $resource_files['molajo\\c\\candy'] = array($base . 'Source/C/Candy.php');
-        $resource_files['molajo\\c\\content.xml'] = array($base . 'Source/C/Content.xml');
-        $resource_files['molajo\\c\\customize.css'] = array($base . 'Source/C/Customize.css');
-        $resource_files['molajo\\c\\js'] = array($base . 'Source/C/Js');
+        $resource_files                                     = array();
+        $resource_files['molajo\\a\\']                      = array($base . 'Source/A/');
+        $resource_files['molajo\\a\\cat']                   = array($base . 'Source/A/Cat.php');
+        $resource_files['molajo\\a\\catinterface']          = array($base . 'Source/A/CatInterface.php');
+        $resource_files['molajo\\a\\dog']                   = array($base . 'Source/A/Dog.php');
+        $resource_files['molajo\\a\\doginterface']          = array($base . 'Source/A/DogInterface.php');
+        $resource_files['molajo\\a\\mouse']                 = array($base . 'Source/A/Mouse.php');
+        $resource_files['molajo\\a\\mouseinterface']        = array($base . 'Source/A/MouseInterface.php');
+        $resource_files['molajo\\a\\z']                     = array($base . 'Source/A/Z');
+        $resource_files['molajo\\a\\z\\stripes.txt']        = array($base . 'Source/A/Z/Stripes.txt');
+        $resource_files['molajo\\a\\z\\zebra']              = array($base . 'Source/A/Z/Zebra.php');
+        $resource_files['molajo\\a\\z\\zebrainterface']     = array($base . 'Source/A/Z/ZebraInterface.php');
+        $resource_files['molajo\\b\\']                      = array($base . 'Source/B/');
+        $resource_files['molajo\\b\\100x100.gif']           = array($base . 'Source/B/100x100.gif');
+        $resource_files['molajo\\b\\150x150.gif']           = array($base . 'Source/B/150x150.gif');
+        $resource_files['molajo\\b\\50x50.gif']             = array($base . 'Source/B/50x50.gif');
+        $resource_files['molajo\\b\\banana']                = array($base . 'Source/B/Banana.php');
+        $resource_files['molajo\\b\\bat']                   = array($base . 'Source/B/Bat.php');
+        $resource_files['molajo\\c\\']                      = array($base . 'Source/C/');
+        $resource_files['molajo\\c\\candy']                 = array($base . 'Source/C/Candy.php');
+        $resource_files['molajo\\c\\content.xml']           = array($base . 'Source/C/Content.xml');
+        $resource_files['molajo\\c\\customize.css']         = array($base . 'Source/C/Customize.css');
+        $resource_files['molajo\\c\\js']                    = array($base . 'Source/C/Js');
         $resource_files['molajo\\c\\js\\foundation.min.js'] = array($base . 'Source/C/Js/foundation.min.js');
-        $resource_files['molajo\\plugins\\'] = array($base . 'Source/Plugins/');
-        $resource_files['molajo\\plugins\\baseplugin'] = array($base . 'Source/Plugins/BasePlugin.php');
-        $resource_files['molajo\\plugins\\catplugin'] = array($base . 'Source/Plugins/CatPlugin.php');
-        $resource_files['molajo\\plugins\\dogplugin'] = array($base . 'Source/Plugins/DogPlugin.php');
-        $resource_files['molajo\\plugins\\mouseplugin'] = array($base . 'Source/Plugins/MousePlugin.php');
+        $resource_files['molajo\\plugins\\']                = array($base . 'Source/Plugins/');
+        $resource_files['molajo\\plugins\\baseplugin']      = array($base . 'Source/Plugins/BasePlugin.php');
+        $resource_files['molajo\\plugins\\catplugin']       = array($base . 'Source/Plugins/CatPlugin.php');
+        $resource_files['molajo\\plugins\\dogplugin']       = array($base . 'Source/Plugins/DogPlugin.php');
+        $resource_files['molajo\\plugins\\mouseplugin']     = array($base . 'Source/Plugins/MousePlugin.php');
 
         $resource_output = $this->resource_adapter->getResourceMap();
 

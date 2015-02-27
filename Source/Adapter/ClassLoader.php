@@ -8,6 +8,7 @@
  */
 namespace Molajo\Resource\Adapter;
 
+use CommonApi\Exception\RuntimeException;
 use CommonApi\Resource\ResourceInterface;
 
 /**
@@ -21,16 +22,15 @@ use CommonApi\Resource\ResourceInterface;
 class ClassLoader extends NamespaceHandler implements ResourceInterface
 {
     /**
-     * Handle requires located file
+     * Handle located folder/file associated with URI Namespace for Resource
      *
-     * @param   string $scheme
-     * @param   string $located_path
-     * @param   array  $options
+     * @param   string|array $located_path
+     * @param   array        $options
      *
      * @return  void|mixed
      * @since   1.0.0
      */
-    public function handlePath($scheme, $located_path, array $options = array())
+    public function handlePath($located_path, array $options = array())
     {
         if (is_file($located_path)
             && file_exists($located_path)
@@ -38,6 +38,25 @@ class ClassLoader extends NamespaceHandler implements ResourceInterface
             require_once $located_path;
         }
 
+        $this->testNotFoundException($options);
+
         return;
+    }
+
+    /**
+     * Test if file should be read and contents returned
+     *
+     * @param   array $options
+     *
+     * @return  boolean
+     * @since   1.0.0
+     */
+    protected function testNotFoundException(array $options = array())
+    {
+        if (isset($options['throw_exception']) && $options['throw_exception'] === 1) {
+            throw new RuntimeException('Resource Classloader could not locate: ' . $options['resource_namespace']);
+        }
+
+        return false;
     }
 }

@@ -98,6 +98,8 @@ class Proxy extends ClassLoader implements ResourceInterface
 
         $located_path = $this->requested_adapter->get($results['resource_namespace'], $results['options']);
 
+        $options['resource_namespace'] = $resource_namespace;
+
         return $this->requested_adapter->handlePath($located_path, $results['options']);
     }
 

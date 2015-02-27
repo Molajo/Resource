@@ -54,7 +54,7 @@ class ProxyTest extends \PHPUnit_Framework_TestCase
         $class  = 'Molajo\\Resource\\Scheme';
         $scheme = new $class();
 
-        $class  = 'Molajo\\Resource\\MockProxy';
+        $class                = 'Molajo\\Resource\\MockProxy';
         $this->proxy_instance = new $class($scheme);
 
         return $this;
@@ -172,30 +172,30 @@ class ProxyTest extends \PHPUnit_Framework_TestCase
 
         $expected_ns = array();
 
-        $row = new stdClass();
+        $row                   = new stdClass();
         $row->namespace_prefix = 'Molajo\\A\\';
-        $row->base_directory = 'Source/A/';
-        $row->prepend = true;
-        $expected_ns[] = $row;
+        $row->base_directory   = 'Source/A/';
+        $row->prepend          = true;
+        $expected_ns[]         = $row;
 
-        $row = new stdClass();
+        $row                   = new stdClass();
         $row->namespace_prefix = 'Molajo\\B\\';
-        $row->base_directory = 'Source/B/';
-        $row->prepend = true;
-        $expected_ns[] = $row;
+        $row->base_directory   = 'Source/B/';
+        $row->prepend          = true;
+        $expected_ns[]         = $row;
 
-        $row = new stdClass();
+        $row                   = new stdClass();
         $row->namespace_prefix = 'Molajo\\C\\';
-        $row->base_directory = 'Source/C/';
-        $row->prepend = true;
-        $expected_ns[] = $row;
+        $row->base_directory   = 'Source/C/';
+        $row->prepend          = true;
+        $expected_ns[]         = $row;
 
 
-        $row = new stdClass();
+        $row                   = new stdClass();
         $row->namespace_prefix = 'Molajo\\Plugins\\';
-        $row->base_directory = 'Source/Plugins/';
-        $row->prepend = true;
-        $expected_ns[] = $row;
+        $row->base_directory   = 'Source/Plugins/';
+        $row->prepend          = true;
+        $expected_ns[]         = $row;
 
         $actual_ns = $this->proxy_instance->getData('namespace_array');
 

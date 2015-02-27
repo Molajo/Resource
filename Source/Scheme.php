@@ -60,9 +60,9 @@ class Scheme implements SchemeInterface
     /**
      * Define scheme, allowable file extensions and adapter instance
      *
-     * @param   string             $scheme_name
-     * @param   ResourceInterface  $adapter
-     * @param   array              $extensions
+     * @param   string            $scheme_name
+     * @param   ResourceInterface $adapter
+     * @param   array             $extensions
      *
      * @return  $this
      * @since   1.0.0

@@ -31,6 +31,68 @@ class Folder extends NamespaceHandler implements ResourceInterface
      */
     public function handlePath($located_path, array $options = array())
     {
+        if (file_exists($located_path)) {
+        } else {
+            return '';
+        }
+
+        if ($this->testReturnFileList($options) === true) {
+            return $this->returnFileList($located_path);
+        }
+
         return $located_path;
+    }
+
+    /**
+     * Test if list of folder files should be returned
+     *
+     * @param   array $options
+     *
+     * @return  boolean
+     * @since   1.0.0
+     */
+    protected function testReturnFileList(array $options = array())
+    {
+        if (isset($options['return_file_list']) && $options['return_file_list'] === 1) {
+            return true;
+        }
+
+        return false;
+    }
+
+    /**
+     * Return file list
+     *
+     * @param   string $located_path
+     *
+     * @return  string
+     * @since   1.0.0
+     */
+    protected function returnFileList($located_path)
+    {
+        $objects = new RecursiveIteratorIterator(
+            new RecursiveDirectoryIterator($located_path),
+            RecursiveIteratorIterator::SELF_FIRST
+        );
+
+        $list = array();
+
+        foreach ($objects as $file_path => $file_object) {
+
+            $file_name      = $file_object->getFileName();
+            $file_extension = $file_object->getExtension();
+            $is_directory   = $file_object->isDir();
+
+            if ($is_directory === true) {
+                $list[] = $file_path;
+            } elseif ($file_name === '.' || $file_name === '..') {
+            } elseif ($file_extension === '') {
+                $list[] = $file_path . '/' . $file_name;
+            } else {
+                $list[] = $file_path . '/' . $file_name . '.' . $file_extension;
+            }
+        }
+
+        return $list;
     }
 }

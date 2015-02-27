@@ -1,6 +1,6 @@
 <?php
 /**
- *  File Handler Testing
+ *  Folder Handler Testing
  *
  * @package    Molajo
  * @license    http://www.opensource.org/licenses/mit-license.html MIT License
@@ -11,14 +11,14 @@ namespace Molajo\Resource;
 use Molajo\Resource\Proxy;
 
 /**
- *  File Handler Testing
+ *  Folder Handler Testing
  *
  * @author     Amy Stephen
  * @license    http://www.opensource.org/licenses/mit-license.html MIT License
  * @copyright  2014-2015 Amy Stephen. All rights reserved.
  * @since      1.0.0
  */
-class FileHandlerMapTest extends \PHPUnit_Framework_TestCase
+class FolderHandlerMapTest extends \PHPUnit_Framework_TestCase
 {
     /**
      * Proxy Instance
@@ -51,9 +51,9 @@ class FileHandlerMapTest extends \PHPUnit_Framework_TestCase
      * @covers  Molajo\Resource\Proxy\Scheme::locateScheme
      * @covers  Molajo\Resource\Proxy\Scheme::getUriScheme
      * @covers  Molajo\Resource\Proxy\Scheme::removeUriScheme
-     * @covers  Molajo\Resource\Adapter\File::handlePath
-     * @covers  Molajo\Resource\Adapter\File::testReturnFileContents
-     * @covers  Molajo\Resource\Adapter\File::returnFileContents
+     * @covers  Molajo\Resource\Adapter\Folder::handlePath
+     * @covers  Molajo\Resource\Adapter\Folder::testReturnFileList
+     * @covers  Molajo\Resource\Adapter\Folder::returnFileList
      * @covers  Molajo\Resource\Adapter\NamespaceHandler::setNamespace
      * @covers  Molajo\Resource\Adapter\NamespaceHandler::exists
      * @covers  Molajo\Resource\Adapter\NamespaceHandler::get
@@ -117,9 +117,9 @@ class FileHandlerMapTest extends \PHPUnit_Framework_TestCase
      * @covers  Molajo\Resource\Proxy\Scheme::locateScheme
      * @covers  Molajo\Resource\Proxy\Scheme::getUriScheme
      * @covers  Molajo\Resource\Proxy\Scheme::removeUriScheme
-     * @covers  Molajo\Resource\Adapter\File::handlePath
-     * @covers  Molajo\Resource\Adapter\File::testReturnFileContents
-     * @covers  Molajo\Resource\Adapter\File::returnFileContents
+     * @covers  Molajo\Resource\Adapter\Folder::handlePath
+     * @covers  Molajo\Resource\Adapter\Folder::testReturnFileList
+     * @covers  Molajo\Resource\Adapter\Folder::returnFileList
      * @covers  Molajo\Resource\Adapter\NamespaceHandler::setNamespace
      * @covers  Molajo\Resource\Adapter\NamespaceHandler::exists
      * @covers  Molajo\Resource\Adapter\NamespaceHandler::get
@@ -161,7 +161,7 @@ class FileHandlerMapTest extends \PHPUnit_Framework_TestCase
     {
         $resource_map = $this->createMap();
 
-        $class = 'Molajo\\Resource\\Adapter\\File';
+        $class = 'Molajo\\Resource\\Adapter\\Folder';
 
         $this->adapter_instance = new $class(
             __DIR__,
@@ -171,7 +171,7 @@ class FileHandlerMapTest extends \PHPUnit_Framework_TestCase
             array()
         );
 
-        $this->proxy_instance->setScheme('File', $this->adapter_instance, array());
+        $this->proxy_instance->setScheme('Folder', $this->adapter_instance, array());
 
         return $this;
     }
@@ -254,9 +254,9 @@ class FileHandlerMapTest extends \PHPUnit_Framework_TestCase
      * @covers  Molajo\Resource\Proxy\Scheme::locateScheme
      * @covers  Molajo\Resource\Proxy\Scheme::getUriScheme
      * @covers  Molajo\Resource\Proxy\Scheme::removeUriScheme
-     * @covers  Molajo\Resource\Adapter\File::handlePath
-     * @covers  Molajo\Resource\Adapter\File::testReturnFileContents
-     * @covers  Molajo\Resource\Adapter\File::returnFileContents
+     * @covers  Molajo\Resource\Adapter\Folder::handlePath
+     * @covers  Molajo\Resource\Adapter\Folder::testReturnFileList
+     * @covers  Molajo\Resource\Adapter\Folder::returnFileList
      * @covers  Molajo\Resource\Adapter\NamespaceHandler::setNamespace
      * @covers  Molajo\Resource\Adapter\NamespaceHandler::exists
      * @covers  Molajo\Resource\Adapter\NamespaceHandler::get
@@ -298,9 +298,9 @@ class FileHandlerMapTest extends \PHPUnit_Framework_TestCase
     {
         $this->setAdapter();
 
-        $path = __DIR__ . '/Source/C/Customize.css';
+        $path = __DIR__ . '/Source/C';
 
-        $this->assertEquals($path, $this->proxy_instance->get('file:\\\molajo\\c\\customize.css'));
+//        $this->assertEquals($path, $this->proxy_instance->get('folder:\\\molajo\\c\\customize.css'));
 
         return $this;
     }
@@ -320,9 +320,9 @@ class FileHandlerMapTest extends \PHPUnit_Framework_TestCase
      * @covers  Molajo\Resource\Proxy\Scheme::locateScheme
      * @covers  Molajo\Resource\Proxy\Scheme::getUriScheme
      * @covers  Molajo\Resource\Proxy\Scheme::removeUriScheme
-     * @covers  Molajo\Resource\Adapter\File::handlePath
-     * @covers  Molajo\Resource\Adapter\File::testReturnFileContents
-     * @covers  Molajo\Resource\Adapter\File::returnFileContents
+     * @covers  Molajo\Resource\Adapter\Folder::handlePath
+     * @covers  Molajo\Resource\Adapter\Folder::testReturnFileList
+     * @covers  Molajo\Resource\Adapter\Folder::returnFileList
      * @covers  Molajo\Resource\Adapter\NamespaceHandler::setNamespace
      * @covers  Molajo\Resource\Adapter\NamespaceHandler::exists
      * @covers  Molajo\Resource\Adapter\NamespaceHandler::get
@@ -364,12 +364,12 @@ class FileHandlerMapTest extends \PHPUnit_Framework_TestCase
     {
         $this->setAdapter();
 
-        $path = __DIR__ . '/Source/B/Banana.php';
+        $path = __DIR__ . '/Source/';
 
         $content = file_get_contents($path);
-        $options = array('return_contents' => 1);
+        $options = array('return_file_list' => 1);
 
-        $this->assertEquals($content, $this->proxy_instance->get('file:\\\molajo\\b\\banana', $options));
+//        $this->assertEquals($content, $this->proxy_instance->get('folder:\\\molajo\\b\\banana', $options));
 
         return $this;
     }

@@ -232,7 +232,7 @@ class ClassMapTest extends \PHPUnit_Framework_TestCase
         );
 
         $hold_implemented_by = array();
-        $results = array();
+        $results             = array();
         foreach ($this->map_instance->get('interfaces') as $interface) {
             $results[] = $interface->name;
             if ($interface->name === 'DogInterface') {

@@ -186,6 +186,7 @@ class NamespaceHandlerNoMapTest extends \PHPUnit_Framework_TestCase
 
         return $this;
     }
+
     /**
      * @covers  Molajo\Resource\Proxy::setNamespace
      * @covers  Molajo\Resource\Proxy::exists
