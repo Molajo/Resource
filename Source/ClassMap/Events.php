@@ -112,9 +112,6 @@ class Events extends Base
 
     protected function setEventsMethodReflection($concrete, $method)
     {
-        $class_instance = new \ReflectionClass($concrete->qns);
-        $abstract       = $class_instance->isAbstract();
-
         $reflectionMethod = new \ReflectionMethod(new $concrete->qns, $method);
         $results          = $reflectionMethod->getDeclaringClass();
 

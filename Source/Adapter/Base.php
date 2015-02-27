@@ -91,7 +91,9 @@ abstract class Base extends Cache
         $this->namespace_prefixes    = $namespace_prefixes;
         $this->valid_file_extensions = $valid_file_extensions;
 
-        $this->instantiateCache($cache_callbacks);
+        $cache = $this->instantiateCache($cache_callbacks);
+
+        parent::__construct($cache[0], $cache[1], $cache[2]);
     }
 
     /**
@@ -122,9 +124,7 @@ abstract class Base extends Cache
             $delete_cache_callback = null;
         }
 
-        parent::__construct($get_cache_callback, $set_cache_callback, $delete_cache_callback);
-
-        return $this;
+        return array($get_cache_callback, $set_cache_callback, $delete_cache_callback);
     }
 
     /**
