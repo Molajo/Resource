@@ -228,7 +228,7 @@ class FileHandlerMapTest extends \PHPUnit_Framework_TestCase
 
         $resource_map_instance->createMap();
 
-        return readJsonFile($resource_map_filename);;
+        return readJsonFile($resource_map_filename);
     }
 
     /**

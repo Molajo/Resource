@@ -36,6 +36,8 @@ class ClassLoader extends NamespaceHandler implements ResourceInterface
             && file_exists($located_path)
         ) {
             require_once $located_path;
+
+            return;
         }
 
         $this->testNotFoundException($options);
@@ -48,7 +50,7 @@ class ClassLoader extends NamespaceHandler implements ResourceInterface
      *
      * @param   array $options
      *
-     * @return  boolean
+     * @return  $this
      * @since   1.0.0
      */
     protected function testNotFoundException(array $options = array())
@@ -57,6 +59,6 @@ class ClassLoader extends NamespaceHandler implements ResourceInterface
             throw new RuntimeException('Resource Classloader could not locate: ' . $options['resource_namespace']);
         }
 
-        return false;
+        return $this;
     }
 }

@@ -8,9 +8,9 @@
  */
 namespace Molajo\Resource;
 
+use CommonApi\Resource\ClassLoaderInterface;
 use CommonApi\Resource\ResourceInterface;
-use CommonApi\Resource\SchemeInterface;
-use Molajo\Resource\Proxy\Scheme;
+use Molajo\Resource\Proxy\Scheme as ProxyScheme;
 
 /**
  * for get
@@ -41,7 +41,7 @@ use Molajo\Resource\Proxy\Scheme;
  * @license    http://www.opensource.org/licenses/mit-license.html MIT License
  * @since      1.0.0
  */
-class Proxy extends Scheme implements ResourceInterface
+class Proxy extends ProxyScheme implements ClassLoaderInterface, ResourceInterface
 {
     /**
      * Map a namespace prefix to a filesystem path
@@ -119,4 +119,46 @@ class Proxy extends Scheme implements ResourceInterface
 
         return $this->requested_adapter->getCollection($scheme, $options);
     }
+
+    /**
+     * Registers Class Autoloader
+     *
+     * @param   boolean $prepend
+     *
+     * @return  $this
+     * @since   1.0.0
+     */
+    public function register($prepend = true)
+    {
+        spl_autoload_register(array($this, 'getClass'), true, $prepend);
+
+        return $this;
+    }
+
+    /**
+     * Unregister Class Autoloader
+     *
+     * @return  $this
+     * @since   1.0.0
+     */
+    public function unregister()
+    {
+        spl_autoload_unregister(array($this, 'getClass'));
+
+        return $this;
+    }
+
+    /**
+     * Get Class
+     *
+     * @param   string $namespace
+     *
+     * @return  $this
+     * @since   1.0.0
+     */
+    public function getClass($namespace)
+    {
+        return $this->get('classloader://' . $namespace);
+    }
+
 }

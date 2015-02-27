@@ -1,6 +1,6 @@
 <?php
 /**
- *  Namespace Handler with Map Testing
+ *  Class Loader Testing
  *
  * @package    Molajo
  * @license    http://www.opensource.org/licenses/mit-license.html MIT License
@@ -8,19 +8,17 @@
  */
 namespace Molajo\Resource;
 
-use CommonApi\Resource\ResourceInterface;
-use Molajo\Resource\Adapter\NamespaceHandler;
 use Molajo\Resource\Proxy;
 
 /**
- *  Namespace Handler with Map Testing
+ *  Class Loader Testing
  *
  * @author     Amy Stephen
  * @license    http://www.opensource.org/licenses/mit-license.html MIT License
  * @copyright  2014-2015 Amy Stephen. All rights reserved.
  * @since      1.0.0
  */
-class NamespaceHandlerMapTest extends \PHPUnit_Framework_TestCase
+class ClassLoaderTest extends \PHPUnit_Framework_TestCase
 {
     /**
      * Proxy Instance
@@ -43,6 +41,9 @@ class NamespaceHandlerMapTest extends \PHPUnit_Framework_TestCase
      * @covers  Molajo\Resource\Proxy::exists
      * @covers  Molajo\Resource\Proxy::get
      * @covers  Molajo\Resource\Proxy::getCollection
+     * @covers  Molajo\Resource\Proxy::register
+     * @covers  Molajo\Resource\Proxy::unregister
+     * @covers  Molajo\Resource\Proxy::getClass
      * @covers  Molajo\Resource\Proxy\Scheme::__construct
      * @covers  Molajo\Resource\Proxy\Scheme::setScheme
      * @covers  Molajo\Resource\Proxy\Scheme::getScheme
@@ -51,6 +52,8 @@ class NamespaceHandlerMapTest extends \PHPUnit_Framework_TestCase
      * @covers  Molajo\Resource\Proxy\Scheme::locateScheme
      * @covers  Molajo\Resource\Proxy\Scheme::getUriScheme
      * @covers  Molajo\Resource\Proxy\Scheme::removeUriScheme
+     * @covers  Molajo\Resource\Adapter\ClassLoader::handlePath
+     * @covers  Molajo\Resource\Adapter\ClassLoader::testNotFoundException
      * @covers  Molajo\Resource\Adapter\NamespaceHandler::setNamespace
      * @covers  Molajo\Resource\Adapter\NamespaceHandler::exists
      * @covers  Molajo\Resource\Adapter\NamespaceHandler::get
@@ -102,6 +105,9 @@ class NamespaceHandlerMapTest extends \PHPUnit_Framework_TestCase
      * @covers  Molajo\Resource\Proxy::exists
      * @covers  Molajo\Resource\Proxy::get
      * @covers  Molajo\Resource\Proxy::getCollection
+     * @covers  Molajo\Resource\Proxy::register
+     * @covers  Molajo\Resource\Proxy::unregister
+     * @covers  Molajo\Resource\Proxy::getClass
      * @covers  Molajo\Resource\Proxy\Scheme::__construct
      * @covers  Molajo\Resource\Proxy\Scheme::setScheme
      * @covers  Molajo\Resource\Proxy\Scheme::getScheme
@@ -110,6 +116,8 @@ class NamespaceHandlerMapTest extends \PHPUnit_Framework_TestCase
      * @covers  Molajo\Resource\Proxy\Scheme::locateScheme
      * @covers  Molajo\Resource\Proxy\Scheme::getUriScheme
      * @covers  Molajo\Resource\Proxy\Scheme::removeUriScheme
+     * @covers  Molajo\Resource\Adapter\ClassLoader::handlePath
+     * @covers  Molajo\Resource\Adapter\ClassLoader::testNotFoundException
      * @covers  Molajo\Resource\Adapter\NamespaceHandler::setNamespace
      * @covers  Molajo\Resource\Adapter\NamespaceHandler::exists
      * @covers  Molajo\Resource\Adapter\NamespaceHandler::get
@@ -149,7 +157,9 @@ class NamespaceHandlerMapTest extends \PHPUnit_Framework_TestCase
     {
         $resource_map = $this->createMap();
 
-        $this->adapter_instance = new Xyza(
+        $class = 'Molajo\\Resource\\Adapter\\ClassLoader';
+
+        $this->adapter_instance = new $class(
             __DIR__,
             $resource_map,
             array(),
@@ -157,7 +167,9 @@ class NamespaceHandlerMapTest extends \PHPUnit_Framework_TestCase
             array()
         );
 
-        $this->proxy_instance->setScheme('Xyza', $this->adapter_instance, array());
+        $this->proxy_instance->setScheme('ClassLoader', $this->adapter_instance, array());
+
+        $this->proxy_instance->register(true);
 
         return $this;
     }
@@ -167,6 +179,9 @@ class NamespaceHandlerMapTest extends \PHPUnit_Framework_TestCase
      * @covers  Molajo\Resource\Proxy::exists
      * @covers  Molajo\Resource\Proxy::get
      * @covers  Molajo\Resource\Proxy::getCollection
+     * @covers  Molajo\Resource\Proxy::register
+     * @covers  Molajo\Resource\Proxy::unregister
+     * @covers  Molajo\Resource\Proxy::getClass
      * @covers  Molajo\Resource\Proxy\Scheme::__construct
      * @covers  Molajo\Resource\Proxy\Scheme::setScheme
      * @covers  Molajo\Resource\Proxy\Scheme::getScheme
@@ -175,6 +190,8 @@ class NamespaceHandlerMapTest extends \PHPUnit_Framework_TestCase
      * @covers  Molajo\Resource\Proxy\Scheme::locateScheme
      * @covers  Molajo\Resource\Proxy\Scheme::getUriScheme
      * @covers  Molajo\Resource\Proxy\Scheme::removeUriScheme
+     * @covers  Molajo\Resource\Adapter\ClassLoader::handlePath
+     * @covers  Molajo\Resource\Adapter\ClassLoader::testNotFoundException
      * @covers  Molajo\Resource\Adapter\NamespaceHandler::setNamespace
      * @covers  Molajo\Resource\Adapter\NamespaceHandler::exists
      * @covers  Molajo\Resource\Adapter\NamespaceHandler::get
@@ -210,57 +227,6 @@ class NamespaceHandlerMapTest extends \PHPUnit_Framework_TestCase
      * @return  $this
      * @since   1.0.0
      */
-    public function setAdapterValidExtensions()
-    {
-        $resource_map = $this->createMap();
-
-        $this->adapter_instance = new Xyza(
-            __DIR__,
-            $resource_map,
-            array(),
-            array('.php'),
-            array()
-        );
-
-        $this->proxy_instance->setScheme('Xyza', $this->adapter_instance, array());
-
-        return $this;
-    }
-
-    /**
-     * Setup
-     *
-     * @covers  Molajo\Resource\ResourceMap::setNamespace
-     * @covers  Molajo\Resource\ResourceMap::createMap
-     * @covers  Molajo\Resource\ResourceMap::saveOutput
-     * @covers  Molajo\Resource\ResourceMap::getResourceMap
-     * @covers  Molajo\Resource\ResourceMap\Prefixes::processNamespacePrefixes
-     * @covers  Molajo\Resource\ResourceMap\Prefixes::processNamespaceFolders
-     * @covers  Molajo\Resource\ResourceMap\Prefixes::processNamespaceFolder
-     * @covers  Molajo\Resource\ResourceMap\Prefixes::processFilePathObjects
-     * @covers  Molajo\Resource\ResourceMap\Prefixes::testFileForNamespaceRules
-     * @covers  Molajo\Resource\ResourceMap\Prefixes::setBase
-     * @covers  Molajo\Resource\ResourceMap\Prefixes::setFileInclusion
-     * @covers  Molajo\Resource\ResourceMap\Prefixes::testPHPClassExceptions
-     * @covers  Molajo\Resource\ResourceMap\Prefixes::testExcludeFolders
-     * @covers  Molajo\Resource\ResourceMap\Prefixes::setPath
-     * @covers  Molajo\Resource\ResourceMap\Prefixes::setQNS
-     * @covers  Molajo\Resource\ResourceMap\Prefixes::setNamespaceObject
-     * @covers  Molajo\Resource\ResourceMap\Prefixes::useFilesWithNamespace
-     * @covers  Molajo\Resource\ResourceMap\Prefixes::setClassfileArrayEntry
-     * @covers  Molajo\Resource\ResourceMap\Prefixes::mergeFQNSPaths
-     * @covers  Molajo\Resource\ResourceMap\Prefixes::mergeExistingFQNSPath
-     * @covers  Molajo\Resource\ResourceMap\Prefixes::setClassfileArrayEntry
-     * @covers  Molajo\Resource\ResourceMap\Folders::setMultipleNamespaceFolder
-     * @covers  Molajo\Resource\ResourceMap\Folders::appendNamespaceFolder
-     * @covers  Molajo\Resource\ResourceMap\Folders::prependNamespaceFolder
-     * @covers  Molajo\Resource\ResourceMap\Base::__construct
-     * @covers  Molajo\Resource\ResourceMap\Base::getReflectionObject
-     * @covers  Molajo\Resource\ResourceMap\Base::addSlash
-     *
-     * @return  $this
-     * @since   1.0.0
-     */
     protected function createMap()
     {
         $base_path             = __DIR__;
@@ -269,7 +235,7 @@ class NamespaceHandlerMapTest extends \PHPUnit_Framework_TestCase
         $classmap_filename     = __DIR__ . '/Source/Output/ClassMap.json';
         $resource_map_filename = __DIR__ . '/Source/Output/ResourceMap.json';
 
-        $class = 'Molajo\\Resource\\MockResourceMap';
+        $class = 'Molajo\\Resource\\ResourceMap';
 
         $resource_map_instance = new $class (
         // Input
@@ -295,6 +261,9 @@ class NamespaceHandlerMapTest extends \PHPUnit_Framework_TestCase
      * @covers  Molajo\Resource\Proxy::exists
      * @covers  Molajo\Resource\Proxy::get
      * @covers  Molajo\Resource\Proxy::getCollection
+     * @covers  Molajo\Resource\Proxy::register
+     * @covers  Molajo\Resource\Proxy::unregister
+     * @covers  Molajo\Resource\Proxy::getClass
      * @covers  Molajo\Resource\Proxy\Scheme::__construct
      * @covers  Molajo\Resource\Proxy\Scheme::setScheme
      * @covers  Molajo\Resource\Proxy\Scheme::getScheme
@@ -303,6 +272,8 @@ class NamespaceHandlerMapTest extends \PHPUnit_Framework_TestCase
      * @covers  Molajo\Resource\Proxy\Scheme::locateScheme
      * @covers  Molajo\Resource\Proxy\Scheme::getUriScheme
      * @covers  Molajo\Resource\Proxy\Scheme::removeUriScheme
+     * @covers  Molajo\Resource\Adapter\ClassLoader::handlePath
+     * @covers  Molajo\Resource\Adapter\ClassLoader::testNotFoundException
      * @covers  Molajo\Resource\Adapter\NamespaceHandler::setNamespace
      * @covers  Molajo\Resource\Adapter\NamespaceHandler::exists
      * @covers  Molajo\Resource\Adapter\NamespaceHandler::get
@@ -338,191 +309,16 @@ class NamespaceHandlerMapTest extends \PHPUnit_Framework_TestCase
      * @return  $this
      * @since   1.0.0
      */
-    public function testExistsMapNoValidExtensions()
+    public function testClassFound()
     {
         $this->setAdapter();
 
-        $this->assertEquals(true, $this->proxy_instance->exists('xyza:\\\molajo\\c\\customize.css'));
+        $class = 'Molajo\\Plugins\\BasePlugin';
+
+        $class_instance = new $class;
+
+        $this->assertTrue(is_object($class_instance));
 
         return $this;
-    }
-
-    /**
-     * @covers  Molajo\Resource\Proxy::setNamespace
-     * @covers  Molajo\Resource\Proxy::exists
-     * @covers  Molajo\Resource\Proxy::get
-     * @covers  Molajo\Resource\Proxy::getCollection
-     * @covers  Molajo\Resource\Proxy\Scheme::__construct
-     * @covers  Molajo\Resource\Proxy\Scheme::setScheme
-     * @covers  Molajo\Resource\Proxy\Scheme::getScheme
-     * @covers  Molajo\Resource\Proxy\Scheme::setAdapterNamespaces
-     * @covers  Molajo\Resource\Proxy\Scheme::saveNamespaceArray
-     * @covers  Molajo\Resource\Proxy\Scheme::locateScheme
-     * @covers  Molajo\Resource\Proxy\Scheme::getUriScheme
-     * @covers  Molajo\Resource\Proxy\Scheme::removeUriScheme
-     * @covers  Molajo\Resource\Adapter\NamespaceHandler::setNamespace
-     * @covers  Molajo\Resource\Adapter\NamespaceHandler::exists
-     * @covers  Molajo\Resource\Adapter\NamespaceHandler::get
-     * @covers  Molajo\Resource\Adapter\NamespaceHandler::getCollection
-     * @covers  Molajo\Resource\Adapter\NamespaceHandler::locateResourceNamespace
-     * @covers  Molajo\Resource\Adapter\SetNamespace::setNamespaceExists
-     * @covers  Molajo\Resource\Adapter\SetNamespace::appendNamespace
-     * @covers  Molajo\Resource\Adapter\SetNamespace::prependNamespace
-     * @covers  Molajo\Resource\Adapter\HandleNamespacePrefixes::searchNamespacePrefixes
-     * @covers  Molajo\Resource\Adapter\HandleNamespacePrefixes::searchNamespacePrefix
-     * @covers  Molajo\Resource\Adapter\HandleNamespacePrefixes::searchNamespacePrefixDirectory
-     * @covers  Molajo\Resource\Adapter\HandleNamespacePrefixes::searchNamespacePrepareNamespacePath
-     * @covers  Molajo\Resource\Adapter\HandleNamespacePrefixes::searchNamespaceFilename
-     * @covers  Molajo\Resource\Adapter\HandleNamespacePrefixes::searchNamespacePrefixFileExtensions
-     * @covers  Molajo\Resource\Adapter\HandleResourceMap::searchResourceMap
-     * @covers  Molajo\Resource\Adapter\HandleResourceMap::searchResourceMapInstance
-     * @covers  Molajo\Resource\Adapter\HandleResourceMap::setResourceMapPaths
-     * @covers  Molajo\Resource\Adapter\HandleResourceMap::searchResourceMapPaths
-     * @covers  Molajo\Resource\Adapter\HandleResourceMap::searchResourceMapFileExtensions
-     * @covers  Molajo\Resource\Adapter\Base::__construct
-     * @covers  Molajo\Resource\Adapter\Base::initialiseCacheVariables
-     * @covers  Molajo\Resource\Adapter\Base::setScheme
-     * @covers  Molajo\Resource\Adapter\Base::setResourceNamespace
-     * @covers  Molajo\Resource\Adapter\Cache::getConfigurationCache
-     * @covers  Molajo\Resource\Adapter\Cache::setConfigurationCache
-     * @covers  Molajo\Resource\Adapter\Cache::deleteConfigurationCache
-     * @covers  Molajo\Resource\Adapter\Cache::useConfigurationCache
-     * @covers  Molajo\Resource\Adapter\Cache::getCache
-     * @covers  Molajo\Resource\Adapter\Cache::setCache
-     * @covers  Molajo\Resource\Adapter\Cache::deleteCache
-     * @covers  Molajo\Resource\Adapter\Cache::clearCache
-     *
-     * @return  $this
-     * @since   1.0.0
-     */
-    public function testExistsMapValidExtensions()
-    {
-        $this->setAdapterValidExtensions();
-
-        $this->assertEquals(true, $this->proxy_instance->exists('xyza:\\\molajo\\b\\banana'));
-
-        return $this;
-    }
-
-    /**
-     * @covers  Molajo\Resource\Proxy::setNamespace
-     * @covers  Molajo\Resource\Proxy::exists
-     * @covers  Molajo\Resource\Proxy::get
-     * @covers  Molajo\Resource\Proxy::getCollection
-     * @covers  Molajo\Resource\Proxy\Scheme::__construct
-     * @covers  Molajo\Resource\Proxy\Scheme::setScheme
-     * @covers  Molajo\Resource\Proxy\Scheme::getScheme
-     * @covers  Molajo\Resource\Proxy\Scheme::setAdapterNamespaces
-     * @covers  Molajo\Resource\Proxy\Scheme::saveNamespaceArray
-     * @covers  Molajo\Resource\Proxy\Scheme::locateScheme
-     * @covers  Molajo\Resource\Proxy\Scheme::getUriScheme
-     * @covers  Molajo\Resource\Proxy\Scheme::removeUriScheme
-     * @covers  Molajo\Resource\Adapter\NamespaceHandler::setNamespace
-     * @covers  Molajo\Resource\Adapter\NamespaceHandler::exists
-     * @covers  Molajo\Resource\Adapter\NamespaceHandler::get
-     * @covers  Molajo\Resource\Adapter\NamespaceHandler::getCollection
-     * @covers  Molajo\Resource\Adapter\NamespaceHandler::locateResourceNamespace
-     * @covers  Molajo\Resource\Adapter\SetNamespace::setNamespaceExists
-     * @covers  Molajo\Resource\Adapter\SetNamespace::appendNamespace
-     * @covers  Molajo\Resource\Adapter\SetNamespace::prependNamespace
-     * @covers  Molajo\Resource\Adapter\HandleNamespacePrefixes::searchNamespacePrefixes
-     * @covers  Molajo\Resource\Adapter\HandleNamespacePrefixes::searchNamespacePrefix
-     * @covers  Molajo\Resource\Adapter\HandleNamespacePrefixes::searchNamespacePrefixDirectory
-     * @covers  Molajo\Resource\Adapter\HandleNamespacePrefixes::searchNamespacePrepareNamespacePath
-     * @covers  Molajo\Resource\Adapter\HandleNamespacePrefixes::searchNamespaceFilename
-     * @covers  Molajo\Resource\Adapter\HandleNamespacePrefixes::searchNamespacePrefixFileExtensions
-     * @covers  Molajo\Resource\Adapter\HandleResourceMap::searchResourceMap
-     * @covers  Molajo\Resource\Adapter\HandleResourceMap::searchResourceMapInstance
-     * @covers  Molajo\Resource\Adapter\HandleResourceMap::setResourceMapPaths
-     * @covers  Molajo\Resource\Adapter\HandleResourceMap::searchResourceMapPaths
-     * @covers  Molajo\Resource\Adapter\HandleResourceMap::searchResourceMapFileExtensions
-     * @covers  Molajo\Resource\Adapter\Base::__construct
-     * @covers  Molajo\Resource\Adapter\Base::initialiseCacheVariables
-     * @covers  Molajo\Resource\Adapter\Base::setScheme
-     * @covers  Molajo\Resource\Adapter\Base::setResourceNamespace
-     * @covers  Molajo\Resource\Adapter\Cache::getConfigurationCache
-     * @covers  Molajo\Resource\Adapter\Cache::setConfigurationCache
-     * @covers  Molajo\Resource\Adapter\Cache::deleteConfigurationCache
-     * @covers  Molajo\Resource\Adapter\Cache::useConfigurationCache
-     * @covers  Molajo\Resource\Adapter\Cache::getCache
-     * @covers  Molajo\Resource\Adapter\Cache::setCache
-     * @covers  Molajo\Resource\Adapter\Cache::deleteCache
-     * @covers  Molajo\Resource\Adapter\Cache::clearCache
-     *
-     * @return  $this
-     * @since   1.0.0
-     */
-    public function testNotExistsMapNoValidExtensions()
-    {
-        $this->setAdapter();
-
-        $this->assertEquals(false, $this->proxy_instance->exists('xyza:\\\molajo\\c\\ccccccustomize.css'));
-
-        return $this;
-    }
-
-    /**
-     * @covers  Molajo\Resource\Proxy::setNamespace
-     * @covers  Molajo\Resource\Proxy::exists
-     * @covers  Molajo\Resource\Proxy::get
-     * @covers  Molajo\Resource\Proxy::getCollection
-     * @covers  Molajo\Resource\Proxy\Scheme::__construct
-     * @covers  Molajo\Resource\Proxy\Scheme::setScheme
-     * @covers  Molajo\Resource\Proxy\Scheme::getScheme
-     * @covers  Molajo\Resource\Proxy\Scheme::setAdapterNamespaces
-     * @covers  Molajo\Resource\Proxy\Scheme::saveNamespaceArray
-     * @covers  Molajo\Resource\Proxy\Scheme::locateScheme
-     * @covers  Molajo\Resource\Proxy\Scheme::getUriScheme
-     * @covers  Molajo\Resource\Proxy\Scheme::removeUriScheme
-     * @covers  Molajo\Resource\Adapter\NamespaceHandler::setNamespace
-     * @covers  Molajo\Resource\Adapter\NamespaceHandler::exists
-     * @covers  Molajo\Resource\Adapter\NamespaceHandler::get
-     * @covers  Molajo\Resource\Adapter\NamespaceHandler::getCollection
-     * @covers  Molajo\Resource\Adapter\NamespaceHandler::locateResourceNamespace
-     * @covers  Molajo\Resource\Adapter\SetNamespace::setNamespaceExists
-     * @covers  Molajo\Resource\Adapter\SetNamespace::appendNamespace
-     * @covers  Molajo\Resource\Adapter\SetNamespace::prependNamespace
-     * @covers  Molajo\Resource\Adapter\HandleNamespacePrefixes::searchNamespacePrefixes
-     * @covers  Molajo\Resource\Adapter\HandleNamespacePrefixes::searchNamespacePrefix
-     * @covers  Molajo\Resource\Adapter\HandleNamespacePrefixes::searchNamespacePrefixDirectory
-     * @covers  Molajo\Resource\Adapter\HandleNamespacePrefixes::searchNamespacePrepareNamespacePath
-     * @covers  Molajo\Resource\Adapter\HandleNamespacePrefixes::searchNamespaceFilename
-     * @covers  Molajo\Resource\Adapter\HandleNamespacePrefixes::searchNamespacePrefixFileExtensions
-     * @covers  Molajo\Resource\Adapter\HandleResourceMap::searchResourceMap
-     * @covers  Molajo\Resource\Adapter\HandleResourceMap::searchResourceMapInstance
-     * @covers  Molajo\Resource\Adapter\HandleResourceMap::setResourceMapPaths
-     * @covers  Molajo\Resource\Adapter\HandleResourceMap::searchResourceMapPaths
-     * @covers  Molajo\Resource\Adapter\HandleResourceMap::searchResourceMapFileExtensions
-     * @covers  Molajo\Resource\Adapter\Base::__construct
-     * @covers  Molajo\Resource\Adapter\Base::initialiseCacheVariables
-     * @covers  Molajo\Resource\Adapter\Base::setScheme
-     * @covers  Molajo\Resource\Adapter\Base::setResourceNamespace
-     * @covers  Molajo\Resource\Adapter\Cache::getConfigurationCache
-     * @covers  Molajo\Resource\Adapter\Cache::setConfigurationCache
-     * @covers  Molajo\Resource\Adapter\Cache::deleteConfigurationCache
-     * @covers  Molajo\Resource\Adapter\Cache::useConfigurationCache
-     * @covers  Molajo\Resource\Adapter\Cache::getCache
-     * @covers  Molajo\Resource\Adapter\Cache::setCache
-     * @covers  Molajo\Resource\Adapter\Cache::deleteCache
-     * @covers  Molajo\Resource\Adapter\Cache::clearCache
-     *
-     * @return  $this
-     * @since   1.0.0
-     */
-    public function testNotExistsMapValidExtensions()
-    {
-        $this->setAdapterValidExtensions();
-
-        $this->assertEquals(false, $this->proxy_instance->exists('xyza:\\\molajo\\b\\bananarana'));
-
-        return $this;
-    }
-}
-
-class Xyza extends NamespaceHandler implements ResourceInterface
-{
-    public function getData($key)
-    {
-        return $this->$key;
     }
 }
