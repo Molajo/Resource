@@ -39,7 +39,7 @@ class Scheme implements SchemeInterface
      *
      * @param   string $scheme_name
      *
-     * @return  object
+     * @return  null|object
      * @since   1.0.0
      */
     public function getScheme($scheme_name)

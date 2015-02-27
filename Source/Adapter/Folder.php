@@ -30,7 +30,7 @@ class Folder extends NamespaceHandler implements ResourceInterface
      * @param   string|array $located_path
      * @param   array        $options
      *
-     * @return  string|array
+     * @return  string
      * @since   1.0.0
      */
     public function handlePath($located_path, array $options = array())
@@ -39,7 +39,11 @@ class Folder extends NamespaceHandler implements ResourceInterface
             return $this->returnFileList($located_path);
         }
 
-        return $located_path;
+        if (is_dir($located_path)) {
+            return $located_path;
+        }
+
+        return '';
     }
 
     /**

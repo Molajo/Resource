@@ -94,9 +94,8 @@ abstract class Scheme implements SchemeInterface
      *
      * @param   string $scheme_name
      *
-     * @return  object
+     * @return  null|object
      * @since   1.0.0
-     * @throws  \CommonApi\Exception\RuntimeException
      */
     public function getScheme($scheme_name)
     {
