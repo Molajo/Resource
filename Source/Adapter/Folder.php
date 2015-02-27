@@ -9,6 +9,10 @@
 namespace Molajo\Resource\Adapter;
 
 use CommonApi\Resource\ResourceInterface;
+use RecursiveDirectoryIterator;
+use RecursiveIteratorIterator;
+
+//todo: modify namespace return path to be an array so that multiple folders can be processed
 
 /**
  * Folder Resource Adapter
@@ -104,18 +108,11 @@ class Folder extends NamespaceHandler implements ResourceInterface
      */
     protected function processFolderFileObject($file_object, $file_path, $list)
     {
-        $file_name = $file_object->getFileName();
-
-        if ($file_object->isDir() === true) {
-            $list[] = $file_path;
+        if ($file_object->getBaseName() === '.' || $file_object->getBaseName() === '..') {
             return $list;
         }
 
-        if ($file_name === '.' || $file_name === '..') {
-            return $list;
-        }
-
-        $list[] = $file_path . '/' . $file_name . '.' . $file_object->getExtension();
+        $list[] = $file_path;
 
         return $list;
     }

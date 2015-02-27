@@ -54,6 +54,8 @@ class FolderHandlerMapTest extends \PHPUnit_Framework_TestCase
      * @covers  Molajo\Resource\Adapter\Folder::handlePath
      * @covers  Molajo\Resource\Adapter\Folder::testReturnFileList
      * @covers  Molajo\Resource\Adapter\Folder::returnFileList
+     * @covers  Molajo\Resource\Adapter\Folder::getFolderObject
+     * @covers  Molajo\Resource\Adapter\Folder::processFolderFileObject
      * @covers  Molajo\Resource\Adapter\NamespaceHandler::setNamespace
      * @covers  Molajo\Resource\Adapter\NamespaceHandler::exists
      * @covers  Molajo\Resource\Adapter\NamespaceHandler::get
@@ -118,6 +120,8 @@ class FolderHandlerMapTest extends \PHPUnit_Framework_TestCase
      * @covers  Molajo\Resource\Adapter\Folder::handlePath
      * @covers  Molajo\Resource\Adapter\Folder::testReturnFileList
      * @covers  Molajo\Resource\Adapter\Folder::returnFileList
+     * @covers  Molajo\Resource\Adapter\Folder::getFolderObject
+     * @covers  Molajo\Resource\Adapter\Folder::processFolderFileObject
      * @covers  Molajo\Resource\Adapter\NamespaceHandler::setNamespace
      * @covers  Molajo\Resource\Adapter\NamespaceHandler::exists
      * @covers  Molajo\Resource\Adapter\NamespaceHandler::get
@@ -173,8 +177,6 @@ class FolderHandlerMapTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Setup
-     *
      * @covers  Molajo\Resource\ResourceMap::setNamespace
      * @covers  Molajo\Resource\ResourceMap::createMap
      * @covers  Molajo\Resource\ResourceMap::saveOutput
@@ -232,7 +234,7 @@ class FolderHandlerMapTest extends \PHPUnit_Framework_TestCase
 
         $resource_map_instance->createMap();
 
-        return readJsonFile($resource_map_filename);;
+        return readJsonFile($resource_map_filename);
     }
 
     /**
@@ -253,6 +255,8 @@ class FolderHandlerMapTest extends \PHPUnit_Framework_TestCase
      * @covers  Molajo\Resource\Adapter\Folder::handlePath
      * @covers  Molajo\Resource\Adapter\Folder::testReturnFileList
      * @covers  Molajo\Resource\Adapter\Folder::returnFileList
+     * @covers  Molajo\Resource\Adapter\Folder::getFolderObject
+     * @covers  Molajo\Resource\Adapter\Folder::processFolderFileObject
      * @covers  Molajo\Resource\Adapter\NamespaceHandler::setNamespace
      * @covers  Molajo\Resource\Adapter\NamespaceHandler::exists
      * @covers  Molajo\Resource\Adapter\NamespaceHandler::get
@@ -292,9 +296,9 @@ class FolderHandlerMapTest extends \PHPUnit_Framework_TestCase
     {
         $this->setAdapter();
 
-        $path = __DIR__ . '/Source/C';
+        $path = __DIR__ . '/Source/C/';
 
-//        $this->assertEquals($path, $this->proxy_instance->get('folder:\\\molajo\\c\\customize.css'));
+        $this->assertEquals($path, $this->proxy_instance->get('folder:\\\molajo\\c\\'));
 
         return $this;
     }
@@ -317,6 +321,8 @@ class FolderHandlerMapTest extends \PHPUnit_Framework_TestCase
      * @covers  Molajo\Resource\Adapter\Folder::handlePath
      * @covers  Molajo\Resource\Adapter\Folder::testReturnFileList
      * @covers  Molajo\Resource\Adapter\Folder::returnFileList
+     * @covers  Molajo\Resource\Adapter\Folder::getFolderObject
+     * @covers  Molajo\Resource\Adapter\Folder::processFolderFileObject
      * @covers  Molajo\Resource\Adapter\NamespaceHandler::setNamespace
      * @covers  Molajo\Resource\Adapter\NamespaceHandler::exists
      * @covers  Molajo\Resource\Adapter\NamespaceHandler::get
@@ -356,12 +362,80 @@ class FolderHandlerMapTest extends \PHPUnit_Framework_TestCase
     {
         $this->setAdapter();
 
-        $path = __DIR__ . '/Source/';
+        $path       = __DIR__;
+        $options    = array('return_file_list' => 1);
+        $expected   = array();
+        $expected[] = $path . '/Source/B/' . '100x100.gif';
+        $expected[] = $path . '/Source/B/' . '150x150.gif';
+        $expected[] = $path . '/Source/B/' . '50x50.gif';
+        $expected[] = $path . '/Source/B/' . 'Banana.php';
+        $expected[] = $path . '/Source/B/' . 'Bat.php';
 
-        $content = file_get_contents($path);
-        $options = array('return_file_list' => 1);
+        $this->assertEquals($expected, $this->proxy_instance->get('folder:\\\molajo\\b\\', $options));
 
-//        $this->assertEquals($content, $this->proxy_instance->get('folder:\\\molajo\\b\\banana', $options));
+        return $this;
+    }
+
+    /**
+     * @covers  Molajo\Resource\Proxy::setNamespace
+     * @covers  Molajo\Resource\Proxy::exists
+     * @covers  Molajo\Resource\Proxy::get
+     * @covers  Molajo\Resource\Proxy::getCollection
+     * @covers  Molajo\Resource\Proxy\ClassLoader::register
+     * @covers  Molajo\Resource\Proxy\ClassLoader::unregister
+     * @covers  Molajo\Resource\Proxy\Scheme::__construct
+     * @covers  Molajo\Resource\Proxy\Scheme::setScheme
+     * @covers  Molajo\Resource\Proxy\Scheme::getScheme
+     * @covers  Molajo\Resource\Proxy\Scheme::setAdapterNamespaces
+     * @covers  Molajo\Resource\Proxy\Scheme::saveNamespaceArray
+     * @covers  Molajo\Resource\Proxy\Scheme::locateScheme
+     * @covers  Molajo\Resource\Proxy\Scheme::getUriScheme
+     * @covers  Molajo\Resource\Proxy\Scheme::removeUriScheme
+     * @covers  Molajo\Resource\Adapter\Folder::handlePath
+     * @covers  Molajo\Resource\Adapter\Folder::testReturnFileList
+     * @covers  Molajo\Resource\Adapter\Folder::returnFileList
+     * @covers  Molajo\Resource\Adapter\Folder::getFolderObject
+     * @covers  Molajo\Resource\Adapter\Folder::processFolderFileObject
+     * @covers  Molajo\Resource\Adapter\NamespaceHandler::setNamespace
+     * @covers  Molajo\Resource\Adapter\NamespaceHandler::exists
+     * @covers  Molajo\Resource\Adapter\NamespaceHandler::get
+     * @covers  Molajo\Resource\Adapter\NamespaceHandler::getCollection
+     * @covers  Molajo\Resource\Adapter\NamespaceHandler::locateResourceNamespace
+     * @covers  Molajo\Resource\Adapter\SetNamespace::setNamespaceExists
+     * @covers  Molajo\Resource\Adapter\SetNamespace::appendNamespace
+     * @covers  Molajo\Resource\Adapter\SetNamespace::prependNamespace
+     * @covers  Molajo\Resource\Adapter\HandleNamespacePrefixes::searchNamespacePrefixes
+     * @covers  Molajo\Resource\Adapter\HandleNamespacePrefixes::searchNamespacePrefix
+     * @covers  Molajo\Resource\Adapter\HandleNamespacePrefixes::searchNamespacePrefixDirectory
+     * @covers  Molajo\Resource\Adapter\HandleNamespacePrefixes::searchNamespacePrepareNamespacePath
+     * @covers  Molajo\Resource\Adapter\HandleNamespacePrefixes::searchNamespaceFilename
+     * @covers  Molajo\Resource\Adapter\HandleNamespacePrefixes::searchNamespacePrefixFileExtensions
+     * @covers  Molajo\Resource\Adapter\HandleResourceMap::searchResourceMap
+     * @covers  Molajo\Resource\Adapter\HandleResourceMap::searchResourceMapInstance
+     * @covers  Molajo\Resource\Adapter\HandleResourceMap::setResourceMapPaths
+     * @covers  Molajo\Resource\Adapter\HandleResourceMap::searchResourceMapPaths
+     * @covers  Molajo\Resource\Adapter\HandleResourceMap::searchResourceMapFileExtensions
+     * @covers  Molajo\Resource\Adapter\Base::__construct
+     * @covers  Molajo\Resource\Adapter\Base::initialiseCacheVariables
+     * @covers  Molajo\Resource\Adapter\Base::setScheme
+     * @covers  Molajo\Resource\Adapter\Base::setResourceNamespace
+     * @covers  Molajo\Resource\Adapter\Cache::getConfigurationCache
+     * @covers  Molajo\Resource\Adapter\Cache::setConfigurationCache
+     * @covers  Molajo\Resource\Adapter\Cache::deleteConfigurationCache
+     * @covers  Molajo\Resource\Adapter\Cache::useConfigurationCache
+     * @covers  Molajo\Resource\Adapter\Cache::getCache
+     * @covers  Molajo\Resource\Adapter\Cache::setCache
+     * @covers  Molajo\Resource\Adapter\Cache::deleteCache
+     * @covers  Molajo\Resource\Adapter\Cache::clearCache
+     *
+     * @return  $this
+     * @since   1.0.0
+     */
+    public function testGetNotFound()
+    {
+        $this->setAdapter();
+
+        $this->assertEquals('', $this->proxy_instance->get('folder:\\\molajo\\m\\'));
 
         return $this;
     }

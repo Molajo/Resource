@@ -365,4 +365,66 @@ class FileHandlerMapTest extends \PHPUnit_Framework_TestCase
 
         return $this;
     }
+
+    /**
+     * @covers  Molajo\Resource\Proxy::setNamespace
+     * @covers  Molajo\Resource\Proxy::exists
+     * @covers  Molajo\Resource\Proxy::get
+     * @covers  Molajo\Resource\Proxy::getCollection
+     * @covers  Molajo\Resource\Proxy\ClassLoader::register
+     * @covers  Molajo\Resource\Proxy\ClassLoader::unregister
+     * @covers  Molajo\Resource\Proxy\Scheme::__construct
+     * @covers  Molajo\Resource\Proxy\Scheme::setScheme
+     * @covers  Molajo\Resource\Proxy\Scheme::getScheme
+     * @covers  Molajo\Resource\Proxy\Scheme::setAdapterNamespaces
+     * @covers  Molajo\Resource\Proxy\Scheme::saveNamespaceArray
+     * @covers  Molajo\Resource\Proxy\Scheme::locateScheme
+     * @covers  Molajo\Resource\Proxy\Scheme::getUriScheme
+     * @covers  Molajo\Resource\Proxy\Scheme::removeUriScheme
+     * @covers  Molajo\Resource\Adapter\File::handlePath
+     * @covers  Molajo\Resource\Adapter\File::testReturnFileContents
+     * @covers  Molajo\Resource\Adapter\File::returnFileContents
+     * @covers  Molajo\Resource\Adapter\NamespaceHandler::setNamespace
+     * @covers  Molajo\Resource\Adapter\NamespaceHandler::exists
+     * @covers  Molajo\Resource\Adapter\NamespaceHandler::get
+     * @covers  Molajo\Resource\Adapter\NamespaceHandler::getCollection
+     * @covers  Molajo\Resource\Adapter\NamespaceHandler::locateResourceNamespace
+     * @covers  Molajo\Resource\Adapter\SetNamespace::setNamespaceExists
+     * @covers  Molajo\Resource\Adapter\SetNamespace::appendNamespace
+     * @covers  Molajo\Resource\Adapter\SetNamespace::prependNamespace
+     * @covers  Molajo\Resource\Adapter\HandleNamespacePrefixes::searchNamespacePrefixes
+     * @covers  Molajo\Resource\Adapter\HandleNamespacePrefixes::searchNamespacePrefix
+     * @covers  Molajo\Resource\Adapter\HandleNamespacePrefixes::searchNamespacePrefixDirectory
+     * @covers  Molajo\Resource\Adapter\HandleNamespacePrefixes::searchNamespacePrepareNamespacePath
+     * @covers  Molajo\Resource\Adapter\HandleNamespacePrefixes::searchNamespaceFilename
+     * @covers  Molajo\Resource\Adapter\HandleNamespacePrefixes::searchNamespacePrefixFileExtensions
+     * @covers  Molajo\Resource\Adapter\HandleResourceMap::searchResourceMap
+     * @covers  Molajo\Resource\Adapter\HandleResourceMap::searchResourceMapInstance
+     * @covers  Molajo\Resource\Adapter\HandleResourceMap::setResourceMapPaths
+     * @covers  Molajo\Resource\Adapter\HandleResourceMap::searchResourceMapPaths
+     * @covers  Molajo\Resource\Adapter\HandleResourceMap::searchResourceMapFileExtensions
+     * @covers  Molajo\Resource\Adapter\Base::__construct
+     * @covers  Molajo\Resource\Adapter\Base::initialiseCacheVariables
+     * @covers  Molajo\Resource\Adapter\Base::setScheme
+     * @covers  Molajo\Resource\Adapter\Base::setResourceNamespace
+     * @covers  Molajo\Resource\Adapter\Cache::getConfigurationCache
+     * @covers  Molajo\Resource\Adapter\Cache::setConfigurationCache
+     * @covers  Molajo\Resource\Adapter\Cache::deleteConfigurationCache
+     * @covers  Molajo\Resource\Adapter\Cache::useConfigurationCache
+     * @covers  Molajo\Resource\Adapter\Cache::getCache
+     * @covers  Molajo\Resource\Adapter\Cache::setCache
+     * @covers  Molajo\Resource\Adapter\Cache::deleteCache
+     * @covers  Molajo\Resource\Adapter\Cache::clearCache
+     *
+     * @return  $this
+     * @since   1.0.0
+     */
+    public function testNotFound()
+    {
+        $this->setAdapter();
+
+        $this->assertEquals('', $this->proxy_instance->get('file:\\\molajo\\c\\filedoesnotexist.css'));
+
+        return $this;
+    }
 }
