@@ -30,7 +30,7 @@ class Folder extends NamespaceHandler implements ResourceInterface
      * @param   string|array $located_path
      * @param   array        $options
      *
-     * @return  void|mixed
+     * @return  string|array
      * @since   1.0.0
      */
     public function handlePath($located_path, array $options = array())

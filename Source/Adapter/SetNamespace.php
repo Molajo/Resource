@@ -30,6 +30,11 @@ abstract class SetNamespace extends HandleNamespacePrefixes
      */
     protected function setNamespaceExists($namespace_prefix, $namespace_base_directory, $prepend)
     {
+        if (isset($this->namespace_prefixes[$namespace_prefix])) {
+        } else {
+            return false;
+        }
+
         if ($prepend === false) {
             return $this->appendNamespace($namespace_prefix, $namespace_base_directory);
         }
@@ -43,7 +48,7 @@ abstract class SetNamespace extends HandleNamespacePrefixes
      * @param   string $namespace_prefix
      * @param   string $namespace_base_directory
      *
-     * @return  $this
+     * @return  boolean
      * @since   1.0.0
      */
     protected function appendNamespace($namespace_prefix, $namespace_base_directory)
@@ -53,7 +58,7 @@ abstract class SetNamespace extends HandleNamespacePrefixes
         $hold[]                                      = $namespace_base_directory;
         $this->namespace_prefixes[$namespace_prefix] = $hold;
 
-        return $this;
+        return true;
     }
 
     /**
@@ -62,7 +67,7 @@ abstract class SetNamespace extends HandleNamespacePrefixes
      * @param   string $namespace_prefix
      * @param   string $namespace_base_directory
      *
-     * @return  $this
+     * @return  boolean
      * @since   1.0.0
      */
     protected function prependNamespace($namespace_prefix, $namespace_base_directory)
@@ -77,6 +82,6 @@ abstract class SetNamespace extends HandleNamespacePrefixes
 
         $this->namespace_prefixes[$namespace_prefix] = $new;
 
-        return $this;
+        return true;
     }
 }

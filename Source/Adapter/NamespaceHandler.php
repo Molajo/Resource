@@ -32,8 +32,8 @@ class NamespaceHandler extends SetNamespace implements ResourceInterface
      */
     public function setNamespace($namespace_prefix, $namespace_base_directory, $prepend = false)
     {
-        if (isset($this->namespace_prefixes[$namespace_prefix])) {
-            return $this->setNamespaceExists($namespace_prefix, $namespace_base_directory, $prepend);
+        if ($this->setNamespaceExists($namespace_prefix, $namespace_base_directory, $prepend) === true) {
+            return $this;
         }
 
         $this->namespace_prefixes[$namespace_prefix] = array($namespace_base_directory);

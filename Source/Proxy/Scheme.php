@@ -110,7 +110,7 @@ abstract class Scheme implements SchemeInterface
 
         $this->requested_adapter = $response->adapter;
 
-        return $this;
+        return $response;
     }
 
     /**
