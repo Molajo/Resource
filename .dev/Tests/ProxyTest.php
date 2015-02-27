@@ -10,6 +10,7 @@ namespace Molajo\Resource;
 
 use CommonApi\Resource\ResourceInterface;
 use Molajo\Resource\Proxy;
+use stdClass;
 
 /**
  * Scheme Test
@@ -30,27 +31,6 @@ class ProxyTest extends \PHPUnit_Framework_TestCase
     protected $proxy_instance;
 
     /**
-     * @covers  Molajo\Resource\Proxy::setNamespace
-     * @covers  Molajo\Resource\Proxy::exists
-     * @covers  Molajo\Resource\Proxy::get
-     * @covers  Molajo\Resource\Proxy::getCollection
-     * @covers  Molajo\Resource\Proxy\ClassLoader::register
-     * @covers  Molajo\Resource\Proxy\ClassLoader::unregister
-     * @covers  Molajo\Resource\Proxy\Uri::getUriResource
-     * @covers  Molajo\Resource\Proxy\Uri::getUriPath
-     * @covers  Molajo\Resource\Proxy\Uri::locateNamespace
-     * @covers  Molajo\Resource\Proxy\Uri::handlePath
-     * @covers  Molajo\Resource\Proxy\Uri::parseUri
-     * @covers  Molajo\Resource\Proxy\Uri::setUriScheme
-     * @covers  Molajo\Resource\Proxy\Uri::setUriHost
-     * @covers  Molajo\Resource\Proxy\Uri::setUriUser
-     * @covers  Molajo\Resource\Proxy\Uri::setUriPassword
-     * @covers  Molajo\Resource\Proxy\Uri::setUriPath
-     * @covers  Molajo\Resource\Proxy\Uri::setUriQuery
-     * @covers  Molajo\Resource\Proxy\Uri::setUriFragment
-     * @covers  Molajo\Resource\Proxy\Scheme::__construct
-     * @covers  Molajo\Resource\Proxy\Scheme::setScheme
-     * @covers  Molajo\Resource\Proxy\Scheme::getScheme
      *
      * @return  $this
      * @since   1.0.0
@@ -67,37 +47,87 @@ class ProxyTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * @covers  Molajo\Resource\Proxy::setNamespace
-     * @covers  Molajo\Resource\Proxy::exists
-     * @covers  Molajo\Resource\Proxy::get
-     * @covers  Molajo\Resource\Proxy::getCollection
-     * @covers  Molajo\Resource\Proxy\ClassLoader::register
-     * @covers  Molajo\Resource\Proxy\ClassLoader::unregister
-     * @covers  Molajo\Resource\Proxy\Uri::getUriResource
-     * @covers  Molajo\Resource\Proxy\Uri::getUriPath
-     * @covers  Molajo\Resource\Proxy\Uri::locateNamespace
-     * @covers  Molajo\Resource\Proxy\Uri::handlePath
-     * @covers  Molajo\Resource\Proxy\Uri::parseUri
-     * @covers  Molajo\Resource\Proxy\Uri::setUriScheme
-     * @covers  Molajo\Resource\Proxy\Uri::setUriHost
-     * @covers  Molajo\Resource\Proxy\Uri::setUriUser
-     * @covers  Molajo\Resource\Proxy\Uri::setUriPassword
-     * @covers  Molajo\Resource\Proxy\Uri::setUriPath
-     * @covers  Molajo\Resource\Proxy\Uri::setUriQuery
-     * @covers  Molajo\Resource\Proxy\Uri::setUriFragment
-     * @covers  Molajo\Resource\Proxy\Scheme::__construct
-     * @covers  Molajo\Resource\Proxy\Scheme::setScheme
-     * @covers  Molajo\Resource\Proxy\Scheme::getScheme
+     * @return  $this
+     * @since   1.0.0
+     */
+    protected function setNs()
+    {
+        $this->proxy_instance->setNamespace('Molajo\\A\\', 'Source/A/');
+        $this->proxy_instance->setNamespace('Molajo\\B\\', 'Source/B/');
+        $this->proxy_instance->setNamespace('Molajo\\C\\', 'Source/C/');
+        $this->proxy_instance->setNamespace('Molajo\\Plugins\\', 'Source/Plugins/');
+
+        return $this;
+    }
+
+    /**
      *
      * @return  $this
      * @since   1.0.0
      */
     public function testSetSchemeAdapter()
     {
-        // $adapter = new MockResourceAdapter();
-        //$this->proxy_instance->setScheme('MockResourceAdapter', $adapter, array());
-       // $this->proxy_instance->getScheme('MockResourceAdapter');
-       // $this->assertTrue(is_object($this->proxy_instance->getData('requested_adapter')));
+        $adapter = new MockResourceAdapter();
+        $this->proxy_instance->setScheme('MockResourceAdapter', $adapter, array());
+        $this->proxy_instance->getScheme('MockResourceAdapter');
+        $this->assertTrue(is_object($this->proxy_instance->getData('requested_adapter')));
+
+        return $this;
+    }
+
+    /**
+     *
+     * @return  $this
+     * @since   1.0.0
+     */
+    public function testSetGetScheme()
+    {
+        $adapter = new MockResourceAdapter();
+        $this->proxy_instance->setScheme('MockResourceAdapter', $adapter, array());
+        $this->proxy_instance->getScheme('MockResourceAdapter');
+        $this->assertTrue(is_object($this->proxy_instance->getData('requested_adapter')));
+
+        return $this;
+    }
+
+    /**
+     * @return  $this
+     * @since   1.0.0
+     */
+    public function testSetNamespaces()
+    {
+        $this->setNs();
+
+        $expected_ns = array();
+
+        $row = new stdClass();
+        $row->namespace_prefix = 'Molajo\\A\\';
+        $row->base_directory = 'Source/A/';
+        $row->prepend = true;
+        $expected_ns[] = $row;
+
+        $row = new stdClass();
+        $row->namespace_prefix = 'Molajo\\B\\';
+        $row->base_directory = 'Source/B/';
+        $row->prepend = true;
+        $expected_ns[] = $row;
+
+        $row = new stdClass();
+        $row->namespace_prefix = 'Molajo\\C\\';
+        $row->base_directory = 'Source/C/';
+        $row->prepend = true;
+        $expected_ns[] = $row;
+
+
+        $row = new stdClass();
+        $row->namespace_prefix = 'Molajo\\Plugins\\';
+        $row->base_directory = 'Source/Plugins/';
+        $row->prepend = true;
+        $expected_ns[] = $row;
+
+        $actual_ns = $this->proxy_instance->getData('namespace_array');
+
+        $this->assertEquals($expected_ns, $actual_ns);
 
         return $this;
     }
@@ -129,14 +159,15 @@ class MockResourceAdapter implements ResourceInterface
     }
 
     /**
-     * Verify if the resource namespace has been defined or not
+     * Verify if resource namespace is defined
      *
      * @param   string $resource_namespace
+     * @param   array  $options
      *
      * @return  boolean
      * @since   1.0.0
      */
-    public function exists($resource_namespace)
+    public function exists($resource_namespace, array $options = array())
     {
 
     }

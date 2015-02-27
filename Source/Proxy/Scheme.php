@@ -11,6 +11,7 @@ namespace Molajo\Resource\Proxy;
 use CommonApi\Exception\RuntimeException;
 use CommonApi\Resource\SchemeInterface;
 use CommonApi\Resource\ResourceInterface;
+use stdClass;
 
 /**
  * Resource Scheme Class
@@ -22,6 +23,14 @@ use CommonApi\Resource\ResourceInterface;
  */
 abstract class Scheme implements SchemeInterface
 {
+    /**
+     * Saved Namespace Array for yet to be defined Resource Adapters
+     *
+     * @var    array
+     * @since  1.0.0
+     */
+    protected $namespace_array = array();
+
     /**
      * Requested Scheme
      *
@@ -50,7 +59,6 @@ abstract class Scheme implements SchemeInterface
      * Constructor
      *
      * @param  SchemeInterface $scheme
-     * @param  array           $adapter_instance_array
      *
      * @since  1.0.0
      */
@@ -63,9 +71,9 @@ abstract class Scheme implements SchemeInterface
     /**
      * Define scheme, allowable file extensions and adapter instance
      *
-     * @param   string             $scheme_name
-     * @param   ResourceInterface  $adapter
-     * @param   array              $extensions
+     * @param   string            $scheme_name
+     * @param   ResourceInterface $adapter
+     * @param   array             $extensions
      *
      * @return  $this
      * @since   1.0.0
@@ -73,6 +81,10 @@ abstract class Scheme implements SchemeInterface
     public function setScheme($scheme_name, ResourceInterface $adapter, array $extensions = array())
     {
         $this->scheme->setScheme($scheme_name, $adapter, $extensions);
+
+        $this->getScheme($scheme_name);
+
+        $this->setAdapterNamespaces();
 
         return $this;
     }
@@ -99,5 +111,95 @@ abstract class Scheme implements SchemeInterface
         $this->requested_adapter = $response->adapter;
 
         return $this;
+    }
+
+    /**
+     * Set namespace prefixes for Adapter
+     *
+     * @return  $this
+     * @since   1.0.0
+     */
+    public function setAdapterNamespaces()
+    {
+        if (count($this->namespace_array) === 0) {
+            return $this;
+        }
+
+        foreach ($this->namespace_array as $row) {
+            $this->requested_adapter->setNamespace($row->namespace_prefix, $row->base_directory, $row->prepend);
+        }
+
+        return $this;
+    }
+
+    /**
+     * Map a namespace prefix to a filesystem path
+     *
+     * @param   string  $namespace_prefix
+     * @param   string  $base_directory
+     * @param   boolean $prepend
+     *
+     * @return  $this
+     * @since   1.0.0
+     */
+    protected function saveNamespaceArray($namespace_prefix, $base_directory, $prepend = true)
+    {
+        $row                   = new stdClass();
+        $row->namespace_prefix = $namespace_prefix;
+        $row->base_directory   = $base_directory;
+        $row->prepend          = $prepend;
+
+        $this->namespace_array[] = $row;
+
+        return $this;
+    }
+
+    /**
+     * Verify if resource namespace is defined
+     *
+     * @param   string $resource_namespace
+     * @param   array  $options
+     *
+     * @return  array
+     * @since   1.0.0
+     */
+    protected function locateScheme($resource_namespace, array $options = array())
+    {
+        $scheme_name = $this->getUriScheme($resource_namespace);
+
+        $resource_namespace = $this->removeUriScheme($resource_namespace, $scheme_name);
+
+        $this->getScheme($scheme_name);
+
+        $options['scheme_name'] = $scheme_name;
+
+        return array('resource_namespace' => $resource_namespace, 'options' => $options);
+    }
+
+    /**
+     * Set Uri Scheme
+     *
+     * @param   string $uri
+     *
+     * @return  string
+     * @since   1.0.0
+     */
+    protected function getUriScheme($uri)
+    {
+        return parse_url($uri, PHP_URL_SCHEME);
+    }
+
+    /**
+     * Set Uri Scheme removeUriScheme
+     *
+     * @param   string $uri
+     * @param   string $scheme
+     *
+     * @return  string
+     * @since   1.0.0
+     */
+    protected function removeUriScheme($uri, $scheme)
+    {
+        return substr($uri, strpos($uri, $scheme) + strlen($scheme) + 3, 9999);
     }
 }

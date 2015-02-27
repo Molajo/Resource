@@ -18,7 +18,7 @@ use CommonApi\Resource\ResourceInterface;
  * @license    http://www.opensource.org/licenses/mit-license.html MIT License
  * @since      1.0.0
  */
-class ClassLoader extends AbstractAdapter implements ResourceInterface
+class ClassLoader extends NamespaceHandler implements ResourceInterface
 {
     /**
      * Handle requires located file

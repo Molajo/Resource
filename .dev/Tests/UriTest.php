@@ -1,6 +1,6 @@
 <?php
 /**
- *  Scheme
+ *  Uri
  *
  * @package    Molajo
  * @license    http://www.opensource.org/licenses/mit-license.html MIT License
@@ -9,6 +9,8 @@
 namespace Molajo\Resource;
 
 use CommonApi\Resource\ResourceInterface;
+use Molajo\Resource\Uri;
+use stdClass;
 
 /**
  * Scheme Test
@@ -18,7 +20,7 @@ use CommonApi\Resource\ResourceInterface;
  * @copyright  2014-2015 Amy Stephen. All rights reserved.
  * @since      1.0.0
  */
-class SchemeTest extends \PHPUnit_Framework_TestCase
+class UriTest extends \PHPUnit_Framework_TestCase
 {
     /**
      * Map Instance
@@ -26,70 +28,77 @@ class SchemeTest extends \PHPUnit_Framework_TestCase
      * @var    object
      * @since  1.0.0
      */
-    protected $scheme_instance;
+    protected $proxy_instance;
 
     /**
-     * @covers  Molajo\Resource\Scheme::getScheme
-     * @covers  Molajo\Resource\Scheme::setScheme
-     * @covers  Molajo\Resource\Scheme::setSchemeName
-     * @covers  Molajo\Resource\Scheme::setSchemeAdapter
-     * @covers  Molajo\Resource\Scheme::setFileExtensions
      *
      * @return  $this
      * @since   1.0.0
      */
     protected function setUp()
     {
-        $class                 = 'Molajo\\Resource\\Scheme';
-        $this->scheme_instance = new $class();
+        $class  = 'Molajo\\Resource\\Scheme';
+        $scheme = new $class();
+
+        $class  = 'Molajo\\Resource\\MockUri';
+        $this->proxy_instance = new $class($scheme);
+
+        $this->setAdapter();
+
+        $this->setNs();
 
         return $this;
     }
 
     /**
-     * @covers  Molajo\Resource\Scheme::getScheme
-     * @covers  Molajo\Resource\Scheme::setScheme
-     * @covers  Molajo\Resource\Scheme::setSchemeName
-     * @covers  Molajo\Resource\Scheme::setSchemeAdapter
-     * @covers  Molajo\Resource\Scheme::setFileExtensions
      *
      * @return  $this
      * @since   1.0.0
      */
-    public function testSetAdapter()
+    public function setAdapter()
     {
-        $adapter = new MockAdapter();
-        $this->scheme_instance->setScheme('MockAdapter', $adapter, array());
-        $actual_results = $this->scheme_instance->getScheme('all');
-        $this->assertEquals('mockadapter', $actual_results['mockadapter']->name);
-        $this->assertEquals(array(), $actual_results['mockadapter']->include_file_extensions);
+        $adapter = new MockResourceAdapter();
+        $this->proxy_instance->setScheme('MockResourceAdapter', $adapter, array());
 
         return $this;
     }
 
     /**
-     * @covers  Molajo\Resource\Scheme::getScheme
-     * @covers  Molajo\Resource\Scheme::setScheme
-     * @covers  Molajo\Resource\Scheme::setSchemeName
-     * @covers  Molajo\Resource\Scheme::setSchemeAdapter
-     * @covers  Molajo\Resource\Scheme::setFileExtensions
      *
      * @return  $this
      * @since   1.0.0
      */
-    public function testGetAdapter()
+    protected function setNs()
     {
-        $adapter = new MockAdapter();
-        $this->scheme_instance->setScheme('MockAdapter', $adapter, array());
-        $actual_results = $this->scheme_instance->getScheme('MockAdapter');
-        $this->assertEquals('mockadapter', $actual_results->name);
-        $this->assertEquals(array(), $actual_results->include_file_extensions);
+        $this->proxy_instance->setNamespace('Molajo\\A\\', 'Source/A/');
+        $this->proxy_instance->setNamespace('Molajo\\B\\', 'Source/B/');
+        $this->proxy_instance->setNamespace('Molajo\\C\\', 'Source/C/');
+        $this->proxy_instance->setNamespace('Molajo\\Plugins\\', 'Source/Plugins/');
 
+        return $this;
+    }
+
+    /**
+     *
+     * @return  $this
+     * @since   1.0.0
+     */
+    public function testSetGetScheme()
+    {
+        $this->assertEquals(1, 1);
         return $this;
     }
 }
 
-class MockAdapter implements ResourceInterface
+class MockUri extends Proxy
+{
+    public function getData($key)
+    {
+        return $this->$key;
+    }
+}
+
+class MockResourceUriAdapter implements ResourceInterface
 {
     /**
      * Set a namespace prefix by mapping to the filesystem path

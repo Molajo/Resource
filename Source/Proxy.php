@@ -35,59 +35,62 @@ class Proxy extends ClassLoader implements ResourceInterface
     {
         $adapters = $this->scheme->getScheme('all');
 
-        foreach ($adapters as $scheme_name => $scheme_object) {
-            $scheme_object->adapter->setNamespace($namespace_prefix, $base_directory, $prepend);
+        if (count($adapters) > 0) {
+            foreach ($adapters as $scheme_name => $scheme_object) {
+                $scheme_object->adapter->setNamespace($namespace_prefix, $base_directory, $prepend);
+            }
         }
+
+        $this->saveNamespaceArray($namespace_prefix, $base_directory, $prepend);
 
         return $this;
     }
 
     /**
-     * Verify if the resource namespace has been defined
+     * Verify if resource namespace is defined
      *
-     * @param   string $uri_namespace
+     * @param   string $resource_namespace
+     * @param   array  $options
      *
      * @return  boolean
      * @since   1.0.0
      */
-    public function exists($uri_namespace)
+    public function exists($resource_namespace, array $options = array())
     {
-        $located_path = $this->getUriPath($uri_namespace);
+        $results = $this->locateScheme($resource_namespace, $options);
 
-        if ($located_path === false) {
-            return false;
-        }
-
-        return true;
+        return $this->requested_adapter->exists($results['resource_namespace'], $results['options']);
     }
 
     /**
-     * Locates folder/file associated with URI Namespace for Resource
+     * Get resource associated with namespace
      *
-     * @param   string $uri_namespace
+     * @param   string $resource_namespace
      * @param   array  $options
      *
      * @return  void|mixed
      * @since   1.0.0
      */
-    public function get($uri_namespace, array $options = array())
+    public function get($resource_namespace, array $options = array())
     {
-        return $this->getUriResource($uri_namespace, $options);
+        $results = $this->locateScheme($resource_namespace, $options);
+
+        return $this->requested_adapter->get($results['resource_namespace'], $results['options']);
     }
 
     /**
-     * Retrieve a collection of a specific adapter
+     * Retrieve collection for scheme
      *
-     * @param   string $scheme_value
+     * @param   string $scheme
      * @param   array  $options
      *
      * @return  mixed
      * @since   1.0.0
      */
-    public function getCollection($scheme_value, array $options = array())
+    public function getCollection($scheme, array $options = array())
     {
-        $scheme = $this->getScheme($scheme_value);
+        $this->getScheme($scheme);
 
-        return $scheme->adapter->getCollection($scheme_value, $options);
+        return $this->requested_adapter->getCollection($scheme, $options);
     }
 }

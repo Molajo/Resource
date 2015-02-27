@@ -10,8 +10,6 @@ namespace Molajo\Resource\Adapter;
 
 use CommonApi\Resource\ResourceInterface;
 
-//todo: add scoping overrides, etc. and multiple folders returned when needed
-
 /**
  * Folder Resource Adapter
  *
@@ -20,21 +18,20 @@ use CommonApi\Resource\ResourceInterface;
  * @license    http://www.opensource.org/licenses/mit-license.html MIT License
  * @since      1.0.0
  */
-class Folder extends AbstractAdapter implements ResourceInterface
+class Folder extends NamespaceHandler implements ResourceInterface
 {
     /**
      * Locates folder/file associated with Namespace for Resource
      *
      * @param   string $resource_namespace
-     * @param   bool   $multiple
+     * @param   array  $options
      *
      * @return  void|mixed|string|array
      * @since   1.0.0
      */
-    public function get($resource_namespace, $multiple = false)
+    public function get($resource_namespace, array $options = array())
     {
-        $located_path           = false;
-        $this->located_multiple = array();
+        $located_path = false;
 
         $temp_resource            = ltrim($resource_namespace, '//');
         $temp_resource            = str_replace('//', '\\', $temp_resource);
@@ -59,29 +56,14 @@ class Folder extends AbstractAdapter implements ResourceInterface
 
                     if ($located_path === false) {
                     } else {
-                        if ($multiple === false) {
-                            break;
-                        } else {
-                            $this->located_multiple[] = $located_path;
-                        }
+                        break;
                     }
                 }
             }
         }
 
-        if ($located_path === false || $multiple === true) {
-            $located_path = $this->searchResourceMap($resource_namespace, $multiple);
-            if ($multiple === true) {
-                if (is_array($located_path) && count($located_path) > 0) {
-                    foreach ($located_path as $item) {
-                        $this->located_multiple[] = $item;
-                    }
-                }
-            }
-        }
-
-        if ($multiple === true) {
-            return $this->located_multiple;
+        if ($located_path === false) {
+            $located_path = $this->searchResourceMap($resource_namespace);
         }
 
         return $located_path;
@@ -129,12 +111,11 @@ class Folder extends AbstractAdapter implements ResourceInterface
      * Search compiled namespace map for resource namespace
      *
      * @param   string $resource_namespace
-     * @param   bool   $multiple
      *
      * @return  mixed|bool|string
      * @since   1.0.0
      */
-    protected function searchResourceMap($resource_namespace, $multiple = false)
+    protected function searchResourceMap($resource_namespace)
     {
         if (isset($this->resource_map[strtolower($resource_namespace)])) {
         } else {
@@ -151,11 +132,7 @@ class Folder extends AbstractAdapter implements ResourceInterface
         foreach ($paths as $path) {
 
             if (is_dir($path)) {
-                if ($multiple === false) {
-                    return $path;
-                } else {
-                    $this->located_multiple[] = $path;
-                }
+                return $path;
             }
         }
 
