@@ -104,9 +104,9 @@ class Folder extends NamespaceHandler implements ResourceInterface
      */
     protected function processFolderFileObject($file_object, $file_path, $list)
     {
-        list($file_name, $file_extension, $is_directory) = $this->returnFileObjectProperties($file_object);
+        $file_name = $file_object->getFileName();
 
-        if ($is_directory === true) {
+        if ($file_object->isDir() === true) {
             $list[] = $file_path;
             return $list;
         }
@@ -115,30 +115,8 @@ class Folder extends NamespaceHandler implements ResourceInterface
             return $list;
         }
 
-        if ($file_extension === '') {
-            $list[] = $file_path . '/' . $file_name;
-            return $list;
-        }
-
-        $list[] = $file_path . '/' . $file_name . '.' . $file_extension;
+        $list[] = $file_path . '/' . $file_name . '.' . $file_object->getExtension();
 
         return $list;
-    }
-
-    /**
-     * Return iterator object
-     *
-     * @param   object $file_object
-     *
-     * @return  array
-     * @since   1.0.0
-     */
-    protected function returnFileObjectProperties($file_object)
-    {
-        $file_name      = $file_object->getFileName();
-        $file_extension = $file_object->getExtension();
-        $is_directory   = $file_object->isDir();
-
-        return array($file_name, $file_extension, $is_directory);
     }
 }
