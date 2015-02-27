@@ -88,9 +88,7 @@ class NamespaceHandlerNoMapTest extends \PHPUnit_Framework_TestCase
      * @covers  Molajo\Resource\Adapter\HandleResourceMap::searchResourceMapPaths
      * @covers  Molajo\Resource\Adapter\HandleResourceMap::searchResourceMapFileExtensions
      * @covers  Molajo\Resource\Adapter\Base::__construct
-     * @covers  Molajo\Resource\Adapter\Base::instantiateCache
-     * @covers  Molajo\Resource\Adapter\Base::verifyNamespace
-     * @covers  Molajo\Resource\Adapter\Base::verifyFileExists
+     * @covers  Molajo\Resource\Adapter\Base::initialiseCacheVariables
      * @covers  Molajo\Resource\Adapter\Base::setScheme
      * @covers  Molajo\Resource\Adapter\Base::setResourceNamespace
      * @covers  Molajo\Resource\Adapter\Cache::getConfigurationCache
@@ -155,9 +153,7 @@ class NamespaceHandlerNoMapTest extends \PHPUnit_Framework_TestCase
      * @covers  Molajo\Resource\Adapter\HandleResourceMap::searchResourceMapPaths
      * @covers  Molajo\Resource\Adapter\HandleResourceMap::searchResourceMapFileExtensions
      * @covers  Molajo\Resource\Adapter\Base::__construct
-     * @covers  Molajo\Resource\Adapter\Base::instantiateCache
-     * @covers  Molajo\Resource\Adapter\Base::verifyNamespace
-     * @covers  Molajo\Resource\Adapter\Base::verifyFileExists
+     * @covers  Molajo\Resource\Adapter\Base::initialiseCacheVariables
      * @covers  Molajo\Resource\Adapter\Base::setScheme
      * @covers  Molajo\Resource\Adapter\Base::setResourceNamespace
      * @covers  Molajo\Resource\Adapter\Cache::getConfigurationCache
@@ -222,9 +218,7 @@ class NamespaceHandlerNoMapTest extends \PHPUnit_Framework_TestCase
      * @covers  Molajo\Resource\Adapter\HandleResourceMap::searchResourceMapPaths
      * @covers  Molajo\Resource\Adapter\HandleResourceMap::searchResourceMapFileExtensions
      * @covers  Molajo\Resource\Adapter\Base::__construct
-     * @covers  Molajo\Resource\Adapter\Base::instantiateCache
-     * @covers  Molajo\Resource\Adapter\Base::verifyNamespace
-     * @covers  Molajo\Resource\Adapter\Base::verifyFileExists
+     * @covers  Molajo\Resource\Adapter\Base::initialiseCacheVariables
      * @covers  Molajo\Resource\Adapter\Base::setScheme
      * @covers  Molajo\Resource\Adapter\Base::setResourceNamespace
      * @covers  Molajo\Resource\Adapter\Cache::getConfigurationCache
@@ -284,9 +278,7 @@ class NamespaceHandlerNoMapTest extends \PHPUnit_Framework_TestCase
      * @covers  Molajo\Resource\Adapter\HandleResourceMap::searchResourceMapPaths
      * @covers  Molajo\Resource\Adapter\HandleResourceMap::searchResourceMapFileExtensions
      * @covers  Molajo\Resource\Adapter\Base::__construct
-     * @covers  Molajo\Resource\Adapter\Base::instantiateCache
-     * @covers  Molajo\Resource\Adapter\Base::verifyNamespace
-     * @covers  Molajo\Resource\Adapter\Base::verifyFileExists
+     * @covers  Molajo\Resource\Adapter\Base::initialiseCacheVariables
      * @covers  Molajo\Resource\Adapter\Base::setScheme
      * @covers  Molajo\Resource\Adapter\Base::setResourceNamespace
      * @covers  Molajo\Resource\Adapter\Cache::getConfigurationCache
@@ -354,9 +346,7 @@ class NamespaceHandlerNoMapTest extends \PHPUnit_Framework_TestCase
      * @covers  Molajo\Resource\Adapter\HandleResourceMap::searchResourceMapPaths
      * @covers  Molajo\Resource\Adapter\HandleResourceMap::searchResourceMapFileExtensions
      * @covers  Molajo\Resource\Adapter\Base::__construct
-     * @covers  Molajo\Resource\Adapter\Base::instantiateCache
-     * @covers  Molajo\Resource\Adapter\Base::verifyNamespace
-     * @covers  Molajo\Resource\Adapter\Base::verifyFileExists
+     * @covers  Molajo\Resource\Adapter\Base::initialiseCacheVariables
      * @covers  Molajo\Resource\Adapter\Base::setScheme
      * @covers  Molajo\Resource\Adapter\Base::setResourceNamespace
      * @covers  Molajo\Resource\Adapter\Cache::getConfigurationCache
@@ -424,9 +414,7 @@ class NamespaceHandlerNoMapTest extends \PHPUnit_Framework_TestCase
      * @covers  Molajo\Resource\Adapter\HandleResourceMap::searchResourceMapPaths
      * @covers  Molajo\Resource\Adapter\HandleResourceMap::searchResourceMapFileExtensions
      * @covers  Molajo\Resource\Adapter\Base::__construct
-     * @covers  Molajo\Resource\Adapter\Base::instantiateCache
-     * @covers  Molajo\Resource\Adapter\Base::verifyNamespace
-     * @covers  Molajo\Resource\Adapter\Base::verifyFileExists
+     * @covers  Molajo\Resource\Adapter\Base::initialiseCacheVariables
      * @covers  Molajo\Resource\Adapter\Base::setScheme
      * @covers  Molajo\Resource\Adapter\Base::setResourceNamespace
      * @covers  Molajo\Resource\Adapter\Cache::getConfigurationCache
@@ -503,9 +491,7 @@ class NamespaceHandlerNoMapTest extends \PHPUnit_Framework_TestCase
      * @covers  Molajo\Resource\Adapter\HandleResourceMap::searchResourceMapPaths
      * @covers  Molajo\Resource\Adapter\HandleResourceMap::searchResourceMapFileExtensions
      * @covers  Molajo\Resource\Adapter\Base::__construct
-     * @covers  Molajo\Resource\Adapter\Base::instantiateCache
-     * @covers  Molajo\Resource\Adapter\Base::verifyNamespace
-     * @covers  Molajo\Resource\Adapter\Base::verifyFileExists
+     * @covers  Molajo\Resource\Adapter\Base::initialiseCacheVariables
      * @covers  Molajo\Resource\Adapter\Base::setScheme
      * @covers  Molajo\Resource\Adapter\Base::setResourceNamespace
      * @covers  Molajo\Resource\Adapter\Cache::getConfigurationCache
@@ -566,9 +552,7 @@ class NamespaceHandlerNoMapTest extends \PHPUnit_Framework_TestCase
      * @covers  Molajo\Resource\Adapter\HandleResourceMap::searchResourceMapPaths
      * @covers  Molajo\Resource\Adapter\HandleResourceMap::searchResourceMapFileExtensions
      * @covers  Molajo\Resource\Adapter\Base::__construct
-     * @covers  Molajo\Resource\Adapter\Base::instantiateCache
-     * @covers  Molajo\Resource\Adapter\Base::verifyNamespace
-     * @covers  Molajo\Resource\Adapter\Base::verifyFileExists
+     * @covers  Molajo\Resource\Adapter\Base::initialiseCacheVariables
      * @covers  Molajo\Resource\Adapter\Base::setScheme
      * @covers  Molajo\Resource\Adapter\Base::setResourceNamespace
      * @covers  Molajo\Resource\Adapter\Cache::getConfigurationCache

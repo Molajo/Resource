@@ -91,78 +91,41 @@ abstract class Base extends Cache
         $this->namespace_prefixes    = $namespace_prefixes;
         $this->valid_file_extensions = $valid_file_extensions;
 
-        $cache = $this->instantiateCache($cache_callbacks);
+        $cache_callbacks = $this->initialiseCacheVariables($cache_callbacks);
 
-        parent::__construct($cache[0], $cache[1], $cache[2]);
+        parent::__construct(
+            $cache_callbacks['get_cache_callback'],
+            $cache_callbacks['set_cache_callback'],
+            $cache_callbacks['delete_cache_callback']
+        );
     }
 
     /**
-     * Instantiate Cache Class
+     * Initialise Cache Variables
      *
      * @param   array $cache_callbacks
      *
-     * @return  $this
+     * @return  array
      * @since   1.0.0
      */
-    protected function instantiateCache(array $cache_callbacks = array())
+    protected function initialiseCacheVariables(array $cache_callbacks = array())
     {
         if (isset($cache_callbacks['get_cache_callback'])) {
-            $get_cache_callback = $cache_callbacks['get_cache_callback'];
         } else {
-            $get_cache_callback = null;
+            $cache_callbacks['get_cache_callback'] = null;
         }
 
         if (isset($cache_callbacks['set_cache_callback'])) {
-            $set_cache_callback = $cache_callbacks['set_cache_callback'];
         } else {
-            $set_cache_callback = null;
+            $cache_callbacks['set_cache_callback'] = null;
         }
 
         if (isset($cache_callbacks['delete_cache_callback'])) {
-            $delete_cache_callback = $cache_callbacks['delete_cache_callback'];
         } else {
-            $delete_cache_callback = null;
+            $cache_callbacks['delete_cache_callback'] = null;
         }
 
-        return array($get_cache_callback, $set_cache_callback, $delete_cache_callback);
-    }
-
-    /**
-     * Verify Options Entry
-     *
-     * @param   array $options
-     *
-     * @return  $this
-     * @since   1.0.0
-     * @throws  \CommonApi\Exception\RuntimeException
-     */
-    protected function verifyNamespace(array $options = array())
-    {
-        if (isset($options['namespace'])) {
-        } else {
-            throw new RuntimeException('Resource options array must have namespace entry.');
-        }
-
-        return $this;
-    }
-
-    /**
-     * Verify File Exists
-     *
-     * @param   string $located_path
-     *
-     * @return  $this
-     * @since   1.0.0
-     * @throws  \CommonApi\Exception\RuntimeException
-     */
-    protected function verifyFileExists($located_path)
-    {
-        if (file_exists($located_path)) {
-        } else {
-            throw new RuntimeException('Resource located_path not found: ' . $this->resource_namespace);
-        }
-
-        return $this;
+        return $cache_callbacks;
     }
 
     /**
@@ -187,7 +150,6 @@ abstract class Base extends Cache
     }
 
     /**
-     * x
      * Prepare Resource Namespace for Search
      *
      * @param   string $resource_namespace

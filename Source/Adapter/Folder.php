@@ -31,11 +31,6 @@ class Folder extends NamespaceHandler implements ResourceInterface
      */
     public function handlePath($located_path, array $options = array())
     {
-        if (file_exists($located_path)) {
-        } else {
-            return '';
-        }
-
         if ($this->testReturnFileList($options) === true) {
             return $this->returnFileList($located_path);
         }
@@ -65,34 +60,85 @@ class Folder extends NamespaceHandler implements ResourceInterface
      *
      * @param   string $located_path
      *
-     * @return  string
+     * @return  array
      * @since   1.0.0
      */
     protected function returnFileList($located_path)
     {
-        $objects = new RecursiveIteratorIterator(
-            new RecursiveDirectoryIterator($located_path),
-            RecursiveIteratorIterator::SELF_FIRST
-        );
+        $objects = $this->getFolderObject($located_path);
 
         $list = array();
 
         foreach ($objects as $file_path => $file_object) {
-
-            $file_name      = $file_object->getFileName();
-            $file_extension = $file_object->getExtension();
-            $is_directory   = $file_object->isDir();
-
-            if ($is_directory === true) {
-                $list[] = $file_path;
-            } elseif ($file_name === '.' || $file_name === '..') {
-            } elseif ($file_extension === '') {
-                $list[] = $file_path . '/' . $file_name;
-            } else {
-                $list[] = $file_path . '/' . $file_name . '.' . $file_extension;
-            }
+            $list = $this->processFolderFileObject($file_object, $file_path, $list);
         }
 
         return $list;
+    }
+
+    /**
+     * Return iterator object
+     *
+     * @param   string $located_path
+     *
+     * @return  object
+     * @since   1.0.0
+     */
+    protected function getFolderObject($located_path)
+    {
+        return new RecursiveIteratorIterator(
+            new RecursiveDirectoryIterator($located_path),
+            RecursiveIteratorIterator::SELF_FIRST
+        );
+    }
+
+    /**
+     * Return iterator object
+     *
+     * @param   object $file_object
+     * @param   string $file_path
+     * @param   array  $list
+     *
+     * @return  array
+     * @since   1.0.0
+     */
+    protected function processFolderFileObject($file_object, $file_path, $list)
+    {
+        list($file_name, $file_extension, $is_directory) = $this->returnFileObjectProperties($file_object);
+
+        if ($is_directory === true) {
+            $list[] = $file_path;
+            return $list;
+        }
+
+        if ($file_name === '.' || $file_name === '..') {
+            return $list;
+        }
+
+        if ($file_extension === '') {
+            $list[] = $file_path . '/' . $file_name;
+            return $list;
+        }
+
+        $list[] = $file_path . '/' . $file_name . '.' . $file_extension;
+
+        return $list;
+    }
+
+    /**
+     * Return iterator object
+     *
+     * @param   object $file_object
+     *
+     * @return  array
+     * @since   1.0.0
+     */
+    protected function returnFileObjectProperties($file_object)
+    {
+        $file_name      = $file_object->getFileName();
+        $file_extension = $file_object->getExtension();
+        $is_directory   = $file_object->isDir();
+
+        return array($file_name, $file_extension, $is_directory);
     }
 }
