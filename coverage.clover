@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1425008452">
-  <project timestamp="1425008452">
+<coverage generated="1425012175">
+  <project timestamp="1425012175">
     <file name="/Users/amystephen/Sites/git/Molajo/Resource/.dev/Bootstrap.php">
       <line num="0" type="stmt" count="0"/>
       <line num="38" type="stmt" count="0"/>
@@ -209,28 +209,28 @@
         <class name="Base" namespace="Molajo\Resource\Adapter" fullPackage="Molajo" package="Molajo">
           <metrics methods="6" coveredmethods="4" conditionals="0" coveredconditionals="0" statements="39" coveredstatements="24" elements="45" coveredelements="28"/>
         </class>
-        <line num="82" type="method" name="__construct" crap="1" count="10"/>
-        <line num="89" type="stmt" count="10"/>
-        <line num="90" type="stmt" count="10"/>
-        <line num="91" type="stmt" count="10"/>
-        <line num="92" type="stmt" count="10"/>
-        <line num="94" type="stmt" count="10"/>
-        <line num="96" type="stmt" count="10"/>
-        <line num="97" type="stmt" count="10"/>
-        <line num="107" type="method" name="instantiateCache" crap="5.57" count="10"/>
-        <line num="109" type="stmt" count="10"/>
+        <line num="82" type="method" name="__construct" crap="1" count="12"/>
+        <line num="89" type="stmt" count="12"/>
+        <line num="90" type="stmt" count="12"/>
+        <line num="91" type="stmt" count="12"/>
+        <line num="92" type="stmt" count="12"/>
+        <line num="94" type="stmt" count="12"/>
+        <line num="96" type="stmt" count="12"/>
+        <line num="97" type="stmt" count="12"/>
+        <line num="107" type="method" name="instantiateCache" crap="5.57" count="12"/>
+        <line num="109" type="stmt" count="12"/>
         <line num="110" type="stmt" count="0"/>
         <line num="111" type="stmt" count="0"/>
-        <line num="112" type="stmt" count="10"/>
-        <line num="115" type="stmt" count="10"/>
+        <line num="112" type="stmt" count="12"/>
+        <line num="115" type="stmt" count="12"/>
         <line num="116" type="stmt" count="0"/>
         <line num="117" type="stmt" count="0"/>
-        <line num="118" type="stmt" count="10"/>
-        <line num="121" type="stmt" count="10"/>
+        <line num="118" type="stmt" count="12"/>
+        <line num="121" type="stmt" count="12"/>
         <line num="122" type="stmt" count="0"/>
         <line num="123" type="stmt" count="0"/>
-        <line num="124" type="stmt" count="10"/>
-        <line num="127" type="stmt" count="10"/>
+        <line num="124" type="stmt" count="12"/>
+        <line num="127" type="stmt" count="12"/>
         <line num="139" type="method" name="verifyNamespace" crap="6" count="0"/>
         <line num="141" type="stmt" count="0"/>
         <line num="142" type="stmt" count="0"/>
@@ -241,19 +241,19 @@
         <line num="161" type="stmt" count="0"/>
         <line num="162" type="stmt" count="0"/>
         <line num="165" type="stmt" count="0"/>
-        <line num="177" type="method" name="setScheme" crap="2.03" count="8"/>
-        <line num="179" type="stmt" count="8"/>
-        <line num="180" type="stmt" count="8"/>
+        <line num="177" type="method" name="setScheme" crap="2.03" count="10"/>
+        <line num="179" type="stmt" count="10"/>
+        <line num="180" type="stmt" count="10"/>
         <line num="181" type="stmt" count="0"/>
-        <line num="184" type="stmt" count="8"/>
-        <line num="186" type="stmt" count="8"/>
-        <line num="198" type="method" name="setResourceNamespace" crap="1" count="8"/>
-        <line num="200" type="stmt" count="8"/>
-        <line num="201" type="stmt" count="8"/>
-        <line num="202" type="stmt" count="8"/>
-        <line num="203" type="stmt" count="8"/>
-        <line num="205" type="stmt" count="8"/>
-        <line num="207" type="stmt" count="8"/>
+        <line num="184" type="stmt" count="10"/>
+        <line num="186" type="stmt" count="10"/>
+        <line num="198" type="method" name="setResourceNamespace" crap="1" count="10"/>
+        <line num="200" type="stmt" count="10"/>
+        <line num="201" type="stmt" count="10"/>
+        <line num="202" type="stmt" count="10"/>
+        <line num="203" type="stmt" count="10"/>
+        <line num="205" type="stmt" count="10"/>
+        <line num="207" type="stmt" count="10"/>
         <metrics loc="209" ncloc="103" classes="1" methods="6" coveredmethods="2" conditionals="0" coveredconditionals="0" statements="39" coveredstatements="24" elements="45" coveredelements="26"/>
       </file>
       <file name="/Users/amystephen/Sites/git/Molajo/Resource/Source/Adapter/Cache.php">
@@ -288,6 +288,28 @@
         <line num="128" type="method" name="useConfigurationCache" crap="2" count="0"/>
         <line num="130" type="stmt" count="0"/>
         <metrics loc="132" ncloc="65" classes="1" methods="5" coveredmethods="1" conditionals="0" coveredconditionals="0" statements="22" coveredstatements="5" elements="27" coveredelements="6"/>
+      </file>
+      <file name="/Users/amystephen/Sites/git/Molajo/Resource/Source/Adapter/File.php">
+        <class name="File" namespace="Molajo\Resource\Adapter" fullPackage="Molajo" package="Molajo">
+          <metrics methods="4" coveredmethods="4" conditionals="0" coveredconditionals="0" statements="11" coveredstatements="10" elements="15" coveredelements="14"/>
+        </class>
+        <line num="32" type="method" name="handlePath" crap="3.04" count="2"/>
+        <line num="34" type="stmt" count="2"/>
+        <line num="35" type="stmt" count="2"/>
+        <line num="36" type="stmt" count="0"/>
+        <line num="39" type="stmt" count="2"/>
+        <line num="40" type="stmt" count="1"/>
+        <line num="43" type="stmt" count="1"/>
+        <line num="54" type="method" name="testReturnFileContents" crap="3" count="2"/>
+        <line num="56" type="stmt" count="2"/>
+        <line num="57" type="stmt" count="1"/>
+        <line num="60" type="stmt" count="1"/>
+        <line num="71" type="method" name="returnFileContents" crap="1" count="1"/>
+        <line num="73" type="stmt" count="1"/>
+        <line num="84" type="method" name="returnPath" crap="1" count="1"/>
+        <line num="86" type="stmt" count="1"/>
+        <line num="89" type="stmt" count="0"/>
+        <metrics loc="88" ncloc="40" classes="1" methods="4" coveredmethods="3" conditionals="0" coveredconditionals="0" statements="11" coveredstatements="10" elements="15" coveredelements="13"/>
       </file>
       <file name="/Users/amystephen/Sites/git/Molajo/Resource/Source/Adapter/HandleNamespacePrefixes.php">
         <class name="HandleNamespacePrefixes" namespace="Molajo\Resource\Adapter" fullPackage="Molajo" package="Molajo">
@@ -346,28 +368,28 @@
         <class name="HandleResourceMap" namespace="Molajo\Resource\Adapter" fullPackage="Molajo" package="Molajo">
           <metrics methods="5" coveredmethods="5" conditionals="0" coveredconditionals="0" statements="26" coveredstatements="20" elements="31" coveredelements="25"/>
         </class>
-        <line num="27" type="method" name="searchResourceMap" crap="3.04" count="6"/>
-        <line num="29" type="stmt" count="6"/>
+        <line num="27" type="method" name="searchResourceMap" crap="3.04" count="8"/>
+        <line num="29" type="stmt" count="8"/>
         <line num="30" type="stmt" count="4"/>
-        <line num="33" type="stmt" count="2"/>
-        <line num="35" type="stmt" count="2"/>
-        <line num="36" type="stmt" count="2"/>
+        <line num="33" type="stmt" count="4"/>
+        <line num="35" type="stmt" count="4"/>
+        <line num="36" type="stmt" count="4"/>
         <line num="39" type="stmt" count="0"/>
-        <line num="48" type="method" name="searchResourceMapInstance" crap="2" count="6"/>
-        <line num="50" type="stmt" count="6"/>
-        <line num="51" type="stmt" count="2"/>
+        <line num="48" type="method" name="searchResourceMapInstance" crap="2" count="8"/>
+        <line num="50" type="stmt" count="8"/>
+        <line num="51" type="stmt" count="4"/>
         <line num="54" type="stmt" count="4"/>
-        <line num="63" type="method" name="setResourceMapPaths" crap="2.03" count="2"/>
-        <line num="65" type="stmt" count="2"/>
-        <line num="67" type="stmt" count="2"/>
-        <line num="68" type="stmt" count="2"/>
+        <line num="63" type="method" name="setResourceMapPaths" crap="2.03" count="4"/>
+        <line num="65" type="stmt" count="4"/>
+        <line num="67" type="stmt" count="4"/>
+        <line num="68" type="stmt" count="4"/>
         <line num="69" type="stmt" count="0"/>
-        <line num="72" type="stmt" count="2"/>
-        <line num="83" type="method" name="searchResourceMapPaths" crap="3.33" count="2"/>
-        <line num="85" type="stmt" count="2"/>
-        <line num="87" type="stmt" count="2"/>
+        <line num="72" type="stmt" count="4"/>
+        <line num="83" type="method" name="searchResourceMapPaths" crap="3.33" count="4"/>
+        <line num="85" type="stmt" count="4"/>
+        <line num="87" type="stmt" count="4"/>
         <line num="88" type="stmt" count="1"/>
-        <line num="91" type="stmt" count="1"/>
+        <line num="91" type="stmt" count="3"/>
         <line num="92" type="stmt" count="0"/>
         <line num="94" type="stmt" count="0"/>
         <line num="105" type="method" name="searchResourceMapFileExtensions" crap="3.33" count="1"/>
@@ -381,7 +403,7 @@
       </file>
       <file name="/Users/amystephen/Sites/git/Molajo/Resource/Source/Adapter/NamespaceHandler.php">
         <class name="NamespaceHandler" namespace="Molajo\Resource\Adapter" fullPackage="Molajo" package="Molajo">
-          <metrics methods="5" coveredmethods="3" conditionals="0" coveredconditionals="0" statements="20" coveredstatements="17" elements="25" coveredelements="20"/>
+          <metrics methods="5" coveredmethods="4" conditionals="0" coveredconditionals="0" statements="20" coveredstatements="18" elements="25" coveredelements="22"/>
         </class>
         <line num="33" type="method" name="setNamespace" crap="2.06" count="6"/>
         <line num="35" type="stmt" count="6"/>
@@ -393,22 +415,22 @@
         <line num="57" type="stmt" count="8"/>
         <line num="58" type="stmt" count="4"/>
         <line num="61" type="stmt" count="4"/>
-        <line num="73" type="method" name="get" crap="2" count="0"/>
-        <line num="75" type="stmt" count="0"/>
+        <line num="73" type="method" name="get" crap="1" count="2"/>
+        <line num="75" type="stmt" count="2"/>
         <line num="87" type="method" name="getCollection" crap="2" count="0"/>
         <line num="89" type="stmt" count="0"/>
-        <line num="101" type="method" name="locateResourceNamespace" crap="3" count="8"/>
-        <line num="103" type="stmt" count="8"/>
-        <line num="105" type="stmt" count="8"/>
-        <line num="107" type="stmt" count="8"/>
-        <line num="109" type="stmt" count="8"/>
+        <line num="101" type="method" name="locateResourceNamespace" crap="3" count="10"/>
+        <line num="103" type="stmt" count="10"/>
+        <line num="105" type="stmt" count="10"/>
+        <line num="107" type="stmt" count="10"/>
+        <line num="109" type="stmt" count="10"/>
         <line num="110" type="stmt" count="4"/>
         <line num="111" type="stmt" count="4"/>
-        <line num="113" type="stmt" count="8"/>
-        <line num="114" type="stmt" count="6"/>
-        <line num="115" type="stmt" count="6"/>
-        <line num="117" type="stmt" count="8"/>
-        <metrics loc="119" ncloc="58" classes="1" methods="5" coveredmethods="2" conditionals="0" coveredconditionals="0" statements="20" coveredstatements="17" elements="25" coveredelements="19"/>
+        <line num="113" type="stmt" count="10"/>
+        <line num="114" type="stmt" count="8"/>
+        <line num="115" type="stmt" count="8"/>
+        <line num="117" type="stmt" count="10"/>
+        <metrics loc="119" ncloc="58" classes="1" methods="5" coveredmethods="3" conditionals="0" coveredconditionals="0" statements="20" coveredstatements="18" elements="25" coveredelements="21"/>
       </file>
       <file name="/Users/amystephen/Sites/git/Molajo/Resource/Source/Adapter/SetNamespace.php">
         <class name="SetNamespace" namespace="Molajo\Resource\Adapter" fullPackage="Molajo" package="Molajo">
@@ -458,28 +480,28 @@
       </file>
       <file name="/Users/amystephen/Sites/git/Molajo/Resource/Source/Proxy.php">
         <class name="Proxy" namespace="Molajo\Resource" fullPackage="Molajo" package="Molajo">
-          <metrics methods="4" coveredmethods="2" conditionals="0" coveredconditionals="0" statements="15" coveredstatements="10" elements="19" coveredelements="12"/>
+          <metrics methods="4" coveredmethods="3" conditionals="0" coveredconditionals="0" statements="15" coveredstatements="13" elements="19" coveredelements="16"/>
         </class>
-        <line num="34" type="method" name="setNamespace" crap="3" count="7"/>
-        <line num="36" type="stmt" count="7"/>
-        <line num="38" type="stmt" count="7"/>
-        <line num="39" type="stmt" count="5"/>
-        <line num="40" type="stmt" count="5"/>
-        <line num="41" type="stmt" count="5"/>
-        <line num="42" type="stmt" count="5"/>
-        <line num="44" type="stmt" count="7"/>
-        <line num="46" type="stmt" count="7"/>
-        <line num="58" type="method" name="exists" crap="1" count="8"/>
-        <line num="60" type="stmt" count="8"/>
-        <line num="62" type="stmt" count="8"/>
-        <line num="74" type="method" name="get" crap="2" count="0"/>
-        <line num="76" type="stmt" count="0"/>
-        <line num="78" type="stmt" count="0"/>
-        <line num="80" type="stmt" count="0"/>
-        <line num="108" type="method" name="getCollection" crap="2" count="0"/>
-        <line num="110" type="stmt" count="0"/>
-        <line num="112" type="stmt" count="0"/>
-        <metrics loc="114" ncloc="44" classes="1" methods="4" coveredmethods="2" conditionals="0" coveredconditionals="0" statements="15" coveredstatements="10" elements="19" coveredelements="12"/>
+        <line num="55" type="method" name="setNamespace" crap="3" count="7"/>
+        <line num="57" type="stmt" count="7"/>
+        <line num="59" type="stmt" count="7"/>
+        <line num="60" type="stmt" count="5"/>
+        <line num="61" type="stmt" count="5"/>
+        <line num="62" type="stmt" count="5"/>
+        <line num="63" type="stmt" count="5"/>
+        <line num="65" type="stmt" count="7"/>
+        <line num="67" type="stmt" count="7"/>
+        <line num="79" type="method" name="exists" crap="1" count="8"/>
+        <line num="81" type="stmt" count="8"/>
+        <line num="83" type="stmt" count="8"/>
+        <line num="95" type="method" name="get" crap="1" count="2"/>
+        <line num="97" type="stmt" count="2"/>
+        <line num="99" type="stmt" count="2"/>
+        <line num="101" type="stmt" count="2"/>
+        <line num="113" type="method" name="getCollection" crap="2" count="0"/>
+        <line num="115" type="stmt" count="0"/>
+        <line num="117" type="stmt" count="0"/>
+        <metrics loc="119" ncloc="47" classes="1" methods="4" coveredmethods="3" conditionals="0" coveredconditionals="0" statements="15" coveredstatements="13" elements="19" coveredelements="16"/>
       </file>
       <file name="/Users/amystephen/Sites/git/Molajo/Resource/Source/ResourceMap.php">
         <class name="ResourceMap" namespace="Molajo\Resource" fullPackage="Molajo" package="Molajo">
@@ -792,24 +814,24 @@
         <class name="Scheme" namespace="Molajo\Resource\Proxy" fullPackage="Molajo" package="Molajo">
           <metrics methods="8" coveredmethods="8" conditionals="0" coveredconditionals="0" statements="34" coveredstatements="32" elements="42" coveredelements="40"/>
         </class>
-        <line num="65" type="method" name="__construct" crap="1" count="13"/>
-        <line num="68" type="stmt" count="13"/>
-        <line num="69" type="stmt" count="13"/>
-        <line num="81" type="method" name="setScheme" crap="1" count="12"/>
-        <line num="83" type="stmt" count="12"/>
-        <line num="85" type="stmt" count="12"/>
-        <line num="87" type="stmt" count="12"/>
-        <line num="89" type="stmt" count="12"/>
-        <line num="101" type="method" name="getScheme" crap="2.02" count="12"/>
-        <line num="103" type="stmt" count="12"/>
-        <line num="105" type="stmt" count="12"/>
-        <line num="107" type="stmt" count="12"/>
+        <line num="65" type="method" name="__construct" crap="1" count="15"/>
+        <line num="68" type="stmt" count="15"/>
+        <line num="69" type="stmt" count="15"/>
+        <line num="81" type="method" name="setScheme" crap="1" count="14"/>
+        <line num="83" type="stmt" count="14"/>
+        <line num="85" type="stmt" count="14"/>
+        <line num="87" type="stmt" count="14"/>
+        <line num="89" type="stmt" count="14"/>
+        <line num="101" type="method" name="getScheme" crap="2.02" count="14"/>
+        <line num="103" type="stmt" count="14"/>
+        <line num="105" type="stmt" count="14"/>
+        <line num="107" type="stmt" count="14"/>
         <line num="108" type="stmt" count="0"/>
-        <line num="111" type="stmt" count="12"/>
-        <line num="113" type="stmt" count="12"/>
-        <line num="122" type="method" name="setAdapterNamespaces" crap="3" count="12"/>
-        <line num="124" type="stmt" count="12"/>
-        <line num="125" type="stmt" count="11"/>
+        <line num="111" type="stmt" count="14"/>
+        <line num="113" type="stmt" count="14"/>
+        <line num="122" type="method" name="setAdapterNamespaces" crap="3" count="14"/>
+        <line num="124" type="stmt" count="14"/>
+        <line num="125" type="stmt" count="13"/>
         <line num="128" type="stmt" count="1"/>
         <line num="129" type="stmt" count="1"/>
         <line num="130" type="stmt" count="1"/>
@@ -821,19 +843,19 @@
         <line num="150" type="stmt" count="7"/>
         <line num="152" type="stmt" count="7"/>
         <line num="154" type="stmt" count="7"/>
-        <line num="166" type="method" name="locateScheme" crap="1" count="8"/>
-        <line num="168" type="stmt" count="8"/>
-        <line num="170" type="stmt" count="8"/>
-        <line num="172" type="stmt" count="8"/>
-        <line num="174" type="stmt" count="8"/>
-        <line num="176" type="stmt" count="8"/>
-        <line num="188" type="method" name="getUriScheme" crap="2.06" count="8"/>
-        <line num="190" type="stmt" count="8"/>
-        <line num="192" type="stmt" count="8"/>
+        <line num="166" type="method" name="locateScheme" crap="1" count="10"/>
+        <line num="168" type="stmt" count="10"/>
+        <line num="170" type="stmt" count="10"/>
+        <line num="172" type="stmt" count="10"/>
+        <line num="174" type="stmt" count="10"/>
+        <line num="176" type="stmt" count="10"/>
+        <line num="188" type="method" name="getUriScheme" crap="2.06" count="10"/>
+        <line num="190" type="stmt" count="10"/>
+        <line num="192" type="stmt" count="10"/>
         <line num="193" type="stmt" count="0"/>
-        <line num="196" type="stmt" count="8"/>
-        <line num="208" type="method" name="removeUriScheme" crap="1" count="8"/>
-        <line num="210" type="stmt" count="8"/>
+        <line num="196" type="stmt" count="10"/>
+        <line num="208" type="method" name="removeUriScheme" crap="1" count="10"/>
+        <line num="210" type="stmt" count="10"/>
         <metrics loc="212" ncloc="104" classes="1" methods="8" coveredmethods="6" conditionals="0" coveredconditionals="0" statements="34" coveredstatements="32" elements="42" coveredelements="38"/>
       </file>
     </package>
@@ -1279,6 +1301,6 @@
       <line num="50" type="stmt" count="0"/>
       <metrics loc="50" ncloc="48" classes="1" methods="2" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="25" coveredstatements="0" elements="27" coveredelements="0"/>
     </file>
-    <metrics files="40" loc="4261" ncloc="2236" classes="33" methods="148" coveredmethods="45" conditionals="0" coveredconditionals="0" statements="868" coveredstatements="464" elements="1016" coveredelements="509"/>
+    <metrics files="41" loc="4354" ncloc="2279" classes="34" methods="152" coveredmethods="50" conditionals="0" coveredconditionals="0" statements="879" coveredstatements="478" elements="1031" coveredelements="528"/>
   </project>
 </coverage>

@@ -32,9 +32,57 @@ class File extends NamespaceHandler implements ResourceInterface
     public function handlePath($located_path, array $options = array())
     {
         if (file_exists($located_path)) {
-            return $located_path;
+        } else {
+            return '';
         }
 
-        return '';
+        if ($this->testReturnFileContents($options) === true) {
+            return $this->returnFileContents($located_path);
+        }
+
+        return $this->returnPath($located_path);
+    }
+
+    /**
+     * Test if file should be read and contents returned
+     *
+     * @param   array $options
+     *
+     * @return  boolean
+     * @since   1.0.0
+     */
+    protected function testReturnFileContents(array $options = array())
+    {
+        if (isset($options['return_contents']) && $options['return_contents'] === 1) {
+            return true;
+        }
+
+        return false;
+    }
+
+    /**
+     * Return file contents
+     *
+     * @param   string $located_path
+     *
+     * @return  string
+     * @since   1.0.0
+     */
+    protected function returnFileContents($located_path)
+    {
+        return file_get_contents($located_path);
+    }
+
+    /**
+     * Return file path
+     *
+     * @param   string $located_path
+     *
+     * @return  string
+     * @since   1.0.0
+     */
+    protected function returnPath($located_path)
+    {
+        return $located_path;
     }
 }

@@ -12,6 +12,27 @@ use CommonApi\Resource\ResourceInterface;
 use Molajo\Resource\Proxy\ClassLoader;
 
 /**
+ * for get
+ *
+ * Classloader
+ *
+ * if ($this->requested_scheme === 'Field') {
+ * return $this->adapter_instance_array[$this->requested_adapter]->get(substr($uri_namespace, 9, 999));
+ * }
+ *
+ * if (strtolower($requested_scheme) == 'query') {
+ * $xml            = $this->adapter_instance_array['Xml']->handlePath(
+ * $requested_scheme,
+ * $located_path,
+ * $options
+ * );
+ * $options['xml'] = $xml;
+ *
+ * $this->requested_adapter = 'Query';
+ * }
+ */
+
+/**
  * Resource Proxy
  *
  * @package    Molajo
@@ -77,23 +98,7 @@ class Proxy extends ClassLoader implements ResourceInterface
 
         $located_path = $this->requested_adapter->get($results['resource_namespace'], $results['options']);
 
-        return $this->requested_adapter->handlePath($located_path, $options);
-
-        //if ($this->requested_scheme === 'Field') {
-        //return $this->adapter_instance_array[$this->requested_adapter]->get(substr($uri_namespace, 9, 999));
-         // }
-/**
-        if (strtolower($requested_scheme) == 'query') {
-            $xml            = $this->adapter_instance_array['Xml']->handlePath(
-                $requested_scheme,
-                $located_path,
-                $options
-            );
-            $options['xml'] = $xml;
-
-            $this->requested_adapter = 'Query';
-        }
-        */
+        return $this->requested_adapter->handlePath($located_path, $results['options']);
     }
 
     /**
