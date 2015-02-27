@@ -31,6 +31,20 @@ class ProxyTest extends \PHPUnit_Framework_TestCase
     protected $proxy_instance;
 
     /**
+     * @covers  Molajo\Resource\Proxy::setNamespace
+     * @covers  Molajo\Resource\Proxy::exists
+     * @covers  Molajo\Resource\Proxy::get
+     * @covers  Molajo\Resource\Proxy::getCollection
+     * @covers  Molajo\Resource\Proxy\ClassLoader::register
+     * @covers  Molajo\Resource\Proxy\ClassLoader::unregister
+     * @covers  Molajo\Resource\Proxy\Scheme::__construct
+     * @covers  Molajo\Resource\Proxy\Scheme::setScheme
+     * @covers  Molajo\Resource\Proxy\Scheme::getScheme
+     * @covers  Molajo\Resource\Proxy\Scheme::setAdapterNamespaces
+     * @covers  Molajo\Resource\Proxy\Scheme::saveNamespaceArray
+     * @covers  Molajo\Resource\Proxy\Scheme::locateScheme
+     * @covers  Molajo\Resource\Proxy\Scheme::getUriScheme
+     * @covers  Molajo\Resource\Proxy\Scheme::removeUriScheme
      *
      * @return  $this
      * @since   1.0.0
@@ -47,6 +61,21 @@ class ProxyTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
+     * @covers  Molajo\Resource\Proxy::setNamespace
+     * @covers  Molajo\Resource\Proxy::exists
+     * @covers  Molajo\Resource\Proxy::get
+     * @covers  Molajo\Resource\Proxy::getCollection
+     * @covers  Molajo\Resource\Proxy\ClassLoader::register
+     * @covers  Molajo\Resource\Proxy\ClassLoader::unregister
+     * @covers  Molajo\Resource\Proxy\Scheme::__construct
+     * @covers  Molajo\Resource\Proxy\Scheme::setScheme
+     * @covers  Molajo\Resource\Proxy\Scheme::getScheme
+     * @covers  Molajo\Resource\Proxy\Scheme::setAdapterNamespaces
+     * @covers  Molajo\Resource\Proxy\Scheme::saveNamespaceArray
+     * @covers  Molajo\Resource\Proxy\Scheme::locateScheme
+     * @covers  Molajo\Resource\Proxy\Scheme::getUriScheme
+     * @covers  Molajo\Resource\Proxy\Scheme::removeUriScheme
+     *
      * @return  $this
      * @since   1.0.0
      */
@@ -61,6 +90,20 @@ class ProxyTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
+     * @covers  Molajo\Resource\Proxy::setNamespace
+     * @covers  Molajo\Resource\Proxy::exists
+     * @covers  Molajo\Resource\Proxy::get
+     * @covers  Molajo\Resource\Proxy::getCollection
+     * @covers  Molajo\Resource\Proxy\ClassLoader::register
+     * @covers  Molajo\Resource\Proxy\ClassLoader::unregister
+     * @covers  Molajo\Resource\Proxy\Scheme::__construct
+     * @covers  Molajo\Resource\Proxy\Scheme::setScheme
+     * @covers  Molajo\Resource\Proxy\Scheme::getScheme
+     * @covers  Molajo\Resource\Proxy\Scheme::setAdapterNamespaces
+     * @covers  Molajo\Resource\Proxy\Scheme::saveNamespaceArray
+     * @covers  Molajo\Resource\Proxy\Scheme::locateScheme
+     * @covers  Molajo\Resource\Proxy\Scheme::getUriScheme
+     * @covers  Molajo\Resource\Proxy\Scheme::removeUriScheme
      *
      * @return  $this
      * @since   1.0.0
@@ -76,6 +119,20 @@ class ProxyTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
+     * @covers  Molajo\Resource\Proxy::setNamespace
+     * @covers  Molajo\Resource\Proxy::exists
+     * @covers  Molajo\Resource\Proxy::get
+     * @covers  Molajo\Resource\Proxy::getCollection
+     * @covers  Molajo\Resource\Proxy\ClassLoader::register
+     * @covers  Molajo\Resource\Proxy\ClassLoader::unregister
+     * @covers  Molajo\Resource\Proxy\Scheme::__construct
+     * @covers  Molajo\Resource\Proxy\Scheme::setScheme
+     * @covers  Molajo\Resource\Proxy\Scheme::getScheme
+     * @covers  Molajo\Resource\Proxy\Scheme::setAdapterNamespaces
+     * @covers  Molajo\Resource\Proxy\Scheme::saveNamespaceArray
+     * @covers  Molajo\Resource\Proxy\Scheme::locateScheme
+     * @covers  Molajo\Resource\Proxy\Scheme::getUriScheme
+     * @covers  Molajo\Resource\Proxy\Scheme::removeUriScheme
      *
      * @return  $this
      * @since   1.0.0
@@ -91,6 +148,21 @@ class ProxyTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
+     * @covers  Molajo\Resource\Proxy::setNamespace
+     * @covers  Molajo\Resource\Proxy::exists
+     * @covers  Molajo\Resource\Proxy::get
+     * @covers  Molajo\Resource\Proxy::getCollection
+     * @covers  Molajo\Resource\Proxy\ClassLoader::register
+     * @covers  Molajo\Resource\Proxy\ClassLoader::unregister
+     * @covers  Molajo\Resource\Proxy\Scheme::__construct
+     * @covers  Molajo\Resource\Proxy\Scheme::setScheme
+     * @covers  Molajo\Resource\Proxy\Scheme::getScheme
+     * @covers  Molajo\Resource\Proxy\Scheme::setAdapterNamespaces
+     * @covers  Molajo\Resource\Proxy\Scheme::saveNamespaceArray
+     * @covers  Molajo\Resource\Proxy\Scheme::locateScheme
+     * @covers  Molajo\Resource\Proxy\Scheme::getUriScheme
+     * @covers  Molajo\Resource\Proxy\Scheme::removeUriScheme
+     *
      * @return  $this
      * @since   1.0.0
      */
