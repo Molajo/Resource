@@ -183,10 +183,17 @@ abstract class Scheme implements SchemeInterface
      *
      * @return  string
      * @since   1.0.0
+     * @throws  \CommonApi\Exception\RuntimeException
      */
     protected function getUriScheme($uri)
     {
-        return parse_url($uri, PHP_URL_SCHEME);
+        $scheme = parse_url($uri, PHP_URL_SCHEME);
+
+        if ($scheme === false) {
+            throw new RuntimeException('Resource Scheme must define scheme:/// with resource requests');
+        }
+
+        return $scheme;
     }
 
     /**

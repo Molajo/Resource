@@ -21,13 +21,13 @@ abstract class HandleResourceMap extends Base
     /**
      * Search compiled namespace map for resource namespace
      *
-     * @return  mixed|bool|string
+     * @return  string
      * @since   1.0.0
      */
     protected function searchResourceMap()
     {
         if ($this->searchResourceMapInstance() === false) {
-            return false;
+            return '';
         }
 
         $paths = $this->setResourceMapPaths();
@@ -77,7 +77,7 @@ abstract class HandleResourceMap extends Base
      *
      * @param   array $paths
      *
-     * @return  array
+     * @return  string
      * @since   1.0.0
      */
     protected function searchResourceMapPaths(array $paths = array())
