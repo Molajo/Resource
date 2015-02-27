@@ -1,6 +1,6 @@
 <?php
 /**
- * Search Resource Map for Namespace
+ * Resource Map Handler
  *
  * @package    Molajo
  * @copyright  2014-2015 Amy Stephen. All rights reserved.
@@ -9,14 +9,14 @@
 namespace Molajo\Resource\Adapter;
 
 /**
- * Namespace Handler
+ * Resource Map Handler
  *
  * @package    Molajo
  * @copyright  2014-2015 Amy Stephen. All rights reserved.
  * @license    http://www.opensource.org/licenses/mit-license.html MIT License
  * @since      1.0.0
  */
-abstract class SearchResourceMap extends Base
+abstract class HandleResourceMap extends Base
 {
     /**
      * Search compiled namespace map for resource namespace
@@ -33,7 +33,7 @@ abstract class SearchResourceMap extends Base
         $paths = $this->setResourceMapPaths();
 
         if (count($paths) > 0) {
-            return $this->setResourceMapPaths($paths);
+            return $this->searchResourceMapPaths($paths);
         }
 
         return '';

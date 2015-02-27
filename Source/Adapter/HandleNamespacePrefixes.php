@@ -1,6 +1,6 @@
 <?php
 /**
- * Search Namespace Prefixes for Namespace
+ * Handle Namespace Prefixes
  *
  * @package    Molajo
  * @copyright  2014-2015 Amy Stephen. All rights reserved.
@@ -9,14 +9,14 @@
 namespace Molajo\Resource\Adapter;
 
 /**
- * Search Namespace Prefixes for Namespace
+ * Handle Namespace Prefixes
  *
  * @package    Molajo
  * @copyright  2014-2015 Amy Stephen. All rights reserved.
  * @license    http://www.opensource.org/licenses/mit-license.html MIT License
  * @since      1.0.0
  */
-abstract class SearchNamespacePrefixes extends SearchResourceMap
+abstract class HandleNamespacePrefixes extends HandleResourceMap
 {
     /**
      * Search Namespace Prefixes
