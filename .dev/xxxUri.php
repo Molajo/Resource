@@ -29,33 +29,13 @@ class Uri extends Scheme
      */
     protected function getUriResource($uri_namespace, array $options = array())
     {
-        $located_path = $this->getUriPath($uri_namespace);
 
-        if ($this->requested_scheme === 'Field') {
-            return $this->adapter_instance_array[$this->requested_adapter]->get(substr($uri_namespace, 9, 999));
-        }
 
-        return $this->locateNamespace(str_replace('\\', '/', $this->path), $this->requested_scheme, $options);
+
+
+
     }
 
-    /**
-     * Get Path for URI
-     *
-     * @param   string $uri_namespace
-     *
-     * @return  string
-     * @since   1.0.0
-     */
-    protected function getUriPath($uri_namespace)
-    {
-        $this->requested_scheme = $this->getUriScheme($uri_namespace);
-
-        $scheme = $this->getScheme($this->requested_scheme);
-
-        $this->requested_adapter = $this->requested_scheme->adapter;
-
-        return $scheme->adapter->exists($uri_namespace);
-    }
 
 
     /**
@@ -93,16 +73,6 @@ class Uri extends Scheme
     {
         $this->getScheme($requested_scheme);
 
-        if (strtolower($requested_scheme) == 'query') {
-            $xml            = $this->adapter_instance_array['Xml']->handlePath(
-                $requested_scheme,
-                $located_path,
-                $options
-            );
-            $options['xml'] = $xml;
-
-            $this->requested_adapter = 'Query';
-        }
 
         return $this->adapter_instance_array[$this->requested_adapter]->handlePath($requested_scheme, $located_path, $options);
     }

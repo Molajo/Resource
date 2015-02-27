@@ -23,19 +23,18 @@ class File extends NamespaceHandler implements ResourceInterface
     /**
      * Handle located folder/file associated with URI Namespace for Resource
      *
-     * @param   string $scheme
      * @param   string $located_path
      * @param   array  $options
      *
-     * @return  void|mixed
+     * @return  string
      * @since   1.0.0
      */
-    public function handlePath($scheme, $located_path, array $options = array())
+    public function handlePath($located_path, array $options = array())
     {
         if (file_exists($located_path)) {
             return $located_path;
         }
 
-        return false;
+        return '';
     }
 }

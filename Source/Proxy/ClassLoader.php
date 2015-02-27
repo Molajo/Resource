@@ -18,7 +18,7 @@ use CommonApi\Resource\ClassLoaderInterface;
  * @license    http://www.opensource.org/licenses/mit-license.html MIT License
  * @since      1.0.0
  */
-class ClassLoader extends Uri implements ClassLoaderInterface
+class ClassLoader extends Scheme implements ClassLoaderInterface
 {
     /**
      * Registers Class Autoloader
