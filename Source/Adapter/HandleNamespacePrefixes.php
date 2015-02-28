@@ -60,11 +60,11 @@ abstract class HandleNamespacePrefixes extends HandleResourceMap
     {
         foreach ($base_directories as $namespace_base_directory) {
 
-            $file_name = $this->searchNamespacePrefixDirectory($namespace_prefix, $namespace_base_directory);
+            $results = $this->searchNamespacePrefixDirectory($namespace_prefix, $namespace_base_directory);
 
-            if ($file_name === '') {
+            if ($results === '') {
             } else {
-                return $file_name;
+                return $results;
             }
         }
 
@@ -89,7 +89,7 @@ abstract class HandleNamespacePrefixes extends HandleResourceMap
         $results = $this->searchNamespaceFilename($file_name);
         if ($results === '') {
         } else {
-            return $file_name;
+            return $results;
         }
 
         return $this->searchNamespacePrefixFileExtensions($file_name);
@@ -124,7 +124,8 @@ abstract class HandleNamespacePrefixes extends HandleResourceMap
      */
     protected function searchNamespaceFilename($file_name)
     {
-        if (file_exists($file_name) && count($this->valid_file_extensions) === 0) {
+        if ((file_exists($file_name) || is_dir($file_name))
+            && count($this->valid_file_extensions) === 0) {
             return $file_name;
         }
 

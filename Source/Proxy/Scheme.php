@@ -164,13 +164,13 @@ abstract class Scheme implements SchemeInterface
      */
     protected function locateScheme($resource_namespace, array $options = array())
     {
-        $scheme_name = $this->getUriScheme($resource_namespace);
+        $this->getUriScheme($resource_namespace);
 
-        $resource_namespace = $this->removeUriScheme($resource_namespace, $scheme_name);
+        $resource_namespace = $this->removeUriScheme($resource_namespace);
 
-        $this->getScheme($scheme_name);
+        $this->getScheme($this->requested_scheme);
 
-        $options['scheme_name'] = $scheme_name;
+        $options['scheme_name'] = $this->requested_scheme;
 
         return array('resource_namespace' => $resource_namespace, 'options' => $options);
     }
@@ -204,8 +204,8 @@ abstract class Scheme implements SchemeInterface
      * @return  string
      * @since   1.0.0
      */
-    protected function removeUriScheme($uri, $scheme)
+    protected function removeUriScheme($uri)
     {
-        return substr($uri, strpos($uri, $scheme) + strlen($scheme) + 3, 9999);
+        return substr($uri, strpos($uri, $this->requested_scheme) + strlen($this->requested_scheme) + 3, 9999);
     }
 }

@@ -24,15 +24,20 @@ use CommonApi\Resource\SchemeInterface;
 class Scheme implements SchemeInterface
 {
     /**
-     * Scheme array =>
-     *    Scheme Name =>
-     *      Extensions list
-     *      Adapter
+     * Scheme array
      *
      * @var    array
      * @since  1.0.0
      */
     protected $scheme_array = array();
+
+    /**
+     * Scheme Name
+     *
+     * @var    string
+     * @since  1.0.0
+     */
+    protected $scheme_name = null;
 
     /**
      * Get Scheme
@@ -48,10 +53,10 @@ class Scheme implements SchemeInterface
             return $this->scheme_array;
         }
 
-        $scheme_name = strtolower($scheme_name);
+        $this->scheme_name = strtolower($scheme_name);
 
-        if (isset($this->scheme_array[$scheme_name])) {
-            return $this->scheme_array[$scheme_name];
+        if (isset($this->scheme_array[$this->scheme_name])) {
+            return $this->scheme_array[$this->scheme_name];
         }
 
         return null;
