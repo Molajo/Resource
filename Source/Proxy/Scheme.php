@@ -189,7 +189,7 @@ abstract class Scheme implements SchemeInterface
         $scheme = parse_url($uri, PHP_URL_SCHEME);
 
         if ($scheme === false) {
-            throw new RuntimeException('Resource Scheme must define scheme:/// with resource requests');
+            throw new RuntimeException('Resource Scheme must define scheme:// with resource requests');
         }
 
         return $scheme;
