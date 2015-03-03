@@ -83,7 +83,7 @@ abstract class Prefixes extends Folders
      * @param   string $namespace_base_folder
      * @param   string $namespace_prefix
      *
-     * @return  object
+     * @return  Prefixes
      * @since   1.0.0
      */
     protected function processNamespaceFolder($namespace_base_folder, $namespace_prefix)
@@ -105,11 +105,11 @@ abstract class Prefixes extends Folders
     /**
      * Process File Objects
      *
-     * @param   object $objects
+     * @param   RecursiveIteratorIterator $objects
      * @param   string $namespace_prefix
      * @param   string $namespace_base_folder
      *
-     * @return  object
+     * @return  Prefixes
      * @since   1.0.0
      */
     protected function processFilePathObjects($objects, $namespace_prefix, $namespace_base_folder)
@@ -143,7 +143,7 @@ abstract class Prefixes extends Folders
      * @param   string $file_name
      * @param   string $file_extension
      *
-     * @return  int|object
+     * @return  Prefixes
      * @since   1.0.0
      */
     protected function testFileForNamespaceRules(
@@ -213,7 +213,7 @@ abstract class Prefixes extends Folders
      * @param   string $file_name
      * @param   string $file_extension
      *
-     * @return  boolean
+     * @return  integer
      * @since   1.0.0
      */
     protected function setFileInclusion($is_directory, $file_name, $file_extension)
@@ -239,7 +239,7 @@ abstract class Prefixes extends Folders
      *
      * @param   string $file_name
      *
-     * @return  $this
+     * @return  boolean
      * @since   1.0.0
      */
     protected function testPHPClassExceptions($file_name)
@@ -340,7 +340,7 @@ abstract class Prefixes extends Folders
      * @param   string $nspath
      * @param   string $qns
      *
-     * @return  object
+     * @return  stdClass
      * @since   1.0.0
      */
     protected function setNamespaceObject($file_name, $nspath, $qns)
@@ -364,7 +364,7 @@ abstract class Prefixes extends Folders
      * @param   string $file_name
      * @param   string $file_extension
      *
-     * @return  object
+     * @return  Prefixes
      * @since   1.0.0
      */
     protected function useFilesWithNamespace(
@@ -471,8 +471,9 @@ abstract class Prefixes extends Folders
      * @param   string $file_name
      * @param   string $file_extension
      * @param   string $nspath
+     * @param string $qns
      *
-     * @return  array
+     * @return  string[]
      * @since   1.0.0
      */
     protected function setClassfileArrayEntry($file_name, $file_extension, $qns, $nspath)
