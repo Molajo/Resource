@@ -3,7 +3,7 @@
  * Class Map Item Aggregation
  *
  * @package    Molajo
- * @copyright  2014 Amy Stephen. All rights reserved.
+ * @copyright  2014-2015 Amy Stephen. All rights reserved.
  * @license    http://www.opensource.org/licenses/mit-license.html MIT License
  */
 namespace Molajo\Resource\ClassMap;
@@ -12,9 +12,9 @@ namespace Molajo\Resource\ClassMap;
  * Class Map Item Aggregation
  *
  * @package    Molajo
- * @copyright  2014 Amy Stephen. All rights reserved.
+ * @copyright  2014-2015 Amy Stephen. All rights reserved.
  * @license    http://www.opensource.org/licenses/mit-license.html MIT License
- * @since      1.0
+ * @since      1.0.0
  */
 abstract class Aggregate extends Events
 {
@@ -22,7 +22,7 @@ abstract class Aggregate extends Events
      * Determine Concrete Classes implement the Interface
      *
      * @return  $this
-     * @since   1.0
+     * @since   1.0.0
      */
     protected function finalizeItems()
     {
@@ -37,7 +37,7 @@ abstract class Aggregate extends Events
      * Determine Concrete Classes implement the Interface
      *
      * @return  $this
-     * @since   1.0
+     * @since   1.0.0
      */
     protected function setInterfaces()
     {
@@ -68,7 +68,7 @@ abstract class Aggregate extends Events
      * @param   string $qns
      *
      * @return  $this
-     * @since   1.0
+     * @since   1.0.0
      */
     protected function setInterfaceValues($interface, $qns)
     {
@@ -87,7 +87,7 @@ abstract class Aggregate extends Events
      * Determine Concrete Classes implement the Interface
      *
      * @return  $this
-     * @since   1.0
+     * @since   1.0.0
      */
     protected function setConcretes()
     {
@@ -111,7 +111,7 @@ abstract class Aggregate extends Events
      * @param   object $parameter
      *
      * @return  $this
-     * @since   1.0
+     * @since   1.0.0
      */
     protected function setConcreteConstructorValues($parameter)
     {

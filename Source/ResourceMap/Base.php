@@ -3,7 +3,7 @@
  * Create Resource Map
  *
  * @package    Molajo
- * @copyright  2014 Amy Stephen. All rights reserved.
+ * @copyright  2014-2015 Amy Stephen. All rights reserved.
  * @license    http://www.opensource.org/licenses/mit-license.html MIT License
  */
 namespace Molajo\Resource\ResourceMap;
@@ -15,9 +15,9 @@ use ReflectionClass;
  * Resource Map Base
  *
  * @package    Molajo
- * @copyright  2014 Amy Stephen. All rights reserved.
+ * @copyright  2014-2015 Amy Stephen. All rights reserved.
  * @license    http://www.opensource.org/licenses/mit-license.html MIT License
- * @since      1.0
+ * @since      1.0.0
  */
 abstract class Base
 {
@@ -25,23 +25,31 @@ abstract class Base
      * Resource Map Filename
      *
      * @var    string
-     * @since  1.0
+     * @since  1.0.0
      */
     protected $resource_map_filename;
 
     /**
-     * Interface Map Filename
+     * Class Map Filename
      *
      * @var    string
-     * @since  1.0
+     * @since  1.0.0
      */
     protected $classmap_filename;
+
+    /**
+     * Extension Folders Filename
+     *
+     * @var    string
+     * @since  1.0.0
+     */
+    protected $extension_folders_filename;
 
     /**
      * Base Path - root of the website from which paths are defined
      *
      * @var    string
-     * @since  1.0
+     * @since  1.0.0
      */
     protected $base_path;
 
@@ -49,7 +57,7 @@ abstract class Base
      * Namespace Prefixes + Path
      *
      * @var    array
-     * @since  1.0
+     * @since  1.0.0
      */
     protected $namespace_prefixes = array();
 
@@ -57,25 +65,35 @@ abstract class Base
      * List of folders to exclude from resource mapping
      *
      * @var    array
-     * @since  1.0
+     * @since  1.0.0
      */
     protected $exclude_folders = array();
 
     /**
+     * Extension Folders
+     *
+     * @var    array
+     * @since  1.0.0
+     */
+    protected $extension_folders = array();
+
+    /**
      * Constructor
      *
-     * @param  string  $base_path
-     * @param  array   $exclude_folders
-     * @param  string  $classmap_filename
-     * @param  string  $resource_map_filename
+     * @param  string $base_path
+     * @param  array  $exclude_folders
+     * @param  string $classmap_filename
+     * @param  string $resource_map_filename
+     * @param  string $extension_folders_filename
      *
-     * @since  1.0
+     * @since  1.0.0
      */
     public function __construct(
         $base_path,
         array $exclude_folders = array(),
         $classmap_filename = '',
-        $resource_map_filename = ''
+        $resource_map_filename = '',
+        $extension_folders_filename = ''
     ) {
         $this->base_path       = $base_path;
         $this->exclude_folders = $exclude_folders;
@@ -91,13 +109,20 @@ abstract class Base
         } else {
             $this->resource_map_filename = $resource_map_filename;
         }
+
+        if ($resource_map_filename === '') {
+            $this->extension_folders_filename = $this->base_path . '/Files/Output/ExtensionFolders.json';
+        } else {
+            $this->extension_folders_filename = $extension_folders_filename;
+        }
     }
+
     /**
      * Get Reflection Object from PHP
      *
      * @param  string $qns
      *
-     * @since  1.0
+     * @since  1.0.0
      * @return object
      */
     protected function getReflectionObject($qns)
@@ -112,14 +137,14 @@ abstract class Base
     /**
      * Set a namespace prefix by mapping to the filesystem path
      *
-     * @param   string  $namespace
+     * @param   string $namespace
      *
      * @return  string
-     * @since   1.0
+     * @since   1.0.0
      */
     protected function addSlash($namespace)
     {
-        if (substr($namespace, - 1) === '\\') {
+        if (substr($namespace, -1) === '\\') {
         } else {
             $namespace = $namespace . '\\';
         }

@@ -39,7 +39,7 @@ The *Resource* XML Handler locates and returns the path for a specified resource
 
 ```
 <?php
-$field = $this->resource->get('xml:///Molajo/Field/Author.xml');
+$field = $this->resource->get('xml://Molajo/Field/Author.xml');
 
 echo $field;
 ```
@@ -60,7 +60,7 @@ the application for processing.
 ```
 <?php
 $controller = $this->dependencies['Resource']->get(
-    'query:///Molajo/Datasource/CatalogTypes.xml',
+    'query://Molajo/Datasource/CatalogTypes.xml',
     array('Parameters' => $parameters)
 );
 

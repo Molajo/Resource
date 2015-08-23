@@ -1,0 +1,15 @@
+{
+    "onAfterReadRow": [
+        "Molajo\\Plugins\\BasePlugin",
+        "Molajo\\Plugins\\CatPlugin"
+    ],
+    "onAfterPurr": [
+        "Molajo\\Plugins\\CatPlugin"
+    ],
+    "onBeforeWag": [
+        "Molajo\\Plugins\\DogPlugin"
+    ],
+    "onBeforeSqueak": [
+        "Molajo\\Plugins\\MousePlugin"
+    ]
+}

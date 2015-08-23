@@ -1,0 +1,86 @@
+{
+    "molajo\\a\\": [
+        "\/Users\/amystephen\/Sites\/git\/Molajo\/Resource\/.dev\/Tests\/Source\/A\/"
+    ],
+    "molajo\\a\\cat": [
+        "\/Users\/amystephen\/Sites\/git\/Molajo\/Resource\/.dev\/Tests\/Source\/A\/Cat.php"
+    ],
+    "molajo\\a\\catinterface": [
+        "\/Users\/amystephen\/Sites\/git\/Molajo\/Resource\/.dev\/Tests\/Source\/A\/CatInterface.php"
+    ],
+    "molajo\\a\\dog": [
+        "\/Users\/amystephen\/Sites\/git\/Molajo\/Resource\/.dev\/Tests\/Source\/A\/Dog.php"
+    ],
+    "molajo\\a\\doginterface": [
+        "\/Users\/amystephen\/Sites\/git\/Molajo\/Resource\/.dev\/Tests\/Source\/A\/DogInterface.php"
+    ],
+    "molajo\\a\\mouse": [
+        "\/Users\/amystephen\/Sites\/git\/Molajo\/Resource\/.dev\/Tests\/Source\/A\/Mouse.php"
+    ],
+    "molajo\\a\\mouseinterface": [
+        "\/Users\/amystephen\/Sites\/git\/Molajo\/Resource\/.dev\/Tests\/Source\/A\/MouseInterface.php"
+    ],
+    "molajo\\a\\z": [
+        "\/Users\/amystephen\/Sites\/git\/Molajo\/Resource\/.dev\/Tests\/Source\/A\/Z"
+    ],
+    "molajo\\a\\z\\stripes.txt": [
+        "\/Users\/amystephen\/Sites\/git\/Molajo\/Resource\/.dev\/Tests\/Source\/A\/Z\/Stripes.txt"
+    ],
+    "molajo\\a\\z\\zebra": [
+        "\/Users\/amystephen\/Sites\/git\/Molajo\/Resource\/.dev\/Tests\/Source\/A\/Z\/Zebra.php"
+    ],
+    "molajo\\a\\z\\zebrainterface": [
+        "\/Users\/amystephen\/Sites\/git\/Molajo\/Resource\/.dev\/Tests\/Source\/A\/Z\/ZebraInterface.php"
+    ],
+    "molajo\\b\\": [
+        "\/Users\/amystephen\/Sites\/git\/Molajo\/Resource\/.dev\/Tests\/Source\/B\/"
+    ],
+    "molajo\\b\\100x100.gif": [
+        "\/Users\/amystephen\/Sites\/git\/Molajo\/Resource\/.dev\/Tests\/Source\/B\/100x100.gif"
+    ],
+    "molajo\\b\\150x150.gif": [
+        "\/Users\/amystephen\/Sites\/git\/Molajo\/Resource\/.dev\/Tests\/Source\/B\/150x150.gif"
+    ],
+    "molajo\\b\\50x50.gif": [
+        "\/Users\/amystephen\/Sites\/git\/Molajo\/Resource\/.dev\/Tests\/Source\/B\/50x50.gif"
+    ],
+    "molajo\\b\\banana": [
+        "\/Users\/amystephen\/Sites\/git\/Molajo\/Resource\/.dev\/Tests\/Source\/B\/Banana.php"
+    ],
+    "molajo\\b\\bat": [
+        "\/Users\/amystephen\/Sites\/git\/Molajo\/Resource\/.dev\/Tests\/Source\/B\/Bat.php"
+    ],
+    "molajo\\c\\": [
+        "\/Users\/amystephen\/Sites\/git\/Molajo\/Resource\/.dev\/Tests\/Source\/C\/"
+    ],
+    "molajo\\c\\candy": [
+        "\/Users\/amystephen\/Sites\/git\/Molajo\/Resource\/.dev\/Tests\/Source\/C\/Candy.php"
+    ],
+    "molajo\\c\\content.xml": [
+        "\/Users\/amystephen\/Sites\/git\/Molajo\/Resource\/.dev\/Tests\/Source\/C\/Content.xml"
+    ],
+    "molajo\\c\\customize.css": [
+        "\/Users\/amystephen\/Sites\/git\/Molajo\/Resource\/.dev\/Tests\/Source\/C\/Customize.css"
+    ],
+    "molajo\\c\\js": [
+        "\/Users\/amystephen\/Sites\/git\/Molajo\/Resource\/.dev\/Tests\/Source\/C\/Js"
+    ],
+    "molajo\\c\\js\\foundation.min.js": [
+        "\/Users\/amystephen\/Sites\/git\/Molajo\/Resource\/.dev\/Tests\/Source\/C\/Js\/foundation.min.js"
+    ],
+    "molajo\\plugins\\": [
+        "\/Users\/amystephen\/Sites\/git\/Molajo\/Resource\/.dev\/Tests\/Source\/Plugins\/"
+    ],
+    "molajo\\plugins\\baseplugin": [
+        "\/Users\/amystephen\/Sites\/git\/Molajo\/Resource\/.dev\/Tests\/Source\/Plugins\/BasePlugin.php"
+    ],
+    "molajo\\plugins\\catplugin": [
+        "\/Users\/amystephen\/Sites\/git\/Molajo\/Resource\/.dev\/Tests\/Source\/Plugins\/CatPlugin.php"
+    ],
+    "molajo\\plugins\\dogplugin": [
+        "\/Users\/amystephen\/Sites\/git\/Molajo\/Resource\/.dev\/Tests\/Source\/Plugins\/DogPlugin.php"
+    ],
+    "molajo\\plugins\\mouseplugin": [
+        "\/Users\/amystephen\/Sites\/git\/Molajo\/Resource\/.dev\/Tests\/Source\/Plugins\/MousePlugin.php"
+    ]
+}

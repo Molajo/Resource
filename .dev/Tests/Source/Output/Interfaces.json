@@ -1,0 +1,65 @@
+{
+    "Molajo\\A\\CatInterface": {
+        "name": "CatInterface",
+        "namespace": "Molajo\\A",
+        "qns": "Molajo\\A\\CatInterface",
+        "file_name": "\/Users\/amystephen\/Sites\/git\/Molajo\/Resource\/.dev\/Tests\/Source\/A\/CatInterface.php",
+        "path": "Source\/A\/CatInterface.php",
+        "parent": false,
+        "implemented_by": [
+            "Molajo\\A\\Cat",
+            "Molajo\\A\\Mouse",
+            "Molajo\\Plugins\\CatPlugin",
+            "Molajo\\Plugins\\MousePlugin"
+        ],
+        "dependency_for": [
+            "Molajo\\A\\Mouse",
+            "Molajo\\Plugins\\MousePlugin"
+        ]
+    },
+    "Molajo\\A\\DogInterface": {
+        "name": "DogInterface",
+        "namespace": "Molajo\\A",
+        "qns": "Molajo\\A\\DogInterface",
+        "file_name": "\/Users\/amystephen\/Sites\/git\/Molajo\/Resource\/.dev\/Tests\/Source\/A\/DogInterface.php",
+        "path": "Source\/A\/DogInterface.php",
+        "parent": false,
+        "implemented_by": [
+            "Molajo\\A\\Dog",
+            "Molajo\\A\\Mouse",
+            "Molajo\\Plugins\\DogPlugin",
+            "Molajo\\Plugins\\MousePlugin"
+        ],
+        "dependency_for": [
+            "Molajo\\A\\Mouse",
+            "Molajo\\Plugins\\MousePlugin"
+        ]
+    },
+    "Molajo\\A\\MouseInterface": {
+        "name": "MouseInterface",
+        "namespace": "Molajo\\A",
+        "qns": "Molajo\\A\\MouseInterface",
+        "file_name": "\/Users\/amystephen\/Sites\/git\/Molajo\/Resource\/.dev\/Tests\/Source\/A\/MouseInterface.php",
+        "path": "Source\/A\/MouseInterface.php",
+        "parent": false,
+        "implemented_by": [
+            "Molajo\\A\\Mouse"
+        ],
+        "dependency_for": []
+    },
+    "Molajo\\A\\Z\\ZebraInterface": {
+        "name": "ZebraInterface",
+        "namespace": "Molajo\\A\\Z",
+        "qns": "Molajo\\A\\Z\\ZebraInterface",
+        "file_name": "\/Users\/amystephen\/Sites\/git\/Molajo\/Resource\/.dev\/Tests\/Source\/A\/Z\/ZebraInterface.php",
+        "path": "Source\/A\/Z\/ZebraInterface.php",
+        "parent": false,
+        "implemented_by": [
+            "Molajo\\A\\Z\\Zebra"
+        ],
+        "dependency_for": [
+            "Molajo\\A\\Mouse",
+            "Molajo\\Plugins\\MousePlugin"
+        ]
+    }
+}

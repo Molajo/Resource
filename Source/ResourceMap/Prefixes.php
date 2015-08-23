@@ -3,7 +3,7 @@
  * Namespace Prefixes for Resource Map
  *
  * @package    Molajo
- * @copyright  2014 Amy Stephen. All rights reserved.
+ * @copyright  2014-2015 Amy Stephen. All rights reserved.
  * @license    http://www.opensource.org/licenses/mit-license.html MIT License
  */
 namespace Molajo\Resource\ResourceMap;
@@ -16,9 +16,9 @@ use stdClass;
  * Namespace Prefixes for Resource Map
  *
  * @package    Molajo
- * @copyright  2014 Amy Stephen. All rights reserved.
+ * @copyright  2014-2015 Amy Stephen. All rights reserved.
  * @license    http://www.opensource.org/licenses/mit-license.html MIT License
- * @since      1.0
+ * @since      1.0.0
  */
 abstract class Prefixes extends Folders
 {
@@ -26,7 +26,7 @@ abstract class Prefixes extends Folders
      * Folders
      *
      * @var    array
-     * @since  1.0
+     * @since  1.0.0
      */
     protected $folders = array();
 
@@ -34,7 +34,7 @@ abstract class Prefixes extends Folders
      * Files
      *
      * @var    array
-     * @since  1.0
+     * @since  1.0.0
      */
     protected $files = array();
 
@@ -42,7 +42,7 @@ abstract class Prefixes extends Folders
      * Process Array of Namespaces/Folder Mapping Pairs
      *
      * @return  $this
-     * @since   1.0
+     * @since   1.0.0
      */
     protected function processNamespacePrefixes()
     {
@@ -60,13 +60,11 @@ abstract class Prefixes extends Folders
      * @param   string $namespace_prefix
      *
      * @return  $this
-     * @since   1.0
+     * @since   1.0.0
      */
     protected function processNamespaceFolders($namespace_base_folders, $namespace_prefix)
     {
         foreach ($namespace_base_folders as $namespace_base_folder) {
-
-            $this->php_class = 0;
 
             if (trim($namespace_base_folder) === '') {
 
@@ -86,7 +84,7 @@ abstract class Prefixes extends Folders
      * @param   string $namespace_prefix
      *
      * @return  object
-     * @since   1.0
+     * @since   1.0.0
      */
     protected function processNamespaceFolder($namespace_base_folder, $namespace_prefix)
     {
@@ -94,13 +92,41 @@ abstract class Prefixes extends Folders
         $paths[]                                           = $this->base_path . '/' . $namespace_base_folder;
         $this->resource_map[strtolower($namespace_prefix)] = array_unique($paths);
 
-        $objects = new RecursiveIteratorIterator
-        (
+        $objects = new RecursiveIteratorIterator(
             new RecursiveDirectoryIterator($this->base_path . '/' . $namespace_base_folder),
             RecursiveIteratorIterator::SELF_FIRST
         );
 
         $this->processFilePathObjects($objects, $namespace_prefix, $namespace_base_folder);
+
+        $this->setExtensionFolder($namespace_base_folder);
+
+        return $this;
+    }
+
+    /**
+     * Identify Folders intended for storing extensions
+     *
+     * @param   string $namespace_base_folder
+     *
+     * @return  object
+     * @since   1.0.0
+     */
+    protected function setExtensionFolder($namespace_base_folder)
+    {
+        $extension_folders = array('/Plugins/', '/Resources/', '/Themes/');
+
+        foreach ($extension_folders as $folder) {
+
+            if (strrpos($namespace_base_folder, $folder) === strlen($namespace_base_folder) - strlen($folder)) {
+                $hold = array();
+                if (isset($this->extension_folders[$folder])) {
+                    $hold = $this->extension_folders[$folder];
+                }
+                $hold[] = $namespace_base_folder;
+                $this->extension_folders[$folder] = $hold;
+            }
+        }
 
         return $this;
     }
@@ -113,7 +139,7 @@ abstract class Prefixes extends Folders
      * @param   string $namespace_base_folder
      *
      * @return  object
-     * @since   1.0
+     * @since   1.0.0
      */
     protected function processFilePathObjects($objects, $namespace_prefix, $namespace_base_folder)
     {
@@ -147,7 +173,7 @@ abstract class Prefixes extends Folders
      * @param   string $file_extension
      *
      * @return  int|object
-     * @since   1.0
+     * @since   1.0.0
      */
     protected function testFileForNamespaceRules(
         $namespace_prefix,
@@ -166,25 +192,19 @@ abstract class Prefixes extends Folders
 
         $file_path = substr($file_path, strlen($this->base_path . '/'), 9999);
 
-        $skip = $this->testExcludeFolders($file_path, $this->base_name, $skip);
+        $skip = $this->testExcludeFolders($file_path, $skip);
         if ($skip === 1) {
             return $this;
         }
 
-        $path                 = $this->setPath($is_directory, $file_path, $file_name);
-        $class_namespace_path = substr($path, strlen($base_directory), 9999);
-        $qns                 = $this->setQNS($class_namespace_path, $namespace_prefix);
-        $nspath               = $path;
-
-        if ($is_directory === true) {
-        } else {
-            list($qns, $nspath) = $this->setClassfileArrayEntry($file_name, $file_extension, $qns, $nspath);
-        }
-
-        if ($qns === false) {
-        } else {
-            $this->mergeFQNSPaths($nspath, $qns);
-        }
+        $this->useFilesWithNamespace(
+            $namespace_prefix,
+            $base_directory,
+            $is_directory,
+            $file_path,
+            $file_name,
+            $file_extension
+        );
 
         return $this;
     }
@@ -198,7 +218,7 @@ abstract class Prefixes extends Folders
      * @param   string $file_extension
      *
      * @return  $this
-     * @since   1.0
+     * @since   1.0.0
      */
     protected function setBase($is_directory, $file_path, $file_name, $file_extension)
     {
@@ -223,7 +243,7 @@ abstract class Prefixes extends Folders
      * @param   string $file_extension
      *
      * @return  boolean
-     * @since   1.0
+     * @since   1.0.0
      */
     protected function setFileInclusion($is_directory, $file_name, $file_extension)
     {
@@ -249,7 +269,7 @@ abstract class Prefixes extends Folders
      * @param   string $file_name
      *
      * @return  $this
-     * @since   1.0
+     * @since   1.0.0
      */
     protected function testPHPClassExceptions($file_name)
     {
@@ -270,7 +290,7 @@ abstract class Prefixes extends Folders
      * @param   int    $skip
      *
      * @return  int
-     * @since   1.0
+     * @since   1.0.0
      */
     protected function testExcludeFolders($file_path, $skip = 1)
     {
@@ -311,7 +331,7 @@ abstract class Prefixes extends Folders
      * @param   string $file_name
      *
      * @return  string
-     * @since   1.0
+     * @since   1.0.0
      */
     protected function setPath($is_directory, $file_path, $file_name)
     {
@@ -329,7 +349,7 @@ abstract class Prefixes extends Folders
      * @param   string $namespace_prefix
      *
      * @return  string
-     * @since   1.0
+     * @since   1.0.0
      */
     protected function setQNS($class_namespace_path, $namespace_prefix)
     {
@@ -343,13 +363,65 @@ abstract class Prefixes extends Folders
     }
 
     /**
+     * Set Namespace Object
+     *
+     * @param   string $file_name
+     * @param   string $nspath
+     * @param   string $qns
+     *
+     * @return  object
+     * @since   1.0.0
+     */
+    protected function setNamespaceObject($file_name, $nspath, $qns)
+    {
+        $temp            = new stdClass();
+        $temp->file_name = $file_name;
+        $temp->base_name = $this->base_name;
+        $temp->path      = $nspath;
+        $temp->qns       = $qns;
+
+        return $temp;
+    }
+
+    /**
+     * File qualifies for use with Namespace
+     *
+     * @param   string $namespace_prefix
+     * @param   string $base_directory
+     * @param   string $is_directory
+     * @param   string $file_path
+     * @param   string $file_name
+     * @param   string $file_extension
+     *
+     * @return  object
+     * @since   1.0.0
+     */
+    protected function useFilesWithNamespace(
+        $namespace_prefix,
+        $base_directory,
+        $is_directory,
+        $file_path,
+        $file_name,
+        $file_extension
+    ) {
+        $path                 = $this->setPath($is_directory, $file_path, $file_name);
+        $class_namespace_path = substr($path, strlen($base_directory), 9999);
+        $qns                  = $this->setQNS($class_namespace_path, $namespace_prefix);
+        $nspath               = $path;
+
+        $this->setFileDirectoryNamespace($is_directory, $file_name, $file_extension, $qns, $nspath);
+
+        return $this;
+    }
+
+    /**
      * Get Resource Map Tags
      *
      * @param   string $nspath
      * @param   string $qns
      *
      * @return  $this
-     * @since   1.0
+     * @since   1.0.0
      */
     protected function mergeFQNSPaths($nspath, $qns)
     {
@@ -375,11 +447,10 @@ abstract class Prefixes extends Folders
     /**
      * Merge Existing FQNS Path
      *
-     * @param   string $nspath
      * @param   string $qns
      *
      * @return  array
-     * @since   1.0
+     * @since   1.0.0
      */
     protected function mergeExistingFQNSPath($qns)
     {
@@ -390,10 +461,37 @@ abstract class Prefixes extends Folders
             $paths = $existing;
             if (count($paths) === 0) {
                 $paths = array();
-                return $paths;
             }
         }
+
         return $paths;
+    }
+
+    /**
+     * Set File Directory Namespace
+     *
+     * @param   string $is_directory
+     * @param   string $file_name
+     * @param   string $file_extension
+     * @param   string $qns
+     * @param   string $nspath
+     *
+     * @return  $this
+     * @since   1.0.0
+     */
+    protected function setFileDirectoryNamespace($is_directory, $file_name, $file_extension, $qns, $nspath)
+    {
+        if ($is_directory === true) {
+        } else {
+            list($qns, $nspath) = $this->setClassfileArrayEntry($file_name, $file_extension, $qns, $nspath);
+        }
+
+        if ($qns === false) {
+        } else {
+            $this->mergeFQNSPaths($nspath, $qns);
+        }
+
+        return $this;
     }
 
     /**
@@ -404,12 +502,12 @@ abstract class Prefixes extends Folders
      * @param   string $nspath
      *
      * @return  array
-     * @since   1.0
+     * @since   1.0.0
      */
     protected function setClassfileArrayEntry($file_name, $file_extension, $qns, $nspath)
     {
-        $qns   = $this->addSlash($qns);
-        $qns   = $qns . $this->base_name;
+        $qns    = $this->addSlash($qns);
+        $qns    = $qns . $this->base_name;
         $nspath = $nspath . '/' . $file_name;
 
         if ($file_extension === 'php') {
@@ -417,26 +515,5 @@ abstract class Prefixes extends Folders
         }
 
         return array($qns, $nspath);
-    }
-
-    /**
-     * Set Namespace Object
-     *
-     * @param   string $file_name
-     * @param   string $nspath
-     * @param   string $qns
-     *
-     * @return  object
-     * @since   1.0
-     */
-    protected function setNamespaceObject($file_name, $nspath, $qns)
-    {
-        $temp            = new stdClass();
-        $temp->file_name = $file_name;
-        $temp->base_name = $this->base_name;
-        $temp->path      = $nspath;
-        $temp->qns      = $qns;
-
-        return $temp;
     }
 }

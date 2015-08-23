@@ -3,7 +3,7 @@
  * Resource Namespace Mapping
  *
  * @package    Molajo
- * @copyright  2014 Amy Stephen. All rights reserved.
+ * @copyright  2014-2015 Amy Stephen. All rights reserved.
  * @license    http://www.opensource.org/licenses/mit-license.html MIT License
  */
 namespace Molajo\Resource\ResourceMap;
@@ -12,9 +12,9 @@ namespace Molajo\Resource\ResourceMap;
  * Resource Namespace
  *
  * @package    Molajo
- * @copyright  2014 Amy Stephen. All rights reserved.
+ * @copyright  2014-2015 Amy Stephen. All rights reserved.
  * @license    http://www.opensource.org/licenses/mit-license.html MIT License
- * @since      1.0
+ * @since      1.0.0
  */
 abstract class Folders extends Base
 {
@@ -22,23 +22,15 @@ abstract class Folders extends Base
      * Base Name
      *
      * @var    string
-     * @since  1.0
+     * @since  1.0.0
      */
     protected $base_name = '';
-
-    /**
-     * PHP Class Indicator
-     *
-     * @var    boolean
-     * @since  1.0
-     */
-    protected $php_class = false;
 
     /**
      * Temporary Work File to accumulate Resource Map
      *
      * @var    array
-     * @since  1.0
+     * @since  1.0.0
      */
     protected $resource_map = array();
 
@@ -46,7 +38,7 @@ abstract class Folders extends Base
      * Temporary Work File to accumulate Class Files
      *
      * @var    array
-     * @since  1.0
+     * @since  1.0.0
      */
     protected $class_files = array();
 
@@ -58,7 +50,7 @@ abstract class Folders extends Base
      * @param   boolean $prepend
      *
      * @return  $this
-     * @since   1.0
+     * @since   1.0.0
      */
     protected function setMultipleNamespaceFolder($namespace_prefix, $namespace_base_directory, $prepend)
     {
@@ -81,7 +73,7 @@ abstract class Folders extends Base
      * @param   array  $hold
      *
      * @return  $this
-     * @since   1.0
+     * @since   1.0.0
      */
     protected function appendNamespaceFolder($namespace_prefix, $namespace_base_directory, $hold)
     {
@@ -99,7 +91,7 @@ abstract class Folders extends Base
      * @param   array  $hold
      *
      * @return  $this
-     * @since   1.0
+     * @since   1.0.0
      */
     protected function prependNamespaceFolder($namespace_prefix, $namespace_base_directory, $hold)
     {

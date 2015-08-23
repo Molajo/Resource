@@ -3,7 +3,11 @@
     "description": "Molajo Resource Services for PHP Applications",
     "version": "1.0.0",
     "type": "molajo-package",
-    "keywords": ["resource", "commonapi", "molajo"],
+    "keywords": [
+        "resource",
+        "commonapi",
+        "molajo"
+    ],
     "homepage": "http://github.com/Molajo/Resource",
     "license": "MIT",
     "authors": [
@@ -22,11 +26,11 @@
     },
     "require": {
         "php": ">=5.4",
+        "commonapi/cache": "dev-master",
         "commonapi/resource": "dev-master"
     },
     "autoload": {
         "psr-4": {
-            "Molajo\\Factories\\": "Factories/",
             "Molajo\\Resource\\": "Source/"
         }
     },

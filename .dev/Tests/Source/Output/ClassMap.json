@@ -1,0 +1,92 @@
+{
+    "Source\/A\/Cat.php": {
+        "file_name": "Cat.php",
+        "base_name": "Cat",
+        "path": "Source\/A\/Cat.php",
+        "qns": "Molajo\\A\\Cat"
+    },
+    "Source\/A\/CatInterface.php": {
+        "file_name": "CatInterface.php",
+        "base_name": "CatInterface",
+        "path": "Source\/A\/CatInterface.php",
+        "qns": "Molajo\\A\\CatInterface"
+    },
+    "Source\/A\/Dog.php": {
+        "file_name": "Dog.php",
+        "base_name": "Dog",
+        "path": "Source\/A\/Dog.php",
+        "qns": "Molajo\\A\\Dog"
+    },
+    "Source\/A\/DogInterface.php": {
+        "file_name": "DogInterface.php",
+        "base_name": "DogInterface",
+        "path": "Source\/A\/DogInterface.php",
+        "qns": "Molajo\\A\\DogInterface"
+    },
+    "Source\/A\/Mouse.php": {
+        "file_name": "Mouse.php",
+        "base_name": "Mouse",
+        "path": "Source\/A\/Mouse.php",
+        "qns": "Molajo\\A\\Mouse"
+    },
+    "Source\/A\/MouseInterface.php": {
+        "file_name": "MouseInterface.php",
+        "base_name": "MouseInterface",
+        "path": "Source\/A\/MouseInterface.php",
+        "qns": "Molajo\\A\\MouseInterface"
+    },
+    "Source\/A\/Z\/Zebra.php": {
+        "file_name": "Zebra.php",
+        "base_name": "Zebra",
+        "path": "Source\/A\/Z\/Zebra.php",
+        "qns": "Molajo\\A\\Z\\Zebra"
+    },
+    "Source\/A\/Z\/ZebraInterface.php": {
+        "file_name": "ZebraInterface.php",
+        "base_name": "ZebraInterface",
+        "path": "Source\/A\/Z\/ZebraInterface.php",
+        "qns": "Molajo\\A\\Z\\ZebraInterface"
+    },
+    "Source\/B\/Banana.php": {
+        "file_name": "Banana.php",
+        "base_name": "Banana",
+        "path": "Source\/B\/Banana.php",
+        "qns": "Molajo\\B\\Banana"
+    },
+    "Source\/B\/Bat.php": {
+        "file_name": "Bat.php",
+        "base_name": "Bat",
+        "path": "Source\/B\/Bat.php",
+        "qns": "Molajo\\B\\Bat"
+    },
+    "Source\/C\/Candy.php": {
+        "file_name": "Candy.php",
+        "base_name": "Candy",
+        "path": "Source\/C\/Candy.php",
+        "qns": "Molajo\\C\\Candy"
+    },
+    "Source\/Plugins\/BasePlugin.php": {
+        "file_name": "BasePlugin.php",
+        "base_name": "BasePlugin",
+        "path": "Source\/Plugins\/BasePlugin.php",
+        "qns": "Molajo\\Plugins\\BasePlugin"
+    },
+    "Source\/Plugins\/CatPlugin.php": {
+        "file_name": "CatPlugin.php",
+        "base_name": "CatPlugin",
+        "path": "Source\/Plugins\/CatPlugin.php",
+        "qns": "Molajo\\Plugins\\CatPlugin"
+    },
+    "Source\/Plugins\/DogPlugin.php": {
+        "file_name": "DogPlugin.php",
+        "base_name": "DogPlugin",
+        "path": "Source\/Plugins\/DogPlugin.php",
+        "qns": "Molajo\\Plugins\\DogPlugin"
+    },
+    "Source\/Plugins\/MousePlugin.php": {
+        "file_name": "MousePlugin.php",
+        "base_name": "MousePlugin",
+        "path": "Source\/Plugins\/MousePlugin.php",
+        "qns": "Molajo\\Plugins\\MousePlugin"
+    }
+}

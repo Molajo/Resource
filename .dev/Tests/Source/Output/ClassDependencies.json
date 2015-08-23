@@ -1,0 +1,255 @@
+{
+    "Molajo\\A\\Cat": {
+        "name": "Cat",
+        "namespace": "Molajo\\A",
+        "qns": "Molajo\\A\\Cat",
+        "file_name": "\/Users\/amystephen\/Sites\/git\/Molajo\/Resource\/.dev\/Tests\/Source\/A\/Cat.php",
+        "path": "Source\/A\/Cat.php",
+        "parent": false,
+        "implemented_interfaces": [
+            "Molajo\\A\\CatInterface"
+        ],
+        "constructor_parameters": [],
+        "method": [
+            "furry",
+            "tail"
+        ]
+    },
+    "Molajo\\A\\Dog": {
+        "name": "Dog",
+        "namespace": "Molajo\\A",
+        "qns": "Molajo\\A\\Dog",
+        "file_name": "\/Users\/amystephen\/Sites\/git\/Molajo\/Resource\/.dev\/Tests\/Source\/A\/Dog.php",
+        "path": "Source\/A\/Dog.php",
+        "parent": false,
+        "implemented_interfaces": [
+            "Molajo\\A\\DogInterface"
+        ],
+        "constructor_parameters": [],
+        "method": [
+            "spotted",
+            "tail"
+        ]
+    },
+    "Molajo\\A\\Mouse": {
+        "name": "Mouse",
+        "namespace": "Molajo\\A",
+        "qns": "Molajo\\A\\Mouse",
+        "file_name": "\/Users\/amystephen\/Sites\/git\/Molajo\/Resource\/.dev\/Tests\/Source\/A\/Mouse.php",
+        "path": "Source\/A\/Mouse.php",
+        "parent": false,
+        "implemented_interfaces": [
+            "Molajo\\A\\CatInterface",
+            "Molajo\\A\\DogInterface",
+            "Molajo\\A\\MouseInterface"
+        ],
+        "constructor_parameters": [
+            {
+                "name": "cat",
+                "default_available": false,
+                "default_value": null,
+                "instance_of": "Molajo\\A\\CatInterface",
+                "is_instantiable": false,
+                "implemented_by": [
+                    "Molajo\\A\\Cat",
+                    "Molajo\\A\\Mouse",
+                    "Molajo\\Plugins\\CatPlugin",
+                    "Molajo\\Plugins\\MousePlugin"
+                ],
+                "concrete": false
+            },
+            {
+                "name": "dog",
+                "default_available": false,
+                "default_value": null,
+                "instance_of": "Molajo\\A\\DogInterface",
+                "is_instantiable": false,
+                "implemented_by": [
+                    "Molajo\\A\\Dog",
+                    "Molajo\\A\\Mouse",
+                    "Molajo\\Plugins\\DogPlugin",
+                    "Molajo\\Plugins\\MousePlugin"
+                ],
+                "concrete": false
+            },
+            {
+                "name": "zebra",
+                "default_available": false,
+                "default_value": null,
+                "instance_of": "Molajo\\A\\Z\\ZebraInterface",
+                "is_instantiable": false,
+                "implemented_by": [
+                    "Molajo\\A\\Z\\Zebra"
+                ],
+                "concrete": false
+            }
+        ],
+        "constructor_docComment": "\/**\n     * Class Constructor\n     *\n     * @param  object  CatInterface\n     * @param  object  DogInterface\n     * @param  object  ZebraInterface\n     *\n     * @since  1.0\n     *\/",
+        "method": [
+            "__construct",
+            "furry",
+            "squeak",
+            "spotted",
+            "tail"
+        ]
+    },
+    "Molajo\\A\\Z\\Zebra": {
+        "name": "Zebra",
+        "namespace": "Molajo\\A\\Z",
+        "qns": "Molajo\\A\\Z\\Zebra",
+        "file_name": "\/Users\/amystephen\/Sites\/git\/Molajo\/Resource\/.dev\/Tests\/Source\/A\/Z\/Zebra.php",
+        "path": "Source\/A\/Z\/Zebra.php",
+        "parent": false,
+        "implemented_interfaces": [
+            "Molajo\\A\\Z\\ZebraInterface"
+        ],
+        "constructor_parameters": [],
+        "method": [
+            "stripe",
+            "dots"
+        ]
+    },
+    "Molajo\\B\\Banana": {
+        "name": "Banana",
+        "namespace": "Molajo\\B",
+        "qns": "Molajo\\B\\Banana",
+        "file_name": "\/Users\/amystephen\/Sites\/git\/Molajo\/Resource\/.dev\/Tests\/Source\/B\/Banana.php",
+        "path": "Source\/B\/Banana.php",
+        "parent": false,
+        "implemented_interfaces": [],
+        "constructor_parameters": [],
+        "method": []
+    },
+    "Molajo\\B\\Bat": {
+        "name": "Bat",
+        "namespace": "Molajo\\B",
+        "qns": "Molajo\\B\\Bat",
+        "file_name": "\/Users\/amystephen\/Sites\/git\/Molajo\/Resource\/.dev\/Tests\/Source\/B\/Bat.php",
+        "path": "Source\/B\/Bat.php",
+        "parent": false,
+        "implemented_interfaces": [],
+        "constructor_parameters": [],
+        "method": []
+    },
+    "Molajo\\C\\Candy": {
+        "name": "Candy",
+        "namespace": "Molajo\\C",
+        "qns": "Molajo\\C\\Candy",
+        "file_name": "\/Users\/amystephen\/Sites\/git\/Molajo\/Resource\/.dev\/Tests\/Source\/C\/Candy.php",
+        "path": "Source\/C\/Candy.php",
+        "parent": false,
+        "implemented_interfaces": [],
+        "constructor_parameters": [],
+        "method": []
+    },
+    "Molajo\\Plugins\\BasePlugin": {
+        "name": "BasePlugin",
+        "namespace": "Molajo\\Plugins",
+        "qns": "Molajo\\Plugins\\BasePlugin",
+        "file_name": "\/Users\/amystephen\/Sites\/git\/Molajo\/Resource\/.dev\/Tests\/Source\/Plugins\/BasePlugin.php",
+        "path": "Source\/Plugins\/BasePlugin.php",
+        "parent": false,
+        "implemented_interfaces": [],
+        "constructor_parameters": [],
+        "method": [
+            "onAfterReadRow"
+        ]
+    },
+    "Molajo\\Plugins\\CatPlugin": {
+        "name": "CatPlugin",
+        "namespace": "Molajo\\Plugins",
+        "qns": "Molajo\\Plugins\\CatPlugin",
+        "file_name": "\/Users\/amystephen\/Sites\/git\/Molajo\/Resource\/.dev\/Tests\/Source\/Plugins\/CatPlugin.php",
+        "path": "Source\/Plugins\/CatPlugin.php",
+        "parent": false,
+        "implemented_interfaces": [
+            "Molajo\\A\\CatInterface"
+        ],
+        "constructor_parameters": [],
+        "method": [
+            "onAfterReadRow",
+            "onAfterPurr",
+            "furry",
+            "tail"
+        ]
+    },
+    "Molajo\\Plugins\\DogPlugin": {
+        "name": "DogPlugin",
+        "namespace": "Molajo\\Plugins",
+        "qns": "Molajo\\Plugins\\DogPlugin",
+        "file_name": "\/Users\/amystephen\/Sites\/git\/Molajo\/Resource\/.dev\/Tests\/Source\/Plugins\/DogPlugin.php",
+        "path": "Source\/Plugins\/DogPlugin.php",
+        "parent": false,
+        "implemented_interfaces": [
+            "Molajo\\A\\DogInterface"
+        ],
+        "constructor_parameters": [],
+        "method": [
+            "onBeforeWag",
+            "spotted",
+            "tail"
+        ]
+    },
+    "Molajo\\Plugins\\MousePlugin": {
+        "name": "MousePlugin",
+        "namespace": "Molajo\\Plugins",
+        "qns": "Molajo\\Plugins\\MousePlugin",
+        "file_name": "\/Users\/amystephen\/Sites\/git\/Molajo\/Resource\/.dev\/Tests\/Source\/Plugins\/MousePlugin.php",
+        "path": "Source\/Plugins\/MousePlugin.php",
+        "parent": false,
+        "implemented_interfaces": [
+            "Molajo\\A\\CatInterface",
+            "Molajo\\A\\DogInterface"
+        ],
+        "constructor_parameters": [
+            {
+                "name": "cat",
+                "default_available": true,
+                "default_value": null,
+                "instance_of": "Molajo\\A\\CatInterface",
+                "is_instantiable": false,
+                "implemented_by": [
+                    "Molajo\\A\\Cat",
+                    "Molajo\\A\\Mouse",
+                    "Molajo\\Plugins\\CatPlugin",
+                    "Molajo\\Plugins\\MousePlugin"
+                ],
+                "concrete": false
+            },
+            {
+                "name": "dog",
+                "default_available": true,
+                "default_value": null,
+                "instance_of": "Molajo\\A\\DogInterface",
+                "is_instantiable": false,
+                "implemented_by": [
+                    "Molajo\\A\\Dog",
+                    "Molajo\\A\\Mouse",
+                    "Molajo\\Plugins\\DogPlugin",
+                    "Molajo\\Plugins\\MousePlugin"
+                ],
+                "concrete": false
+            },
+            {
+                "name": "zebra",
+                "default_available": true,
+                "default_value": null,
+                "instance_of": "Molajo\\A\\Z\\ZebraInterface",
+                "is_instantiable": false,
+                "implemented_by": [
+                    "Molajo\\A\\Z\\Zebra"
+                ],
+                "concrete": false
+            }
+        ],
+        "constructor_docComment": "\/**\n     * Class Constructor\n     *\n     * @param  object  CatInterface\n     * @param  object  DogInterface\n     * @param  object  ZebraInterface\n     *\n     * @since  1.0\n     *\/",
+        "method": [
+            "__construct",
+            "onBeforeSqueak",
+            "furry",
+            "squeak",
+            "spotted",
+            "tail"
+        ]
+    }
+}
