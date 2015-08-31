@@ -31,7 +31,8 @@
     },
     "autoload": {
         "psr-4": {
-            "Molajo\\Resource\\": "Source/"
+            "Molajo\\Resource\\": "Source/",
+            "Molajo\\Factories\\": "Factories/"
         }
     },
 

@@ -51,6 +51,15 @@ abstract class HandleResourceMap extends Base
             return true;
         }
 
+        if (substr($this->resource_namespace, (strlen($this->resource_namespace) - 1), 1) === '\\') {
+        } else {
+            $this->resource_namespace .= '\\';
+        }
+
+        if (isset($this->resource_map[strtolower($this->resource_namespace)])) {
+            return true;
+        }
+
         return false;
     }
 
